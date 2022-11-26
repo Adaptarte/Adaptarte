@@ -1,12 +1,14 @@
+import { NavigationContainer } from "@react-navigation/native";
 import type { FC } from "react";
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+
+import { AppNavigation } from "navigation/App";
 
 const App: FC = (): JSX.Element => {
   return (
-    <SafeAreaView>
-      <Text>{"Adaptarte"}</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <AppNavigation />
+    </NavigationContainer>
   );
 };
 
