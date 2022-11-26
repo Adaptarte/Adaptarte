@@ -1,9 +1,9 @@
 {
-    "editor.rulers": [
-        {
-            "color": "#888",
-            "column": 80
-        }
-    ],
-    "editor.tabSize": 2
+	"editor.rulers": [
+		{
+			"color": "#888",
+			"column": 80
+		}
+	],
+	"editor.tabSize": 2,
 }
