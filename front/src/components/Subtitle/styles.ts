@@ -1,13 +1,13 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from "styles";
-
 const styles = StyleSheet.create({
-  box: {
-    backgroundColor: colors.LIGHT,
-    height: "100%",
-    padding: 8,
+  container: {
     width: "100%",
+  },
+  text: {
+    color: "blue",
+    fontSize: 18,
+    marginLeft: "12%",
   },
 });
 
