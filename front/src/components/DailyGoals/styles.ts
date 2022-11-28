@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginLeft: "auto",
     marginRight: "auto",
-    width: "80%",
+    width: "100%",
   },
   checkBox: {
     marginLeft: "6%", 
