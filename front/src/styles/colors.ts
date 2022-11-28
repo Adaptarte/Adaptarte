@@ -1,6 +1,7 @@
 type TColor = "BLACK" | 
   "BLUE" | 
   "BLUE_TRANSLUCID" | 
+  "GLAUCOUS" |
   "GREEN" | 
   "GREEN_TRANSLUCID" | 
   "LIGHT" | 
@@ -15,6 +16,7 @@ const colors: Record<TColor, string> = {
   BLACK: "#000",
   BLUE: "#28779B",
   BLUE_TRANSLUCID: "#28774D",
+  GLAUCOUS: "#6682D7",
   GREEN: "#28AD46",
   GREEN_TRANSLUCID: "#28AD464D",
   LIGHT: "#E5E5E5",
