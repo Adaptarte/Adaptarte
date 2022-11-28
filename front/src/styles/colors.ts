@@ -8,7 +8,8 @@ type TColor = "BLACK" |
   "ORANGE_TRANSLUCID" | 
   "PURPLE" | 
   "PURPLE_TRANSLUCID" | 
-  "WHITE";
+  "WHITE" |
+  "YELLOW";
 
 const colors: Record<TColor, string> = {
   BLACK: "#000",
@@ -22,6 +23,7 @@ const colors: Record<TColor, string> = {
   PURPLE: "#9B28AD",
   PURPLE_TRANSLUCID: "#9B28AD4D",
   WHITE: "#FFF",
+  YELLOW: "#FFEFCA",
 };
 
 export { colors };
