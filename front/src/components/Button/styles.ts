@@ -3,23 +3,16 @@ import { StyleSheet } from "react-native";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.WHITE,
-    borderRadius: 10,
-    elevation: 8,
-    height: 30,
-    justifyContent: "center",
-    marginBottom: 10,
-    marginLeft: "auto",
-    marginRight: "auto",
-    textAlign: "center",
-    width: "75%",
-  },
   text: {
-    alignSelf: "center",
-    fontSize: 14,
+    borderColor: colors.TRANSPARENT,
+    borderRadius: 10,
+    borderWidth: 2,
+    fontSize: 16,
     fontWeight: "bold",
-    textTransform: "uppercase",
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    textAlign: "center",
+    textAlignVertical: "center",
   },
 });
 
