@@ -10,6 +10,7 @@ type TColor = "BLACK" |
   "ORANGE_TRANSLUCID" | 
   "PURPLE" | 
   "PURPLE_TRANSLUCID" | 
+  "TRANSPARENT" |
   "WHITE" |
   "YELLOW";
 
@@ -26,6 +27,7 @@ const colors: Record<TColor, string> = {
   ORANGE_TRANSLUCID: "#E169264D",
   PURPLE: "#9B28AD",
   PURPLE_TRANSLUCID: "#9B28AD4D",
+  TRANSPARENT: "#FFF0",
   WHITE: "#FFF",
   YELLOW: "#FFEFCA",
 };
