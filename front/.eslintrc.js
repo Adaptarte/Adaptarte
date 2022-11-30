@@ -124,6 +124,13 @@ module.exports = {
         "objectsInObjects": true,
       },
     ],
+    "react/jsx-curly-brace-presence": [
+      "error",
+      {
+        children: "always",
+        props: "always"
+      }
+    ],
     "react/jsx-indent": [
       "error",
       2,
@@ -188,6 +195,7 @@ module.exports = {
         "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
       },
     ],
+    "sort-keys": ["error", "asc"],
     "sort-vars": [
       "error",
       {

@@ -27,10 +27,10 @@ const Card: FC<ICardProps> = ({
         style,
         { backgroundColor: colors[bgColor] }
       ]}>
-      <View style={[styles.containerImg, style]}>
+      <View style={[styles.containerImg]}>
         <Image source={exercise} style={[styles.img]} />
       </View>
-      <View style={[styles.checkbox, style]}>
+      <View style={[styles.checkbox]}>
         <CheckBox />
       </View>
       <Button color={color}>{children}</Button> 

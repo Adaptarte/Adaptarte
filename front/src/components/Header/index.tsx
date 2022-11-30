@@ -12,7 +12,7 @@ const Header = ({ name }: IHeaderProps): JSX.Element => {
       <Text style={styles.text}>
         {`¡Bienvenido(a) de nuevo, ${name}!`}
       </Text>
-        <Image source={profile} style={[styles.profile]} />
+      <Image source={profile} style={[styles.profile]} />
     </View>
   );
 };
