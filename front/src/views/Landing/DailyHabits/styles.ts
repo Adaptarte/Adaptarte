@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "styles";
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: colors.WHITE,
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",

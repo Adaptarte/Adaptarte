@@ -1,6 +1,6 @@
 
 import React from "react";
-import { SafeAreaView, StatusBar, } from "react-native";
+import { SafeAreaView, ScrollView, StatusBar, } from "react-native";
 
 import { styles } from "./styles";
 import type { IScreenProps } from "./types";
@@ -12,7 +12,7 @@ const Screen = ({
   return (
     <SafeAreaView style={[styles.box, style]}>
       <StatusBar hidden={true} />
-      {children}
+      <ScrollView>{children}</ScrollView>
     </SafeAreaView>
   );
 };

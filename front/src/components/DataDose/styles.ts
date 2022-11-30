@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "styles";
+
 const stylesData = StyleSheet.create({
   background: {
     alignItems: "center",
-    backgroundColor: "rgb(159,164,238)",
+    backgroundColor: colors.GLAUCOUS,
     borderRadius: 25,
     display: "flex",
     flexDirection: "row",
@@ -20,7 +22,7 @@ const stylesData = StyleSheet.create({
     width: "80%",
   },
   hour: {
-    color: "white",
+    color: colors.WHITE,
     fontSize: 10,
   },
   img: {
@@ -28,7 +30,7 @@ const stylesData = StyleSheet.create({
     width: 80,
   },
   title: {
-    color: "white",
+    color: colors.WHITE,
     fontSize: 13,
     whiteSpace: "initial",
   },
