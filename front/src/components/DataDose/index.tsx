@@ -21,7 +21,7 @@ const DataDose = ({ title, hour }: IDataProps): JSX.Element => {
       </View>
       <Image 
         source={dataDose} 
-        style={[stylesData.Img]} 
+        style={[stylesData.img]} 
       />
     </View>
   );
