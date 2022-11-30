@@ -1,30 +1,21 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  checkbox: {
-    position: "absolute",
-    right: 5,
-    top: 5,
+  checkBox: {
+    alignSelf: "flex-end",
   },
   container: {
     borderRadius: 10,
-    height: 150,
-    marginBottom: 7,
-    marginLeft: 7,
-    marginRight: 7,
-    marginTop: 7,
-    width: 150,
-  },
-  containerImg: {
-    flex: 1,
-    marginLeft: "auto",
-    marginRight: "auto",
-    marginTop: 10,
-    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    padding: 8,
   },
   img: {
-    height: 49.6,
-    width: 60,
+    aspectRatio: 1.5,
+    height: undefined,
+    marginBottom: 8,
+    resizeMode: "contain",
+    width: "100%",
   },
 });
 
