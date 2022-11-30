@@ -17,9 +17,9 @@ const Card: FC<ICardProps> = ({
   bgColor, 
   children, 
   color,
+  image = exercise,
   style, 
 }: ICardProps): JSX.Element => {
-
   return (
     <View 
       style={[
@@ -27,13 +27,16 @@ const Card: FC<ICardProps> = ({
         style,
         { backgroundColor: colors[bgColor] }
       ]}>
-      <View style={[styles.containerImg]}>
-        <Image source={exercise} style={[styles.img]} />
-      </View>
-      <View style={[styles.checkbox]}>
+      <View style={[styles.checkBox]}>
         <CheckBox />
       </View>
-      <Button color={color}>{children}</Button> 
+      {image ? (
+        <Image source={image} style={[styles.img]} />
+      ) : undefined}
+      
+      <Button color={color} variant={"text"}>
+        {children}
+      </Button> 
     </View>
   );
 };

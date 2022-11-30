@@ -7,6 +7,7 @@ interface ICardProps extends Pick<ViewProps, "style"> {
   bgColor: TColor;
   children: ReactNode;
   color: TColor;
+  image?: number;
 }
 
 export type { ICardProps };
