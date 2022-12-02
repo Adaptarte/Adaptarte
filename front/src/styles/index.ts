@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import { colors } from "./colors";
+import { font } from "./font";
 
 const styles =  StyleSheet.create({
   h: {
@@ -15,4 +16,4 @@ const styles =  StyleSheet.create({
   },
 });
 
-export { colors, styles };
+export { colors, font, styles };

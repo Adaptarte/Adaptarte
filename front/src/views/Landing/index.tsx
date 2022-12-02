@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import React from "react";
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 import { DataDose } from "components/DataDose";
 import { Header } from "components/Header";
@@ -19,8 +19,10 @@ const Landing: FC<TAppViewProps<"Landing">> = (): JSX.Element => {
         hour={"8:00 am - 6:00 pm"} 
         title={"¡Recuerda beber 8 vasos de agua cada día!"}
       />
-      <View style={styles.container}>  
+      <View style={styles.container}> 
+        <Text style={styles.sectionTitle}>{"Metas diarias"}</Text>
         <DailyGoals />
+        <Text style={styles.sectionTitle}>{"Hábitos diarios"}</Text>
         <DailyHabits />
       </View>
     </Screen>
