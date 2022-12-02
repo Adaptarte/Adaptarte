@@ -1,28 +1,28 @@
+import type { FC } from "react";
 import React from "react";
-import {
-  Image,
-  Text,
-  View,
-} from "react-native";
+import { Image, View } from "react-native";
 
 import { dataDose } from "assets/imgs";
+import { Text } from "components/Text";
 
-import { stylesData } from "./styles";
+import { styles } from "./styles";
 import type { IDataProps } from "./types";
 
-const DataDose = ({ title, hour }: IDataProps): JSX.Element => {
+const DataDose: FC<IDataProps> = ({
+  hour,
+  title,
+}: IDataProps): JSX.Element => {
   return (
-    <View style={[stylesData.background]}>
-      <View style={[stylesData.container]}>
-        <View style={[stylesData.content]}>
-          <Text style={[stylesData.title]}>{title}</Text>
-          <Text style={[stylesData.hour]}>{hour}</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.textWrapper}>
+        <Text color={"WHITE"} size={2} weight={"bold"}>
+          {title}
+        </Text>
+        <Text color={"WHITE"} size={1}>
+          {hour}
+        </Text>
       </View>
-      <Image 
-        source={dataDose} 
-        style={[stylesData.img]} 
-      />
+      <Image source={dataDose} style={styles.img} />
     </View>
   );
 };
