@@ -5,12 +5,12 @@ import { Image, Text, View } from "react-native";
 import { dataDose } from "assets/imgs";
 
 import { styles } from "./styles";
-import type { IDataProps } from "./types";
+import type { IDataDoseProps } from "./types";
 
-const DataDose: FC<IDataProps> = ({
+const DataDose: FC<IDataDoseProps> = ({
   hour,
   title,
-}: IDataProps): JSX.Element => {
+}: IDataDoseProps): JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.textWrapper}>

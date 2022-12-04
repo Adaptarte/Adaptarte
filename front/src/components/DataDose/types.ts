@@ -1,8 +1,6 @@
-import type { ViewProps } from "react-native";
-
-interface IDataProps extends Pick<ViewProps, "style"> {
+interface IDataDoseProps {
   title: string;
   hour: string;
 }
 
-export type { IDataProps };
+export type { IDataDoseProps };
