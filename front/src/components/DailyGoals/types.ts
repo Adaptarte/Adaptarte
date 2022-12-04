@@ -1,6 +1,4 @@
-import type { ViewProps } from "react-native";
-
-interface IGoalsProps extends Pick<ViewProps, "style"> {
+interface IGoalsProps {
   title: string;
   hour: string;
 }
