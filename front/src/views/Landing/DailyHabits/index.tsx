@@ -1,35 +1,33 @@
 import type { FC } from "react";
 import React from "react";
-import { View } from "react-native";
 
 import { Card } from "components/Card";
-
-import { styles } from "./styles";
+import { Column, Row } from "components/Grid";
 
 const DailyHabits: FC = (): JSX.Element => {
   return(
-    <View style={styles.container}>
-      <View style={styles.column}>
+    <Row columns={2}>
+      <Column>
         <Card bgColor={"ORANGE_TRANSLUCID"} color={"ORANGE"}>
           {"Ejercicio"}
         </Card>
-      </View>
-      <View style={styles.column}>
+      </Column>
+      <Column>
         <Card bgColor={"GREEN_TRANSLUCID"} color={"GREEN"}>
           {"Alimentación"}
         </Card>
-      </View>
-      <View style={styles.column}>
+      </Column>
+      <Column>
         <Card bgColor={"BLUE_TRANSLUCID"} color={"BLUE"}>
           {"Agua"}
         </Card>
-      </View>
-      <View style={styles.column}>
+      </Column>
+      <Column>
         <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"}>
           {"Calma"}
         </Card>
-      </View>
-    </View>
+      </Column>
+    </Row>
   );
 };
 
