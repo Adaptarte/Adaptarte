@@ -13,10 +13,28 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     width: "90%",
   },
+  checkContainer: {
+    borderColor: colors.WHITE,
+    borderRadius: 20,
+    borderWidth: 2,
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 25,
+    paddingLeft: 5,
+    paddingRight: 5,
+    width: 107,
+  },
+  checkText: {
+    color: colors.WHITE,
+    fontSize: 11,
+    marginBottom: "auto",
+    marginTop: "auto",
+  },
   content: {
     color: colors.WHITE,
     fontSize: 12,
     fontWeight: "400",
+    height: 56,
   },
   image: {
     height: 120,

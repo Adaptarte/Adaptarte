@@ -1,4 +1,4 @@
-import { pills, stretching, walking, walkingdog } from "assets/imgs";
+import { stretching, walking, walkingdog } from "assets/imgs";
 
 import type { ICarouselCardProps } from "./types";
 
@@ -20,24 +20,12 @@ const data: ICarouselCardProps[] = [
     title: "Visita algún lugar",
   },
   {
-    description: "fsdfdasdasds",
+    background: "#B3A4FF",
+    description: "Prueba los siguientes ejercicios: "
+    + "\n • Levantar brevemente las manos." 
+    + "\n • Levantar los brazos a la altura de los hombros",
     image: stretching,
-    title: "holax3",
-  },
-  {
-    description: "fsdfdasdasds",
-    image: pills,
-    title: "holax4",
-  },
-  {
-    description: "fsdfdasdasds",
-    image: pills,
-    title: "holax5",
-  },
-  {
-    description: "fsdfdasdasds",
-    image: pills,
-    title: "holax6",
+    title: "Pausa activa",
   },
 ];
 
