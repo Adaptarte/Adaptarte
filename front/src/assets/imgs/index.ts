@@ -1,3 +1,4 @@
+import back from "./Back.png";
 import calm from "./Calm.png";
 import dataDose from "./DataDose.png";
 import diet from "./Diet.png";
@@ -10,13 +11,14 @@ import stretching from "./Stretching.png";
 import walking from "./Walking.png";
 import walkingdog from "./WalkingTheDog.png";
 
-export { 
-  calm, 
-  dataDose, 
-  diet, 
-  diseaseRegister, 
-  drinkingWater, 
-  exercise, 
+export {
+  back,
+  calm,
+  dataDose,
+  diet,
+  diseaseRegister,
+  drinkingWater,
+  exercise,
   pills,
   profile,
   stretching,
