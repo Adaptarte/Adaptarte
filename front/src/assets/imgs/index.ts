@@ -6,6 +6,9 @@ import drinkingWater from "./DrinkingWater.png";
 import exercise from "./Exercise.png";
 import pills from "./Pills.png";
 import profile from "./Profile.png";
+import stretching from "./Stretching.png";
+import walking from "./Walking.png";
+import walkingdog from "./WalkingTheDog.png";
 
 export { 
   calm, 
@@ -15,5 +18,8 @@ export {
   drinkingWater, 
   exercise, 
   pills,
-  profile 
+  profile,
+  stretching,
+  walking,
+  walkingdog,
 };
