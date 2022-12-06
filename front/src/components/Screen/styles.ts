@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   box: {
     backgroundColor: colors.LIGHT,
     height: "100%",
-    padding: 8,
+    padding: 16,
     width: "100%",
   },
 });

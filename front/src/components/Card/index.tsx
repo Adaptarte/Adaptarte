@@ -2,9 +2,9 @@ import type { FC } from "react";
 import React from "react";
 import { Image, View } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { Button } from "components/Button";
 import { CheckBox } from "components/CheckBox";
+import { Column } from "components/Grid";
 import { colors } from "styles";
 
 import { styles } from "./styles";
@@ -14,27 +14,20 @@ const Card: FC<ICardProps> = ({
   bgColor, 
   children, 
   color,
-  image = imgs.exercise,
-  style, 
+  image,
 }: ICardProps): JSX.Element => {
   return (
-    <View 
-      style={[
-        styles.container, 
-        style,
-        { backgroundColor: colors[bgColor] }
-      ]}>
-      <View style={[styles.checkBox]}>
-        <CheckBox />
-      </View>
-      {image ? (
+    <Column>
+      <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>
+        <View style={[styles.checkBox]}>
+          <CheckBox />
+        </View>
         <Image source={image} style={[styles.img]} />
-      ) : undefined}
-      
-      <Button color={color} variant={"text"}>
-        {children}
-      </Button> 
-    </View>
+        <Button color={color} variant={"text"}>
+          {children}
+        </Button> 
+      </View>
+    </Column>
   );
 };
 

@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
-import type { ViewProps } from "react-native";
 
 import type { TColor } from "styles/colors";
 
-interface ICardProps extends Pick<ViewProps, "style"> {
+interface ICardProps {
   bgColor: TColor;
   children: ReactNode;
   color: TColor;
-  image?: number;
+  image: number;
 }
 
 export type { ICardProps };

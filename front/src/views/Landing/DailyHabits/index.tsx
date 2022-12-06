@@ -1,32 +1,33 @@
 import type { FC } from "react";
 import React from "react";
 
+import { imgs } from "assets/imgs";
 import { Card } from "components/Card";
-import { Column, Row } from "components/Grid";
+import { Row } from "components/Grid";
 
 const DailyHabits: FC = (): JSX.Element => {
   return(
     <Row columns={2}>
-      <Column>
-        <Card bgColor={"ORANGE_TRANSLUCID"} color={"ORANGE"}>
-          {"Ejercicio"}
-        </Card>
-      </Column>
-      <Column>
-        <Card bgColor={"GREEN_TRANSLUCID"} color={"GREEN"}>
-          {"Alimentación"}
-        </Card>
-      </Column>
-      <Column>
-        <Card bgColor={"BLUE_TRANSLUCID"} color={"BLUE"}>
-          {"Agua"}
-        </Card>
-      </Column>
-      <Column>
-        <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"}>
-          {"Calma"}
-        </Card>
-      </Column>
+      <Card
+        bgColor={"ORANGE_TRANSLUCID"}
+        color={"ORANGE"}
+        image={imgs.exercise}
+      >
+        {"Ejercicio"}
+      </Card>
+      <Card bgColor={"GREEN_TRANSLUCID"} color={"GREEN"} image={imgs.diet}>
+        {"Alimentación"}
+      </Card>
+      <Card
+        bgColor={"BLUE_TRANSLUCID"}
+        color={"BLUE"}
+        image={imgs.drinkingWater}
+      >
+        {"Agua"}
+      </Card>
+      <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} image={imgs.calm}>
+        {"Calma"}
+      </Card>
     </Row>
   );
 };
