@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 import { Header } from "components/Header";
+import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
 
 import type { IAppParams } from "./types";
@@ -18,8 +19,13 @@ const screenOptions: NativeStackNavigationOptions = {
 
 const AppNavigation = (): JSX.Element => {
   return (
-    <Navigator initialRouteName={"Landing"}>
-      <Screen component={Landing} name={"Landing"} options={screenOptions} />
+    <Navigator initialRouteName={"Landing"} screenOptions={screenOptions}>
+      <Screen component={Landing} name={"Landing"} />
+      <Screen
+        component={Feeding}
+        name={"Feeding"}
+        options={{ headerTitle: "Alimentación" }}
+      />
     </Navigator>
   );
 };

@@ -1,11 +1,19 @@
 import type { FC } from "react";
-import React from "react";
+import React, { useCallback } from "react";
 
 import { imgs } from "assets/imgs";
 import { Card } from "components/Card";
 import { Row } from "components/Grid";
 
-const DailyHabits: FC = (): JSX.Element => {
+import type { IDailyHabitsProps } from "./types";
+
+const DailyHabits: FC<IDailyHabitsProps> = ({
+  navigate,
+}: IDailyHabitsProps): JSX.Element => {
+  const goToFeeding = useCallback((): void => {
+    navigate("Feeding");
+  }, [navigate]);
+
   return(
     <Row columns={2}>
       <Card
@@ -15,7 +23,12 @@ const DailyHabits: FC = (): JSX.Element => {
       >
         {"Ejercicio"}
       </Card>
-      <Card bgColor={"GREEN_TRANSLUCID"} color={"GREEN"} image={imgs.diet}>
+      <Card
+        bgColor={"GREEN_TRANSLUCID"}
+        color={"GREEN"}
+        image={imgs.diet}
+        onPress={goToFeeding}
+      >
         {"Alimentación"}
       </Card>
       <Card

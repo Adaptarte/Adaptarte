@@ -13,7 +13,9 @@ import { styles } from "./styles";
 
 const name = "Clemencia";
 
-const Landing: FC<TAppViewProps<"Landing">> = (): JSX.Element => {
+const Landing: FC<TAppViewProps<"Landing">> = ({
+  navigation: { navigate }
+}: TAppViewProps<"Landing">): JSX.Element => {
   return (
     <Screen>
       <View style={styles.welcome}>
@@ -30,7 +32,7 @@ const Landing: FC<TAppViewProps<"Landing">> = (): JSX.Element => {
         <Text style={styles.sectionTitle}>{"Metas diarias"}</Text>
         <DailyGoals />
         <Text style={styles.sectionTitle}>{"Hábitos diarios"}</Text>
-        <DailyHabits />
+        <DailyHabits navigate={navigate} />
       </View>
     </Screen>
   );
