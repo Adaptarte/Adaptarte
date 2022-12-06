@@ -2,7 +2,7 @@ import type { FC } from "react";
 import React from "react";
 import { Image, Text, View } from "react-native";
 
-import { exercise } from "assets/imgs";
+import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
 
 import { styles } from "./styles";
@@ -16,7 +16,7 @@ const DailyGoals: FC<IGoalsProps> = ({
     <View style={[styles.background]}>
       <View style={[styles.container]}>
         <View style={[styles.elipse]}>
-          <Image source={exercise} style={[styles.img]} />
+          <Image source={imgs.exercise} style={[styles.img]} />
         </View>
       </View>
       <View style={[styles.content]}>

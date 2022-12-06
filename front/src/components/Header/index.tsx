@@ -3,7 +3,7 @@ import type { FC } from "react";
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-import { back } from "assets/imgs";
+import { imgs } from "assets/imgs";
 
 import { styles } from "./styles";
 
@@ -16,7 +16,7 @@ const Header: FC<NativeStackHeaderProps> = ({
     <View style={styles.container}>
       {canGoBack() ? (
         <TouchableOpacity onPress={goBack} style={styles.backButton}>
-          <Image source={back} style={styles.backImage} />
+          <Image source={imgs.back} style={styles.backImage} />
         </TouchableOpacity>
       ) : undefined}
       {typeof(headerTitle) === "string" ? (
