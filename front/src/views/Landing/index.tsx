@@ -2,7 +2,7 @@ import type { FC } from "react";
 import React from "react";
 import { Image, Text, View } from "react-native";
 
-import { profile } from "assets/imgs";
+import { imgs } from "assets/imgs";
 import { DataDose } from "components/DataDose";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
@@ -20,7 +20,7 @@ const Landing: FC<TAppViewProps<"Landing">> = (): JSX.Element => {
         <Text style={styles.welcomeText}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}
         </Text>
-        <Image source={profile} style={styles.profile} />
+        <Image source={imgs.profile} style={styles.profile} />
       </View>
       <DataDose 
         hour={"8:00 am - 6:00 pm"} 
