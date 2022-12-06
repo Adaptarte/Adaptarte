@@ -15,6 +15,7 @@ const Card: FC<ICardProps> = ({
   children, 
   color,
   image,
+  onPress,
 }: ICardProps): JSX.Element => {
   return (
     <Column>
@@ -23,7 +24,7 @@ const Card: FC<ICardProps> = ({
           <CheckBox />
         </View>
         <Image source={image} style={[styles.img]} />
-        <Button color={color} variant={"text"}>
+        <Button color={color} onPress={onPress} variant={"text"}>
           {children}
         </Button> 
       </View>

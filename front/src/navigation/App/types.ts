@@ -2,6 +2,7 @@ import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type IAppParams = {
+	Feeding: undefined;
 	Landing: undefined;
 };
 
