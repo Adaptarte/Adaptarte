@@ -36,6 +36,7 @@ const Carousel: FC<ICarouselProps> = ({
           <Text style={[styles.arrow]}>{"<"}</Text>
         </TouchableOpacity>
         <CarouselCard
+          complete={data[current].complete}
           description={data[current].description} 
           image={data[current].image} 
           title={data[current].title}
