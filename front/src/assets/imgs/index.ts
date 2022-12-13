@@ -2,6 +2,7 @@ import back from "./Back.png";
 import bread from "./Bread.png";
 import calm from "./Calm.png";
 import chocolate from "./Chocolate.png";
+import close from "./Close.png";
 import coffe from "./Coffe.png";
 import dataDose from "./DataDose.png";
 import diet from "./Diet.png";
@@ -30,6 +31,7 @@ const imgs = {
   bread,
   calm,
   chocolate,
+  close,
   coffe,
   dataDose,
   diet,
