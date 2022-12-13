@@ -4,6 +4,7 @@ import React from "react";
 import { View } from "react-native";
 
 import { RowContext } from "../Row";
+import { styles } from "./styles";
 import type  { IColumnProps } from "./types";
 
 const Column: FC<IColumnProps> = ({
@@ -14,7 +15,7 @@ const Column: FC<IColumnProps> = ({
   const width = `${100 / columns}%`;
 
   return (
-    <View style={{ padding, width }}>{children}</View>
+    <View style={[styles.container, { padding, width }]}>{children}</View>
   );
 };
 

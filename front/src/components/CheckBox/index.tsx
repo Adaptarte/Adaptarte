@@ -33,7 +33,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
   return (
     <TouchableOpacity onPress = { (): void  => {
       variant === "rounde" ? handleSwitch : onChange; }
-    } style={[styles.box, style]}>
+    } style={[styles.container, style]}>
       { variant === "rounde" ? 
         <Text style={textStyle}>{value ? "✓" : " "}</Text> :
         <Text style={textStyle}>{active ? "✓" : " "}</Text>
