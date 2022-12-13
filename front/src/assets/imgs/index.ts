@@ -14,6 +14,7 @@ import juice from "./Juice.png";
 import milk from "./Milk.png";
 import pills from "./Pills.png";
 import pineapple from "./Pineapple.png";
+import plus from "./Plus.png";
 import potato from "./Potato.png";
 import profile from "./Profile.png";
 import rice from "./Rice.png";
@@ -43,6 +44,7 @@ const imgs = {
   milk,
   pills,
   pineapple,
+  plus,
   potato,
   profile,
   rice,

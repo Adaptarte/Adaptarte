@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     width: 50,
   },
   hour: {
+    color: colors.BLACK,
     fontSize: 10,
   },
   img: {
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     width: 40,
   },
   title: {
+    color: colors.BLACK,
     fontSize: 13,
     fontWeight: "bold",
     whiteSpace: "initial",
