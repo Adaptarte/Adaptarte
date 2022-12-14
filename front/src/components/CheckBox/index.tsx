@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import React, { useCallback, useState } from "react";
 import type { TextStyle } from "react-native";
+import type { TextStyle } from "react-native";
 import { Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
@@ -8,8 +9,10 @@ import type { ICheckBoxProps } from "./types";
 
 const CheckBox: FC<ICheckBoxProps> = ({
   active = false,
+  active = false,
   isChecked = false,
   onChange,
+  variant = "rounde",
   variant = "rounde",
 }: ICheckBoxProps): JSX.Element => {
   const [value, setValue] = useState(isChecked);
@@ -24,6 +27,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
     fontSize: 8,
   } : {};
   
+
   const handleSwitch = useCallback((): void => {
     const newValue = !value;
     onChange?.(newValue);
@@ -33,7 +37,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
   return (
     <TouchableOpacity onPress = { (): void  => {
       variant === "rounde" ? handleSwitch : onChange; }
-    } style={[styles.container, style]}>
+    } style={[styles.box, style]}>
       { variant === "rounde" ? 
         <Text style={textStyle}>{value ? "✓" : " "}</Text> :
         <Text style={textStyle}>{active ? "✓" : " "}</Text>
