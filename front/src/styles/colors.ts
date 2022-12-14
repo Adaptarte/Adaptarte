@@ -22,7 +22,7 @@ const colors: Record<TColor, string> = {
   GLAUCOUS: "#6682D7",
   GREEN: "#28AD46",
   GREEN_TRANSLUCID: "#28AD464D",
-  LIGHT: "#E5E5E5",
+  LIGHT: "#EDEEFF",
   ORANGE: "#E16926",
   ORANGE_TRANSLUCID: "#E169264D",
   PURPLE: "#9B28AD",

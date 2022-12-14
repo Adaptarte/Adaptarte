@@ -16,7 +16,7 @@ const { Navigator, Group, Screen } = createNativeStackNavigator<IAppParams>();
 
 const screenOptions: NativeStackNavigationOptions = {
   header: Header,
-  headerShown: true,
+  headerShown: false,
 };
 
 const screenModalOptions: NativeStackNavigationOptions = {
@@ -30,7 +30,7 @@ const AppNavigation = (): JSX.Element => {
       <Screen
         component={Feeding}
         name={"Feeding"}
-        options={{ headerTitle: "Alimentación" }}
+        options={{ headerShown: true, headerTitle: "Alimentación" }}
       />
       <Group screenOptions={screenModalOptions}>
         <Screen component={Excercise} name={"Excercise"} />

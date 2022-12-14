@@ -7,6 +7,7 @@ import { Button } from "components/Button";
 import { Column, Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 
 import { liquids } from "./data";
 import { styles } from "./styles";
@@ -16,7 +17,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
 }: TAppViewProps<"Consumption">): JSX.Element => {
   return (
-    <Screen>
+    <Screen style={{ backgroundColor: colors.WHITE }}>
       <Text style={styles.title}>{t().title}</Text>
       <Row columns={3}>
         {liquids.map((el): JSX.Element => (

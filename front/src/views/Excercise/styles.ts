@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import { lexendFamily } from "assets/fonts";
 import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
@@ -31,11 +32,13 @@ const styles = StyleSheet.create({
   },
   excerciseText: {
     color: colors.BLACK,
-    fontSize: font.sizes[1],
-    marginBottom: 8,
+    fontFamily: lexendFamily.Regular,
+    fontSize: 12,
+    marginBottom: 12,
   },
   excerciseTitle: {
     color: colors.ORANGE,
+    fontFamily: lexendFamily.Bold,
     fontSize: font.sizes[3],
     marginBottom: 8,
   },

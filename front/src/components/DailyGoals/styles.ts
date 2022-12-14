@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import { lexendFamily } from "assets/fonts";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
   },
   hour: {
     color: colors.BLACK,
+    fontFamily: lexendFamily.Light,
     fontSize: 10,
   },
   img: {
@@ -46,8 +48,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.BLACK,
+    fontFamily: lexendFamily.Bold,
     fontSize: 13,
-    fontWeight: "bold",
     whiteSpace: "initial",
   },
 });

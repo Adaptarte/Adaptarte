@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import { lexendFamily } from "assets/fonts";
 import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
@@ -16,10 +17,10 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     color: colors.GLAUCOUS,
+    fontFamily: lexendFamily.Bold,
     fontSize: font.sizes[3],
-    fontWeight: "bold",
     marginBottom: 16,
-    marginLeft: 24,
+    marginLeft: 12,
   },
   welcome: {
     display: "flex",
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
     color: colors.GLAUCOUS,
     flexBasis: 0,
     flexGrow: 1,
-    fontSize: font.sizes[5],
-    fontWeight: "bold",
+    fontFamily: lexendFamily.Bold,
+    fontSize: 25,
   },
 });
 

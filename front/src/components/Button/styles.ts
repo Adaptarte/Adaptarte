@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import { lexendFamily } from "assets/fonts";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
@@ -7,8 +8,8 @@ const styles = StyleSheet.create({
     borderColor: colors.TRANSPARENT,
     borderRadius: 10,
     borderWidth: 2,
-    fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: lexendFamily.Bold,
+    fontSize: 14,
     paddingHorizontal: 12,
     paddingVertical: 8,
     textAlign: "center",
