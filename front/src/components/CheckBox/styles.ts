@@ -4,13 +4,13 @@ import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
   check: {
-    color: colors.BLACK,
+    color: colors.GREEN,
     fontSize: font.sizes[1],
     fontWeight: "bold"
   },
   container: {
     alignItems: "center",
-    borderColor: colors.BLACK,
+    borderColor: colors.WHITE,
     borderRadius: 8,
     borderWidth: 2,
     display: "flex",

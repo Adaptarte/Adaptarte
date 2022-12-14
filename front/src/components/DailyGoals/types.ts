@@ -1,6 +1,7 @@
 interface IGoalsProps {
-  title: string;
   hour: string;
+  img?: number;
+  title: string;
 }
 
 export type { IGoalsProps };

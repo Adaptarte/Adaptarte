@@ -15,7 +15,7 @@ type TColor = "BLACK" |
   "YELLOW";
 
 const colors: Record<TColor, string> = {
-  BLACK: "#000",
+  BLACK: "#575757",
   BLUE: "#28779B",
   BLUE_PURPLE: "#9FA4EE",
   BLUE_TRANSLUCID: "#28779C4D",
