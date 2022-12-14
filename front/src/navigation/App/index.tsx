@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 import { Header } from "components/Header";
+import { Consumption } from "views/Consumption";
 import { Excercise } from "views/Excercise";
 import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
@@ -15,7 +16,7 @@ const { Navigator, Group, Screen } = createNativeStackNavigator<IAppParams>();
 
 const screenOptions: NativeStackNavigationOptions = {
   header: Header,
-  headerShown: false,
+  headerShown: true,
 };
 
 const screenModalOptions: NativeStackNavigationOptions = {
@@ -29,11 +30,12 @@ const AppNavigation = (): JSX.Element => {
       <Screen
         component={Feeding}
         name={"Feeding"}
-        options={{ headerShown: true, headerTitle: "Alimentación" }}
+        options={{ headerTitle: "Alimentación" }}
       />
       <Group screenOptions={screenModalOptions}>
         <Screen component={Excercise} name={"Excercise"} />
       </Group>
+      <Screen component={Consumption} name={"Consumption"} />
     </Navigator>
   );
 };

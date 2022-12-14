@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { useCallback } from "react";
 import React from "react";
 import { Text } from "react-native";
 
@@ -12,7 +13,13 @@ import { FoodCard } from "./FoodCard";
 import { styles } from "./styles";
 import { t } from "./translations";
 
-const Feeding: FC<TAppViewProps<"Feeding">> = (): JSX.Element => {
+const Feeding: FC<TAppViewProps<"Feeding">> = ({
+  navigation: { navigate },
+}: TAppViewProps<"Feeding">): JSX.Element => {
+  const handleAddLiquid = useCallback(() => {
+    navigate("Consumption", { category: "liquids" });
+  }, [navigate]);
+
   return (
     <Screen>
       <Text style={styles.title}>{t().liquids.title}</Text>
@@ -21,7 +28,7 @@ const Feeding: FC<TAppViewProps<"Feeding">> = (): JSX.Element => {
       <Row columns={3}>
         <FoodCard image={imgs.juice} name={"Jugo"} />
         <FoodCard image={imgs.milk} name={"Leche"} />
-        <AddConsumption />
+        <AddConsumption onPress={handleAddLiquid} />
       </Row>
 
       <Text style={styles.title}>{t().carbs.title}</Text>
