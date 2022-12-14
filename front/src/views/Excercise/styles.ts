@@ -5,16 +5,20 @@ import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
   closeButton: {
+    borderRadius: 200,
     padding: 4,
     position: "absolute",
     right: 15,
     top: 15,
+    zIndex: 1,
   },
   closeImage: {
     height: 28,
+    position: "relative",
     resizeMode: "contain",
     tintColor: colors.ORANGE,
     width: 28,
+    zIndex: 0,
   },
   excercise: {
     backgroundColor: colors.WHITE,

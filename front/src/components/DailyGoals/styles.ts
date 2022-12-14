@@ -42,9 +42,11 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   img: {
-    height: 40,
-    marginBottom: 10,
-    width: 40,
+    height: 54,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 6,
+    width: 38,
   },
   title: {
     color: colors.BLACK,
