@@ -10,6 +10,7 @@ import type { ICheckBoxProps } from "./types";
 
 const CheckBox: FC<ICheckBoxProps> = ({
   active = false,
+  color = colors.WHITE,
   isChecked = false,
   onChange,
   variant = "rounde",
@@ -38,7 +39,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
   return (
     <TouchableOpacity 
       onPress = { handleSwitch } 
-      style={[styles.container, style]}>
+      style={[styles.container, { borderColor: color }, style]}>
       { variant === "rounde" ? 
         <Text style={textStyle}>{value ? "✓" : " "}</Text> :
         <Text style={textStyle}>{active ? "✓" : " "}</Text>

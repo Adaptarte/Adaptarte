@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   content: {
     color: colors.WHITE,
-    fontFamily: "Lexend-Regular",
+    fontFamily: lexendFamily.Regular,
     fontSize: 10,
     height: 56,
   },
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.WHITE,
-    fontFamily: "Lexend-SemiBold",
+    fontFamily: lexendFamily.SemiBold,
     fontSize: font.sizes[4],
     marginBottom: 5,
     width: 200,
