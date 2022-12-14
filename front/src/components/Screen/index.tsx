@@ -10,7 +10,7 @@ const Screen = ({
   style,
 }: IScreenProps): JSX.Element => {
   return (
-    <SafeAreaView style={[styles.box, style]}>
+    <SafeAreaView style={[styles.container, style]}>
       <StatusBar hidden={true} />
       <ScrollView>{children}</ScrollView>
     </SafeAreaView>

@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  box: {
-    backgroundColor: colors.LIGHT,
+  container: {
+    backgroundColor: colors.WHITE,
     height: "100%",
     padding: 16,
     width: "100%",

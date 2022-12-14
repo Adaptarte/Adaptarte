@@ -11,7 +11,6 @@ const Header: FC<NativeStackHeaderProps> = ({
   navigation: { canGoBack, goBack },
   options: { headerTitle },
 }: NativeStackHeaderProps) => {
-
   return (
     <View style={styles.container}>
       {canGoBack() ? (
