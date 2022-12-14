@@ -15,7 +15,7 @@ const DataDose: FC<IDataDoseProps> = ({
     <View style={styles.container}>
       <View style={styles.textWrapper}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.text}>{hour}</Text>
+        <Text style={styles.hour}>{hour}</Text>
       </View>
       <Image source={imgs.dataDose} style={styles.img} />
     </View>

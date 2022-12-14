@@ -7,6 +7,7 @@ import { imgs } from "assets/imgs";
 import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 
 import { AddConsumption } from "./AddConsumption";
 import { FoodCard } from "./FoodCard";
@@ -21,7 +22,7 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
   }, [navigate]);
 
   return (
-    <Screen>
+    <Screen style={{ backgroundColor: colors.WHITE }}>
       <Text style={styles.title}>{t().liquids.title}</Text>
       <Text style={styles.description}>{t().liquids.description}</Text>
 

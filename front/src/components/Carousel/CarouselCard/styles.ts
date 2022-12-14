@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+import { lexendFamily } from "assets/fonts";
 import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
@@ -26,16 +27,17 @@ const styles = StyleSheet.create({
   },
   checkText: {
     color: colors.WHITE,
-    fontSize: 11,
-    fontWeight: "700",
+    fontFamily: lexendFamily.ExtraBold,
+    fontSize: 9,
     marginBottom: "auto",
     marginTop: "auto",
+    textAlign: "center",
     width: "80%",
   },
   content: {
     color: colors.WHITE,
-    fontSize: 12,
-    fontWeight: "400",
+    fontFamily: "Lexend-Regular",
+    fontSize: 10,
     height: 56,
   },
   image: {
@@ -50,9 +52,10 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.WHITE,
+    fontFamily: "Lexend-SemiBold",
     fontSize: font.sizes[4],
-    fontWeight: "600",
     marginBottom: 5,
+    width: 200,
   }
 });
 
