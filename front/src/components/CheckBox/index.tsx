@@ -27,7 +27,10 @@ const CheckBox: FC<ICheckBoxProps> = ({
     color: colors.ORANGE,
     fontSize: 8,
   } : {};
-  
+
+  const containerStyleActive = variant === "circle" ? {
+    borderColor: colors.ORANGE,
+  } : {};
 
   const handleSwitch = useCallback((): void => {
     const newValue = !value;
@@ -39,9 +42,14 @@ const CheckBox: FC<ICheckBoxProps> = ({
   return (
     <TouchableOpacity 
       onPress = { handleSwitch } 
-      style={[styles.container, { borderColor: color }, style]}>
+      style={[
+        styles.container, 
+        { borderColor: color }, 
+        style,
+        active ? containerStyleActive : null
+      ]}>
       { variant === "rounde" ? 
-        <Text style={textStyle}>{value ? "✓" : " "}</Text> :
+        <Text style={[textStyle, { color: color }]}>{value ? "✓" : " "}</Text> :
         <Text style={textStyle}>{active ? "✓" : " "}</Text>
       }
     </TouchableOpacity>
