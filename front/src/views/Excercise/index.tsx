@@ -9,6 +9,7 @@ import { data } from "components/Carousel/CarouselCard/data";
 import type { TAppViewProps } from "navigation/App/types";
 
 import { styles } from "./styles";
+import { t } from "./translations";
 
 const Excercise: FC<TAppViewProps<"Excercise">> = ({ 
   navigation: { canGoBack, goBack },
@@ -32,16 +33,9 @@ const Excercise: FC<TAppViewProps<"Excercise">> = ({
                 <Image source={imgs.close} style={styles.closeImage} />
               </TouchableOpacity>
             ) : undefined}
-            <Text style={styles.excerciseTitle}>{"Ejercicio"}</Text>
-            <Text style={styles.excerciseText}>
-              {"Recuerda incluir como minimo 10 minutos de actividad física "} 
-              {"al día. "}
-              {"Poco a poco aumenta el tiempo hasta conseguir de 25 a 45 "}
-              {"minutos diarios."}
-            </Text>
-            <Text style={styles.excerciseText}>
-              {"Para cumplir con este hábito completa al menos un actividad."}
-            </Text>
+            <Text style={styles.excerciseTitle}>{t().title}</Text>
+            <Text style={styles.excerciseText}>{t().information}</Text>
+            <Text style={styles.excerciseText}>{t().note}</Text>
             <Carousel data={data}></Carousel>
           </View>
         </View>
