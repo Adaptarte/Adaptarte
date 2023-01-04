@@ -5,7 +5,6 @@ import { Image, Text, View } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
-import { colors } from "styles";
 
 import { styles } from "./styles";
 import type { IGoalsProps } from "./types";
@@ -33,7 +32,7 @@ const DailyGoals: FC<IGoalsProps> = ({
         <Text style={[styles.hour]}>{hour}</Text>
       </View>
       <View style={[styles.checkBox]}>
-        <CheckBox color={colors.BLACK}/>
+        <CheckBox />
       </View>
     </View>
   );

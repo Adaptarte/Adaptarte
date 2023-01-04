@@ -6,11 +6,11 @@ import { colors } from "styles";
 const styles = StyleSheet.create({
   text: {
     borderColor: colors.TRANSPARENT,
-    borderRadius: 10,
+    borderRadius: 15,
     borderWidth: 2,
     fontFamily: lexendFamily.Bold,
     fontSize: 14,
-    paddingHorizontal: 12,
+    paddingHorizontal: 5,
     paddingVertical: 8,
     textAlign: "center",
     textAlignVertical: "center",
