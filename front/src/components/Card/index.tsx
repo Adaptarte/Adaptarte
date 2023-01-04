@@ -24,7 +24,11 @@ const Card: FC<ICardProps> = ({
           <CheckBox />
         </View>
         <Image source={image} style={[styles.img]} />
-        <Button color={color} onPress={onPress} variant={"text"}>
+        <Button 
+          color={color} 
+          onPress={onPress}  
+          style={styles.button}
+          variant={"text"}>
           {children}
         </Button> 
       </View>
