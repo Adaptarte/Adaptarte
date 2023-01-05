@@ -28,7 +28,9 @@ const styles = StyleSheet.create({
   checkBox: {
     marginLeft: "6%", 
     marginRight: "auto",
+    position: "relative",
     width: "15%", 
+    zIndex: -1,
   },
   container: {
     width: "25%",
