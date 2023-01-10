@@ -1,5 +1,5 @@
-import { FC, useState } from "react";
-import React from "react";
+import type { FC } from "react";
+import React, { useState } from "react";
 import { 
   Image, 
   Modal, 
