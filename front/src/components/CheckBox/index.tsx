@@ -41,7 +41,6 @@ const CheckBox: FC<ICheckBoxProps> = ({
     const newValue = !value;
     onChange?.(newValue);
     setValue(newValue);
-    
   }, [setValue, value]);
 
   return (
