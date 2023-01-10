@@ -7,7 +7,9 @@ const styles = StyleSheet.create({
   background: {
     alignItems: "center",
     backgroundColor: colors.YELLOW,
+    borderColor: colors.TRANSPARENT,
     borderRadius: 20,
+    borderWidth: 1,
     display: "flex",
     elevation: 4,
     flexDirection: "row",
@@ -37,6 +39,9 @@ const styles = StyleSheet.create({
   },
   content: {
     width: "55%",
+  },
+  contentContainer: {
+    width: "100%",
   },
   elipse: {
     backgroundColor: colors.PURPLE_TRANSLUCID,
