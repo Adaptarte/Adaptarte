@@ -1,8 +1,9 @@
-import type { FC } from "react";
+import { FC, useState } from "react";
 import React from "react";
 import { 
   Image, 
   Modal, 
+  Switch, 
   Text, 
   TextInput, 
   TouchableOpacity, 
@@ -14,11 +15,25 @@ import { Button } from "components/Button";
 
 import { styles } from "./styles";
 import type { ITensionProps } from "./types";
+import DatePicker from 'react-native-date-picker';
+import { colors } from "styles";
 
 const Tension: FC<ITensionProps> = ({
   visible = false,
   setVisible,
 }): JSX.Element => {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const [date, setDate] = useState(new Date())
+  const [open, setOpen] = useState(false)
+
+  const styleSwitchContainer = isEnabled ? { 
+    borderColor: colors.BLUE
+  } : {
+    borderColor: colors.GREY
+  };
+
   return (
     <Modal
       animationType={"none"}
@@ -57,8 +72,46 @@ const Tension: FC<ITensionProps> = ({
               <Text style={styles.numberInputMaximun}>{"/120"}</Text>
             </View>
           </View>
-          <View>
+          <View style={styles.hour}>
             <Text style={styles.sectionSubtitle}>{"Hora actual"}</Text>
+            <View style={[styles.switchContainer, styleSwitchContainer]}>
+              <Switch 
+                trackColor={{ 
+                  false: colors.TRANSPARENT, 
+                  true: colors.TRANSPARENT 
+                }}
+                thumbColor={isEnabled ? "#1F4BFF" : "#5A5A5A"}
+                onValueChange={toggleSwitch}
+                value={isEnabled}
+              />
+            </View>
+          </View>
+          <View style={styles.selectedHour}>
+            <Button 
+            variant="outline" 
+            onPress={() => setOpen(true)} 
+            style={styles.selectButton}
+            >
+              {date.toLocaleString("en-US", { 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: true 
+              })}
+            </Button>
+            <DatePicker
+              modal
+              open={open}
+              date={date}
+              mode={"time"}
+              onConfirm={(date) => {
+                setOpen(false)
+                setDate(date)
+                console.log(date)
+              }}
+              onCancel={() => {
+                setOpen(false)
+              }}
+            />
           </View>
           <View>
             <Button 

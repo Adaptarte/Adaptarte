@@ -26,6 +26,11 @@ const styles = StyleSheet.create({
     width: 28,
     zIndex: 0,
   },
+  hour: {
+    alignItems: "center",
+    display: "flex",
+    flexDirection: "row",
+  },
   modalTension: {
     alignItems: "center",
     backgroundColor: colors.BLACK_OPACITY,
@@ -74,6 +79,17 @@ const styles = StyleSheet.create({
     fontFamily: lexendFamily.Bold,
     fontSize: 20,
     marginBottom: 16,
+  },
+  selectButton: {
+    padding: -5
+  },
+  selectedHour: {
+    width: 75,
+  },
+  switchContainer: {
+    borderRadius: 20,
+    borderWidth: 3,
+    transform: [{scale:0.5}],
   },
   tensionContainer: {
     backgroundColor: colors.WHITE,
