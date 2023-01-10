@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   },
   container: {
     alignItems: "center",
-    borderColor: colors.BLACK,
+    borderColor: colors.WHITE,
     borderRadius: 8,
     borderWidth: 2,
     display: "flex",

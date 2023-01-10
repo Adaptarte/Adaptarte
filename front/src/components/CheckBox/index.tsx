@@ -10,6 +10,7 @@ import type { ICheckBoxProps } from "./types";
 
 const CheckBox: FC<ICheckBoxProps> = ({
   active = false,
+  color = colors.WHITE,
   isChecked = false,
   onChange,
   variant = "rounde",
