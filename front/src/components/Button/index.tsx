@@ -17,7 +17,7 @@ const Button: FC<IButtonProps> = ({
 }: IButtonProps): JSX.Element => {
   const dynamicStyle: TextStyle = variant === "solid" ? {
     backgroundColor: colors[color],
-    color: colors.LIGHT
+    color: colors.WHITE,
   } : (variant === "outline" ? {
     borderColor: colors[color],
     color: colors[color]
