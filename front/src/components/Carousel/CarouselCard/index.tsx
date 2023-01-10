@@ -37,7 +37,7 @@ const CarouselCard: FC<ICarouselCardProps> = ({
         <Text style={[styles.title]}>{title}</Text>
         <Text style={[styles.content]}>{description}</Text>
         <TouchableOpacity 
-          onPress={handleSwitch} 
+          onPress={ handleSwitch } 
           style={[styles.checkContainer, style]}>
           <Text 
             style={[styles.checkText, style]}>
@@ -46,7 +46,7 @@ const CarouselCard: FC<ICarouselCardProps> = ({
           <CheckBox 
             active = {check}
             isChecked = {check}
-            onChange = {handleSwitch}
+            onChange = { handleSwitch }
             variant = {"circle"} />
         </TouchableOpacity>  
       </View>
