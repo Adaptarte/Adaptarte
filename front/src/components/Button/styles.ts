@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     borderWidth: 2,
     fontFamily: lexendFamily.Bold,
-    fontSize: 14,
+    fontSize: 12,
     paddingHorizontal: 5,
     paddingVertical: 8,
     textAlign: "center",

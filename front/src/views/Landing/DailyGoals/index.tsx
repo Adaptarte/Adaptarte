@@ -13,8 +13,12 @@ const DailyGoals: FC = (): JSX.Element => {
         img={imgs.pills}
         title={"Toma tu pastilla de la tensión"}
       />
-      <DailyGoal hour={"12:00 pm"} title={"Registra aquí tu tensión"} />
       <DailyGoal 
+        activeTensionRegister={true}
+        hour={"12:00 pm"} 
+        title={"Registra aquí tu tensión"} />
+      <DailyGoal 
+        activeTensionRegister={true}
         hour={"6:00 pm"} 
         title={"¡Registro de tensión completado!"} 
       />
