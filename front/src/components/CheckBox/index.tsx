@@ -10,8 +10,8 @@ import type { ICheckBoxProps } from "./types";
 
 const CheckBox: FC<ICheckBoxProps> = ({
   active = false,
-  color = colors.WHITE,
   isChecked = false,
+  isInfoRegistered = false,
   onChange,
   variant = "rounde",
 }: ICheckBoxProps): JSX.Element => {
@@ -39,9 +39,11 @@ const CheckBox: FC<ICheckBoxProps> = ({
   } : null;
 
   const handleSwitch = useCallback((): void => {
-    const newValue = !value;
-    onChange?.(newValue);
-    setValue(newValue);
+    if (!isInfoRegistered) {
+      const newValue = !value;
+      onChange?.(newValue);
+      setValue(newValue);
+    }
   }, [setValue, value]);
 
   return (
@@ -57,7 +59,7 @@ const CheckBox: FC<ICheckBoxProps> = ({
         <Text 
           style={[textStyle, containerStyleAct]}
         >
-          {value ? "✓" : " "}
+          {isInfoRegistered ? active ? "✓" : " " : value ? "✓" : " "}
         </Text> :
         <Text style={textStyle}>{active ? "✓" : " "}</Text>
       }
