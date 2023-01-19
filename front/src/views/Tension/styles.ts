@@ -30,6 +30,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     flexDirection: "row",
+    position: "relative",
+    zIndex: -1,
+  },
+  inputContainer: {
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
   },
   modalTension: {
     alignItems: "center",
@@ -39,32 +46,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
   },
-  numberInput: {
-    color: "black",
-    fontFamily: lexendFamily.Regular,
-    fontSize: 14,
-    height: "100%",
-    paddingVertical: 3,
-    textAlign: "left",
-    width: "90%",
-  },
-  numberInputContainer: {
-    backgroundColor: colors.LIGHT,
-    borderColor: colors.GREY,
-    borderRadius: 5,
-    borderWidth: 1,
-    display: "flex",
-    flexDirection: "row",
-    height: 26,
-    padding: 0,
-    paddingHorizontal: 10,
-  },
   numberInputMaximun: {
     color: "black",
     fontFamily: lexendFamily.Regular,
     fontSize: 14,
     height: "100%",
     padding: 1.5,
+    position: "absolute",
+    right: 5,
   },
   sectionInput: {
     marginBottom: 24,
@@ -85,11 +74,6 @@ const styles = StyleSheet.create({
   },
   selectedHour: {
     width: 75,
-  },
-  switchContainer: {
-    borderRadius: 20,
-    borderWidth: 3,
-    transform: [{scale:0.5}],
   },
   tensionContainer: {
     backgroundColor: colors.WHITE,

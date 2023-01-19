@@ -6,6 +6,7 @@ import { Image, Text, View } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
+import { colors } from "styles/colors";
 import { Tension } from "views/Tension";
 
 import { styles } from "./styles";
@@ -25,41 +26,6 @@ const DailyGoals: FC<IGoalsProps> = ({
   const [activeCheck, setActiveCheck] = useState(false);
 
   useEffect(() => {
-
-    const updateTimeAssigned = (): void => {
-      const timeA = hour.split(":").map(a => a.split(" ")).flat();
-      if (timeA.length > 3) {
-        timeA[6] === "pm" ? 
-          timeAssigned.setHours(
-            parseInt(timeA[4]) !== 12 ? 
-              parseInt(timeA[4]) + 12 : 
-              parseInt(timeA[4])
-          )
-          : timeAssigned.setHours(parseInt(timeA[4])); 
-        timeAssigned.setMinutes(parseInt(timeA[5]));
-      } else {
-        timeA[2] === "pm" ? 
-          timeAssigned.setHours(
-            parseInt(timeA[0]) !== 12 ? 
-              parseInt(timeA[0]) + 12 : 
-              parseInt(timeA[0]))
-          : timeAssigned.setHours(parseInt(timeA[0]));
-        timeAssigned.setMinutes(parseInt(timeA[1]));
-      }
-    };
-
-    const updateCurrentTime = (): void => {
-      const options: Intl.DateTimeFormatOptions = {
-        hour12: false,
-        timeZone: "America/Bogota",
-      };
-
-      const CT = new Date().toLocaleTimeString("en-US", options);
-      const timeCT = CT.split(":").map(a => a.split(" ")).flat();
-      currentTime.setHours(parseInt(timeCT[0]));
-      currentTime.setMinutes(parseInt(timeCT[1]));
-    };
-    
     updateTimeAssigned();
     updateCurrentTime();
 
@@ -71,7 +37,40 @@ const DailyGoals: FC<IGoalsProps> = ({
 
     return () => clearTimeout(action);
   }, [currentTime, hour, title]);
-  
+
+  const updateTimeAssigned = (): void => {
+    const timeA = hour.split(":").map(a => a.split(" ")).flat();
+    if (timeA.length > 3) {
+      timeA[6] === "pm" ? 
+        timeAssigned.setHours(
+          parseInt(timeA[4]) !== 12 ? 
+            parseInt(timeA[4]) + 12 : 
+            parseInt(timeA[4])
+        )
+        : timeAssigned.setHours(parseInt(timeA[4])); 
+      timeAssigned.setMinutes(parseInt(timeA[5]));
+    } else {
+      timeA[2] === "pm" ? 
+        timeAssigned.setHours(
+          parseInt(timeA[0]) !== 12 ? 
+            parseInt(timeA[0]) + 12 : 
+            parseInt(timeA[0]))
+        : timeAssigned.setHours(parseInt(timeA[0]));
+      timeAssigned.setMinutes(parseInt(timeA[1]));
+    }
+  };
+
+  const updateCurrentTime = (): void => {
+    const options: Intl.DateTimeFormatOptions = {
+      hour12: false,
+      timeZone: "America/Bogota",
+    };
+
+    const CT = new Date().toLocaleTimeString("en-US", options);
+    const timeCT = CT.split(":").map(a => a.split(" ")).flat();
+    currentTime.setHours(parseInt(timeCT[0]));
+    currentTime.setMinutes(parseInt(timeCT[1]));
+  };
 
   const style: ImageStyle = img != imgs.diseaseRegister ? {
     marginBottom: "auto",
@@ -87,6 +86,10 @@ const DailyGoals: FC<IGoalsProps> = ({
     borderColor: "red",
     borderStyle: "solid",
     borderWidth: 1,
+  } : {};
+
+  const styleElipse: ViewStyle = activeCheck ? {
+    backgroundColor: colors.BLUE_PURPLE,
   } : {};
 
   const styleTextPassed: TextStyle = timePassed && !activeCheck ? {
@@ -108,7 +111,7 @@ const DailyGoals: FC<IGoalsProps> = ({
   return (
     <View style={[styles.background, styleBackground]}>
       <View style={[styles.container]}>
-        <View style={[styles.elipse]}>
+        <View style={[styles.elipse, styleElipse]}>
           <Image source={img} style={[styles.img, style]} />
         </View>
       </View>
@@ -133,10 +136,18 @@ const DailyGoals: FC<IGoalsProps> = ({
       </View>
       <View style={[styles.checkBox]}>
         <TouchableOpacity onPress={ handleSwitchActiveCheck }>
-          <CheckBox onChange={ handleSwitchActiveCheck }/>
+          <CheckBox 
+            active={activeCheck}
+            isInfoRegistered={activeTensionRegister}
+            onChange={ handleSwitchActiveCheck } 
+          />
         </TouchableOpacity>
       </View>
-      <Tension setVisible={ handleSwitch } visible={tensionVisible} />
+      <Tension 
+        completeRegister={ handleSwitchActiveCheck }
+        setVisible={ handleSwitch } 
+        visible={tensionVisible} 
+      />
     </View>
   );
 };
