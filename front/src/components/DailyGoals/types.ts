@@ -1,6 +1,7 @@
 interface IGoalsProps {
-  activeTensionRegister?: boolean;
-  hour: string;
+  type: string;
+  done: boolean;
+  hour: number;
   img?: number;
   onChange?: (val: boolean) => void;
   title: string;
