@@ -7,15 +7,16 @@ import { Image, Text, View } from "react-native";
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
 import { colors } from "styles/colors";
+import { setHourToTimeRequired } from "utils/db/formatters";
 import { Tension } from "views/Tension";
 
 import { styles } from "./styles";
 import type { IGoalsProps } from "./types";
 
 const DailyGoals: FC<IGoalsProps> = ({ 
-  activeTensionRegister = false,
+  type,
+  done,
   hour, 
-  img = imgs.diseaseRegister,
   onChange,
   title  
 }: IGoalsProps): JSX.Element => {
@@ -23,11 +24,20 @@ const DailyGoals: FC<IGoalsProps> = ({
   const [timeAssigned] = useState(new Date());
   const [tensionVisible, setTensionVisible] = useState(false);
   const [timePassed, setTimePassed] = useState(false);
-  const [activeCheck, setActiveCheck] = useState(false);
+  const [activeCheck, setActiveCheck] = useState(done);
 
   useEffect(() => {
-    updateTimeAssigned();
     updateCurrentTime();
+    const time = setHourToTimeRequired(hour);
+
+    const timeA = time.split(":").map(a => a.split(" ")).flat();
+
+    timeAssigned.setHours(parseInt(timeA[0]) !== 12  ? 
+      timeA[2] === "PM" ? 
+        parseInt(timeA[0]) + 12 : parseInt(timeA[0])
+      : parseInt(timeA[0])
+    );
+    timeAssigned.setMinutes(parseInt(timeA[1]));
 
     const timer = timeAssigned.getTime() - currentTime.getTime();
 
@@ -38,27 +48,6 @@ const DailyGoals: FC<IGoalsProps> = ({
     return () => clearTimeout(action);
   }, [currentTime, hour, title]);
 
-  const updateTimeAssigned = (): void => {
-    const timeA = hour.split(":").map(a => a.split(" ")).flat();
-    if (timeA.length > 3) {
-      timeA[6] === "pm" ? 
-        timeAssigned.setHours(
-          parseInt(timeA[4]) !== 12 ? 
-            parseInt(timeA[4]) + 12 : 
-            parseInt(timeA[4])
-        )
-        : timeAssigned.setHours(parseInt(timeA[4])); 
-      timeAssigned.setMinutes(parseInt(timeA[5]));
-    } else {
-      timeA[2] === "pm" ? 
-        timeAssigned.setHours(
-          parseInt(timeA[0]) !== 12 ? 
-            parseInt(timeA[0]) + 12 : 
-            parseInt(timeA[0]))
-        : timeAssigned.setHours(parseInt(timeA[0]));
-      timeAssigned.setMinutes(parseInt(timeA[1]));
-    }
-  };
 
   const updateCurrentTime = (): void => {
     const options: Intl.DateTimeFormatOptions = {
@@ -72,13 +61,13 @@ const DailyGoals: FC<IGoalsProps> = ({
     currentTime.setMinutes(parseInt(timeCT[1]));
   };
 
-  const style: ImageStyle = img != imgs.diseaseRegister ? {
+  const style: ImageStyle = type != "Record" ? {
     marginBottom: "auto",
     marginTop: "auto",
     resizeMode: "contain",
   }: { width: 38 };
 
-  const styleTitle: TextStyle = activeTensionRegister ? {
+  const styleTitle: TextStyle = type === "Record" ? {
     textDecorationLine: "underline",
   } : {};
 
@@ -112,12 +101,15 @@ const DailyGoals: FC<IGoalsProps> = ({
     <View style={[styles.background, styleBackground]}>
       <View style={[styles.container]}>
         <View style={[styles.elipse, styleElipse]}>
-          <Image source={img} style={[styles.img, style]} />
+          <Image 
+            source={type === "Record" ? imgs.diseaseRegister : imgs.pills} 
+            style={[styles.img, style]} 
+          />
         </View>
       </View>
       <View style={[styles.content]}>
         {
-          activeTensionRegister ? 
+          type === "Record" ? 
             <TouchableOpacity 
               onPress={ handleSwitch } 
               style={[styles.contentContainer]}>
@@ -126,11 +118,19 @@ const DailyGoals: FC<IGoalsProps> = ({
               >
                 {title}
               </Text>
-              <Text style={[styles.hour, styleTextPassed]}>{hour}</Text>
+              <Text 
+                style={[styles.hour, styleTextPassed]}
+              >
+                {setHourToTimeRequired(hour)}
+              </Text>
             </TouchableOpacity> : 
             <>
               <Text style={[styles.title, styleTextPassed]}>{title}</Text>
-              <Text style={[styles.hour, styleTextPassed]}>{hour}</Text>
+              <Text 
+                style={[styles.hour, styleTextPassed]}
+              >
+                {setHourToTimeRequired(hour)}
+              </Text>
             </>
         }
       </View>
@@ -138,7 +138,7 @@ const DailyGoals: FC<IGoalsProps> = ({
         <TouchableOpacity onPress={ handleSwitchActiveCheck }>
           <CheckBox 
             active={activeCheck}
-            isInfoRegistered={activeTensionRegister}
+            isInfoRegistered={type === "Record" ? true : false}
             onChange={ handleSwitchActiveCheck } 
           />
         </TouchableOpacity>
