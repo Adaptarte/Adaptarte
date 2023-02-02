@@ -9,7 +9,7 @@ import { styles } from "./styles";
 import type { IAddConsumptionProps } from "./types";
 
 const AddConsumption: FC<IAddConsumptionProps> = ({
-  onPress,
+  onPress
 }: IAddConsumptionProps): JSX.Element => {
   return (
     <Column>

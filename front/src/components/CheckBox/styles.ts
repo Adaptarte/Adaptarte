@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     height: 24,
     justifyContent: "center",
     opacity: 0.6,
-    width: 24,
-  },
+    width: 24
+  }
 });
 
 export { styles };

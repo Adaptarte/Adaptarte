@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Modal, Text, TouchableOpacity, View, } from "react-native";
+import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
 import { imgs } from "assets/imgs";
@@ -11,16 +11,12 @@ import type { TAppViewProps } from "navigation/App/types";
 import { styles } from "./styles";
 import { t } from "./translations";
 
-const Excercise: FC<TAppViewProps<"Excercise">> = ({ 
-  navigation: { canGoBack, goBack },
-}: TAppViewProps<"Excercise"> ): JSX.Element => {
-
+const Excercise: FC<TAppViewProps<"Excercise">> = ({
+  navigation: { canGoBack, goBack }
+}: TAppViewProps<"Excercise">): JSX.Element => {
   return (
-    <GestureRecognizer
-      onSwipeDown={goBack}
-      style={{ flex: 1 }}
-    >
-      <Modal 
+    <GestureRecognizer onSwipeDown={goBack} style={{ flex: 1 }}>
+      <Modal
         animationType={"slide"}
         onRequestClose={goBack}
         transparent={true}

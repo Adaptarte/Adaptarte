@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     borderRadius: 1,
     position: "absolute",
     right: 0,
-    width: 104,
+    width: 104
   },
   closeButton: {
     borderRadius: 200,
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 15,
     top: 15,
-    zIndex: 1,
+    zIndex: 1
   },
   closeImage: {
     height: 28,
@@ -24,19 +24,19 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     tintColor: colors.BLACK,
     width: 28,
-    zIndex: 0,
+    zIndex: 0
   },
   hour: {
     alignItems: "center",
     display: "flex",
     flexDirection: "row",
     position: "relative",
-    zIndex: -1,
+    zIndex: -1
   },
   inputContainer: {
     display: "flex",
     flexDirection: "row",
-    width: "100%",
+    width: "100%"
   },
   modalTension: {
     alignItems: "center",
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: "100%",
     justifyContent: "center",
-    width: "100%",
+    width: "100%"
   },
   numberInputMaximun: {
     color: "black",
@@ -53,27 +53,27 @@ const styles = StyleSheet.create({
     height: "100%",
     padding: 1.5,
     position: "absolute",
-    right: 5,
+    right: 5
   },
   sectionInput: {
-    marginBottom: 24,
+    marginBottom: 24
   },
   sectionSubtitle: {
     fontFamily: lexendFamily.SemiBold,
     fontSize: 13,
-    marginBottom: 6,
+    marginBottom: 6
   },
   sectionTitle: {
     color: colors.GLAUCOUS,
     fontFamily: lexendFamily.Bold,
     fontSize: 20,
-    marginBottom: 16,
+    marginBottom: 16
   },
   selectButton: {
     padding: -5
   },
   selectedHour: {
-    width: 75,
+    width: 75
   },
   tensionContainer: {
     backgroundColor: colors.WHITE,
@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
     height: 340,
     paddingHorizontal: 30,
     paddingVertical: 30,
-    width: 340,
-  },
+    width: 340
+  }
 });
 
 export { styles };

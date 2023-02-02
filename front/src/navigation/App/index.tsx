@@ -1,6 +1,4 @@
-import type {
-  NativeStackNavigationOptions,
-} from "@react-navigation/native-stack";
+import type { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
@@ -11,16 +9,16 @@ import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
 
 import type { IAppParams } from "./types";
-  
+
 const { Navigator, Group, Screen } = createNativeStackNavigator<IAppParams>();
 
 const screenOptions: NativeStackNavigationOptions = {
   header: Header,
-  headerShown: false,
+  headerShown: false
 };
 
 const screenModalOptions: NativeStackNavigationOptions = {
-  presentation: "transparentModal", 
+  presentation: "transparentModal"
 };
 
 const AppNavigation = (): JSX.Element => {
@@ -39,5 +37,5 @@ const AppNavigation = (): JSX.Element => {
     </Navigator>
   );
 };
-  
+
 export { AppNavigation };

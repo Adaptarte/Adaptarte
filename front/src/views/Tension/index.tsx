@@ -1,12 +1,6 @@
 import type { FC } from "react";
 import React, { useEffect, useState } from "react";
-import { 
-  Image, 
-  Modal, 
-  Text, 
-  TouchableOpacity, 
-  View 
-} from "react-native";
+import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
 import DatePicker from "react-native-date-picker";
 
 import { imgs } from "assets/imgs";
@@ -20,9 +14,8 @@ import type { ITensionProps } from "./types";
 const Tension: FC<ITensionProps> = ({
   completeRegister,
   visible = false,
-  setVisible,
+  setVisible
 }): JSX.Element => {
-
   const [isEnabled, setIsEnabled] = useState(false);
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
@@ -36,17 +29,19 @@ const Tension: FC<ITensionProps> = ({
   const updateCurrentTime = (): void => {
     const options: Intl.DateTimeFormatOptions = {
       hour12: false,
-      timeZone: "America/Bogota",
+      timeZone: "America/Bogota"
     };
 
     const CT = new Date().toLocaleTimeString("en-US", options);
-    const timeCT = CT.split(":").map(a => a.split(" ")).flat();
+    const timeCT = CT.split(":")
+      .map((a) => a.split(" "))
+      .flat();
     date.setHours(parseInt(timeCT[0]));
     date.setMinutes(parseInt(timeCT[1]));
   };
 
   const toggleSwitch = (): void => {
-    setIsEnabled(previousState => !previousState);
+    setIsEnabled((previousState) => !previousState);
     !isEnabled ? updateCurrentTime() : null;
   };
 
@@ -70,17 +65,14 @@ const Tension: FC<ITensionProps> = ({
     >
       <View style={styles.modalTension}>
         <View style={styles.tensionContainer}>
-          <TouchableOpacity 
-            onPress={ setVisible } 
-            style={styles.closeButton}
-          >
+          <TouchableOpacity onPress={setVisible} style={styles.closeButton}>
             <Image source={imgs.close} style={styles.closeImage} />
           </TouchableOpacity>
           <Text style={styles.sectionTitle}>{"Registro de Tensión"}</Text>
           <View style={styles.sectionInput}>
             <Text style={styles.sectionSubtitle}>{"Presión diastólica"}</Text>
             <View style={styles.inputContainer}>
-              <Input 
+              <Input
                 keyboardType={"numeric"}
                 onChange={(value: React.SetStateAction<string>): void => {
                   setDiastolicP(value);
@@ -93,7 +85,7 @@ const Tension: FC<ITensionProps> = ({
           <View style={styles.sectionInput}>
             <Text style={styles.sectionSubtitle}>{"Presión sistólica"}</Text>
             <View style={styles.inputContainer}>
-              <Input 
+              <Input
                 keyboardType={"numeric"}
                 maxLength={3}
                 onChange={(value: React.SetStateAction<string>): void => {
@@ -106,21 +98,18 @@ const Tension: FC<ITensionProps> = ({
           </View>
           <View style={styles.hour}>
             <Text style={styles.sectionSubtitle}>{"Hora actual"}</Text>
-            <Switch 
-              isEnabled={isEnabled}
-              onChange={toggleSwitch}
-            />
+            <Switch isEnabled={isEnabled} onChange={toggleSwitch} />
           </View>
           <View style={styles.selectedHour}>
-            <Button 
-              onPress={openDatePicker} 
-              style={styles.selectButton} 
+            <Button
+              onPress={openDatePicker}
+              style={styles.selectButton}
               variant={"outline"}
             >
-              {date.toLocaleString("en-US", { 
-                hour: "numeric", 
+              {date.toLocaleString("en-US", {
+                hour: "numeric",
                 hour12: true,
-                minute: "numeric", 
+                minute: "numeric"
               })}
             </Button>
             <DatePicker
@@ -138,7 +127,7 @@ const Tension: FC<ITensionProps> = ({
             />
           </View>
           <View>
-            <Button 
+            <Button
               color={"BLUE_PURPLE"}
               onPress={checkInputs}
               style={styles.buttonContainer}

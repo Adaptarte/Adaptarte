@@ -2,37 +2,39 @@ module.exports = {
   env: {
     amd: true,
     browser: true,
+    jest: true,
     node: true,
+    "react-native/react-native": true
   },
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react/recommended",
+    "plugin:react/recommended"
   ],
   globals: {
+    JSX: "readonly",
     module: true,
-    window: true,
+    window: true
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {
-      "jsx": true,
+      jsx: true
     },
+    ecmaVersion: "latest",
     project: ["./tsconfig.json"],
     sourceType: "module",
-    tsconfigRootDir: __dirname,
+    tsconfigRootDir: __dirname
   },
   plugins: [
     "@typescript-eslint",
     "react",
-    "simple-import-sort",
+    "react-native",
+    "simple-import-sort"
   ],
   root: true,
   rules: {
-    "eol-last": ["error", "always"],
-    quotes: ["error", "double"],
-    semi: ["error", "always"],
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": "error",
     "@typescript-eslint/ban-types": "error",
@@ -48,13 +50,8 @@ module.exports = {
     "@typescript-eslint/member-ordering": [
       "error",
       {
-        "default": [
-          "signature",
-          "field",
-          "constructor",
-          "method",
-        ],
-      },
+        default: ["signature", "field", "constructor", "method"]
+      }
     ],
     "@typescript-eslint/method-signature-style": ["error", "property"],
     "@typescript-eslint/no-base-to-string": "error",
@@ -93,36 +90,27 @@ module.exports = {
     "comma-spacing": [
       "error",
       {
-        "after": true,
-        "before": false,
-      },
+        after: true,
+        before: false
+      }
     ],
-    "indent": ["error", 2],
-    "max-len": [
-      "error",
-      {
-        "code": 80,
-      },
-    ],
+    "eol-last": ["error", "always"],
     "max-lines": [
       "error",
       {
-        "max": 200,
-        "skipBlankLines": false,
-        "skipComments": false,
-      },
+        max: 200,
+        skipBlankLines: false,
+        skipComments: false
+      }
     ],
-    "no-restricted-syntax": [
-      "error",
-      "ExportDefaultDeclaration",
-    ],
+    "no-restricted-syntax": ["error", "ExportDefaultDeclaration"],
     "object-curly-spacing": [
       "error",
       "always",
       {
-        "arraysInObjects": true,
-        "objectsInObjects": true,
-      },
+        arraysInObjects: true,
+        objectsInObjects: true
+      }
     ],
     "react/jsx-curly-brace-presence": [
       "error",
@@ -135,22 +123,23 @@ module.exports = {
       "error",
       2,
       {
-        "checkAttributes": true,
-        "indentLogicalExpressions": true,
-      },
+        checkAttributes: true,
+        indentLogicalExpressions: true
+      }
     ],
     "react/jsx-indent-props": ["error", 2],
     "react/jsx-max-depth": [
-      "error", {
-        "max": 5,
-      },
+      "error",
+      {
+        max: 5
+      }
     ],
     "react/jsx-no-literals": "error",
     "react/jsx-one-expression-per-line": [
       "error",
       {
-        "allow": "single-child",
-      },
+        allow: "single-child"
+      }
     ],
     "react/jsx-sort-props": "error",
     "react/jsx-uses-react": "error",
@@ -159,59 +148,59 @@ module.exports = {
     "react/no-multi-comp": [
       "error",
       {
-        "ignoreStateless": false,
-      },
+        ignoreStateless: false
+      }
     ],
     "react/jsx-no-useless-fragment": [
       "error",
       {
-        "allowExpressions": true,
-      },
+        allowExpressions: true
+      }
     ],
     "react/react-in-jsx-scope": "error",
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [
+        groups: [
           // Side effect imports
           ["^\\u0000"],
-          // Node.js builtins
+          // Node.js built-ins
           ["^node:"],
           // External packages
           ["^@?\\w"],
           // Internal packages
           ["^(assets|components|navigation|styles|types|utils|views)"],
           // Relative imports
-          ["^\\."],
-        ],
-      },
+          ["^\\."]
+        ]
+      }
     ],
     "sort-imports": [
       "error",
       {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true,
-        "ignoreMemberSort": false,
-        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"],
-      },
+        ignoreCase: true,
+        ignoreDeclarationSort: true,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ["none", "all", "multiple", "single"]
+      }
     ],
     "sort-keys": ["error", "asc"],
     "sort-vars": [
       "error",
       {
-        "ignoreCase": true,
-      },
-    ],
+        ignoreCase: true
+      }
+    ]
   },
   settings: {
     "import/resolver": {
       node: {
-        paths: ["src"],
         extensions: [".ts", ".tsx"],
-      },
+        paths: ["src"]
+      }
     },
     react: {
-      version: "detect",
-    },
-  },
+      version: "detect"
+    }
+  }
 };

@@ -8,17 +8,17 @@ import { Row } from "components/Grid";
 import type { IDailyHabitsProps } from "./types";
 
 const DailyHabits: FC<IDailyHabitsProps> = ({
-  navigate,
+  navigate
 }: IDailyHabitsProps): JSX.Element => {
   const goToExcercise = useCallback((): void => {
     navigate("Excercise");
   }, [navigate]);
-  
+
   const goToFeeding = useCallback((): void => {
     navigate("Feeding");
   }, [navigate]);
 
-  return(
+  return (
     <Row columns={2}>
       <Card
         bgColor={"ORANGE_TRANSLUCID"}

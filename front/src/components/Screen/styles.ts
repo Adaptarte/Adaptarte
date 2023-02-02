@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.LIGHT,
     height: "100%",
     padding: 16,
-    width: "100%",
-  },
+    width: "100%"
+  }
 });
 
 export { styles };

@@ -15,7 +15,7 @@ import { styles } from "./styles";
 import { t } from "./translations";
 
 const Feeding: FC<TAppViewProps<"Feeding">> = ({
-  navigation: { navigate },
+  navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const handleAddLiquid = useCallback(() => {
     navigate("Consumption", { category: "liquids" });

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingVertical: 3,
     textAlign: "left",
-    width: "90%",
+    width: "90%"
   },
   numberInputContainer: {
     backgroundColor: colors.LIGHT,
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     height: 26,
     padding: 0,
     paddingHorizontal: 10,
-    width: "100%",
-  },
+    width: "100%"
+  }
 });
 
 export { styles };

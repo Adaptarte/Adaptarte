@@ -5,18 +5,18 @@ const liquids: IFood[] = [
   {
     category: "liquids",
     image: imgs.water,
-    name: "Agua",
+    name: "Agua"
   },
   {
     category: "liquids",
     image: imgs.juice,
-    name: "Jugo",
+    name: "Jugo"
   },
   {
     category: "liquids",
     image: imgs.milk,
-    name: "Leche",
-  },
+    name: "Leche"
+  }
 ];
 
 export { liquids };

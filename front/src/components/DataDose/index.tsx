@@ -9,7 +9,7 @@ import type { IDataDoseProps } from "./types";
 
 const DataDose: FC<IDataDoseProps> = ({
   hour,
-  title,
+  title
 }: IDataDoseProps): JSX.Element => {
   return (
     <View style={styles.container}>

@@ -9,7 +9,7 @@ import type { IFoodCardProps } from "./types";
 
 const FoodCard: FC<IFoodCardProps> = ({
   image,
-  name,
+  name
 }: IFoodCardProps): JSX.Element => {
   return (
     <Column>
