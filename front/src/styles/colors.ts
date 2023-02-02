@@ -1,20 +1,21 @@
-type TColor = "BLACK" |
-  "BLACK_OPACITY" |
-  "BLUE" | 
-  "BLUE_PURPLE" |
-  "BLUE_TRANSLUCID" | 
-  "GLAUCOUS" |
-  "GREEN" | 
-  "GREEN_TRANSLUCID" | 
-  "GREY" |
-  "LIGHT" | 
-  "ORANGE" | 
-  "ORANGE_TRANSLUCID" | 
-  "PURPLE" | 
-  "PURPLE_TRANSLUCID" | 
-  "TRANSPARENT" |
-  "WHITE" |
-  "YELLOW";
+type TColor =
+  | "BLACK"
+  | "BLACK_OPACITY"
+  | "BLUE"
+  | "BLUE_PURPLE"
+  | "BLUE_TRANSLUCID"
+  | "GLAUCOUS"
+  | "GREEN"
+  | "GREEN_TRANSLUCID"
+  | "GREY"
+  | "LIGHT"
+  | "ORANGE"
+  | "ORANGE_TRANSLUCID"
+  | "PURPLE"
+  | "PURPLE_TRANSLUCID"
+  | "TRANSPARENT"
+  | "WHITE"
+  | "YELLOW";
 
 const colors: Record<TColor, string> = {
   BLACK: "#575757",
@@ -33,7 +34,7 @@ const colors: Record<TColor, string> = {
   PURPLE_TRANSLUCID: "#9B28AD4D",
   TRANSPARENT: "#FFF0",
   WHITE: "#FFF",
-  YELLOW: "#FFEFCA",
+  YELLOW: "#FFEFCA"
 };
 
 export { colors };

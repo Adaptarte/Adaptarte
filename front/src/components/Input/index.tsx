@@ -9,11 +9,11 @@ const Input: FC<IInputProps> = ({
   keyboardType = "default",
   maxLength = 2,
   onChange,
-  value,
+  value
 }: IInputProps): JSX.Element => {
   return (
     <View style={styles.numberInputContainer}>
-      <TextInput 
+      <TextInput
         keyboardType={keyboardType}
         maxLength={maxLength}
         onChangeText={onChange}

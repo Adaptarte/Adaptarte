@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     paddingVertical: 8,
     textAlign: "center",
-    textAlignVertical: "center",
-  },
+    textAlignVertical: "center"
+  }
 });
 
 export { styles };

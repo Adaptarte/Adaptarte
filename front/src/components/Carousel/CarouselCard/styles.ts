@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
-    width: "90%",
+    width: "90%"
   },
   checkContainer: {
     borderColor: colors.WHITE,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     padding: 5,
     textAlign: "center",
-    width: 107,
+    width: 107
   },
   checkText: {
     color: colors.WHITE,
@@ -32,30 +32,30 @@ const styles = StyleSheet.create({
     marginBottom: "auto",
     marginTop: "auto",
     textAlign: "center",
-    width: "80%",
+    width: "80%"
   },
   content: {
     color: colors.WHITE,
     fontFamily: lexendFamily.Regular,
     fontSize: 10,
-    height: 56,
+    height: 56
   },
   image: {
     height: 120,
     marginBottom: "auto",
     marginTop: "auto",
     resizeMode: "contain",
-    width: "30%",
+    width: "30%"
   },
   textContainer: {
-    width: "70%",
+    width: "70%"
   },
   title: {
     color: colors.WHITE,
     fontFamily: lexendFamily.SemiBold,
     fontSize: font.sizes[4],
     marginBottom: 5,
-    width: 200,
+    width: 200
   }
 });
 

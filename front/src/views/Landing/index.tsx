@@ -24,11 +24,11 @@ const Landing: FC<TAppViewProps<"Landing">> = ({
         </Text>
         <Image source={imgs.profile} style={styles.profile} />
       </View>
-      <DataDose 
-        hour={"8:00 am - 6:00 pm"} 
+      <DataDose
+        hour={"8:00 am - 6:00 pm"}
         title={"¡Recuerda beber 8 vasos de agua cada día!"}
       />
-      <View style={styles.container}> 
+      <View style={styles.container}>
         <Text style={styles.sectionTitle}>{"Metas diarias"}</Text>
         <DailyGoals />
         <Text style={styles.sectionTitle}>{"Hábitos diarios"}</Text>

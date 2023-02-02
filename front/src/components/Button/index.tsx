@@ -13,19 +13,24 @@ const Button: FC<IButtonProps> = ({
   color = "BLUE",
   onPress,
   style,
-  variant = "solid",
+  variant = "solid"
 }: IButtonProps): JSX.Element => {
-  const dynamicStyle: TextStyle = variant === "solid" ? {
-    backgroundColor: colors[color],
-    color: colors.WHITE,
-  } : (variant === "outline" ? {
-    borderColor: colors[color],
-    color: colors[color]
-  } : {
-    backgroundColor: colors.WHITE,
-    color: colors[color],
-    elevation: 8,
-  });
+  const dynamicStyle: TextStyle =
+    variant === "solid"
+      ? {
+          backgroundColor: colors[color],
+          color: colors.WHITE
+        }
+      : variant === "outline"
+      ? {
+          borderColor: colors[color],
+          color: colors[color]
+        }
+      : {
+          backgroundColor: colors.WHITE,
+          color: colors[color],
+          elevation: 8
+        };
 
   return (
     <TouchableOpacity activeOpacity={0.6} onPress={onPress} style={style}>

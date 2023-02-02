@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     display: "flex",
     flexBasis: 0,
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: "center"
   },
   plusImage: {
     height: 24,
     tintColor: colors.BLACK,
-    width: 24,
-  },
+    width: 24
+  }
 });
 
 export { styles };

@@ -32,16 +32,19 @@ const DailyGoals: FC = (): JSX.Element => {
       });
   }, [setTypes]);
 
-  return(
+  return (
     <View>
       {dailyGoals.map(({ done, id, time, title, type }) => (
-        <DailyGoal 
+        <DailyGoal
           done={done}
           hour={minuteToHour(time)}
           key={id}
           title={title}
-          type={types.filter((types) => types.id === parseInt(type))
-            .map((ty) => ty.name)[0]}
+          type={
+            types
+              .filter((types) => types.id === parseInt(type))
+              .map((ty) => ty.name)[0]
+          }
         />
       ))}
       {/* <DailyGoal

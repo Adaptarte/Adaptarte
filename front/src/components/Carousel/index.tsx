@@ -10,42 +10,47 @@ import { CarouselCard } from "./CarouselCard";
 import { styles } from "./styles";
 import type { ICarouselProps } from "./types";
 
-const Carousel: FC<ICarouselProps> = ({ 
-  data,
+const Carousel: FC<ICarouselProps> = ({
+  data
 }: ICarouselProps): JSX.Element => {
   const [current, setCurrent] = useState<number>(0);
 
   const style: ViewStyle = {
-    opacity: 1,
+    opacity: 1
   };
 
-  const styleCardColor: ViewStyle = data[current].background !== undefined ? {
-    backgroundColor: data[current].background,
-  } : {
-    backgroundColor: colors.ORANGE_TRANSLUCID,
-  };
+  const styleCardColor: ViewStyle =
+    data[current].background !== undefined
+      ? {
+          backgroundColor: data[current].background
+        }
+      : {
+          backgroundColor: colors.ORANGE_TRANSLUCID
+        };
 
   return (
     <View>
       <View style={[styles.cardContainer, styleCardColor]}>
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={(): void => {
-            current > 0 ? setCurrent(current - 1) : setCurrent(data.length-1);
+            current > 0 ? setCurrent(current - 1) : setCurrent(data.length - 1);
           }}
-          style={[styles.arrowContainer]}>
+          style={[styles.arrowContainer]}
+        >
           <Text style={[styles.arrow]}>{"<"}</Text>
         </TouchableOpacity>
         <CarouselCard
           complete={data[current].complete}
-          description={data[current].description} 
-          image={data[current].image} 
+          description={data[current].description}
+          image={data[current].image}
           title={data[current].title}
         />
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={(): void => {
             current < data.length - 1 ? setCurrent(current + 1) : setCurrent(0);
           }}
-          style={[styles.arrowContainer]}>
+          style={[styles.arrowContainer]}
+        >
           <Text style={[styles.arrow]}>{">"}</Text>
         </TouchableOpacity>
       </View>

@@ -10,12 +10,12 @@ import { colors } from "styles";
 import { styles } from "./styles";
 import type { ICardProps } from "./types";
 
-const Card: FC<ICardProps> = ({ 
-  bgColor, 
-  children, 
+const Card: FC<ICardProps> = ({
+  bgColor,
+  children,
   color,
   image,
-  onPress,
+  onPress
 }: ICardProps): JSX.Element => {
   return (
     <Column>
@@ -24,13 +24,14 @@ const Card: FC<ICardProps> = ({
           <CheckBox />
         </View>
         <Image source={image} style={[styles.img]} />
-        <Button 
-          color={color} 
-          onPress={onPress}  
+        <Button
+          color={color}
+          onPress={onPress}
           style={styles.button}
-          variant={"text"}>
+          variant={"text"}
+        >
           {children}
-        </Button> 
+        </Button>
       </View>
     </Column>
   );

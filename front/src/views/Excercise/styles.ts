@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 15,
     top: 15,
-    zIndex: 1,
+    zIndex: 1
   },
   closeImage: {
     height: 28,
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     tintColor: colors.ORANGE,
     width: 28,
-    zIndex: 0,
+    zIndex: 0
   },
   excercise: {
     backgroundColor: colors.WHITE,
@@ -28,28 +28,28 @@ const styles = StyleSheet.create({
     shadowColor: "#000000",
     shadowOffset: {
       height: 7,
-      width: 0,
+      width: 0
     },
-    shadowOpacity:  0.21,
+    shadowOpacity: 0.21,
     shadowRadius: 7.68,
-    width: "100%",
+    width: "100%"
   },
   excerciseText: {
     color: colors.BLACK,
     fontFamily: lexendFamily.Regular,
     fontSize: 12,
-    marginBottom: 12,
+    marginBottom: 12
   },
   excerciseTitle: {
     color: colors.ORANGE,
     fontFamily: lexendFamily.Bold,
     fontSize: font.sizes[3],
-    marginBottom: 8,
+    marginBottom: 8
   },
   modalExercise: {
     flex: 1,
-    justifyContent: "flex-end",
-  },
+    justifyContent: "flex-end"
+  }
 });
 
 export { styles };

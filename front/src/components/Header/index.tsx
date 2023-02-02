@@ -9,7 +9,7 @@ import { styles } from "./styles";
 
 const Header: FC<NativeStackHeaderProps> = ({
   navigation: { canGoBack, goBack },
-  options: { headerTitle },
+  options: { headerTitle }
 }: NativeStackHeaderProps) => {
   return (
     <View style={styles.container}>
@@ -18,7 +18,7 @@ const Header: FC<NativeStackHeaderProps> = ({
           <Image source={imgs.back} style={styles.backImage} />
         </TouchableOpacity>
       ) : undefined}
-      {typeof(headerTitle) === "string" ? (
+      {typeof headerTitle === "string" ? (
         <Text style={styles.title}>{headerTitle}</Text>
       ) : undefined}
     </View>

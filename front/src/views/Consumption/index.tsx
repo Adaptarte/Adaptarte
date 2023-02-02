@@ -14,21 +14,23 @@ import { styles } from "./styles";
 import { t } from "./translations";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
-  navigation: { canGoBack, goBack },
+  navigation: { canGoBack, goBack }
 }: TAppViewProps<"Consumption">): JSX.Element => {
   return (
     <Screen style={{ backgroundColor: colors.WHITE }}>
       <Text style={styles.title}>{t().title}</Text>
       <Row columns={3}>
-        {liquids.map((el): JSX.Element => (
-          <Column key={el.name}>
-            <Image source={el.image} style={styles.foodImage} />
-            <Text style={styles.foodName}>{el.name}</Text>
-            <TouchableOpacity style={styles.foodAddButton}>
-              <Image source={imgs.plus} style={styles.foodAddImage} />
-            </TouchableOpacity>
-          </Column>
-        ))}
+        {liquids.map(
+          (el): JSX.Element => (
+            <Column key={el.name}>
+              <Image source={el.image} style={styles.foodImage} />
+              <Text style={styles.foodName}>{el.name}</Text>
+              <TouchableOpacity style={styles.foodAddButton}>
+                <Image source={imgs.plus} style={styles.foodAddImage} />
+              </TouchableOpacity>
+            </Column>
+          )
+        )}
       </Row>
       {canGoBack() ? (
         <Button

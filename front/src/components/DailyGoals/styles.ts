@@ -21,27 +21,27 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       height: 5,
-      width: 0,
+      width: 0
     },
     shadowOpacity: 0.34,
     shadowRadius: 6.27,
-    width: "100%",
+    width: "100%"
   },
   checkBox: {
-    marginLeft: "6%", 
+    marginLeft: "6%",
     marginRight: "auto",
     position: "relative",
-    width: "15%", 
-    zIndex: -1,
+    width: "15%",
+    zIndex: -1
   },
   container: {
-    width: "25%",
+    width: "25%"
   },
   content: {
-    width: "55%",
+    width: "55%"
   },
   contentContainer: {
-    width: "100%",
+    width: "100%"
   },
   elipse: {
     backgroundColor: colors.PURPLE_TRANSLUCID,
@@ -49,26 +49,26 @@ const styles = StyleSheet.create({
     height: 50,
     marginLeft: "auto",
     marginRight: "auto",
-    width: 50,
+    width: 50
   },
   hour: {
     color: colors.BLACK,
     fontFamily: lexendFamily.Light,
-    fontSize: 10,
+    fontSize: 10
   },
   img: {
     height: 54,
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: 6,
-    width: 38,
+    width: 38
   },
   title: {
     color: colors.BLACK,
     fontFamily: lexendFamily.Bold,
     fontSize: 13,
-    whiteSpace: "initial",
-  },
+    whiteSpace: "initial"
+  }
 });
 
 export { styles };
