@@ -38,6 +38,37 @@ connection.commit()
 
 
 """
+INSERT INITIAL DATA
+"""
+
+insert_table(
+    "Food",
+    ["name", "type"],
+    [
+        ["Bread", 1],
+        ["Potato", 1],
+        ["Rice", 1],
+
+        ["Cheese", 2],
+        ["Milk", 2],
+        ["Yogurt", 2],
+
+        ["Pineapple", 3],
+        ["Watermelon", 3],
+
+        ["Chocolate", 4],
+        ["Coffee", 4],
+        ["Juice", 4],
+        ["Other", 4],
+        ["Tea", 4],
+        ["Water", 4],
+        ["Wine", 4],
+    ]
+)
+connection.commit()
+
+
+"""
 INSERT SAMPLE DATA
 """
 
