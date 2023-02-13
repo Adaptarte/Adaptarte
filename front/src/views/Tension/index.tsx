@@ -60,7 +60,7 @@ const Tension: FC<ITensionProps> = ({
     <Modal
       animationType={"none"}
       onRequestClose={setVisible}
-      transparent={true}
+      transparent
       visible={visible}
     >
       <View style={styles.modalTension}>

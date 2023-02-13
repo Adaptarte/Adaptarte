@@ -1,4 +1,4 @@
-type TVariant = "rounde" | "circle";
+type TVariant = "circle" | "rounde";
 
 interface ICheckBoxProps {
   active?: boolean;

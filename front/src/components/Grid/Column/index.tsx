@@ -1,6 +1,5 @@
 import type { FC } from "react";
-import { useContext } from "react";
-import React from "react";
+import React, { useContext } from "react";
 import { View } from "react-native";
 
 import { RowContext } from "../Row";

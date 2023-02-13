@@ -1,4 +1,4 @@
-type DailyGoalType = "Record" | "Pill";
+type DailyGoalType = "Pill" | "Record";
 
 interface IDailyGoal {
   done: boolean;

@@ -1,4 +1,4 @@
-type TFoodCategory = "liquids" | "carbs" | "fruitsAndVegetables" | "dairy";
+type TFoodCategory = "carbs" | "dairy" | "fruitsAndVegetables" | "liquids";
 
 interface IFood {
   category: TFoodCategory;

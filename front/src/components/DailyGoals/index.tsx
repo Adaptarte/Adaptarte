@@ -1,8 +1,7 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
-import { TouchableOpacity } from "react-native";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
@@ -50,7 +49,9 @@ const DailyGoals: FC<IGoalsProps> = ({
       setTimePassed(true);
     }, timer);
 
-    return () => clearTimeout(action);
+    return () => {
+      clearTimeout(action);
+    };
   }, [currentTime, hour, title]);
 
   const updateCurrentTime = (): void => {
@@ -68,7 +69,7 @@ const DailyGoals: FC<IGoalsProps> = ({
   };
 
   const style: ImageStyle =
-    type != "Record"
+    type !== "Record"
       ? {
           marginBottom: "auto",
           marginTop: "auto",
@@ -153,7 +154,7 @@ const DailyGoals: FC<IGoalsProps> = ({
         <TouchableOpacity onPress={handleSwitchActiveCheck}>
           <CheckBox
             active={activeCheck}
-            isInfoRegistered={type === "Record" ? true : false}
+            isInfoRegistered={type === "Record"}
             onChange={handleSwitchActiveCheck}
           />
         </TouchableOpacity>
