@@ -1,8 +1,7 @@
 import type { FC } from "react";
 import React, { useState } from "react";
 import type { ViewStyle } from "react-native";
-import { Text, TouchableOpacity } from "react-native";
-import { View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 
 import { colors } from "styles";
 

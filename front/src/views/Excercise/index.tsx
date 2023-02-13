@@ -19,8 +19,8 @@ const Excercise: FC<TAppViewProps<"Excercise">> = ({
       <Modal
         animationType={"slide"}
         onRequestClose={goBack}
-        transparent={true}
-        visible={true}
+        transparent
+        visible
       >
         <View style={styles.modalExercise}>
           <View style={styles.excercise}>
