@@ -1,79 +1,51 @@
 import type { FC } from "react";
 import React, { useCallback, useState } from "react";
-import type { TextStyle } from "react-native";
 import { Text, TouchableOpacity } from "react-native";
 
 import { colors } from "styles";
+import type { VarStyle } from "styles/types";
 
 import { styles } from "./styles";
-import type { ICheckBoxProps } from "./types";
+import type { CheckBoxProps, CheckBoxVariant } from "./types";
 
-const CheckBox: FC<ICheckBoxProps> = ({
-  active = false,
+const CheckBox: FC<CheckBoxProps> = ({
   isChecked = false,
-  isInfoRegistered = false,
   onChange,
-  variant = "rounde"
-}: ICheckBoxProps): JSX.Element => {
+  variant = "rounded"
+}: CheckBoxProps): JSX.Element => {
   const [value, setValue] = useState(isChecked);
 
-  const style =
-    variant === "circle"
-      ? {
-          borderColor: colors.WHITE,
-          borderRadius: 20,
-          height: 15,
-          width: 15
-        }
-      : null;
+  const containerVarStyle: VarStyle<CheckBoxVariant> = {
+    circle: {
+      borderColor: isChecked ? colors.ORANGE : colors.WHITE,
+      borderRadius: 12
+    },
+    rounded: {
+      borderColor: isChecked ? colors.GREEN : undefined
+    }
+  };
 
-  const textStyle: TextStyle =
-    variant === "circle"
-      ? {
-          color: colors.ORANGE,
-          fontSize: 8
-        }
-      : {};
-
-  const containerStyleActive =
-    variant === "circle"
-      ? {
-          borderColor: colors.ORANGE
-        }
-      : {};
-
-  const containerStyleAct = value
-    ? {
-        borderColor: colors.GREEN,
-        color: colors.GREEN
-      }
-    : null;
+  const checkVarStyle: VarStyle<CheckBoxVariant> = {
+    circle: {
+      color: colors.ORANGE
+    },
+    rounded: {}
+  };
 
   const handleSwitch = useCallback((): void => {
-    if (!isInfoRegistered) {
-      const newValue = !value;
-      onChange?.(newValue);
-      setValue(newValue);
-    }
+    const newValue = !value;
+    onChange?.(newValue);
+    setValue(newValue);
   }, [setValue, value]);
 
   return (
     <TouchableOpacity
       onPress={handleSwitch}
-      style={[
-        styles.container,
-        containerStyleAct,
-        style,
-        active ? containerStyleActive : null
-      ]}
+      style={[styles.container, containerVarStyle[variant]]}
     >
-      {variant === "rounde" ? (
-        <Text style={[textStyle, containerStyleAct]}>
-          {isInfoRegistered ? (active ? "✓" : " ") : value ? "✓" : " "}
-        </Text>
-      ) : (
-        <Text style={textStyle}>{active ? "✓" : " "}</Text>
-      )}
+      <Text style={[styles.check, checkVarStyle[variant]]}>
+        {value ? "✓" : " "}
+      </Text>
     </TouchableOpacity>
   );
 };

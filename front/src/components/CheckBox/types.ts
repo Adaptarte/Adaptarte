@@ -1,11 +1,9 @@
-type TVariant = "circle" | "rounde";
+type CheckBoxVariant = "circle" | "rounded";
 
-interface ICheckBoxProps {
-  active?: boolean;
+interface CheckBoxProps {
   isChecked?: boolean;
-  isInfoRegistered?: boolean;
   onChange?: (val: boolean) => void;
-  variant?: TVariant;
+  variant?: CheckBoxVariant;
 }
 
-export type { ICheckBoxProps };
+export type { CheckBoxProps, CheckBoxVariant };
