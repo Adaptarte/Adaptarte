@@ -10,20 +10,25 @@ import { setHourToTimeRequired } from "utils/db/formatters";
 import { Tension } from "views/Tension";
 
 import { styles } from "./styles";
-import type { IGoalsProps } from "./types";
+import type { IGoalProps } from "./types";
 
-const DailyGoals: FC<IGoalsProps> = ({
+const DailyGoal: FC<IGoalProps> = ({
   type,
   done,
   hour,
   onChange,
   title
-}: IGoalsProps): JSX.Element => {
-  const [currentTime] = useState(new Date());
-  const [timeAssigned] = useState(new Date());
+}: IGoalProps): JSX.Element => {
   const [tensionVisible, setTensionVisible] = useState(false);
   const [timePassed, setTimePassed] = useState(false);
-  const [activeCheck, setActiveCheck] = useState(done);
+  const [isChecked, setIsChecked] = useState(done);
+
+  const handleRegistryCompleted = useCallback(() => {
+    setIsChecked(true);
+  }, [setIsChecked]);
+
+  const currentTime = new Date();
+  const timeAssigned = new Date();
 
   useEffect(() => {
     updateCurrentTime();
@@ -85,7 +90,7 @@ const DailyGoals: FC<IGoalsProps> = ({
       : {};
 
   const styleBackground: ViewStyle =
-    timePassed && !activeCheck
+    timePassed && !isChecked
       ? {
           borderColor: "red",
           borderStyle: "solid",
@@ -93,14 +98,14 @@ const DailyGoals: FC<IGoalsProps> = ({
         }
       : {};
 
-  const styleElipse: ViewStyle = activeCheck
+  const styleElipse: ViewStyle = isChecked
     ? {
         backgroundColor: colors.BLUE_PURPLE
       }
     : {};
 
   const styleTextPassed: TextStyle =
-    timePassed && !activeCheck
+    timePassed && !isChecked
       ? {
           color: "red"
         }
@@ -111,12 +116,6 @@ const DailyGoals: FC<IGoalsProps> = ({
     onChange?.(newValue);
     setTensionVisible(newValue);
   }, [setTensionVisible, tensionVisible]);
-
-  const handleSwitchActiveCheck = useCallback((): void => {
-    const newValue = !activeCheck;
-    onChange?.(newValue);
-    setActiveCheck(newValue);
-  }, [setActiveCheck, activeCheck]);
 
   return (
     <View style={[styles.background, styleBackground]}>
@@ -151,15 +150,10 @@ const DailyGoals: FC<IGoalsProps> = ({
         )}
       </View>
       <View style={[styles.checkBox]}>
-        <TouchableOpacity onPress={handleSwitchActiveCheck}>
-          <CheckBox
-            isChecked={activeCheck}
-            onChange={handleSwitchActiveCheck}
-          />
-        </TouchableOpacity>
+        <CheckBox isChecked={isChecked} onChange={setIsChecked} />
       </View>
       <Tension
-        completeRegister={handleSwitchActiveCheck}
+        completeRegister={handleRegistryCompleted}
         setVisible={handleSwitch}
         visible={tensionVisible}
       />
@@ -167,4 +161,4 @@ const DailyGoals: FC<IGoalsProps> = ({
   );
 };
 
-export { DailyGoals };
+export { DailyGoal };

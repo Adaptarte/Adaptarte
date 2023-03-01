@@ -1,4 +1,4 @@
-interface IGoalsProps {
+interface IGoalProps {
   type: string;
   done: boolean;
   hour: number;
@@ -7,4 +7,4 @@ interface IGoalsProps {
   title: string;
 }
 
-export type { IGoalsProps };
+export type { IGoalProps };

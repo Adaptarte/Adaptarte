@@ -2,7 +2,7 @@ import type { FC } from "react";
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 
-import { DailyGoals as DailyGoal } from "components/DailyGoals";
+import { DailyGoal } from "components/DailyGoal";
 import type { IDailyGoal, IDailyGoalType } from "types/dailyGoals";
 import { minuteToHour } from "utils/db/formatters";
 import { getDB, read } from "utils/db/service";
