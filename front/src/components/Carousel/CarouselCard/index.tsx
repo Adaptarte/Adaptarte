@@ -47,7 +47,6 @@ const CarouselCard: FC<ICarouselCardProps> = ({
             {check ? "Completado" : "Por completar"}
           </Text>
           <CheckBox
-            active={check}
             isChecked={check}
             onChange={handleSwitch}
             variant={"circle"}

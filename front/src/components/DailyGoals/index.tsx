@@ -153,8 +153,7 @@ const DailyGoals: FC<IGoalsProps> = ({
       <View style={[styles.checkBox]}>
         <TouchableOpacity onPress={handleSwitchActiveCheck}>
           <CheckBox
-            active={activeCheck}
-            isInfoRegistered={type === "Record"}
+            isChecked={activeCheck}
             onChange={handleSwitchActiveCheck}
           />
         </TouchableOpacity>

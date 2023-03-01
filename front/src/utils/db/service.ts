@@ -2,7 +2,7 @@ import type {
   DatabaseParams,
   SQLiteDatabase
 } from "react-native-sqlite-storage";
-import { openDatabase } from "react-native-sqlite-storage";
+import { DEBUG, openDatabase } from "react-native-sqlite-storage";
 
 import type { IDatabaseOptions } from "./types";
 
@@ -18,6 +18,8 @@ const params: DatabaseParams = {
   readOnly: false
 };
 
+DEBUG(true);
+
 const getDB = (): SQLiteDatabase =>
   openDatabase(
     params,
@@ -27,7 +29,7 @@ const getDB = (): SQLiteDatabase =>
       }
     },
     (err) => {
-      console.error(`Error opening DB: ${err.message}`);
+      console.error(err.message);
     }
   );
 

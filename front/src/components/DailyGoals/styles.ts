@@ -66,8 +66,7 @@ const styles = StyleSheet.create({
   title: {
     color: colors.BLACK,
     fontFamily: lexendFamily.Bold,
-    fontSize: 13,
-    whiteSpace: "initial"
+    fontSize: 13
   }
 });
 
