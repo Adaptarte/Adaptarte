@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Text, TouchableOpacity } from "react-native";
 
 import { colors } from "styles";
@@ -14,6 +14,12 @@ const CheckBox: FC<CheckBoxProps> = ({
   variant = "rounded"
 }: CheckBoxProps): JSX.Element => {
   const [value, setValue] = useState(isChecked);
+
+  useEffect(() => {
+    if (isChecked !== value) {
+      setValue(isChecked);
+    }
+  }, [isChecked, setValue, value]);
 
   const containerVarStyle: VarStyle<CheckBoxVariant> = {
     circle: {
