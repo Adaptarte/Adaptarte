@@ -10,23 +10,20 @@ import { getDB, read } from "utils/db/service";
 const DailyGoals: FC = (): JSX.Element => {
   const [dailyGoals, setDailyGoals] = useState<IDailyGoal[]>([]);
   const [types, setTypes] = useState<IDailyGoalType[]>([]);
-  const db = getDB();
 
   useEffect(() => {
+    const db = getDB();
     read<IDailyGoal>(db, "Select * from DailyGoals")
-      .then((data) => {
-        setDailyGoals(data);
-      })
+      .then(setDailyGoals)
       .catch((err) => {
         console.error(err);
       });
   }, [setDailyGoals]);
 
   useEffect(() => {
+    const db = getDB();
     read<IDailyGoalType>(db, "Select * from DailyGoalTypes")
-      .then((data) => {
-        setTypes(data);
-      })
+      .then(setTypes)
       .catch((err) => {
         console.error(err);
       });
@@ -47,21 +44,6 @@ const DailyGoals: FC = (): JSX.Element => {
           }
         />
       ))}
-      {/* <DailyGoal
-        hour={"8:00 am - 6:00 pm"}
-        img={imgs.pills}
-        title={"Toma tu pastilla de la tensión"}
-      />
-      <DailyGoal 
-        activeTensionRegister={true}
-        hour={"12:00 pm"} 
-        title={"Registra aquí tu tensión"} 
-      />
-      <DailyGoal 
-        activeTensionRegister={true}
-        hour={"6:00 pm"} 
-        title={"¡Registro de tensión completado!"} 
-      /> */}
     </View>
   );
 };
