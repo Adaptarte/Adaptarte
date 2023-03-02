@@ -1,11 +1,11 @@
+import { createRealmContext } from "@realm/react";
+
 import { schemas } from "./schemas";
 import type { SchemaType, SchemaTypes } from "./types";
 
-const getRealm = async (): Promise<Realm> => {
-  return await Realm.open({
-    schema: schemas
-  });
-};
+const { RealmProvider, useRealm } = createRealmContext({
+  schema: schemas
+});
 
 const create = <T extends keyof SchemaTypes>(
   realm: Realm,
@@ -22,4 +22,4 @@ const objects = <T extends keyof SchemaTypes>(
   return Array.from<SchemaType<T>>(realm.objects(name));
 };
 
-export { create, getRealm, objects };
+export { create, objects, RealmProvider, useRealm };
