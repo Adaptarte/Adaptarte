@@ -22,4 +22,8 @@ const food: IFood[] = [
   }
 ];
 
-export { food };
+const getFoodByType = (type: IFood["type"]): IFood[] => {
+  return food.filter((el) => el.type === type);
+};
+
+export { food, getFoodByType };
