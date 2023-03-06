@@ -2,6 +2,15 @@ import type { Schema } from "./types";
 
 const schemas: Schema[] = [
   {
+    name: "Consumption",
+    primaryKey: "id",
+    properties: {
+      date: "date",
+      food: "int",
+      id: "int"
+    }
+  },
+  {
     name: "DailyGoal",
     primaryKey: "id",
     properties: {
@@ -9,15 +18,6 @@ const schemas: Schema[] = [
       id: "int",
       time: "int",
       title: "string",
-      type: "string"
-    }
-  },
-  {
-    name: "Food",
-    primaryKey: "id",
-    properties: {
-      id: "int",
-      name: "string",
       type: "string"
     }
   }
