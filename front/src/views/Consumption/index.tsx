@@ -8,8 +8,8 @@ import { Column, Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
+import { food } from "utils/data";
 
-import { liquids } from "./data";
 import { styles } from "./styles";
 import { t } from "./translations";
 
@@ -20,7 +20,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
     <Screen style={{ backgroundColor: colors.WHITE }}>
       <Text style={styles.title}>{t().title}</Text>
       <Row columns={3}>
-        {liquids.map(
+        {food.map(
           (el): JSX.Element => (
             <Column key={el.name}>
               <Image source={el.image} style={styles.foodImage} />

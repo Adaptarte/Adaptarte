@@ -17,7 +17,7 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const handleAddLiquid = useCallback(() => {
-    navigate("Consumption", { category: "liquids" });
+    navigate("Consumption", { type: "liquids" });
   }, [navigate]);
 
   return (

@@ -1,7 +1,5 @@
-import type { TFoodCategory } from "types/food";
+import type { IFood } from "types/food";
 
-interface IConsumptionProps {
-  category?: TFoodCategory;
-}
+type IConsumptionProps = Partial<Pick<IFood, "type">>;
 
 export type { IConsumptionProps };
