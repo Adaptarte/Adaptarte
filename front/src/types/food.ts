@@ -1,5 +1,11 @@
 type FoodType = "carbs" | "dairy" | "fruitsAndVegetables" | "liquids";
 
+interface IConsumption {
+  date: Date;
+  food: number;
+  id: number;
+}
+
 interface IFood {
   id: number;
   image: number;
@@ -7,4 +13,4 @@ interface IFood {
   type: FoodType;
 }
 
-export type { IFood };
+export type { IConsumption, IFood };
