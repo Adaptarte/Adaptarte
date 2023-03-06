@@ -4,8 +4,8 @@ import { View } from "react-native";
 
 import { DailyGoal } from "components/DailyGoal";
 import type { IDailyGoal } from "types/dailyGoals";
-import { minuteToHour } from "utils/db/formatters";
 import { objects, useRealm } from "utils/db/realm";
+import { minuteToHour } from "utils/time";
 
 const DailyGoals: FC = (): JSX.Element => {
   const [dailyGoals, setDailyGoals] = useState<IDailyGoal[]>([]);

@@ -6,7 +6,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
 import { colors } from "styles/colors";
-import { setHourToTimeRequired } from "utils/db/formatters";
+import { setHourToTimeRequired } from "utils/time";
 import { Tension } from "views/Tension";
 
 import { styles } from "./styles";
