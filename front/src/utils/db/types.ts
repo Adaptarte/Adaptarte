@@ -9,16 +9,20 @@ interface SchemaTypes {
   DailyGoal: IDailyGoal;
 }
 
-type SchemaType<T extends keyof SchemaTypes> = StrictUnion<SchemaTypes[T]>;
+type SchemaName = keyof SchemaTypes;
+
+type SchemaType<T extends SchemaName> = StrictUnion<
+  SchemaTypes[T] & { readonly id: number }
+>;
 
 interface SchemaProps extends PropertiesTypes {
   id: "int";
 }
 
 interface Schema extends ObjectSchema {
-  name: keyof SchemaTypes;
+  name: SchemaName;
   primaryKey: "id";
   properties: SchemaProps;
 }
 
-export type { SchemaType, SchemaTypes, Schema };
+export type { SchemaName, SchemaType, Schema };
