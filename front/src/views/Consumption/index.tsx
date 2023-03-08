@@ -8,7 +8,7 @@ import { Column, Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
-import { getFoodByType } from "utils/data";
+import { getFoodByType } from "utils/food";
 
 import { styles } from "./styles";
 import { t } from "./translations";

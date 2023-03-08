@@ -6,6 +6,7 @@ interface IConsumption {
 }
 
 interface IFood {
+  id: number;
   image: number;
   name: string;
   type: FoodType;
