@@ -4,17 +4,19 @@ import { colors, font } from "styles";
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    aspectRatio: 1,
     backgroundColor: colors.WHITE,
     borderColor: colors.LIGHT,
     borderRadius: 8,
     borderWidth: 1,
+    display: "flex",
     padding: 8
   },
   image: {
-    aspectRatio: 1.5,
-    height: undefined,
-    resizeMode: "contain",
-    width: "100%"
+    flexBasis: 1,
+    flexGrow: 1,
+    resizeMode: "contain"
   },
   name: {
     color: colors.BLACK,

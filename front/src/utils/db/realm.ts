@@ -14,7 +14,7 @@ const create = <T extends SchemaName>(
 ): SchemaType<T> => {
   // Generate id
   const docIds = objects(realm, name).map((el) => el.id);
-  const id = Math.max.apply(docIds) + 1;
+  const id = Math.max(0, ...docIds) + 1;
 
   const doc = <SchemaType<T>>{ ...object, id };
   return realm.create(name, doc);

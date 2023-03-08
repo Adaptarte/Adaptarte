@@ -1,6 +1,16 @@
-import type { IFood } from "types/food";
+import type { IConsumption, IFood } from "types/food";
 
 import { food } from "./data";
+
+const getConsumptionExpected = (type: IFood["type"], current = 0): number => {
+  const expected: Record<IFood["type"], number> = {
+    carbs: 4,
+    dairy: 2,
+    fruitsAndVegetables: 4,
+    liquids: 5
+  };
+  return expected[type] - current;
+};
 
 const getFoodByType = (type: IFood["type"]): IFood[] => {
   return food.filter((el) => el.type === type);
@@ -14,4 +24,27 @@ const getFoodById = (id: IFood["id"]): IFood => {
   return expected;
 };
 
-export { food, getFoodByType, getFoodById };
+const groupConsumptionByFoodType = (
+  data: IConsumption[]
+): Record<IFood["type"], IConsumption[]> => {
+  const res: Record<IFood["type"], IConsumption[]> = {
+    carbs: [],
+    dairy: [],
+    fruitsAndVegetables: [],
+    liquids: []
+  };
+
+  data.forEach((el) => {
+    const type = getFoodById(el.food).type;
+    res[type].push(el);
+  });
+  return res;
+};
+
+export {
+  food,
+  getConsumptionExpected,
+  getFoodByType,
+  getFoodById,
+  groupConsumptionByFoodType
+};
