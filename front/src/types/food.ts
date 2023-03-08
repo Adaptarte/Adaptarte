@@ -3,11 +3,9 @@ type FoodType = "carbs" | "dairy" | "fruitsAndVegetables" | "liquids";
 interface IConsumption {
   date: Date;
   food: number;
-  id: number;
 }
 
 interface IFood {
-  id: number;
   image: number;
   name: string;
   type: FoodType;

@@ -1,21 +1,26 @@
 import { createRealmContext } from "@realm/react";
 
 import { schemas } from "./schemas";
-import type { SchemaType, SchemaTypes } from "./types";
+import type { SchemaName, SchemaType } from "./types";
 
 const { RealmProvider, useRealm } = createRealmContext({
   schema: schemas
 });
 
-const create = <T extends keyof SchemaTypes>(
+const create = <T extends SchemaName>(
   realm: Realm,
   name: T,
-  object: SchemaType<T>
+  object: Omit<SchemaType<T>, "id">
 ): SchemaType<T> => {
-  return realm.create<SchemaType<T>>(name, object);
+  // Generate id
+  const docIds = objects(realm, name).map((el) => el.id);
+  const id = Math.max.apply(docIds) + 1;
+
+  const doc = <SchemaType<T>>{ ...object, id };
+  return realm.create(name, doc);
 };
 
-const objects = <T extends keyof SchemaTypes>(
+const objects = <T extends SchemaName>(
   realm: Realm,
   name: T
 ): SchemaType<T>[] => {
