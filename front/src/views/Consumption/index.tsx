@@ -8,6 +8,7 @@ import { Column, Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
+import { create, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
 import { styles } from "./styles";
@@ -18,22 +19,36 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
   route: { params }
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
+  const realm = useRealm();
 
   return (
     <Screen style={{ backgroundColor: colors.WHITE }}>
       <Text style={styles.title}>{t().title}</Text>
       <Row columns={3}>
-        {getFoodByType(type).map(
-          (el): JSX.Element => (
+        {getFoodByType(type).map((el): JSX.Element => {
+          function addConsumption(): void {
+            realm.write(() => {
+              create(realm, "Consumption", {
+                date: new Date(),
+                food: el.id
+              });
+            });
+            goBack();
+          }
+
+          return (
             <Column key={el.name}>
               <Image source={el.image} style={styles.foodImage} />
               <Text style={styles.foodName}>{el.name}</Text>
-              <TouchableOpacity style={styles.foodAddButton}>
+              <TouchableOpacity
+                onPress={addConsumption}
+                style={styles.foodAddButton}
+              >
                 <Image source={imgs.plus} style={styles.foodAddImage} />
               </TouchableOpacity>
             </Column>
-          )
-        )}
+          );
+        })}
       </Row>
       {canGoBack() ? (
         <Button
