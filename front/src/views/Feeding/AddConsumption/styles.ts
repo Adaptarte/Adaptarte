@@ -5,11 +5,10 @@ import { colors } from "styles";
 const styles = StyleSheet.create({
   plusButton: {
     alignItems: "center",
+    aspectRatio: 1,
     backgroundColor: colors.GLAUCOUS,
     borderRadius: 8,
     display: "flex",
-    flexBasis: 0,
-    flexGrow: 1,
     justifyContent: "center"
   },
   plusImage: {
