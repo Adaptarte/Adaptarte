@@ -66,13 +66,41 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
       <Text style={styles.title}>{t().carbs.title}</Text>
       <Text style={styles.description}>{t().carbs.description}</Text>
 
+      <Row columns={3}>
+        {consumption?.carbs.map((el) => {
+          const food = getFoodById(el.food);
+          console.log(el);
+
+          return <FoodCard image={food.image} key={food.id} name={food.name} />;
+        })}
+        {getAddConsumption("carbs")}
+      </Row>
+
       <Text style={styles.title}>{t().fruitsAndVegetables.title}</Text>
       <Text style={styles.description}>
         {t().fruitsAndVegetables.description}
       </Text>
 
+      <Row columns={3}>
+        {consumption?.fruitsAndVegetables.map((el) => {
+          const food = getFoodById(el.food);
+
+          return <FoodCard image={food.image} key={food.id} name={food.name} />;
+        })}
+        {getAddConsumption("fruitsAndVegetables")}
+      </Row>
+
       <Text style={styles.title}>{t().dairy.title}</Text>
       <Text style={styles.description}>{t().dairy.description}</Text>
+
+      <Row columns={3}>
+        {consumption?.dairy.map((el) => {
+          const food = getFoodById(el.food);
+
+          return <FoodCard image={food.image} key={food.id} name={food.name} />;
+        })}
+        {getAddConsumption("dairy")}
+      </Row>
     </Screen>
   );
 };

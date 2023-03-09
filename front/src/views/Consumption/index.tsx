@@ -35,7 +35,6 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
             });
             goBack();
           }
-
           return (
             <Column key={el.name}>
               <Image source={el.image} style={styles.foodImage} />
