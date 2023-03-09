@@ -7,10 +7,20 @@ assignees: ''
 
 ---
 
-# Problem
+### Description
 
-# Proposal
+**As a** [role]  
+**I need** [function]
+**So that** [benefit]
 
-# How does success look like?
+### Details
 
-# References
+- [document what you know (i.e. tech to use)]
+
+### Acceptance criteria
+
+ ```
+Given [some context]
+When [certain action is taken]
+Then [the outcome of action is observed]
+ ```
