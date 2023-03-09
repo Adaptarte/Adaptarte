@@ -1,4 +1,5 @@
-type FoodType = "carbs" | "dairy" | "fruitsAndVegetables" | "liquids";
+const foodTypes = <const>["liquids", "carbs", "fruitsAndVegetables", "dairy"];
+type FoodType = (typeof foodTypes)[number];
 
 interface IConsumption {
   date: Date;
@@ -12,4 +13,5 @@ interface IFood {
   type: FoodType;
 }
 
+export { foodTypes };
 export type { IConsumption, IFood };
