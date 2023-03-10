@@ -9,6 +9,7 @@ import { styles } from "./styles";
 import type { CheckBoxProps, CheckBoxVariant } from "./types";
 
 const CheckBox: FC<CheckBoxProps> = ({
+  disabled = false,
   isChecked = false,
   onChange,
   variant = "rounded"
@@ -46,6 +47,7 @@ const CheckBox: FC<CheckBoxProps> = ({
 
   return (
     <TouchableOpacity
+      disabled={disabled}
       onPress={handleSwitch}
       style={[styles.container, containerVarStyle[variant]]}
     >
