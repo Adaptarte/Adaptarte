@@ -63,7 +63,7 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Set this to true to Run Proguard on Release builds to minify the Java bytecode.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguard = true
 
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
@@ -119,15 +119,20 @@ android {
         }
     }
     buildTypes {
+        common {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            shrinkResources true
+        }
         debug {
+            initWith common
             signingConfig signingConfigs.debug
         }
         release {
+            initWith common
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.debug            
         }
     }
 
