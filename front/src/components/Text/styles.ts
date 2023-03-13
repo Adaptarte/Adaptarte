@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { colors } from "styles";
 import type { Styles } from "utils/types";
 
-import type { TextStyleProps } from "./types";
+import type { TextSize, TextVariant, TextWeight } from "./types";
 
 const styles = StyleSheet.create({
   text: {
@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const sizes: Record<TextStyleProps["size"], number> = {
+const sizes: Record<TextSize, number> = {
   1: 14,
   2: 16,
   3: 18,
@@ -19,7 +19,7 @@ const sizes: Record<TextStyleProps["size"], number> = {
   5: 26
 };
 
-const familyLexend: Record<TextStyleProps["weight"], string> = {
+const familyLexend: Record<TextWeight, string> = {
   bold: "Lexend-Bold",
   normal: "Lexend-Regular"
 };
@@ -28,7 +28,7 @@ const getVarStyles = ({
   color = "BLACK",
   size = 2,
   weight = "normal"
-}: Partial<TextStyleProps>): Styles<"text"> => {
+}: TextVariant): Styles<"text"> => {
   return {
     text: {
       color: colors[color],

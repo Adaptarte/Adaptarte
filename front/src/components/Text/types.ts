@@ -1,17 +1,20 @@
-import type { TextStyle } from "react-native";
+import type { StyleProp, TextStyle } from "react-native";
 
 import type { TColor } from "styles/colors";
 
-interface TextStyleProps {
-  color: TColor;
-  size: 1 | 2 | 3 | 4 | 5;
-  weight: "bold" | "normal";
+type TextSize = 1 | 2 | 3 | 4 | 5;
+type TextWeight = "bold" | "normal";
+
+interface TextVariant {
+  color?: TColor;
+  size?: TextSize;
+  weight?: TextWeight;
 }
 
 interface TextProps {
   children: string;
-  styles: Omit<TextStyle, "color" | "fontSize" | "fontWeight">;
-  variant: Partial<TextStyleProps>;
+  style?: Omit<StyleProp<TextStyle>, "color" | "fontSize" | "fontWeight">;
+  variant?: TextVariant;
 }
 
-export type { TextProps, TextStyleProps };
+export type { TextProps, TextSize, TextVariant, TextWeight };

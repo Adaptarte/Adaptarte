@@ -5,10 +5,14 @@ import { Text as NText } from "react-native";
 import { getVarStyles } from "./styles";
 import type { TextProps } from "./types";
 
-const Text: FC<TextProps> = ({ children, styles, variant }): JSX.Element => {
+const Text: FC<TextProps> = ({
+  children,
+  style,
+  variant = {}
+}): JSX.Element => {
   const varStyles = getVarStyles(variant);
 
-  return <NText style={[styles, varStyles.text]}>{children}</NText>;
+  return <NText style={[style, varStyles.text]}>{children}</NText>;
 };
 
 export { Text };
