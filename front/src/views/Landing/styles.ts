@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,9 +16,6 @@ const styles = StyleSheet.create({
     width: 60
   },
   sectionTitle: {
-    color: colors.GLAUCOUS,
-    fontFamily: lexendFamily.Bold,
-    fontSize: font.sizes[3],
     marginBottom: 16,
     marginLeft: 12
   },
@@ -28,12 +25,22 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   welcomeText: {
-    color: colors.GLAUCOUS,
     flexBasis: 0,
-    flexGrow: 1,
-    fontFamily: lexendFamily.Bold,
-    fontSize: 25
+    flexGrow: 1
   }
 });
 
-export { styles };
+const textVars: TextVariants<"title" | "welcome"> = {
+  title: {
+    color: "GLAUCOUS",
+    size: 3,
+    weight: "bold"
+  },
+  welcome: {
+    color: "GLAUCOUS",
+    size: 5,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
