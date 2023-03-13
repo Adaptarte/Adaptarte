@@ -11,10 +11,12 @@ interface TextVariant {
   weight?: TextWeight;
 }
 
+type TextVariants<T extends string> = Record<T, TextVariant>;
+
 interface TextProps {
   children: string;
   style?: Omit<StyleProp<TextStyle>, "color" | "fontSize" | "fontWeight">;
   variant?: TextVariant;
 }
 
-export type { TextProps, TextSize, TextVariant, TextWeight };
+export type { TextProps, TextSize, TextVariant, TextVariants, TextWeight };

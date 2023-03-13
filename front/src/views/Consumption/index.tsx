@@ -1,17 +1,18 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Text, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { Button } from "components/Button";
 import { Column, Row } from "components/Grid";
 import { Screen } from "components/Screen";
+import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { create, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
@@ -23,7 +24,9 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
 
   return (
     <Screen style={{ backgroundColor: colors.WHITE }}>
-      <Text style={styles.title}>{t().title}</Text>
+      <Text style={styles.title} variant={textVars.title}>
+        {t().title}
+      </Text>
       <Row columns={3}>
         {getFoodByType(type).map((el): JSX.Element => {
           function addConsumption(): void {

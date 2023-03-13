@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   cancelButton: {
@@ -25,17 +26,20 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   foodName: {
-    color: colors.BLACK,
-    fontSize: font.sizes[2],
     marginBottom: 8,
     textAlign: "center"
   },
   title: {
-    color: colors.GLAUCOUS,
-    fontSize: font.sizes[3],
-    fontWeight: "bold",
     marginBottom: 16
   }
 });
 
-export { styles };
+const textVars: TextVariants<"title"> = {
+  title: {
+    color: "GLAUCOUS",
+    size: 3,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
