@@ -1,14 +1,15 @@
 import type { FC } from "react";
 import React, { useEffect, useState } from "react";
-import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
+import { Image, Modal, TouchableOpacity, View } from "react-native";
 import DatePicker from "react-native-date-picker";
 
 import { imgs } from "assets/imgs";
 import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Switch } from "components/Switch";
+import { Text } from "components/Text";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import type { ITensionProps } from "./types";
 
 const Tension: FC<ITensionProps> = ({
@@ -68,7 +69,9 @@ const Tension: FC<ITensionProps> = ({
           <TouchableOpacity onPress={setVisible} style={styles.closeButton}>
             <Image source={imgs.close} style={styles.closeImage} />
           </TouchableOpacity>
-          <Text style={styles.sectionTitle}>{"Registro de Tensión"}</Text>
+          <Text style={styles.sectionTitle} variant={textVars.title}>
+            {"Registro de Tensión"}
+          </Text>
           <View style={styles.sectionInput}>
             <Text style={styles.sectionSubtitle}>{"Presión diastólica"}</Text>
             <View style={styles.inputContainer}>
@@ -79,7 +82,9 @@ const Tension: FC<ITensionProps> = ({
                 }}
                 value={diastolicP}
               />
-              <Text style={styles.numberInputMaximun}>{"/80"}</Text>
+              <Text style={styles.numberInputMaximun} variant={textVars.input}>
+                {"/80"}
+              </Text>
             </View>
           </View>
           <View style={styles.sectionInput}>
@@ -93,7 +98,9 @@ const Tension: FC<ITensionProps> = ({
                 }}
                 value={systolicP}
               />
-              <Text style={styles.numberInputMaximun}>{"/120"}</Text>
+              <Text style={styles.numberInputMaximun} variant={textVars.input}>
+                {"/120"}
+              </Text>
             </View>
           </View>
           <View style={styles.hour}>
