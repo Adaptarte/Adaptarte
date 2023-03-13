@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import React, { Fragment, useEffect, useState } from "react";
-import { Text } from "react-native";
 
 import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
+import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import type { IConsumption, IFood } from "types/food";
@@ -18,7 +18,7 @@ import {
 
 import { AddConsumption } from "./AddConsumption";
 import { FoodCard } from "./FoodCard";
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Feeding: FC<TAppViewProps<"Feeding">> = ({
@@ -43,7 +43,9 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
 
         return (
           <Fragment key={type}>
-            <Text style={styles.title}>{tSection.title}</Text>
+            <Text style={styles.title} variant={textVars.title}>
+              {tSection.title}
+            </Text>
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
               {consumption?.[type].map((el) => {
