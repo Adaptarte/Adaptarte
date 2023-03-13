@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
+import type { TextVariants } from "components/Text/types";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
@@ -47,9 +47,6 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   numberInputMaximun: {
-    color: "black",
-    fontFamily: lexendFamily.Regular,
-    fontSize: 14,
     height: "100%",
     padding: 1.5,
     position: "absolute",
@@ -59,14 +56,9 @@ const styles = StyleSheet.create({
     marginBottom: 24
   },
   sectionSubtitle: {
-    fontFamily: lexendFamily.SemiBold,
-    fontSize: 13,
     marginBottom: 6
   },
   sectionTitle: {
-    color: colors.GLAUCOUS,
-    fontFamily: lexendFamily.Bold,
-    fontSize: 20,
     marginBottom: 16
   },
   selectButton: {
@@ -85,4 +77,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export { styles };
+const textVars: TextVariants<"input" | "title"> = {
+  input: {
+    size: 1
+  },
+  title: {
+    color: "GLAUCOUS",
+    size: 4,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
