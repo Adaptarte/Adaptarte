@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android",
     "android:bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
-    "android:build": "npm run android:bundle && cd android && gradlew assembleDebug && cd ..",
+    "android:build": "npm run android:bundle && cd android && gradlew assembleDebug && find . -type d -regex '.*/res/drawable-.*dpi' -exec rm -rf {} ; && cd ..",
+    "android:clean": "cd android && gradlew clean && gradlew build && cd ..",
     "format": "prettier --config .prettierrc.js --write src/**/*.{ts,tsx}",
     "ios": "react-native run-ios",
     "lint": "eslint src --ext .ts,.tsx --fix",

@@ -64,5 +64,4 @@ buck-out/
 /vendor/bundle/
 
 # Custom (android/app/src/main)
-**/res/drawable-*dpi
 **/assets/index.android.bundle
