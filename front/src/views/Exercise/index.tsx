@@ -1,19 +1,20 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
+import { Image, Modal, TouchableOpacity, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
 import { imgs } from "assets/imgs";
 import { Carousel } from "components/Carousel";
 import { data } from "components/Carousel/CarouselCard/data";
+import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
-const Excercise: FC<TAppViewProps<"Excercise">> = ({
+const Exercise: FC<TAppViewProps<"Exercise">> = ({
   navigation: { canGoBack, goBack }
-}: TAppViewProps<"Excercise">): JSX.Element => {
+}: TAppViewProps<"Exercise">): JSX.Element => {
   return (
     <GestureRecognizer onSwipeDown={goBack} style={{ flex: 1 }}>
       <Modal
@@ -29,9 +30,15 @@ const Excercise: FC<TAppViewProps<"Excercise">> = ({
                 <Image source={imgs.close} style={styles.closeImage} />
               </TouchableOpacity>
             ) : undefined}
-            <Text style={styles.excerciseTitle}>{t().title}</Text>
-            <Text style={styles.excerciseText}>{t().information}</Text>
-            <Text style={styles.excerciseText}>{t().note}</Text>
+            <Text style={styles.excerciseTitle} variant={textVars.title}>
+              {t().title}
+            </Text>
+            <Text style={styles.excerciseText} variant={textVars.details}>
+              {t().information}
+            </Text>
+            <Text style={styles.excerciseText} variant={textVars.details}>
+              {t().note}
+            </Text>
             <Carousel data={data}></Carousel>
           </View>
         </View>
@@ -40,4 +47,4 @@ const Excercise: FC<TAppViewProps<"Excercise">> = ({
   );
 };
 
-export { Excercise };
+export { Exercise };

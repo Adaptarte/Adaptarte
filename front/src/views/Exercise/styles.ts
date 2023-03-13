@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   closeButton: {
@@ -35,15 +35,9 @@ const styles = StyleSheet.create({
     width: "100%"
   },
   excerciseText: {
-    color: colors.BLACK,
-    fontFamily: lexendFamily.Regular,
-    fontSize: 12,
     marginBottom: 12
   },
   excerciseTitle: {
-    color: colors.ORANGE,
-    fontFamily: lexendFamily.Bold,
-    fontSize: font.sizes[3],
     marginBottom: 8
   },
   modalExercise: {
@@ -52,4 +46,15 @@ const styles = StyleSheet.create({
   }
 });
 
-export { styles };
+const textVars: TextVariants<"details" | "title"> = {
+  details: {
+    size: 1
+  },
+  title: {
+    color: "ORANGE",
+    size: 3,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
