@@ -79,6 +79,90 @@ const food: IFood[] = [
     image: foodimgs.yogurt,
     name: "Yogurt",
     type: "dairy"
+  },
+  {
+    id: 14,
+    image: foodimgs.arepa,
+    name: "Arepa",
+    type: "carbs"
+  },
+  {
+    id: 15,
+    image: foodimgs.cassava,
+    name: "Yuca",
+    type: "carbs"
+  },
+  {
+    id: 16,
+    image: foodimgs.cookie,
+    name: "Galleta",
+    type: "carbs"
+  },
+  {
+    id: 17,
+    image: foodimgs.corn,
+    name: "Maíz",
+    type: "carbs"
+  },
+  {
+    id: 18,
+    image: foodimgs.empanada,
+    name: "Emapanada",
+    type: "carbs"
+  },
+  {
+    id: 19,
+    image: foodimgs.pasta,
+    name: "Pasta",
+    type: "carbs"
+  },
+  {
+    id: 20,
+    image: foodimgs.apple,
+    name: "Manzana",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 21,
+    image: foodimgs.banana,
+    name: "Banana",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 22,
+    image: foodimgs.cherry,
+    name: "Cereza",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 23,
+    image: foodimgs.grape,
+    name: "Uva",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 24,
+    image: foodimgs.kiwi,
+    name: "Kiwi",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 25,
+    image: foodimgs.orange,
+    name: "Naranja",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 26,
+    image: foodimgs.papaya,
+    name: "Papaya",
+    type: "fruitsAndVegetables"
+  },
+  {
+    id: 27,
+    image: foodimgs.lemonade,
+    name: "Limonada",
+    type: "liquids"
   }
 ];
 
