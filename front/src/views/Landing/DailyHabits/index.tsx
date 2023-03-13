@@ -10,8 +10,8 @@ import type { IDailyHabitsProps } from "./types";
 const DailyHabits: FC<IDailyHabitsProps> = ({
   navigate
 }: IDailyHabitsProps): JSX.Element => {
-  const goToExcercise = useCallback((): void => {
-    navigate("Excercise");
+  const goToExercise = useCallback((): void => {
+    navigate("Exercise");
   }, [navigate]);
 
   const goToFeeding = useCallback((): void => {
@@ -24,7 +24,7 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
         bgColor={"ORANGE_TRANSLUCID"}
         color={"ORANGE"}
         image={imgs.exercise}
-        onPress={goToExcercise}
+        onPress={goToExercise}
       >
         {"Ejercicio"}
       </Card>

@@ -4,7 +4,7 @@ import React from "react";
 
 import { Header } from "components/Header";
 import { Consumption } from "views/Consumption";
-import { Excercise } from "views/Excercise";
+import { Exercise } from "views/Exercise";
 import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
 
@@ -31,7 +31,7 @@ const AppNavigation = (): JSX.Element => {
         options={{ headerShown: true, headerTitle: "Alimentación" }}
       />
       <Group screenOptions={screenModalOptions}>
-        <Screen component={Excercise} name={"Excercise"} />
+        <Screen component={Exercise} name={"Exercise"} />
       </Group>
       <Screen component={Consumption} name={"Consumption"} />
     </Navigator>

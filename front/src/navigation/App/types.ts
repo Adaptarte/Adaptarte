@@ -6,7 +6,7 @@ import type { IConsumptionProps } from "views/Consumption/types";
 type IAppParams = {
   Consumption: IConsumptionProps;
   Feeding: undefined;
-  Excercise: undefined;
+  Exercise: undefined;
   Landing: undefined;
 };
 
