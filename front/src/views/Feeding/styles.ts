@@ -1,20 +1,23 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
 
 const styles = StyleSheet.create({
   description: {
-    color: colors.BLACK,
-    fontSize: font.sizes[2],
     marginBottom: 16
   },
   title: {
-    color: colors.GLAUCOUS,
-    fontSize: font.sizes[3],
-    fontWeight: "bold",
     marginBottom: 8,
     marginTop: 32
   }
 });
 
-export { styles };
+const textVars: TextVariants<"title"> = {
+  title: {
+    color: "GLAUCOUS",
+    size: 3,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
