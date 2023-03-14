@@ -1,8 +1,9 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, View } from "react-native";
 
 import { Column } from "components/Grid";
+import { Text } from "components/Text";
 
 import { styles } from "./styles";
 import type { IFoodCardProps } from "./types";
@@ -15,7 +16,9 @@ const FoodCard: FC<IFoodCardProps> = ({
     <Column>
       <View style={styles.container}>
         <Image source={image} style={styles.image} />
-        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.name} variant={{ weight: "bold" }}>
+          {name}
+        </Text>
       </View>
     </Column>
   );
