@@ -1,11 +1,14 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 
 import { CheckBox } from "components/CheckBox";
+import { Text } from "components/Text";
+import type { TextVariant } from "components/Text/types";
 import { colors } from "styles";
+import type { Style } from "utils/types";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import type { ICarouselCardProps } from "./types";
 
 const CarouselCard: FC<ICarouselCardProps> = ({
@@ -20,14 +23,15 @@ const CarouselCard: FC<ICarouselCardProps> = ({
     setCheck(complete);
   }, [title]);
 
-  const style = check
-    ? {
-        backgroundColor: colors.WHITE,
-        color: colors.ORANGE
-      }
-    : {
-        color: colors.WHITE
-      };
+  const checkTextStyle: Style = {
+    backgroundColor: check ? colors.WHITE : undefined
+  };
+
+  const textVarcheck: TextVariant = {
+    color: check ? "ORANGE" : "WHITE",
+    size: 1,
+    weight: "bold"
+  };
 
   const handleSwitch = useCallback((): void => {
     const newValue = !check;
@@ -37,13 +41,17 @@ const CarouselCard: FC<ICarouselCardProps> = ({
   return (
     <View style={[styles.cardContainer]}>
       <View style={[styles.textContainer]}>
-        <Text style={[styles.title]}>{title}</Text>
-        <Text style={[styles.content]}>{description}</Text>
+        <Text style={[styles.title]} variant={textVars.title}>
+          {title}
+        </Text>
+        <Text style={[styles.content]} variant={textVars.content}>
+          {description}
+        </Text>
         <TouchableOpacity
           onPress={handleSwitch}
-          style={[styles.checkContainer, style]}
+          style={[styles.checkContainer, checkTextStyle]}
         >
-          <Text style={[styles.checkText, style]}>
+          <Text style={[styles.checkText]} variant={textVarcheck}>
             {check ? "Completado" : "Por completar"}
           </Text>
           <CheckBox

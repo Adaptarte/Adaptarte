@@ -1,12 +1,13 @@
 import type { FC } from "react";
 import React, { useState } from "react";
 import type { ViewStyle } from "react-native";
-import { Text, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
+import { Text } from "components/Text";
 import { colors } from "styles";
 
 import { CarouselCard } from "./CarouselCard";
-import { styles } from "./styles";
+import { styles, textVarArrow } from "./styles";
 import type { ICarouselProps } from "./types";
 
 const Carousel: FC<ICarouselProps> = ({
@@ -36,7 +37,7 @@ const Carousel: FC<ICarouselProps> = ({
           }}
           style={[styles.arrowContainer]}
         >
-          <Text style={[styles.arrow]}>{"<"}</Text>
+          <Text variant={textVarArrow}>{"<"}</Text>
         </TouchableOpacity>
         <CarouselCard
           complete={data[current].complete}
@@ -50,7 +51,7 @@ const Carousel: FC<ICarouselProps> = ({
           }}
           style={[styles.arrowContainer]}
         >
-          <Text style={[styles.arrow]}>{">"}</Text>
+          <Text variant={textVarArrow}>{">"}</Text>
         </TouchableOpacity>
       </View>
       <View style={[styles.currentContainer]}>
