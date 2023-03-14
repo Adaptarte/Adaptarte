@@ -7,9 +7,4 @@ interface IDailyGoal {
   type: DailyGoalType;
 }
 
-interface IDailyGoalType {
-  name: DailyGoalType;
-  id: number;
-}
-
-export type { IDailyGoal, IDailyGoalType };
+export type { IDailyGoal, DailyGoalType };

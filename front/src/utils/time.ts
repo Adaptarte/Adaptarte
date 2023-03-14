@@ -6,10 +6,14 @@ const hourToMinute = (hour: number): number => {
   return hour * 60;
 };
 
-const setHourToTimeRequired = (hour: number): string => {
+const hourToTime = (hour: number): Date => {
   const time = new Date();
   time.setHours(Math.floor(hour), hourToMinute(hour % 1));
 
+  return time;
+};
+
+const timeToString = (time: Date): string => {
   return time.toLocaleTimeString("en-US", {
     hour: "numeric",
     hour12: true,
@@ -17,4 +21,4 @@ const setHourToTimeRequired = (hour: number): string => {
   });
 };
 
-export { minuteToHour, hourToMinute, setHourToTimeRequired };
+export { hourToMinute, hourToTime, timeToString, minuteToHour };

@@ -1,15 +1,16 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
+import { Text } from "components/Text";
 import { colors } from "styles/colors";
-import { setHourToTimeRequired } from "utils/time";
+import { hourToTime, timeToString } from "utils/time";
 import { Tension } from "views/Tension";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 import type { IGoalProps } from "./types";
 
 const DailyGoal: FC<IGoalProps> = ({
@@ -28,27 +29,12 @@ const DailyGoal: FC<IGoalProps> = ({
   }, [setIsChecked]);
 
   const currentTime = new Date();
-  const timeAssigned = new Date();
+  const time = hourToTime(hour);
 
   useEffect(() => {
     updateCurrentTime();
-    const time = setHourToTimeRequired(hour);
 
-    const timeA = time
-      .split(":")
-      .map((a) => a.split(" "))
-      .flat();
-
-    timeAssigned.setHours(
-      parseInt(timeA[0]) !== 12
-        ? timeA[2] === "PM"
-          ? parseInt(timeA[0]) + 12
-          : parseInt(timeA[0])
-        : parseInt(timeA[0])
-    );
-    timeAssigned.setMinutes(parseInt(timeA[1]));
-
-    const timer = timeAssigned.getTime() - currentTime.getTime();
+    const timer = time.getTime() - currentTime.getTime();
 
     const action = setTimeout(() => {
       setTimePassed(true);
@@ -57,7 +43,7 @@ const DailyGoal: FC<IGoalProps> = ({
     return () => {
       clearTimeout(action);
     };
-  }, [currentTime, hour, title]);
+  }, [currentTime, time]);
 
   const updateCurrentTime = (): void => {
     const options: Intl.DateTimeFormatOptions = {
@@ -82,12 +68,9 @@ const DailyGoal: FC<IGoalProps> = ({
         }
       : { width: 38 };
 
-  const styleTitle: TextStyle =
-    type === "Record"
-      ? {
-          textDecorationLine: "underline"
-        }
-      : {};
+  const styleTitle: TextStyle = {
+    textDecorationLine: type === "Record" ? "underline" : "none"
+  };
 
   const styleBackground: ViewStyle =
     timePassed && !isChecked
@@ -98,18 +81,9 @@ const DailyGoal: FC<IGoalProps> = ({
         }
       : {};
 
-  const styleElipse: ViewStyle = isChecked
-    ? {
-        backgroundColor: colors.BLUE_PURPLE
-      }
-    : {};
-
-  const styleTextPassed: TextStyle =
-    timePassed && !isChecked
-      ? {
-          color: "red"
-        }
-      : {};
+  const elipseStyle: ViewStyle = {
+    backgroundColor: isChecked ? colors.BLUE_PURPLE : undefined
+  };
 
   const handleSwitch = useCallback((): void => {
     const newValue = !tensionVisible;
@@ -120,7 +94,7 @@ const DailyGoal: FC<IGoalProps> = ({
   return (
     <View style={[styles.background, styleBackground]}>
       <View style={[styles.container]}>
-        <View style={[styles.elipse, styleElipse]}>
+        <View style={[styles.elipse, elipseStyle]}>
           <Image
             source={type === "Record" ? imgs.diseaseRegister : imgs.pills}
             style={[styles.img, style]}
@@ -133,19 +107,15 @@ const DailyGoal: FC<IGoalProps> = ({
             onPress={handleSwitch}
             style={[styles.contentContainer]}
           >
-            <Text style={[styles.title, styleTitle, styleTextPassed]}>
+            <Text style={[styleTitle]} variant={textVars.title}>
               {title}
             </Text>
-            <Text style={[styles.hour, styleTextPassed]}>
-              {setHourToTimeRequired(hour)}
-            </Text>
+            <Text variant={textVars.hour}>{timeToString(time)}</Text>
           </TouchableOpacity>
         ) : (
           <>
-            <Text style={[styles.title, styleTextPassed]}>{title}</Text>
-            <Text style={[styles.hour, styleTextPassed]}>
-              {setHourToTimeRequired(hour)}
-            </Text>
+            <Text variant={textVars.title}>{title}</Text>
+            <Text variant={textVars.hour}>{timeToString(time)}</Text>
           </>
         )}
       </View>

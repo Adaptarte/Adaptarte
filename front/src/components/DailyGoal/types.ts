@@ -1,5 +1,7 @@
+import type { DailyGoalType } from "types/dailyGoals";
+
 interface IGoalProps {
-  type: string;
+  type: DailyGoalType;
   done: boolean;
   hour: number;
   img?: number;

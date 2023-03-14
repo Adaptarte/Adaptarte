@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
+import type { TextVariants } from "components/Text/types";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
@@ -51,23 +51,22 @@ const styles = StyleSheet.create({
     marginRight: "auto",
     width: 50
   },
-  hour: {
-    color: colors.BLACK,
-    fontFamily: lexendFamily.Light,
-    fontSize: 10
-  },
   img: {
     height: 54,
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: 6,
     width: 38
-  },
-  title: {
-    color: colors.BLACK,
-    fontFamily: lexendFamily.Bold,
-    fontSize: 13
   }
 });
 
-export { styles };
+const textVars: TextVariants<"hour" | "title"> = {
+  hour: {
+    size: 1
+  },
+  title: {
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
