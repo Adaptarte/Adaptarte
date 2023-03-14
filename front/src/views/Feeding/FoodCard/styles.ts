@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   name: {
-    color: colors.BLACK,
-    fontSize: font.sizes[2],
-    fontWeight: "bold",
     marginTop: 8,
     textAlign: "center"
   }

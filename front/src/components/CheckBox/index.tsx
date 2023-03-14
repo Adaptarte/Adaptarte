@@ -1,7 +1,9 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
+import { Text } from "components/Text";
+import type { TextVariant } from "components/Text/types";
 import { colors } from "styles";
 import type { VarStyle } from "styles/types";
 
@@ -32,11 +34,10 @@ const CheckBox: FC<CheckBoxProps> = ({
     }
   };
 
-  const checkVarStyle: VarStyle<CheckBoxVariant> = {
-    circle: {
-      color: colors.ORANGE
-    },
-    rounded: {}
+  const textVarCheck: TextVariant = {
+    color: variant === "circle" ? "ORANGE" : "GREEN",
+    size: 1,
+    weight: "bold"
   };
 
   const handleSwitch = useCallback((): void => {
@@ -51,9 +52,7 @@ const CheckBox: FC<CheckBoxProps> = ({
       onPress={handleSwitch}
       style={[styles.container, containerVarStyle[variant]]}
     >
-      <Text style={[styles.check, checkVarStyle[variant]]}>
-        {value ? "✓" : " "}
-      </Text>
+      <Text variant={textVarCheck}>{value ? "✓" : " "}</Text>
     </TouchableOpacity>
   );
 };

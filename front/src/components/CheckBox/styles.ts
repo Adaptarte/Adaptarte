@@ -1,13 +1,8 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  check: {
-    color: colors.GREEN,
-    fontSize: font.sizes[1],
-    fontWeight: "bold"
-  },
   container: {
     alignItems: "center",
     borderColor: colors.BLACK,
