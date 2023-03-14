@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -26,18 +26,12 @@ const styles = StyleSheet.create({
     width: 107
   },
   checkText: {
-    color: colors.WHITE,
-    fontFamily: lexendFamily.ExtraBold,
-    fontSize: 9,
     marginBottom: "auto",
     marginTop: "auto",
     textAlign: "center",
     width: "80%"
   },
   content: {
-    color: colors.WHITE,
-    fontFamily: lexendFamily.Regular,
-    fontSize: 10,
     height: 56
   },
   image: {
@@ -51,12 +45,21 @@ const styles = StyleSheet.create({
     width: "70%"
   },
   title: {
-    color: colors.WHITE,
-    fontFamily: lexendFamily.SemiBold,
-    fontSize: font.sizes[4],
     marginBottom: 5,
     width: 200
   }
 });
 
-export { styles };
+const textVars: TextVariants<"content" | "title"> = {
+  content: {
+    color: "WHITE",
+    size: 1
+  },
+  title: {
+    color: "WHITE",
+    size: 4,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };

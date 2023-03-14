@@ -1,13 +1,8 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import type { TextVariant } from "components/Text/types";
 
 const styles = StyleSheet.create({
-  arrow: {
-    color: colors.WHITE,
-    fontSize: font.sizes[3],
-    fontWeight: "900"
-  },
   arrowContainer: {
     marginBottom: "auto",
     marginTop: "auto",
@@ -36,4 +31,10 @@ const styles = StyleSheet.create({
   }
 });
 
-export { styles };
+const textVarArrow: TextVariant = {
+  color: "WHITE",
+  size: 3,
+  weight: "bold"
+};
+
+export { styles, textVarArrow };
