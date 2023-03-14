@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { colors, font } from "styles";
+import type { TextVariant } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   backButton: {
@@ -21,11 +22,14 @@ const styles = StyleSheet.create({
     paddingVertical: 8
   },
   title: {
-    color: colors.GLAUCOUS,
-    fontSize: font.sizes[5],
-    fontWeight: "bold",
     marginLeft: 16
   }
 });
 
-export { styles };
+const textVarTitle: TextVariant = {
+  color: "GLAUCOUS",
+  size: 5,
+  weight: "bold"
+};
+
+export { styles, textVarTitle };

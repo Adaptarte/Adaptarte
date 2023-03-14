@@ -28,12 +28,10 @@ const DailyGoal: FC<IGoalProps> = ({
     setIsChecked(true);
   }, [setIsChecked]);
 
-  const currentTime = new Date();
   const time = hourToTime(hour);
 
   useEffect(() => {
-    updateCurrentTime();
-
+    const currentTime = new Date();
     const timer = time.getTime() - currentTime.getTime();
 
     const action = setTimeout(() => {
@@ -43,21 +41,7 @@ const DailyGoal: FC<IGoalProps> = ({
     return () => {
       clearTimeout(action);
     };
-  }, [currentTime, time]);
-
-  const updateCurrentTime = (): void => {
-    const options: Intl.DateTimeFormatOptions = {
-      hour12: false,
-      timeZone: "America/Bogota"
-    };
-
-    const CT = new Date().toLocaleTimeString("en-US", options);
-    const timeCT = CT.split(":")
-      .map((a) => a.split(" "))
-      .flat();
-    currentTime.setHours(parseInt(timeCT[0]));
-    currentTime.setMinutes(parseInt(timeCT[1]));
-  };
+  }, [time]);
 
   const style: ImageStyle =
     type !== "Record"

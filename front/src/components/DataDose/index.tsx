@@ -1,11 +1,12 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Text, View } from "react-native";
+import { Image, View } from "react-native";
 
 import { imgs } from "assets/imgs";
+import { Text } from "components/Text";
 import { pickDataDose } from "utils/dataDoses";
 
-import { styles } from "./styles";
+import { styles, textVars } from "./styles";
 
 const DataDose: FC = (): JSX.Element => {
   const dose = pickDataDose();
@@ -13,8 +14,8 @@ const DataDose: FC = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <View style={styles.textWrapper}>
-        <Text style={styles.title}>{dose.tip}</Text>
-        <Text style={styles.hour}>{dose.details}</Text>
+        <Text variant={textVars.tip}>{dose.tip}</Text>
+        <Text variant={textVars.details}>{dose.details}</Text>
       </View>
       <Image source={imgs.dataDose} style={styles.img} />
     </View>

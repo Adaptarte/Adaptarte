@@ -1,11 +1,12 @@
 import type { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import type { FC } from "react";
 import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 
 import { imgs } from "assets/imgs";
+import { Text } from "components/Text";
 
-import { styles } from "./styles";
+import { styles, textVarTitle } from "./styles";
 
 const Header: FC<NativeStackHeaderProps> = ({
   navigation: { canGoBack, goBack },
@@ -19,7 +20,9 @@ const Header: FC<NativeStackHeaderProps> = ({
         </TouchableOpacity>
       ) : undefined}
       {typeof headerTitle === "string" ? (
-        <Text style={styles.title}>{headerTitle}</Text>
+        <Text style={styles.title} variant={textVarTitle}>
+          {headerTitle}
+        </Text>
       ) : undefined}
     </View>
   );
