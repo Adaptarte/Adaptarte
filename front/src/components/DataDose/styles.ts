@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
-import { colors, font } from "styles";
+import type { TextVariants } from "components/Text/types";
+import { colors } from "styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,11 +12,6 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 24
   },
-  hour: {
-    color: colors.WHITE,
-    fontFamily: lexendFamily.Regular,
-    fontSize: 11
-  },
   img: {
     height: 80,
     marginLeft: 24,
@@ -26,12 +21,19 @@ const styles = StyleSheet.create({
   textWrapper: {
     flexBasis: 0,
     flexGrow: 1
-  },
-  title: {
-    color: colors.WHITE,
-    fontFamily: lexendFamily.Bold,
-    fontSize: font.sizes[1]
   }
 });
 
-export { styles };
+const textVars: TextVariants<"details" | "tip"> = {
+  details: {
+    color: "WHITE",
+    size: 1
+  },
+  tip: {
+    color: "WHITE",
+    size: 1,
+    weight: "bold"
+  }
+};
+
+export { styles, textVars };
