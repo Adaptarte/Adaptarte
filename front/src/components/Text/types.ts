@@ -14,7 +14,7 @@ interface TextVariant {
 type TextVariants<T extends string> = Record<T, TextVariant>;
 
 interface TextProps {
-  children: string;
+  children: React.ReactNode;
   style?: Omit<StyleProp<TextStyle>, "color" | "fontSize" | "fontWeight">;
   variant?: TextVariant;
 }
