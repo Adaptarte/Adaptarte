@@ -2,6 +2,16 @@ import type { Schema } from "./types";
 
 const schemas: Schema[] = [
   {
+    name: "Tension",
+    primaryKey: "id",
+    properties: {
+      date: "date",
+      diastolic: "int",
+      id: "int",
+      systolic: "int"
+    }
+  },
+  {
     name: "Consumption",
     primaryKey: "id",
     properties: {
