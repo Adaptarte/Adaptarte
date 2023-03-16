@@ -2,22 +2,30 @@ import type { FC } from "react";
 import React from "react";
 import { TextInput, View } from "react-native";
 
-import { styles } from "./styles";
-import type { IInputProps } from "./types";
+import { Text } from "components/Text";
+import { colors } from "styles";
 
-const Input: FC<IInputProps> = ({
-  keyboardType = "default",
-  maxLength = 2,
+import { styles } from "./styles";
+import type { InputProps } from "./types";
+
+const Input: FC<InputProps> = ({
+  label,
+  maxLength,
   onChange,
+  placeholder,
+  type = "default",
   value
-}: IInputProps): JSX.Element => {
+}: InputProps): JSX.Element => {
   return (
-    <View style={styles.numberInputContainer}>
+    <View style={styles.container}>
+      {label === undefined ? null : <Text style={styles.label}>{label}</Text>}
       <TextInput
-        keyboardType={keyboardType}
+        keyboardType={type}
         maxLength={maxLength}
         onChangeText={onChange}
-        style={styles.numberInput}
+        placeholder={placeholder}
+        placeholderTextColor={colors.GREY}
+        style={[styles.input, styles.inputText]}
         value={value}
       />
     </View>
