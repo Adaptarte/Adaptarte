@@ -1,27 +1,27 @@
 import { StyleSheet } from "react-native";
 
-import { lexendFamily } from "assets/fonts";
+import { getTextStyle } from "components/Text";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  numberInput: {
-    color: "black",
-    fontFamily: lexendFamily.Regular,
-    fontSize: 14,
-    height: "100%",
-    paddingVertical: 3,
-    textAlign: "left",
-    width: "90%"
-  },
-  numberInputContainer: {
-    backgroundColor: colors.LIGHT,
-    borderColor: colors.GREY,
-    borderRadius: 5,
-    borderWidth: 1,
-    height: 26,
-    padding: 0,
-    paddingHorizontal: 10,
+  container: {
+    paddingVertical: 4,
     width: "100%"
+  },
+  input: {
+    backgroundColor: colors.LIGHT,
+    borderColor: colors.GREY_LIGHT,
+    borderRadius: 4,
+    borderWidth: 1,
+    paddingHorizontal: 8,
+    paddingVertical: 4
+  },
+  inputText: getTextStyle({
+    color: "BLACK",
+    size: 1
+  }),
+  label: {
+    marginBottom: 4
   }
 });
 

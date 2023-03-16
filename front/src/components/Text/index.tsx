@@ -2,7 +2,7 @@ import type { FC } from "react";
 import React from "react";
 import { Text as NText } from "react-native";
 
-import { getVarStyles } from "./styles";
+import { getTextStyle } from "./styles";
 import type { TextProps } from "./types";
 
 const Text: FC<TextProps> = ({
@@ -10,9 +10,9 @@ const Text: FC<TextProps> = ({
   style,
   variant = {}
 }): JSX.Element => {
-  const varStyles = getVarStyles(variant);
+  const varStyle = getTextStyle(variant);
 
-  return <NText style={[style, varStyles.text]}>{children}</NText>;
+  return <NText style={[style, varStyle]}>{children}</NText>;
 };
 
-export { Text };
+export { getTextStyle, Text };

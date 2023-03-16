@@ -1,10 +1,10 @@
-import type { KeyboardTypeOptions } from "react-native";
+import type { KeyboardType, TextInputProps } from "react-native";
 
-interface IInputProps {
-  keyboardType?: KeyboardTypeOptions;
-  maxLength?: number;
-  onChange?: (val: React.SetStateAction<string>) => void;
-  value: string;
+interface InputProps
+  extends Pick<TextInputProps, "maxLength" | "placeholder" | "value"> {
+  label?: string;
+  type?: KeyboardType;
+  onChange?: TextInputProps["onChangeText"];
 }
 
-export type { IInputProps };
+export type { InputProps };

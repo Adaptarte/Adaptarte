@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 
 import { colors } from "styles";
-import type { Styles } from "utils/types";
+import type { Style } from "utils/types";
 
 import type { TextSize, TextVariant, TextWeight } from "./types";
 
@@ -24,18 +24,16 @@ const familyLexend: Record<TextWeight, string> = {
   normal: "Lexend-Regular"
 };
 
-const getVarStyles = ({
+const getTextStyle = ({
   color = "BLACK",
   size = 2,
   weight = "normal"
-}: TextVariant): Styles<"text"> => {
+}: TextVariant): Style => {
   return {
-    text: {
-      color: colors[color],
-      fontFamily: familyLexend[weight],
-      fontSize: sizes[size]
-    }
+    color: colors[color],
+    fontFamily: familyLexend[weight],
+    fontSize: sizes[size]
   };
 };
 
-export { getVarStyles, styles };
+export { getTextStyle, styles };
