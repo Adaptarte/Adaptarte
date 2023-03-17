@@ -4,6 +4,7 @@ type FoodType = (typeof foodTypes)[number];
 interface IConsumption {
   date: Date;
   food: number;
+  id: number;
 }
 
 interface IFood {

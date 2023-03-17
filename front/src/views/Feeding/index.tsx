@@ -51,7 +51,9 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
               {consumption?.[type].map((el) => {
                 const { id, image, name } = getFoodById(el.food);
 
-                return <FoodCard image={image} key={id} name={name} />;
+                return (
+                  <FoodCard image={image} key={id} name={name} id={el.id} />
+                );
               })}
               {Array.from(
                 Array(getConsumptionExpected(type, consumption?.[type].length))
