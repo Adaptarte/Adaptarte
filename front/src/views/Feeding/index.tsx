@@ -9,7 +9,7 @@ import { colors } from "styles";
 import type { IConsumption, IFood } from "types/food";
 import { foodTypes } from "types/food";
 import { compareDates } from "utils/date";
-import { objects, useRealm } from "utils/db/realm";
+import { dbObjects, useRealm } from "utils/db/realm";
 import {
   getConsumptionExpected,
   getFoodById,
@@ -30,7 +30,7 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
 
   useEffect(() => {
     const today = new Date();
-    const resToday = objects(realm, "Consumption").filter(
+    const resToday = dbObjects(realm, "Consumption").filter(
       ({ date }) => compareDates(date, today) === 0
     );
     setConsumption(groupConsumptionByFoodType(resToday));

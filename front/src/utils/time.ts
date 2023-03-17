@@ -14,7 +14,7 @@ const hourToTime = (hour: number): Date => {
 };
 
 const timeToString = (time: Date): string => {
-  return time.toLocaleTimeString("en-US", {
+  return time.toLocaleTimeString(undefined, {
     hour: "numeric",
     hour12: true,
     minute: "numeric"
