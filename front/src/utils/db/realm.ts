@@ -27,4 +27,14 @@ const objects = <T extends SchemaName>(
   return Array.from<SchemaType<T>>(realm.objects(name));
 };
 
-export { create, objects, RealmProvider, useRealm };
+const deleteO = <T extends SchemaName>(
+  realm: Realm,
+  name: T,
+  id: number
+): void => {
+  const docIds = objects(realm, name).filter((el) => el.id == id)[0];
+
+  realm.delete(docIds);
+};
+
+export { create, objects, deleteO, RealmProvider, useRealm };
