@@ -9,7 +9,7 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
-import { create, useRealm } from "utils/db/realm";
+import { dbCreate, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
@@ -31,7 +31,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
         {getFoodByType(type).map((el): JSX.Element => {
           function addConsumption(): void {
             realm.write(() => {
-              create(realm, "Consumption", {
+              dbCreate(realm, "Consumption", {
                 date: new Date(),
                 food: el.id
               });

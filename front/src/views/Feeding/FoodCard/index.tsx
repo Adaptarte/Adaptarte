@@ -2,13 +2,13 @@ import type { FC } from "react";
 import React from "react";
 import { Image, TouchableOpacity, View } from "react-native";
 
+import { imgs } from "assets/imgs";
 import { Column } from "components/Grid";
 import { Text } from "components/Text";
+import { dbDelete, useRealm } from "utils/db/realm";
 
 import { styles } from "./styles";
 import type { IFoodCardProps } from "./types";
-import { imgs } from "assets/imgs";
-import { deleteO, useRealm } from "utils/db/realm";
 
 const FoodCard: FC<IFoodCardProps> = ({
   id,
@@ -19,7 +19,7 @@ const FoodCard: FC<IFoodCardProps> = ({
 
   const onPressDeleteItem = (): void => {
     realm.write(() => {
-      deleteO(realm, "Consumption", id);
+      dbDelete(realm, "Consumption", id);
     });
   };
 
