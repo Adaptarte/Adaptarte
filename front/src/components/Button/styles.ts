@@ -33,10 +33,10 @@ const getButtonTextVar = ({
   };
 };
 
-const getButtonStyle = ({
-  color = "BLUE",
-  style = "ghost"
-}: ButtonVariant): Style => {
+const getButtonStyle = (
+  { color = "BLUE", style = "ghost" }: ButtonVariant,
+  disabled = false
+): Style => {
   const varStyle: VarStyle<typeof style> = {
     ghost: {},
     outline: {
@@ -51,7 +51,10 @@ const getButtonStyle = ({
     }
   };
 
-  return varStyle[style];
+  return {
+    ...varStyle[style],
+    opacity: disabled ? 0.6 : 1
+  };
 };
 
 export { getButtonStyle, getButtonTextVar, styles };
