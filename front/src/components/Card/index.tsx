@@ -25,10 +25,9 @@ const Card: FC<ICardProps> = ({
         </View>
         <Image source={image} style={[styles.img]} />
         <Button
-          color={color}
           onPress={onPress}
           style={styles.button}
-          variant={"text"}
+          variant={{ color, style: "text" }}
         >
           {children}
         </Button>

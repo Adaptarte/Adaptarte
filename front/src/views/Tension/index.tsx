@@ -76,10 +76,10 @@ const Tension: FC<ITensionProps> = ({
             <Text style={styles.sectionSubtitle}>{"Presión diastólica"}</Text>
             <View style={styles.inputContainer}>
               <Input
-                keyboardType={"numeric"}
                 onChange={(value: React.SetStateAction<string>): void => {
                   setDiastolicP(value);
                 }}
+                type={"numeric"}
                 value={diastolicP}
               />
               <Text style={styles.numberInputMaximun} variant={textVars.input}>
@@ -91,11 +91,11 @@ const Tension: FC<ITensionProps> = ({
             <Text style={styles.sectionSubtitle}>{"Presión sistólica"}</Text>
             <View style={styles.inputContainer}>
               <Input
-                keyboardType={"numeric"}
                 maxLength={3}
                 onChange={(value: React.SetStateAction<string>): void => {
                   setSystolicP(value);
                 }}
+                type={"numeric"}
                 value={systolicP}
               />
               <Text style={styles.numberInputMaximun} variant={textVars.input}>
@@ -111,7 +111,7 @@ const Tension: FC<ITensionProps> = ({
             <Button
               onPress={openDatePicker}
               style={styles.selectButton}
-              variant={"outline"}
+              variant={{ style: "outline" }}
             >
               {date.toLocaleString("en-US", {
                 hour: "numeric",
@@ -135,9 +135,9 @@ const Tension: FC<ITensionProps> = ({
           </View>
           <View>
             <Button
-              color={"BLUE_PURPLE"}
               onPress={checkInputs}
               style={styles.buttonContainer}
+              variant={{ color: "BLUE_PURPLE" }}
             >
               {"Registrar"}
             </Button>
