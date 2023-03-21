@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = {}
 }: ButtonProps): JSX.Element => {
   const textVar = getButtonTextVar(variant);
-  const varStyle = getButtonStyle(variant);
+  const varStyle = getButtonStyle(variant, disabled);
 
   return (
     <TouchableOpacity
