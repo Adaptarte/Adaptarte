@@ -54,10 +54,9 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
       </Row>
       {canGoBack() ? (
         <Button
-          color={"GLAUCOUS"}
           onPress={goBack}
           style={styles.cancelButton}
-          variant={"outline"}
+          variant={{ color: "GLAUCOUS", style: "outline" }}
         >
           {t().cancel}
         </Button>

@@ -1,15 +1,19 @@
-import type { ReactNode } from "react";
-import type { ViewProps } from "react-native";
+import type { TouchableOpacityProps } from "react-native";
 
 import type { TColor } from "styles/colors";
 
-type TVariant = "outline" | "solid" | "text";
+type ButtonStyle = "ghost" | "outline" | "solid" | "text";
 
-interface IButtonProps extends Pick<ViewProps, "style"> {
-  children: ReactNode;
+interface ButtonVariant {
   color?: TColor;
-  onPress?: () => void;
-  variant?: TVariant;
+  style?: ButtonStyle;
 }
 
-export type { IButtonProps };
+interface ButtonProps
+  extends Pick<TouchableOpacityProps, "disabled" | "style"> {
+  children: React.ReactNode;
+  onPress?: () => void;
+  variant?: ButtonVariant;
+}
+
+export type { ButtonProps, ButtonVariant };
