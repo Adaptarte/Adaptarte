@@ -1,15 +1,16 @@
 import type { IConsumption, IFood } from "types/food";
+import { arr } from "utils/array";
 
 import { food } from "./data";
 
-const getConsumptionExpected = (type: IFood["type"], current = 0): number => {
+const getConsumptionExpected = (type: IFood["type"], current = 0): number[] => {
   const expected: Record<IFood["type"], number> = {
     carbs: 4,
     dairy: 2,
     fruitsAndVegetables: 4,
     liquids: 5
   };
-  return expected[type] - current;
+  return arr(expected[type] - current);
 };
 
 const getFoodByType = (type: IFood["type"]): IFood[] => {
