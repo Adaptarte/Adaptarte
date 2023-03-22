@@ -55,17 +55,17 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
                   <FoodCard image={image} key={id} name={name} id={el.id} />
                 );
               })}
-              {Array.from(
-                Array(getConsumptionExpected(type, consumption?.[type].length))
-              ).map((el: number) => {
-                const handleAdd = (): void => {
-                  navigate("Consumption", { type });
-                };
+              {getConsumptionExpected(type, consumption?.[type].length).map(
+                (el: number) => {
+                  const handleAdd = (): void => {
+                    navigate("Consumption", { type });
+                  };
 
-                return (
-                  <AddConsumption key={`${type}${el}`} onPress={handleAdd} />
-                );
-              })}
+                  return (
+                    <AddConsumption key={`${type}${el}`} onPress={handleAdd} />
+                  );
+                }
+              )}
             </Row>
           </Fragment>
         );
