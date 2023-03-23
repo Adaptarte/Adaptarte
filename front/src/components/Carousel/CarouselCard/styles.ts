@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     display: "flex",
     flexDirection: "row",
-    height: 180,
+    height: 220,
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     padding: 5,
     textAlign: "center",
-    width: 107
+    width: 160
   },
   checkText: {
     marginBottom: "auto",
@@ -32,21 +32,28 @@ const styles = StyleSheet.create({
     width: "80%"
   },
   content: {
-    height: 56
+    textAlign: "justify",
+    width: 200,
+    overflow: "scroll",
+    height: 110
+  },
+  contentContainer: {
+    width: 210,
+    height: 110
   },
   image: {
-    height: 120,
+    height: 130,
     marginBottom: "auto",
     marginTop: "auto",
     resizeMode: "contain",
-    width: "30%"
+    width: "25%"
   },
   textContainer: {
-    width: "70%"
+    width: "80%"
   },
   title: {
-    marginBottom: 5,
-    width: 200
+    marginBottom: 15,
+    width: 220
   }
 });
 

@@ -31,14 +31,6 @@ const Carousel: FC<ICarouselProps> = ({
   return (
     <View>
       <View style={[styles.cardContainer, styleCardColor]}>
-        <TouchableOpacity
-          onPress={(): void => {
-            current > 0 ? setCurrent(current - 1) : setCurrent(data.length - 1);
-          }}
-          style={[styles.arrowContainer]}
-        >
-          <Text variant={textVarArrow}>{"<"}</Text>
-        </TouchableOpacity>
         <CarouselCard
           complete={data[current].complete}
           description={data[current].description}

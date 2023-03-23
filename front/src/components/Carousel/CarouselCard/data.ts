@@ -28,7 +28,7 @@ const data: ICarouselCardProps[] = [
     complete: false,
     description:
       "Prueba los siguientes ejercicios: " +
-      "\n • Levantar brevemente las manos." +
+      "\n • Levantar brevemente las piernas." +
       "\n • Levantar los brazos a la altura de los hombros",
     image: imgs.stretching,
     title: "Pausa activa"
