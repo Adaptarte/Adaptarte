@@ -4,8 +4,9 @@ import type { TextVariant } from "components/Text/types";
 
 const styles = StyleSheet.create({
   arrowContainer: {
-    marginBottom: "auto",
-    marginTop: "auto",
+    position: "absolute",
+    top: "50%",
+    right: 10,
     paddingLeft: 5,
     paddingRight: 5
   },

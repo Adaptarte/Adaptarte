@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, TouchableOpacity, View } from "react-native";
 
 import { CheckBox } from "components/CheckBox";
 import { Text } from "components/Text";
@@ -44,9 +44,11 @@ const CarouselCard: FC<ICarouselCardProps> = ({
         <Text style={[styles.title]} variant={textVars.title}>
           {title}
         </Text>
-        <Text style={[styles.content]} variant={textVars.content}>
-          {description}
-        </Text>
+        <ScrollView style={[styles.contentContainer]}>
+          <Text style={[styles.content]} variant={textVars.content}>
+            {description}
+          </Text>
+        </ScrollView>
         <TouchableOpacity
           onPress={handleSwitch}
           style={[styles.checkContainer, checkTextStyle]}
