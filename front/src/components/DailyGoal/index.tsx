@@ -43,30 +43,16 @@ const DailyGoal: FC<IGoalProps> = ({
     };
   }, [time]);
 
-  const style: ImageStyle =
-    type !== "Record"
-      ? {
-          marginBottom: "auto",
-          marginTop: "auto",
-          resizeMode: "contain"
-        }
-      : { width: 38 };
-
-  const styleTitle: TextStyle = {
-    textDecorationLine: type === "Record" ? "underline" : "none"
+  const containerVarStyle: ViewStyle = {
+    borderColor: timePassed && !isChecked ? "red" : colors.TRANSPARENT
   };
 
-  const styleBackground: ViewStyle =
-    timePassed && !isChecked
-      ? {
-          borderColor: "red",
-          borderStyle: "solid",
-          borderWidth: 1
-        }
-      : {};
+  const imgVarStyle: ImageStyle = {
+    backgroundColor: isChecked ? colors.BLUE_PURPLE : colors.PURPLE_TRANSLUCID
+  };
 
-  const elipseStyle: ViewStyle = {
-    backgroundColor: isChecked ? colors.BLUE_PURPLE : undefined
+  const titleVarStyle: TextStyle = {
+    textDecorationLine: type === "Record" ? "underline" : "none"
   };
 
   const handleSwitch = useCallback((): void => {
@@ -76,36 +62,26 @@ const DailyGoal: FC<IGoalProps> = ({
   }, [setTensionVisible, tensionVisible]);
 
   return (
-    <View style={[styles.background, styleBackground]}>
-      <View style={[styles.container]}>
-        <View style={[styles.elipse, elipseStyle]}>
-          <Image
-            source={type === "Record" ? imgs.diseaseRegister : imgs.pills}
-            style={[styles.img, style]}
-          />
-        </View>
-      </View>
-      <View style={[styles.content]}>
-        {type === "Record" ? (
-          <TouchableOpacity
-            onPress={handleSwitch}
-            style={[styles.contentContainer]}
-          >
-            <Text style={[styleTitle]} variant={textVars.title}>
-              {title}
-            </Text>
-            <Text variant={textVars.hour}>{timeToString(time)}</Text>
-          </TouchableOpacity>
-        ) : (
-          <>
-            <Text variant={textVars.title}>{title}</Text>
-            <Text variant={textVars.hour}>{timeToString(time)}</Text>
-          </>
-        )}
-      </View>
-      <View style={[styles.checkBox]}>
-        <CheckBox isChecked={isChecked} onChange={setIsChecked} />
-      </View>
+    <View style={[styles.container, containerVarStyle]}>
+      <Image
+        source={type === "Record" ? imgs.diseaseRegister : imgs.pills}
+        style={[styles.img, imgVarStyle]}
+      />
+      <TouchableOpacity
+        disabled={type !== "Record"}
+        onPress={handleSwitch}
+        style={styles.content}
+      >
+        <Text style={titleVarStyle} variant={textVars.title}>
+          {title}
+        </Text>
+        <Text variant={textVars.hour}>{timeToString(time)}</Text>
+      </TouchableOpacity>
+      <CheckBox
+        disabled={type === "Record"}
+        isChecked={isChecked}
+        onChange={setIsChecked}
+      />
       <Tension
         completeRegister={handleRegistryCompleted}
         setVisible={handleSwitch}
