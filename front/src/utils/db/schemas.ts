@@ -30,6 +30,27 @@ const schemas: Schema[] = [
       title: "string",
       type: "string"
     }
+  },
+  {
+    name: "MedicineIntake",
+    primaryKey: "id",
+    properties: {
+      date: "date",
+      id: "int",
+      recipe: "int"
+    }
+  },
+  {
+    name: "MedicineRecipe",
+    primaryKey: "id",
+    properties: {
+      amount: "int",
+      details: "string",
+      id: "int",
+      interval: "float",
+      medicine: "string",
+      takeFrom: "date"
+    }
   }
 ];
 
