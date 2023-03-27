@@ -1,4 +1,4 @@
-import { MedicineRecipe } from "types/medicine";
+import type { MedicineRecipe } from "types/medicine";
 
 const recipes: MedicineRecipe[] = [
   {
