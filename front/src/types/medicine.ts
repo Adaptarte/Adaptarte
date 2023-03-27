@@ -9,6 +9,7 @@ interface MedicineRecipe {
 
 interface MedicineIntake {
   date: Date;
+  id: number;
   recipe: number;
 }
 
