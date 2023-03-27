@@ -1,6 +1,7 @@
 interface MedicineRecipe {
   amount: number;
-  details: string;
+  details?: string;
+  id: number;
   interval: number;
   medicine: string;
   takeFrom: Date;
