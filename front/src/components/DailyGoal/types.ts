@@ -1,12 +1,10 @@
 import type { DailyGoalType } from "types/dailyGoals";
 
-interface IGoalProps {
-  type: DailyGoalType;
+interface DailyGoalProps {
+  date: Date;
   done: boolean;
-  hour: number;
-  img?: number;
-  onChange?: (val: boolean) => void;
   title: string;
+  type: DailyGoalType;
 }
 
-export type { IGoalProps };
+export type { DailyGoalProps };
