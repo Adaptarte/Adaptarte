@@ -7,7 +7,7 @@ import { CheckBox } from "components/CheckBox";
 import { Tension } from "components/Tension";
 import { Text } from "components/Text";
 import { colors } from "styles/colors";
-import { timeToString } from "utils/time";
+import { dateToString } from "utils/date";
 
 import { styles, textVars } from "./styles";
 import type { DailyGoalProps } from "./types";
@@ -27,17 +27,14 @@ const DailyGoal = ({
   }, [setIsTensionOpen]);
 
   useEffect(() => {
-    const currentTime = new Date();
-    const timer = date.getTime() - currentTime.getTime();
-
     const action = setTimeout(() => {
       setTimePassed(true);
-    }, timer);
+    }, date.getTime() - Date.now());
 
     return () => {
       clearTimeout(action);
     };
-  }, [date]);
+  }, [date, setTimePassed]);
 
   const containerVarStyle: ViewStyle = {
     borderColor: timePassed && !isChecked ? "red" : colors.TRANSPARENT
@@ -65,7 +62,7 @@ const DailyGoal = ({
         <Text style={titleVarStyle} variant={textVars.title}>
           {title}
         </Text>
-        <Text variant={textVars.hour}>{timeToString(date)}</Text>
+        <Text variant={textVars.hour}>{dateToString(date, "time")}</Text>
       </TouchableOpacity>
       <CheckBox
         disabled={type === "Record"}

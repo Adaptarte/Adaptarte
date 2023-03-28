@@ -1,5 +1,5 @@
 import type { MedicineIntake, MedicineRecipe } from "types/medicine";
-import { compareDates, MS_PER_HOUR } from "utils/date";
+import { addTime, compareDates } from "utils/date";
 
 import { recipes } from "./data";
 
@@ -16,7 +16,7 @@ const getNextIntake = (recipe: MedicineRecipe, last?: MedicineIntake): Date => {
   if (last === undefined) {
     return new Date(recipe.takeFrom);
   }
-  return new Date(last.date.getTime() + recipe.interval * MS_PER_HOUR);
+  return addTime(new Date(last.date), recipe.interval, "hour");
 };
 
 const getRecipeById = (id: number): MedicineRecipe => {
