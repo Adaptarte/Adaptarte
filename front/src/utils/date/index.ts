@@ -29,11 +29,11 @@ const addTime = (date: Date, time: number, unit: TimeUnit = "ms"): Date => {
 };
 
 const compareDates = (a: Date, b: Date, ignoreTime = true): number => {
-  const d1 = a;
-  const d2 = b;
+  const d1 = new Date(a);
+  const d2 = new Date(b);
   if (ignoreTime) {
-    setDayTime(new Date(d1), 0);
-    setDayTime(new Date(d2), 0);
+    setDayTime(d1, 0);
+    setDayTime(d2, 0);
   }
   return d1.getTime() - d2.getTime();
 };

@@ -26,11 +26,8 @@ const FoodCard: FC<IFoodCardProps> = ({
   return (
     <Column>
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={onPressDeleteItem}
-          style={styles.deleteItemContainer}
-        >
-          <Image source={imgs.close} style={styles.deleteItem} />
+        <TouchableOpacity onPress={onPressDeleteItem} style={styles.deleteBtn}>
+          <Image source={imgs.close} style={styles.deleteBtnImg} />
         </TouchableOpacity>
         <Image source={image} style={styles.image} />
         <Text style={styles.name} variant={{ weight: "bold" }}>

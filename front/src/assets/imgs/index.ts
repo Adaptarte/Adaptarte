@@ -14,9 +14,9 @@ import helloCuidador from "./Hello_cuidador.png";
 import helloPersona from "./Hello_persona.png";
 import pills from "./Pills.png";
 import plus from "./Plus.png";
+import profile from "./Profile.png";
 import profilePhotoBoy from "./Profile_photo_boy.png";
 import profilePhotoGirl from "./Profile_photo_girl.png";
-import profile from "./Profile.png";
 import stretching from "./Stretching.png";
 import walking from "./Walking.png";
 import walkingdog from "./WalkingTheDog.png";
@@ -41,9 +41,9 @@ const imgs = {
   helloPersona,
   pills,
   plus,
+  profile,
   profilePhotoBoy,
   profilePhotoGirl,
-  profile,
   stretching,
   walking,
   walkingdog,
