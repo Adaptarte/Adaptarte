@@ -59,7 +59,7 @@ const CarouselCard: FC<ICarouselCardProps> = ({
           <CheckBox
             isChecked={check}
             onChange={handleSwitch}
-            variant={"circle"}
+            variant={{ border: "circle" }}
           />
         </TouchableOpacity>
       </View>
