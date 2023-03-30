@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
@@ -17,7 +17,7 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
 
   const handleSave = useCallback(() => {
     const data: ITension = {
-      date: new Date(),
+      date,
       diastolic: parseInt(diastolic),
       systolic: parseInt(systolic)
     };
@@ -27,6 +27,10 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
     });
     setVisible?.(false);
   }, [diastolic, setVisible, systolic]);
+
+  useEffect(() => {
+    setDate(new Date());
+  }, [visible]);
 
   return (
     <Modal
