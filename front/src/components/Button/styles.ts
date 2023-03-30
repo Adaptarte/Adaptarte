@@ -9,9 +9,13 @@ import type { ButtonVariant } from "./types";
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
     borderColor: colors.TRANSPARENT,
     borderRadius: 8,
     borderWidth: 2,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
     padding: 4
   },
   text: {
