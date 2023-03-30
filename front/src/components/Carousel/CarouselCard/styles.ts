@@ -1,59 +1,29 @@
 import { StyleSheet } from "react-native";
 
 import type { TextVariants } from "components/Text/types";
-import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  cardContainer: {
+  container: {
+    alignItems: "center",
+    borderRadius: 16,
     display: "flex",
     flexDirection: "row",
-    height: 220,
-    paddingBottom: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    width: "90%"
+    padding: 20
   },
-  checkContainer: {
-    borderColor: colors.WHITE,
-    borderRadius: 20,
-    borderWidth: 2,
-    display: "flex",
-    flexDirection: "row",
-    marginTop: 25,
-    padding: 5,
-    textAlign: "center",
-    width: 160
-  },
-  checkText: {
-    marginBottom: "auto",
-    marginTop: "auto",
-    textAlign: "center",
-    width: "80%"
-  },
-  content: {
-    textAlign: "justify",
-    width: 200,
-    overflow: "scroll",
-    height: 110
-  },
-  contentContainer: {
-    width: 210,
-    height: 110
+  details: {
+    marginBottom: 15
   },
   image: {
-    height: 130,
-    marginBottom: "auto",
-    marginTop: "auto",
+    height: 100,
     resizeMode: "contain",
-    width: "25%"
+    width: 60
   },
   textContainer: {
-    width: "80%"
+    flexBasis: 1,
+    flexGrow: 1
   },
   title: {
-    marginBottom: 15,
-    width: 220
+    marginBottom: 15
   }
 });
 

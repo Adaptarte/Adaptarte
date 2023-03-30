@@ -23,9 +23,13 @@ const Button: React.FC<ButtonProps> = ({
       onPress={onPress}
       style={[styles.container, varStyle, style]}
     >
-      <Text style={[styles.text]} variant={textVar}>
-        {children}
-      </Text>
+      {typeof children === "string" ? (
+        <Text style={[styles.text]} variant={textVar}>
+          {children}
+        </Text>
+      ) : (
+        children
+      )}
     </TouchableOpacity>
   );
 };
