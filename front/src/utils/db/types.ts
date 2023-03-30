@@ -1,6 +1,5 @@
 import type { ObjectSchema, PropertiesTypes } from "realm";
 
-import type { IDailyGoal } from "types/dailyGoals";
 import type { IConsumption } from "types/food";
 import type { ITension } from "types/hypertension";
 import type { MedicineIntake, MedicineRecipe } from "types/medicine";
@@ -9,7 +8,6 @@ import type { StrictUnion } from "utils/types";
 interface SchemaTypes {
   Tension: ITension;
   Consumption: IConsumption;
-  DailyGoal: IDailyGoal;
   MedicineIntake: MedicineIntake;
   MedicineRecipe: MedicineRecipe;
 }
