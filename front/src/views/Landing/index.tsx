@@ -18,7 +18,7 @@ const Landing: FC<TAppViewProps<"Landing">> = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
   return (
-    <Screen>
+    <Screen style={styles.screen}>
       <View style={styles.welcome}>
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}

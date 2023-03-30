@@ -8,12 +8,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.WHITE,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    padding: 20
+    padding: 16
   },
   profile: {
     height: 60,
     marginLeft: 20,
     width: 60
+  },
+  screen: {
+    padding: 0
   },
   sectionTitle: {
     marginBottom: 16,
@@ -22,7 +25,7 @@ const styles = StyleSheet.create({
   welcome: {
     display: "flex",
     flexDirection: "row",
-    marginBottom: 20
+    margin: 16
   },
   welcomeText: {
     flexBasis: 0,

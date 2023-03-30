@@ -4,6 +4,10 @@ const dataDoses: IDataDose[] = [
   {
     details: "08:00 am - 06:00 pm",
     tip: "Recuerda beber 8 vasos de agua al día"
+  },
+  {
+    details: "Tomarla a una misma hora es más preciso",
+    tip: "Toma tu tensión 3 o más veces por semana"
   }
 ];
 

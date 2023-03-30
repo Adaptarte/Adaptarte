@@ -5,11 +5,12 @@ import { colors } from "styles";
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
     backgroundColor: colors.GLAUCOUS,
     borderRadius: 20,
     display: "flex",
     flexDirection: "row",
-    marginBottom: 20,
+    margin: 16,
     padding: 24
   },
   img: {
