@@ -3,7 +3,7 @@ import React from "react";
 import { View } from "react-native";
 import NDatePicker from "react-native-date-picker";
 
-import { Text } from "components/Text";
+import { InputLabel } from "components/Input/Label";
 import { colors } from "styles";
 
 import { styles } from "./styles";
@@ -17,7 +17,7 @@ const DatePicker: FC<DatePickerProps> = ({
 }: DatePickerProps): JSX.Element => {
   return (
     <View style={styles.container}>
-      <Text style={styles.label}>{label}</Text>
+      <InputLabel>{label}</InputLabel>
       <NDatePicker
         date={date}
         dividerHeight={2}

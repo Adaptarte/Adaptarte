@@ -2,9 +2,9 @@ import type { FC } from "react";
 import React from "react";
 import { TextInput, View } from "react-native";
 
-import { Text } from "components/Text";
 import { colors } from "styles";
 
+import { InputLabel } from "./Label";
 import { styles } from "./styles";
 import type { InputProps } from "./types";
 
@@ -18,7 +18,7 @@ const Input: FC<InputProps> = ({
 }: InputProps): JSX.Element => {
   return (
     <View style={styles.container}>
-      {label === undefined ? null : <Text style={styles.label}>{label}</Text>}
+      <InputLabel>{label}</InputLabel>
       <TextInput
         keyboardType={type}
         maxLength={maxLength}

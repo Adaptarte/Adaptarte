@@ -19,10 +19,7 @@ const styles = StyleSheet.create({
   inputText: getTextStyle({
     color: "BLACK",
     size: 1
-  }),
-  label: {
-    marginBottom: 4
-  }
+  })
 });
 
 export { styles };
