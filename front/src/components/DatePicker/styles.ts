@@ -7,9 +7,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     paddingVertical: 4
   },
-  label: {
-    marginBottom: 4
-  },
   picker: {
     height: 120,
     width: undefined
