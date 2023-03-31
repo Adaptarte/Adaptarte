@@ -1,4 +1,4 @@
-interface MedicineRecipe {
+interface IMedicineRecipe {
   amount: number;
   details?: string;
   id: number;
@@ -7,10 +7,9 @@ interface MedicineRecipe {
   takeFrom: Date;
 }
 
-interface MedicineIntake {
+interface IMedicineIntake {
   date: Date;
-  id: number;
   recipe: number;
 }
 
-export type { MedicineRecipe, MedicineIntake };
+export type { IMedicineRecipe, IMedicineIntake };

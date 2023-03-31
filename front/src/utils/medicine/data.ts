@@ -1,6 +1,6 @@
-import type { MedicineRecipe } from "types/medicine";
+import type { IMedicineRecipe } from "types/medicine";
 
-const recipes: MedicineRecipe[] = [
+const recipes: IMedicineRecipe[] = [
   {
     amount: 0,
     details: "Tomar 30 min antes del desayuno",

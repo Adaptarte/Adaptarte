@@ -2,14 +2,14 @@ import type { ObjectSchema, PropertiesTypes } from "realm";
 
 import type { IConsumption } from "types/food";
 import type { ITension } from "types/hypertension";
-import type { MedicineIntake, MedicineRecipe } from "types/medicine";
+import type { IMedicineIntake, IMedicineRecipe } from "types/medicine";
 import type { StrictUnion } from "utils/types";
 
 interface SchemaTypes {
   Tension: ITension;
   Consumption: IConsumption;
-  MedicineIntake: MedicineIntake;
-  MedicineRecipe: MedicineRecipe;
+  MedicineIntake: IMedicineIntake;
+  MedicineRecipe: IMedicineRecipe;
 }
 
 type SchemaName = keyof SchemaTypes;
