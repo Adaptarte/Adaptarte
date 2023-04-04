@@ -3,6 +3,15 @@ import { StyleSheet } from "react-native";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
+  backimage: {
+    position: "relative",
+    zIndex: 1,
+    borderColor: colors.BLUE_PURPLE,
+    borderRadius: 20,
+    borderWidth: 2,
+    height: 20,
+    width: 20
+  },
   container: {
     alignItems: "center",
     aspectRatio: 1,
