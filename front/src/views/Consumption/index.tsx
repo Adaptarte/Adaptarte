@@ -14,6 +14,7 @@ import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
+import { RegisterFoodGA } from "utils/analytics/analytics";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
@@ -30,6 +31,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
       <Row columns={3}>
         {getFoodByType(type).map((el): JSX.Element => {
           function addConsumption(): void {
+            RegisterFoodGA();
             realm.write(() => {
               dbCreate(realm, "Consumption", {
                 date: new Date(),

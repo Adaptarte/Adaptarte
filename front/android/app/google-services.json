@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "288895389085",
+    "project_id": "adaptarte-8026d",
+    "storage_bucket": "adaptarte-8026d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288895389085:android:d15f509bdec74d0a617374",
+        "android_client_info": {
+          "package_name": "com.adaptarte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288895389085-a9our8ukv5qfgcc3l7ba6vibd78aki8d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3unCCZSdTLA3I3PJZppr0Zuy6UcNabHI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288895389085-a9our8ukv5qfgcc3l7ba6vibd78aki8d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
