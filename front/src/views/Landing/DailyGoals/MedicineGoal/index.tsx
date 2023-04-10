@@ -6,7 +6,7 @@ import { getRecipeById } from "utils/medicine";
 
 import type { MedicineGoalProps } from "./types";
 
-const TensionGoal = ({
+const MedicineGoal = ({
   date,
   done,
   recipeId
@@ -29,4 +29,4 @@ const TensionGoal = ({
   );
 };
 
-export { TensionGoal };
+export { MedicineGoal };
