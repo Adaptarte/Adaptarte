@@ -9,12 +9,12 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
+import { RegisterFoodGA } from "utils/analytics/analytics";
 import { dbCreate, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
-import { RegisterFoodGA } from "utils/analytics/analytics";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
