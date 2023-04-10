@@ -16,7 +16,7 @@ const dbCreate = <T extends SchemaName>(
   const docIds = dbObjects(realm, name).map((el) => el.id);
   const id = Math.max(0, ...docIds) + 1;
 
-  const doc = <SchemaType<T>>{ ...object, id };
+  const doc = { ...object, id } as SchemaType<T>;
   return realm.create(name, doc);
 };
 

@@ -1,4 +1,4 @@
-const foodTypes = <const>["liquids", "carbs", "fruitsAndVegetables", "dairy"];
+const foodTypes = ["liquids", "carbs", "fruitsAndVegetables", "dairy"] as const;
 type FoodType = (typeof foodTypes)[number];
 
 interface IConsumption {

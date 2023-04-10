@@ -5,7 +5,8 @@ import { recipes } from "./data";
 
 const getLastIntakes = (data: IMedicineIntake[]): IMedicineIntake[] => {
   return data.reduce<IMedicineIntake[]>((acc, curr) => {
-    if (compareDates(curr.date, acc[curr.recipe].date, false) > 0) {
+    const accDate = acc[curr.recipe]?.date;
+    if (accDate === undefined || compareDates(curr.date, accDate, false) > 0) {
       acc[curr.recipe] = curr;
     }
     return acc;
