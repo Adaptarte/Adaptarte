@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { Image, TouchableOpacity, View } from "react-native";
 
 import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
-import { Tension } from "components/Tension";
 import { Text } from "components/Text";
 import { colors } from "styles/colors";
 import { dateToString } from "utils/date";
@@ -15,16 +14,11 @@ import type { DailyGoalProps } from "./types";
 const DailyGoal = ({
   date,
   done,
+  onPress,
   title,
   type
 }: DailyGoalProps): JSX.Element => {
-  const [isTensionOpen, setIsTensionOpen] = useState(false);
   const [timePassed, setTimePassed] = useState(false);
-  const [isChecked, setIsChecked] = useState(done);
-
-  const openTension = useCallback(() => {
-    setIsTensionOpen(true);
-  }, [setIsTensionOpen]);
 
   useEffect(() => {
     const action = setTimeout(() => {
@@ -37,11 +31,11 @@ const DailyGoal = ({
   }, [date, setTimePassed]);
 
   const containerVarStyle: ViewStyle = {
-    borderColor: timePassed && !isChecked ? "red" : colors.TRANSPARENT
+    borderColor: timePassed && !done ? "red" : colors.TRANSPARENT
   };
 
   const imgVarStyle: ImageStyle = {
-    backgroundColor: isChecked ? colors.BLUE_PURPLE : colors.PURPLE_TRANSLUCID
+    backgroundColor: done ? colors.BLUE_PURPLE : colors.PURPLE_TRANSLUCID
   };
 
   const titleVarStyle: TextStyle = {
@@ -55,8 +49,8 @@ const DailyGoal = ({
         style={[styles.img, imgVarStyle]}
       />
       <TouchableOpacity
-        disabled={type !== "Record"}
-        onPress={openTension}
+        disabled={onPress === undefined}
+        onPress={onPress}
         style={styles.content}
       >
         <Text style={titleVarStyle} variant={textVars.title}>
@@ -64,12 +58,7 @@ const DailyGoal = ({
         </Text>
         <Text variant={textVars.hour}>{dateToString(date, "time")}</Text>
       </TouchableOpacity>
-      <CheckBox
-        disabled={type === "Record"}
-        isChecked={isChecked}
-        onChange={setIsChecked}
-      />
-      <Tension setVisible={setIsTensionOpen} visible={isTensionOpen} />
+      <CheckBox disabled isChecked={done} />
     </View>
   );
 };
