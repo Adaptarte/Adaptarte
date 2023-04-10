@@ -2,11 +2,14 @@ import type { FC } from "react";
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 
-import { DailyGoal } from "components/DailyGoal";
-import { compareDates, dateToString } from "utils/date";
+import { compareDates } from "utils/date";
 import { dbObjects, useRealm } from "utils/db/realm";
 import type { SchemaType } from "utils/db/types";
+import { getLastIntakes, getNextIntake, recipes } from "utils/medicine";
 import { getNextTension } from "utils/records/tension";
+
+import { MedicineGoal } from "./MedicineGoal";
+import { TensionGoal } from "./TensionGoal";
 
 const DailyGoals: FC = (): JSX.Element => {
   const realm = useRealm();
@@ -20,14 +23,37 @@ const DailyGoals: FC = (): JSX.Element => {
   const tensionDone = compareDates(nextTension, new Date(), true) > 0;
   const tensionDate = tensionDone ? tensions.slice(-1)[0]?.date : nextTension;
 
+  const [medIntakes, setMedIntakes] = useState<SchemaType<"MedicineIntake">[]>(
+    []
+  );
+
+  useEffect(() => {
+    setMedIntakes(dbObjects(realm, "MedicineIntake"));
+  }, [realm, setMedIntakes]);
+
+  const lastMedIntakes = getLastIntakes(
+    medIntakes
+  ) as SchemaType<"MedicineIntake">[];
+
   return (
     <View>
-      <DailyGoal
-        date={tensionDate}
-        done={tensionDone}
-        title={`Tension ${dateToString(tensionDate, "date")}`}
-        type={"Record"}
-      />
+      <TensionGoal date={tensionDate} done={tensionDone} />
+      {lastMedIntakes.map((intake) => (
+        <MedicineGoal
+          date={intake.date}
+          done
+          key={`R${intake.recipe}I${intake.id}`}
+          recipeId={intake.recipe}
+        />
+      ))}
+      {recipes.map((recipe) => (
+        <MedicineGoal
+          date={getNextIntake(recipe, lastMedIntakes[recipe.id])}
+          done={false}
+          key={`R${recipe.id}`}
+          recipeId={recipe.id}
+        />
+      ))}
     </View>
   );
 };
