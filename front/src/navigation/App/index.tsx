@@ -1,3 +1,4 @@
+import { NavigationContainer } from "@react-navigation/native";
 import type { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
@@ -23,18 +24,20 @@ const screenModalOptions: NativeStackNavigationOptions = {
 
 const AppNavigation = (): JSX.Element => {
   return (
-    <Navigator initialRouteName={"Landing"} screenOptions={screenOptions}>
-      <Screen component={Landing} name={"Landing"} />
-      <Screen
-        component={Feeding}
-        name={"Feeding"}
-        options={{ headerShown: true, headerTitle: "Alimentación" }}
-      />
-      <Group screenOptions={screenModalOptions}>
-        <Screen component={Exercise} name={"Exercise"} />
-      </Group>
-      <Screen component={Consumption} name={"Consumption"} />
-    </Navigator>
+    <NavigationContainer>
+      <Navigator initialRouteName={"Landing"} screenOptions={screenOptions}>
+        <Screen component={Landing} name={"Landing"} />
+        <Screen
+          component={Feeding}
+          name={"Feeding"}
+          options={{ headerShown: true, headerTitle: "Alimentación" }}
+        />
+        <Group screenOptions={screenModalOptions}>
+          <Screen component={Exercise} name={"Exercise"} />
+        </Group>
+        <Screen component={Consumption} name={"Consumption"} />
+      </Navigator>
+    </NavigationContainer>
   );
 };
 
