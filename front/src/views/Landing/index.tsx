@@ -7,16 +7,19 @@ import { DataDose } from "components/DataDose";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { useUser } from "utils/auth";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
 import { styles, textVars } from "./styles";
 
-const name = "Clemencia";
-
 const Landing: FC<TAppViewProps<"Landing">> = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
+  const user = useUser();
+
+  const name = user.displayName?.split(" ")[0] ?? "paciente";
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.welcome}>
