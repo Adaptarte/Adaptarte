@@ -6,9 +6,9 @@ import type { IScreenProps } from "./types";
 
 const Screen = ({ children, style }: IScreenProps): JSX.Element => {
   return (
-    <SafeAreaView style={[styles.container, style]}>
+    <SafeAreaView style={styles.container}>
       <StatusBar hidden />
-      <ScrollView>{children}</ScrollView>
+      <ScrollView contentContainerStyle={style}>{children}</ScrollView>
     </SafeAreaView>
   );
 };
