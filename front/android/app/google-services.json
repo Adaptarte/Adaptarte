@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "288895389085-a9our8ukv5qfgcc3l7ba6vibd78aki8d.apps.googleusercontent.com",
+          "client_id": "288895389085-8jq0ch5noi8haubfq509oiejfb7v2ljr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adaptarte",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "288895389085-a9our8ukv5qfgcc3l7ba6vibd78aki8d.apps.googleusercontent.com",
+              "client_id": "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "288895389085-c7fm6k0aohv9logeg6k373p5tn0nr6rr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.adaptarte"
+              }
             }
           ]
         }
