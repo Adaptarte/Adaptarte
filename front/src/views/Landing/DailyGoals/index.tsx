@@ -4,7 +4,7 @@ import { View } from "react-native";
 
 import { compareDates } from "utils/date";
 import { dbObjects, useRealm } from "utils/db/realm";
-import type { SchemaType } from "utils/db/types";
+import type { SchemaType } from "utils/db/realm/types";
 import { getLastIntakes, getNextIntake, recipes } from "utils/medicine";
 import { getNextTension } from "utils/records/tension";
 
