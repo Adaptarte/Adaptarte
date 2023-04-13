@@ -1,166 +1,166 @@
-import { foodimgs } from "assets/imgs/Foods";
+import { foodImgs } from "assets/imgs/Foods";
 import type { IFood } from "types/food";
 
 const food: IFood[] = [
   {
     id: 1,
-    image: foodimgs.bread,
+    image: foodImgs.bread,
     name: "Pan",
     type: "carbs"
   },
   {
     id: 2,
-    image: foodimgs.chocolate,
+    image: foodImgs.chocolate,
     name: "Chocolate",
     type: "dairy"
   },
   {
     id: 3,
-    image: foodimgs.coffee,
+    image: foodImgs.coffee,
     name: "Café",
     type: "dairy"
   },
   {
     id: 4,
-    image: foodimgs.juice,
+    image: foodImgs.juice,
     name: "Jugo",
     type: "liquids"
   },
   {
     id: 5,
-    image: foodimgs.milk,
+    image: foodImgs.milk,
     name: "Leche",
     type: "dairy"
   },
   {
     id: 6,
-    image: foodimgs.pineapple,
+    image: foodImgs.pineapple,
     name: "Piña",
     type: "fruitsAndVegetables"
   },
   {
     id: 7,
-    image: foodimgs.potato,
+    image: foodImgs.potato,
     name: "Patata",
     type: "fruitsAndVegetables"
   },
   {
     id: 8,
-    image: foodimgs.rice,
+    image: foodImgs.rice,
     name: "Arroz",
     type: "carbs"
   },
   {
     id: 9,
-    image: foodimgs.tea,
+    image: foodImgs.tea,
     name: "Té",
     type: "liquids"
   },
   {
     id: 10,
-    image: foodimgs.water,
+    image: foodImgs.water,
     name: "Agua",
     type: "liquids"
   },
   {
     id: 11,
-    image: foodimgs.watermelon,
+    image: foodImgs.watermelon,
     name: "Sandía",
     type: "fruitsAndVegetables"
   },
   {
     id: 12,
-    image: foodimgs.wine,
+    image: foodImgs.wine,
     name: "Vino",
     type: "liquids"
   },
   {
     id: 13,
-    image: foodimgs.yogurt,
+    image: foodImgs.yogurt,
     name: "Yogurt",
     type: "dairy"
   },
   {
     id: 14,
-    image: foodimgs.arepa,
+    image: foodImgs.arepa,
     name: "Arepa",
     type: "carbs"
   },
   {
     id: 15,
-    image: foodimgs.cassava,
+    image: foodImgs.cassava,
     name: "Yuca",
     type: "carbs"
   },
   {
     id: 16,
-    image: foodimgs.cookie,
+    image: foodImgs.cookie,
     name: "Galleta",
     type: "carbs"
   },
   {
     id: 17,
-    image: foodimgs.corn,
+    image: foodImgs.corn,
     name: "Maíz",
     type: "carbs"
   },
   {
     id: 18,
-    image: foodimgs.empanada,
+    image: foodImgs.empanada,
     name: "Emapanada",
     type: "carbs"
   },
   {
     id: 19,
-    image: foodimgs.pasta,
+    image: foodImgs.pasta,
     name: "Pasta",
     type: "carbs"
   },
   {
     id: 20,
-    image: foodimgs.apple,
+    image: foodImgs.apple,
     name: "Manzana",
     type: "fruitsAndVegetables"
   },
   {
     id: 21,
-    image: foodimgs.banana,
+    image: foodImgs.banana,
     name: "Banana",
     type: "fruitsAndVegetables"
   },
   {
     id: 22,
-    image: foodimgs.cherry,
+    image: foodImgs.cherry,
     name: "Cereza",
     type: "fruitsAndVegetables"
   },
   {
     id: 23,
-    image: foodimgs.grape,
+    image: foodImgs.grape,
     name: "Uva",
     type: "fruitsAndVegetables"
   },
   {
     id: 24,
-    image: foodimgs.kiwi,
+    image: foodImgs.kiwi,
     name: "Kiwi",
     type: "fruitsAndVegetables"
   },
   {
     id: 25,
-    image: foodimgs.orange,
+    image: foodImgs.orange,
     name: "Naranja",
     type: "fruitsAndVegetables"
   },
   {
     id: 26,
-    image: foodimgs.papaya,
+    image: foodImgs.papaya,
     name: "Papaya",
     type: "fruitsAndVegetables"
   },
   {
     id: 27,
-    image: foodimgs.lemonade,
+    image: foodImgs.lemonade,
     name: "Limonada",
     type: "liquids"
   }

@@ -26,7 +26,7 @@ import tea from "./Liquids/Tea.png";
 import water from "./Liquids/Water.png";
 import wine from "./Liquids/Wine.png";
 
-const foodimgs = {
+const foodImgs = {
   apple,
   arepa,
   banana,
@@ -56,4 +56,4 @@ const foodimgs = {
   yogurt
 };
 
-export { foodimgs };
+export { foodImgs };
