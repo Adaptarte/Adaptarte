@@ -26,10 +26,18 @@ interface DBTension {
   systolic: number;
 }
 
+interface DBUserCollections {
+  FoodIntake: DBFoodIntake;
+  MedicineIntake: DBMedicineIntake;
+  MedicineRecipe: DBMedicineRecipe;
+  Tension: DBTension;
+}
+
 export type {
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
   DBTension,
-  DBUser
+  DBUser,
+  DBUserCollections
 };

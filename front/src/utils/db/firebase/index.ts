@@ -1,6 +1,6 @@
 import firestore from "@react-native-firebase/firestore";
 
-import type { DBUser } from "../types";
+import type { DBUser, DBUserCollections } from "../types";
 import type { DocRef } from "./types";
 
 const refUser = (id: string): DocRef<DBUser> => {
@@ -16,4 +16,13 @@ const addUser = async (id: string): Promise<void> => {
   }
 };
 
-export { addUser, refUser };
+const addUserData = async <T extends keyof DBUserCollections>(
+  user: string,
+  collection: T,
+  data: DBUserCollections[T]
+): Promise<DocRef<DBUserCollections[T]>> => {
+  const ref = refUser(user).collection(collection);
+  return ref.add(data) as Promise<DocRef<DBUserCollections[T]>>;
+};
+
+export { addUser, addUserData, refUser };

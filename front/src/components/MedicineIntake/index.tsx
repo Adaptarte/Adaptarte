@@ -5,6 +5,8 @@ import { DatePicker } from "components/DatePicker";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
 import type { IMedicineIntake } from "types/medicine";
+import { useUser } from "utils/auth";
+import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
 
 import type { MedicineIntakeProps } from "./types";
@@ -16,6 +18,7 @@ const MedicineIntake = ({
 }: MedicineIntakeProps): JSX.Element => {
   const realm = useRealm();
   const [date, setDate] = useState(new Date());
+  const user = useUser();
 
   const handleSave = useCallback(() => {
     const data: IMedicineIntake = {
@@ -26,6 +29,7 @@ const MedicineIntake = ({
     realm.write(() => {
       dbCreate(realm, "MedicineIntake", data);
     });
+    addUserData(user.uid, "MedicineIntake", data).catch(console.error);
     setVisible?.(false);
   }, [date, recipe.id, realm, setVisible]);
 
