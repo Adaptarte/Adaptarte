@@ -11,7 +11,11 @@ type DocRef<T extends DocData = DocData> =
 type DocSnap<T extends DocData = DocData> =
   FirebaseFirestoreTypes.DocumentSnapshot<T>;
 
+type Query<T extends DocData = DocData> = FirebaseFirestoreTypes.Query<T>;
+
+type QueryFilter<T extends DocData = DocData> = Parameters<Query<T>["where"]>[];
+
 type QuerySnap<T extends DocData = DocData> =
   FirebaseFirestoreTypes.QuerySnapshot<T>;
 
-export type { ColRef, DocRef, DocSnap, QuerySnap };
+export type { ColRef, DocRef, DocSnap, Query, QueryFilter, QuerySnap };
