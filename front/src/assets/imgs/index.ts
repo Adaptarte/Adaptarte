@@ -10,6 +10,7 @@ import doctor2 from "./Doctor_2.png";
 import drinkingWater from "./DrinkingWater.png";
 import exercise from "./Exercise.png";
 import feeding from "./Feeding.png";
+import { foodImgs } from "./Foods";
 import helloCuidador from "./Hello_cuidador.png";
 import helloPersona from "./Hello_persona.png";
 import pills from "./Pills.png";
@@ -25,6 +26,7 @@ import whatsapp2 from "./Whatsapp_2.png";
 import winner from "./Winner.png";
 
 const imgs = {
+  ...foodImgs,
   activePause,
   back,
   calm,
