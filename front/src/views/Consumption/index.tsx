@@ -10,6 +10,8 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { RegisterFoodGA } from "utils/analytics/analytics";
+import { useUser } from "utils/auth";
+import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
@@ -22,6 +24,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
   const realm = useRealm();
+  const user = useUser();
 
   return (
     <Screen style={{ backgroundColor: colors.WHITE }}>
@@ -32,12 +35,14 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
         {getFoodByType(type).map((el): JSX.Element => {
           function addConsumption(): void {
             RegisterFoodGA();
+            const data = {
+              date: new Date(),
+              food: el.id
+            };
             realm.write(() => {
-              dbCreate(realm, "Consumption", {
-                date: new Date(),
-                food: el.id
-              });
+              dbCreate(realm, "Consumption", data);
             });
+            addUserData(user.uid, "FoodIntake", data).catch(console.error);
             goBack();
           }
           return (

@@ -5,6 +5,8 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import type { ITension } from "types/hypertension";
+import { useUser } from "utils/auth";
+import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
 
 import type { TensionProps } from "./types";
@@ -14,6 +16,7 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
   const [systolic, setSystolic] = useState("");
   const [date, setDate] = useState(new Date());
   const realm = useRealm();
+  const user = useUser();
 
   const handleSave = useCallback(() => {
     const data: ITension = {
@@ -25,6 +28,7 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
     realm.write(() => {
       dbCreate(realm, "Tension", data);
     });
+    addUserData(user.uid, "Tension", data).catch(console.error);
     setVisible?.(false);
   }, [diastolic, setVisible, systolic]);
 
