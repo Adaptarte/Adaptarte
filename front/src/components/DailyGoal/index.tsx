@@ -49,7 +49,7 @@ const DailyGoal = ({
         style={[styles.img, imgVarStyle]}
       />
       <TouchableOpacity
-        disabled={onPress === undefined}
+        disabled={done || onPress === undefined}
         onPress={onPress}
         style={styles.content}
       >
