@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { View } from "react-native";
 
@@ -9,22 +8,22 @@ import { Img } from "components/Img";
 import { colors } from "styles";
 
 import { styles } from "./styles";
-import type { ICardProps } from "./types";
+import type { CardProps } from "./types";
 
-const Card: FC<ICardProps> = ({
+const Card = ({
   bgColor,
   children,
   color,
-  image,
+  img,
   onPress
-}: ICardProps): JSX.Element => {
+}: CardProps): JSX.Element => {
   return (
     <Column>
       <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>
         <View style={[styles.checkBox]}>
           <CheckBox />
         </View>
-        <Img src={image} style={styles.img} />
+        <Img src={img} style={styles.img} />
         <Button onPress={onPress} variant={{ color, style: "text" }}>
           {children}
         </Button>

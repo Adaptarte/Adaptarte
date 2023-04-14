@@ -1,8 +1,6 @@
-import { imgs } from "assets/imgs";
+import type { CarouselCardProps } from "./types";
 
-import type { ICarouselCardProps } from "./types";
-
-const data: ICarouselCardProps[] = [
+const data: CarouselCardProps[] = [
   {
     background: "#FFB186",
     complete: true,
@@ -10,7 +8,7 @@ const data: ICarouselCardProps[] = [
       "Recuerda incluir mínimo 10 minutos de actividad " +
       "física al día. Poco a poco aumenta el tiempo hasta conseguir " +
       "de 25 a 40 minutos diarios.",
-    image: imgs.walking,
+    img: "walking",
     title: "Camina"
   },
   {
@@ -20,7 +18,7 @@ const data: ICarouselCardProps[] = [
       "Haz salidas solo o acompañado con familiares " +
       "o amigos buscando incluir actividad física como caminatas " +
       "o visitas a lugares específicos",
-    image: imgs.walkingdog,
+    img: "walkingdog",
     title: "Visita algún lugar"
   },
   {
@@ -30,7 +28,7 @@ const data: ICarouselCardProps[] = [
       "Prueba los siguientes ejercicios: " +
       "\n • Levantar brevemente las piernas." +
       "\n • Levantar los brazos a la altura de los hombros",
-    image: imgs.stretching,
+    img: "stretching",
     title: "Pausa activa"
   }
 ];

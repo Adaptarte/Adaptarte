@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import type { ViewStyle } from "react-native";
 import { View } from "react-native";
@@ -8,15 +7,15 @@ import { Img } from "components/Img";
 import { Text } from "components/Text";
 
 import { styles, textVars } from "./styles";
-import type { ICarouselCardProps } from "./types";
+import type { CarouselCardProps } from "./types";
 
-const CarouselCard: FC<ICarouselCardProps> = ({
+const CarouselCard = ({
   background,
   complete,
   description,
-  image,
+  img,
   title
-}: ICarouselCardProps): JSX.Element => {
+}: CarouselCardProps): JSX.Element => {
   const [check, setCheck] = useState(complete);
 
   useEffect(() => {
@@ -48,7 +47,7 @@ const CarouselCard: FC<ICarouselCardProps> = ({
           variant={{ border: "circle", color: "WHITE" }}
         />
       </View>
-      <Img src={image} style={styles.image} />
+      <Img src={img} style={styles.image} />
     </View>
   );
 };
