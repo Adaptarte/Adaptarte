@@ -9,7 +9,7 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
-import { RegisterFoodGA } from "utils/analytics/analytics";
+import { registerFoodGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
@@ -17,7 +17,6 @@ import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
-import { RegisterFoodGA } from "utils/analytics/analytics";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
@@ -35,7 +34,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
       <Row columns={3}>
         {getFoodByType(type).map((el): JSX.Element => {
           function addConsumption(): void {
-            RegisterFoodGA();
+            registerFoodGA().catch(console.error);
             const data = {
               date: new Date(),
               food: el.id

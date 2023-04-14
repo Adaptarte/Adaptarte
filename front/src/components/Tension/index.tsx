@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import type { ITension } from "types/hypertension";
+import { registerMedicineGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
@@ -19,6 +20,7 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
   const user = useUser();
 
   const handleSave = useCallback(() => {
+    registerMedicineGA().catch(console.error);
     const data: ITension = {
       date,
       diastolic: parseInt(diastolic),
