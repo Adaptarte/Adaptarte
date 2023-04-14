@@ -1,10 +1,12 @@
-interface ICarouselCardProps {
+import type { ImgProps } from "components/Img/types";
+
+interface CarouselCardProps {
   background: string;
   complete?: boolean;
   description: string;
-  image: number;
+  img: ImgProps["src"];
   onPress?: () => void;
   title: string;
 }
 
-export type { ICarouselCardProps };
+export type { CarouselCardProps };

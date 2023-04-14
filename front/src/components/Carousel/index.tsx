@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 
@@ -8,11 +7,9 @@ import { arr } from "utils/array";
 
 import { CarouselCard } from "./CarouselCard";
 import { styles, textVarNextBtn } from "./styles";
-import type { ICarouselProps } from "./types";
+import type { CarouselProps } from "./types";
 
-const Carousel: FC<ICarouselProps> = ({
-  data
-}: ICarouselProps): JSX.Element => {
+const Carousel = ({ data }: CarouselProps): JSX.Element => {
   const [selection, setSelection] = useState(0);
 
   const handleNext = useCallback(() => {

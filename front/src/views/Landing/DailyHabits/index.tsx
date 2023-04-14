@@ -1,7 +1,6 @@
 import type { FC } from "react";
 import React, { useCallback } from "react";
 
-import { imgs } from "assets/imgs";
 import { Card } from "components/Card";
 import { Row } from "components/Grid";
 
@@ -23,7 +22,7 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
       <Card
         bgColor={"ORANGE_TRANSLUCID"}
         color={"ORANGE"}
-        image={imgs.exercise}
+        img={"exercise"}
         onPress={goToExercise}
       >
         {"Ejercicio"}
@@ -31,19 +30,15 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
       <Card
         bgColor={"GREEN_TRANSLUCID"}
         color={"GREEN"}
-        image={imgs.diet}
+        img={"diet"}
         onPress={goToFeeding}
       >
         {"Alimentación"}
       </Card>
-      <Card
-        bgColor={"BLUE_TRANSLUCID"}
-        color={"BLUE"}
-        image={imgs.drinkingWater}
-      >
+      <Card bgColor={"BLUE_TRANSLUCID"} color={"BLUE"} img={"drinkingWater"}>
         {"Agua"}
       </Card>
-      <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} image={imgs.calm}>
+      <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} img={"calm"}>
         {"Calma"}
       </Card>
     </Row>
