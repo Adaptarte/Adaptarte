@@ -17,6 +17,7 @@ import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
+import { RegisterFoodGA } from "utils/analytics/analytics";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
