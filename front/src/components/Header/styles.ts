@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
     padding: 4
   },
   backImage: {
-    height: 16,
-    resizeMode: "contain",
     tintColor: colors.GLAUCOUS,
     width: 16
   },

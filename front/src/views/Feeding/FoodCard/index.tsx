@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { Column } from "components/Grid";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 import { dbDelete, useRealm } from "utils/db/realm";
 
@@ -27,9 +27,9 @@ const FoodCard: FC<IFoodCardProps> = ({
     <Column>
       <View style={styles.container}>
         <TouchableOpacity onPress={onPressDeleteItem} style={styles.deleteBtn}>
-          <Image source={imgs.close} style={styles.deleteBtnImg} />
+          <Img src={"close"} style={styles.deleteBtnImg} />
         </TouchableOpacity>
-        <Image source={image} style={styles.image} />
+        <Img src={image} style={styles.image} />
         <Text style={styles.name} variant={{ weight: "bold" }}>
           {name}
         </Text>

@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { Column } from "components/Grid";
+import { Img } from "components/Img";
 
 import { styles } from "./styles";
 import type { IAddConsumptionProps } from "./types";
@@ -14,7 +14,7 @@ const AddConsumption: FC<IAddConsumptionProps> = ({
   return (
     <Column>
       <TouchableOpacity onPress={onPress} style={styles.plusButton}>
-        <Image source={imgs.plus} style={styles.plusImage} />
+        <Img src={"plus"} style={styles.plusImage} />
       </TouchableOpacity>
     </Column>
   );

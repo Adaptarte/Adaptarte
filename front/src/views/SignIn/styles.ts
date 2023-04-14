@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
   img: {
     backgroundColor: colors.BLUE,
     borderRadius: 96,
-    height: 128,
-    resizeMode: "cover",
     width: 128
   }
 });

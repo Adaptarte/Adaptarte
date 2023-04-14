@@ -5,7 +5,6 @@ import { colors } from "styles";
 
 const styles = StyleSheet.create({
   closeButtonImage: {
-    height: 24,
     tintColor: colors.BLACK,
     width: 24
   },

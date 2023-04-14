@@ -14,9 +14,7 @@ const styles = StyleSheet.create({
     padding: 24
   },
   img: {
-    height: 80,
     marginLeft: 24,
-    resizeMode: "contain",
     width: 80
   },
   textWrapper: {

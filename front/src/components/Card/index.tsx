@@ -1,10 +1,11 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
 import { Button } from "components/Button";
 import { CheckBox } from "components/CheckBox";
 import { Column } from "components/Grid";
+import { Img } from "components/Img";
 import { colors } from "styles";
 
 import { styles } from "./styles";
@@ -23,7 +24,7 @@ const Card: FC<ICardProps> = ({
         <View style={[styles.checkBox]}>
           <CheckBox />
         </View>
-        <Image source={image} style={[styles.img]} />
+        <Img src={image} style={styles.img} />
         <Button onPress={onPress} variant={{ color, style: "text" }}>
           {children}
         </Button>

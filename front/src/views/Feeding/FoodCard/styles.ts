@@ -23,15 +23,13 @@ const styles = StyleSheet.create({
     borderColor: colors.BLUE_PURPLE,
     borderRadius: 10,
     borderWidth: 2,
-    height: 20,
     tintColor: colors.BLUE_PURPLE,
     width: 20
   },
   image: {
     flexBasis: 1,
     flexGrow: 1,
-    marginTop: 10,
-    resizeMode: "contain"
+    marginTop: 10
   },
   name: {
     marginTop: 10,

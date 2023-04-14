@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { Button } from "components/Button";
+import { Img } from "components/Img";
 import { Input } from "components/Input";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
@@ -23,7 +23,7 @@ const SignIn = (): JSX.Element => {
     <Screen>
       <Text variant={textVars.appName}>{"Adaptarte"}</Text>
       <View style={styles.header}>
-        <Image source={imgs.helloCuidador} style={styles.img} />
+        <Img src={"helloCuidador"} style={styles.img} />
       </View>
       <Text variant={textVars.signIn}>{"Inicia sesión"}</Text>
       <Input label={"Correo electrónico"} />

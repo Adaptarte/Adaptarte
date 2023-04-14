@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   plusImage: {
-    height: 24,
     tintColor: colors.BLACK,
     width: 24
   }

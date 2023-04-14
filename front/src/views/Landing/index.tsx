@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { DataDose } from "components/DataDose";
+import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
@@ -26,7 +26,7 @@ const Landing: FC<TAppViewProps<"Landing">> = ({
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}
         </Text>
-        <Image source={imgs.profile} style={styles.profile} />
+        <Img src={"profile"} style={styles.profile} />
       </View>
       <DataDose />
       <View style={styles.container}>
