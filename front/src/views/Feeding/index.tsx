@@ -6,8 +6,6 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
-import type { IConsumption, IFood } from "types/food";
-import { foodTypes } from "types/food";
 import { compareDates } from "utils/date";
 import { dbObjects, useRealm } from "utils/db/realm";
 import {
@@ -15,6 +13,8 @@ import {
   getFoodById,
   groupConsumptionByFoodType
 } from "utils/food";
+import type { IConsumption, IFood } from "utils/food/types";
+import { foodTypes } from "utils/food/types";
 
 import { AddConsumption } from "./AddConsumption";
 import { FoodCard } from "./FoodCard";
@@ -49,11 +49,9 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
               {consumption?.[type].map((el) => {
-                const { id, image, name } = getFoodById(el.food);
+                const { id, img, name } = getFoodById(el.food);
 
-                return (
-                  <FoodCard image={image} key={id} name={name} id={el.id} />
-                );
+                return <FoodCard img={img} key={id} name={name} id={el.id} />;
               })}
               {getConsumptionExpected(type, consumption?.[type].length).map(
                 (el: number) => {

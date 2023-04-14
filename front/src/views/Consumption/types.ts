@@ -1,4 +1,4 @@
-import type { IFood } from "types/food";
+import type { IFood } from "utils/food/types";
 
 type IConsumptionProps = Partial<Pick<IFood, "type">>;
 
