@@ -1,10 +1,10 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { Button } from "components/Button";
 import { Column, Row } from "components/Grid";
+import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
@@ -47,13 +47,13 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
           }
           return (
             <Column key={el.name}>
-              <Image source={el.image} style={styles.foodImage} />
+              <Img src={el.image} style={styles.foodImage} />
               <Text style={styles.foodName}>{el.name}</Text>
               <TouchableOpacity
                 onPress={addConsumption}
                 style={styles.foodAddButton}
               >
-                <Image source={imgs.plus} style={styles.foodAddImage} />
+                <Img src={"plus"} style={styles.foodAddImage} />
               </TouchableOpacity>
             </Column>
           );

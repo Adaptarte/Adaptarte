@@ -12,9 +12,7 @@ const styles = StyleSheet.create({
   },
   img: {
     aspectRatio: 1.5,
-    height: undefined,
     marginBottom: 8,
-    resizeMode: "contain",
     width: "100%"
   }
 });

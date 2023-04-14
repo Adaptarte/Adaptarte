@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
-import { Image, Modal as NModal, TouchableOpacity, View } from "react-native";
+import { Modal as NModal, TouchableOpacity, View } from "react-native";
 
-import { imgs } from "assets/imgs";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 
 import { styles, titleVar } from "./styles";
@@ -29,7 +29,7 @@ const Modal = ({
           <View style={styles.header}>
             <Text variant={titleVar}>{title}</Text>
             <TouchableOpacity onPress={handleClose}>
-              <Image source={imgs.close} style={styles.closeButtonImage} />
+              <Img src={"close"} style={styles.closeButtonImage} />
             </TouchableOpacity>
           </View>
           {children}

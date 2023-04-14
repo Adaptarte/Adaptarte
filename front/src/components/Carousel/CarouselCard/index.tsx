@@ -1,9 +1,10 @@
 import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import type { ViewStyle } from "react-native";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
 import { CheckBox } from "components/CheckBox";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 
 import { styles, textVars } from "./styles";
@@ -47,7 +48,7 @@ const CarouselCard: FC<ICarouselCardProps> = ({
           variant={{ border: "circle", color: "WHITE" }}
         />
       </View>
-      <Image source={image} style={[styles.image]} />
+      <Img src={image} style={styles.image} />
     </View>
   );
 };

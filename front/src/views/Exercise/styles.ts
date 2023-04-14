@@ -13,9 +13,7 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   closeImage: {
-    height: 28,
     position: "relative",
-    resizeMode: "contain",
     tintColor: colors.ORANGE,
     width: 28,
     zIndex: 0

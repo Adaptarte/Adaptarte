@@ -14,15 +14,12 @@ const styles = StyleSheet.create({
     padding: 8
   },
   foodAddImage: {
-    height: 16,
     tintColor: colors.WHITE,
     width: 16
   },
   foodImage: {
     aspectRatio: 1.5,
-    height: undefined,
     marginBottom: 4,
-    resizeMode: "contain",
     width: "100%"
   },
   foodName: {

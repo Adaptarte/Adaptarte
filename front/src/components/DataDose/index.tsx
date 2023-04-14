@@ -1,8 +1,8 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, View } from "react-native";
+import { View } from "react-native";
 
-import { imgs } from "assets/imgs";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 import { pickDataDose } from "utils/dataDoses";
 
@@ -17,7 +17,7 @@ const DataDose: FC = (): JSX.Element => {
         <Text variant={textVars.tip}>{dose.tip}</Text>
         <Text variant={textVars.details}>{dose.details}</Text>
       </View>
-      <Image source={imgs.dataDose} style={styles.img} />
+      <Img src={"dataDose"} style={styles.img} />
     </View>
   );
 };

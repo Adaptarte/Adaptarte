@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
-import { Image, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
-import { imgs } from "assets/imgs";
 import { CheckBox } from "components/CheckBox";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 import { colors } from "styles/colors";
 import { dateToString } from "utils/date";
@@ -44,8 +44,8 @@ const DailyGoal = ({
 
   return (
     <View style={[styles.container, containerVarStyle]}>
-      <Image
-        source={type === "Record" ? imgs.diseaseRegister : imgs.pills}
+      <Img
+        src={type === "Record" ? "diseaseRegister" : "pills"}
         style={[styles.img, imgVarStyle]}
       />
       <TouchableOpacity

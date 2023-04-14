@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
     padding: 16
   },
   profile: {
-    height: 60,
     marginLeft: 20,
     width: 60
   },

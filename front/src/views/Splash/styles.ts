@@ -13,10 +13,8 @@ const styles = StyleSheet.create({
   img: {
     backgroundColor: colors.BLUE,
     borderRadius: 96,
-    height: 128,
     margin: 32,
     position: "absolute",
-    resizeMode: "cover",
     width: 128
   }
 });

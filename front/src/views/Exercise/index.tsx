@@ -1,11 +1,11 @@
 import type { FC } from "react";
 import React from "react";
-import { Image, Modal, TouchableOpacity, View } from "react-native";
+import { Modal, TouchableOpacity, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
-import { imgs } from "assets/imgs";
 import { Carousel } from "components/Carousel";
 import { data } from "components/Carousel/CarouselCard/data";
+import { Img } from "components/Img";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 
@@ -27,7 +27,7 @@ const Exercise: FC<TAppViewProps<"Exercise">> = ({
           <View style={styles.excercise}>
             {canGoBack() ? (
               <TouchableOpacity onPress={goBack} style={styles.closeButton}>
-                <Image source={imgs.close} style={styles.closeImage} />
+                <Img src={"close"} style={styles.closeImage} />
               </TouchableOpacity>
             ) : undefined}
             <Text style={styles.excerciseTitle} variant={textVars.title}>

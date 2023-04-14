@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
   },
   img: {
     borderRadius: 25,
-    height: 50,
-    resizeMode: "contain",
     width: 50
   }
 });
