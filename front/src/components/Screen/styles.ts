@@ -5,8 +5,10 @@ import { colors } from "styles";
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.LIGHT,
+    padding: 16
+  },
+  root: {
     height: "100%",
-    padding: 16,
     width: "100%"
   }
 });
