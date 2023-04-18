@@ -4,8 +4,11 @@ import React from "react";
 import { AppNavigation } from "navigation/App";
 import { useAuth, UserProvider } from "utils/auth";
 import { RealmProvider } from "utils/db/realm";
+import { setupNotifications } from "utils/notifications/setup";
 import { SignIn } from "views/SignIn";
 import { Splash } from "views/Splash";
+
+setupNotifications();
 
 const App: FC = (): JSX.Element => {
   const user = useAuth();
