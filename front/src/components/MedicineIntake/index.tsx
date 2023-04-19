@@ -8,6 +8,7 @@ import type { IMedicineIntake } from "types/medicine";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
+import { cancelMedicineNotification } from "utils/notifications";
 
 import type { MedicineIntakeProps } from "./types";
 
@@ -30,6 +31,7 @@ const MedicineIntake = ({
       dbCreate(realm, "MedicineIntake", data);
     });
     addUserData(user.uid, "MedicineIntake", data).catch(console.error);
+    cancelMedicineNotification(recipe.id);
     setVisible?.(false);
   }, [date, recipe.id, realm, setVisible]);
 

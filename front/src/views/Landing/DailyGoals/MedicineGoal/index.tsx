@@ -1,8 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 
 import { DailyGoal } from "components/DailyGoal";
 import { MedicineIntake } from "components/MedicineIntake";
 import { getRecipeById } from "utils/medicine";
+import { addMedicineNotification } from "utils/notifications";
 
 import type { MedicineGoalProps } from "./types";
 
@@ -12,8 +13,13 @@ const MedicineGoal = ({
   recipeId
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
-
   const recipe = getRecipeById(recipeId);
+
+  useEffect(() => {
+    if (!done) {
+      addMedicineNotification({ date, recipe: recipeId });
+    }
+  }, [done]);
 
   return (
     <>
