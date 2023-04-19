@@ -8,7 +8,6 @@ import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { colors } from "styles";
 import { registerFoodGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
@@ -27,7 +26,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
   const user = useUser();
 
   return (
-    <Screen style={{ backgroundColor: colors.WHITE }}>
+    <Screen bg={"WHITE"}>
       <Text style={styles.title} variant={textVars.title}>
         {t().title}
       </Text>

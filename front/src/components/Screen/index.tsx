@@ -6,10 +6,16 @@ import { colors } from "styles";
 import { styles } from "./styles";
 import type { IScreenProps } from "./types";
 
-const Screen = ({ children, style }: IScreenProps): JSX.Element => {
+const Screen = ({
+  bg = "LIGHT",
+  children,
+  style
+}: IScreenProps): JSX.Element => {
+  const bgColor = colors[bg];
+
   return (
-    <SafeAreaView style={styles.root}>
-      <StatusBar backgroundColor={colors.LIGHT} barStyle={"dark-content"} />
+    <SafeAreaView style={[styles.root, { backgroundColor: bgColor }]}>
+      <StatusBar backgroundColor={bgColor} barStyle={"dark-content"} />
       <ScrollView contentContainerStyle={[styles.container, style]}>
         {children}
       </ScrollView>
