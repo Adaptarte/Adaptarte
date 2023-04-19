@@ -47,4 +47,21 @@ const addTensionNotification = (date: Date): void => {
   });
 };
 
-export { addMedicineNotification, addTensionNotification };
+const cancelNotification = (id: string): void => {
+  Notifee.cancelNotification(id).catch(console.error);
+};
+
+const cancelMedicineNotification = (recipe: number): void => {
+  cancelNotification(recipe.toString());
+};
+
+const cancelTensionNotification = (): void => {
+  cancelNotification("tension");
+};
+
+export {
+  addMedicineNotification,
+  addTensionNotification,
+  cancelMedicineNotification,
+  cancelTensionNotification
+};
