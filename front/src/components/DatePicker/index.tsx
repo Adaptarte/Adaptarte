@@ -12,6 +12,8 @@ import type { DatePickerProps } from "./types";
 const DatePicker: FC<DatePickerProps> = ({
   date,
   label,
+  maxDate,
+  minDate,
   mode,
   onDateChange
 }: DatePickerProps): JSX.Element => {
@@ -21,6 +23,9 @@ const DatePicker: FC<DatePickerProps> = ({
       <NDatePicker
         date={date}
         dividerHeight={2}
+        locale={"es"}
+        maximumDate={maxDate}
+        minimumDate={minDate}
         mode={mode}
         onDateChange={onDateChange}
         style={styles.picker}
