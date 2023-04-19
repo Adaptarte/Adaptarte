@@ -8,6 +8,10 @@ GoogleSignin.configure({
     "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com"
 });
 
+const signOut = (): void => {
+  auth().signOut().catch(console.error);
+};
+
 const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   await GoogleSignin.hasPlayServices();
   const token = await GoogleSignin.signIn();
@@ -36,4 +40,4 @@ const useUser = (): FirebaseAuthTypes.User => {
   return ctx;
 };
 
-export { signInGoogle, useAuth, UserProvider, useUser };
+export { signInGoogle, signOut, useAuth, UserProvider, useUser };

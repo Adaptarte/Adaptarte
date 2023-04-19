@@ -2,12 +2,13 @@ import type { FC } from "react";
 import React from "react";
 import { View } from "react-native";
 
+import { Button } from "components/Button";
 import { DataDose } from "components/DataDose";
 import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { useUser } from "utils/auth";
+import { signOut, useUser } from "utils/auth";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -26,7 +27,9 @@ const Landing: FC<TAppViewProps<"Landing">> = ({
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}
         </Text>
-        <Img src={"profile"} style={styles.profile} />
+        <Button onPress={signOut}>
+          <Img src={"profile"} style={styles.profile} />
+        </Button>
       </View>
       <DataDose />
       <View style={styles.container}>
