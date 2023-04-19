@@ -47,7 +47,7 @@ const Consumption: FC<TAppViewProps<"Consumption">> = ({
           }
           return (
             <Column key={el.name}>
-              <Img src={el.image} style={styles.foodImage} />
+              <Img src={el.img} style={styles.foodImage} />
               <Text style={styles.foodName}>{el.name}</Text>
               <TouchableOpacity
                 onPress={addConsumption}
