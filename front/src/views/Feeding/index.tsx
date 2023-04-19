@@ -5,7 +5,6 @@ import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { colors } from "styles";
 import { compareDates } from "utils/date";
 import { dbObjects, useRealm } from "utils/db/realm";
 import {
@@ -37,7 +36,7 @@ const Feeding: FC<TAppViewProps<"Feeding">> = ({
   }, [setConsumption, realm]);
 
   return (
-    <Screen style={{ backgroundColor: colors.WHITE }}>
+    <Screen bg={"WHITE"}>
       {foodTypes.map((type) => {
         const tSection = t()[type];
 
