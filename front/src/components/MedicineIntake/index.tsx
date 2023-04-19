@@ -47,7 +47,7 @@ const MedicineIntake = ({
       <DatePicker
         date={date}
         label={"Hora"}
-        mode={"time"}
+        maxDate={new Date()}
         onDateChange={setDate}
       />
       <Button
