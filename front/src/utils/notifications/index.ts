@@ -1,7 +1,9 @@
 import type { Notification } from "@notifee/react-native";
 import Notifee, { TriggerType } from "@notifee/react-native";
+import { useEffect } from "react";
+import { AppState } from "react-native";
 
-import { dateToString } from "utils/date";
+import { dateToString, TIME } from "utils/date";
 import type { DBMedicineIntake } from "utils/db/types";
 import { getRecipeById } from "utils/medicine";
 
@@ -59,9 +61,35 @@ const cancelTensionNotification = (): void => {
   cancelNotification("tension");
 };
 
+const useDisuseNotifications = (): void => {
+  useEffect(() => {
+    const sub = AppState.addEventListener("change", () => {
+      const state = AppState.currentState;
+      if (state === "active") {
+        cancelNotification("disuse1");
+        cancelNotification("disuse2");
+      } else if (state === "background" || state === "inactive") {
+        addNotification("engagement", Date.now() + 2 * TIME.day, {
+          id: "disuse1",
+          title: "La constancia es tu mejor aliado"
+        });
+        addNotification("engagement", Date.now() + 7 * TIME.day, {
+          id: "disuse2",
+          title: "Extrañamos verte adaptarte"
+        });
+      }
+    });
+
+    return () => {
+      sub.remove();
+    };
+  }, []);
+};
+
 export {
   addMedicineNotification,
   addTensionNotification,
   cancelMedicineNotification,
-  cancelTensionNotification
+  cancelTensionNotification,
+  useDisuseNotifications
 };

@@ -1,4 +1,4 @@
-import Notifee, { EventType } from "@notifee/react-native";
+import Notifee, { AndroidImportance, EventType } from "@notifee/react-native";
 
 const setupNotifications = (): void => {
   Notifee.onBackgroundEvent(async ({ type, detail }) => {
@@ -13,12 +13,14 @@ const setupNotifications = (): void => {
 
   Notifee.createChannel({
     id: "reminder",
+    importance: AndroidImportance.HIGH,
     name: "Alarms & Timer",
     sound: "default"
   }).catch(console.error);
 
   Notifee.createChannel({
     id: "engagement",
+    importance: AndroidImportance.DEFAULT,
     name: "Patient Engagement",
     sound: "default"
   }).catch(console.error);
