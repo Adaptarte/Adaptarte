@@ -3,7 +3,7 @@ import { createRealmContext } from "@realm/react";
 import { schemas } from "./schemas";
 import type { SchemaName, SchemaType } from "./types";
 
-const { RealmProvider, useRealm } = createRealmContext({
+const { RealmProvider, useQuery, useRealm } = createRealmContext({
   schema: schemas
 });
 
@@ -37,4 +37,8 @@ const dbDelete = <T extends SchemaName>(
   realm.delete(docIds);
 };
 
-export { dbCreate, dbObjects, dbDelete, RealmProvider, useRealm };
+const useDbObjs = <T extends SchemaName>(collection: T): SchemaType<T>[] => {
+  return Array.from(useQuery<SchemaType<T>>(collection));
+};
+
+export { dbCreate, dbDelete, RealmProvider, useDbObjs, useRealm };

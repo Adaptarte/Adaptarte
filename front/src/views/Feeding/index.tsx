@@ -1,18 +1,17 @@
 import type { FC } from "react";
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 
 import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { compareDates } from "utils/date";
-import { dbObjects, useRealm } from "utils/db/realm";
+import { useDbObjs } from "utils/db/realm";
 import {
   getConsumptionExpected,
   getFoodById,
   groupConsumptionByFoodType
 } from "utils/food";
-import type { IConsumption, IFood } from "utils/food/types";
 import { foodTypes } from "utils/food/types";
 
 import { AddConsumption } from "./AddConsumption";
@@ -23,17 +22,11 @@ import { t } from "./translations";
 const Feeding: FC<TAppViewProps<"Feeding">> = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
-  const realm = useRealm();
-  const [consumption, setConsumption] =
-    useState<Record<IFood["type"], IConsumption[]>>();
-
-  useEffect(() => {
-    const today = new Date();
-    const resToday = dbObjects(realm, "Consumption").filter(
-      ({ date }) => compareDates(date, today) === 0
-    );
-    setConsumption(groupConsumptionByFoodType(resToday));
-  }, [setConsumption, realm]);
+  const consumption = groupConsumptionByFoodType(
+    useDbObjs("Consumption").filter(
+      ({ date }) => compareDates(date, new Date(), true) === 0
+    )
+  );
 
   return (
     <Screen bg={"WHITE"}>
