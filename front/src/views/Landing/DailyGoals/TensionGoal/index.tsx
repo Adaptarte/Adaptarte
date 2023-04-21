@@ -5,13 +5,16 @@ import { Tension } from "components/Tension";
 import { dateToString } from "utils/date";
 import {
   addTensionNotification,
-  cancelTensionNotification
+  cancelTensionNotification,
+  setUndoneNotification
 } from "utils/notifications";
 
 import type { TensionGoalProps } from "./types";
 
 const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
+
+  setUndoneNotification("tension", done);
 
   useEffect(() => {
     if (done) {

@@ -1,16 +1,17 @@
-import type { Notification } from "@notifee/react-native";
 import Notifee, { TriggerType } from "@notifee/react-native";
 import { useEffect } from "react";
 import { AppState } from "react-native";
 
-import { dateToString, TIME } from "utils/date";
+import { addTime, dateToString, setDayTime, TIME } from "utils/date";
 import type { DBMedicineIntake } from "utils/db/types";
 import { getRecipeById } from "utils/medicine";
+
+import type { INotification } from "./types";
 
 const addNotification = (
   channelId: "engagement" | "reminder",
   time: number,
-  data: Pick<Notification, "body" | "id" | "subtitle" | "title">
+  data: INotification
 ): void => {
   Notifee.createTriggerNotification(
     {
@@ -34,7 +35,7 @@ const addMedicineNotification = ({ date, recipe }: DBMedicineIntake): void => {
   const { id, medicine } = getRecipeById(recipe);
   addNotification("reminder", time, {
     body: dateToString(date),
-    id: id.toString(),
+    id: `medicine${id}`,
     subtitle: medicine,
     title: "Es hora de tu medicina"
   });
@@ -59,6 +60,16 @@ const cancelMedicineNotification = (recipe: number): void => {
 
 const cancelTensionNotification = (): void => {
   cancelNotification("tension");
+};
+
+const setUndoneNotification = (id: "food" | "tension", done = false): void => {
+  const date = addTime(new Date(), done ? 1 : 0, "day");
+  const time = setDayTime(date, 19, "hour").getTime();
+  const goal = id === "food" ? "alimentación" : "tensión";
+  addNotification("reminder", time, {
+    id: `undone_${id}`,
+    title: `Recuerda registrar tu ${goal}`
+  });
 };
 
 const useDisuseNotifications = (): void => {
@@ -91,5 +102,6 @@ export {
   addTensionNotification,
   cancelMedicineNotification,
   cancelTensionNotification,
+  setUndoneNotification,
   useDisuseNotifications
 };
