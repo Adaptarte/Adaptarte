@@ -6,6 +6,7 @@ import { compareDates } from "utils/date";
 import { useDbObjs } from "utils/db/realm";
 import type { SchemaType } from "utils/db/realm/types";
 import { getLastIntakes, getNextIntake, recipes } from "utils/medicine";
+import { setUndoneNotification } from "utils/notifications";
 import { getNextTension } from "utils/records/tension";
 
 import { MedicineGoal } from "./MedicineGoal";
@@ -22,6 +23,11 @@ const DailyGoals: FC = (): JSX.Element => {
   const lastMedIntakes = getLastIntakes(
     medIntakes
   ) as SchemaType<"MedicineIntake">[];
+
+  const foodIntakes = useDbObjs("Consumption").filter(
+    ({ date }) => compareDates(date, new Date(), true) === 0
+  );
+  setUndoneNotification("food", foodIntakes.length >= 15 * 0.8);
 
   return (
     <View>

@@ -65,10 +65,13 @@ const cancelTensionNotification = (): void => {
 const setUndoneNotification = (id: "food" | "tension", done = false): void => {
   const date = addTime(new Date(), done ? 1 : 0, "day");
   const time = setDayTime(date, 19, "hour").getTime();
-  const goal = id === "food" ? "alimentación" : "tensión";
+  const goals = {
+    food: "alimentación",
+    tension: "tensión"
+  };
   addNotification("reminder", time, {
     id: `undone_${id}`,
-    title: `Recuerda registrar tu ${goal}`
+    title: `Recuerda registrar tu ${goals[id]}`
   });
 };
 
