@@ -13,6 +13,7 @@ const addNotification = (
   time: number,
   data: INotification
 ): void => {
+  cancelNotification(data.id);
   Notifee.createTriggerNotification(
     {
       ...data,
@@ -62,14 +63,17 @@ const cancelTensionNotification = (): void => {
   cancelNotification("tension");
 };
 
-const setUndoneNotification = (id: "food" | "tension", done = false): void => {
-  const date = addTime(new Date(), done ? 1 : 0, "day");
-  const time = setDayTime(date, 19, "hour").getTime();
+const setUndoneNotification = (
+  id: "food" | "medicine" | "tension",
+  done = false,
+  date: Date = setDayTime(addTime(new Date(), done ? 1 : 0, "day"), 19, "hour")
+): void => {
   const goals = {
     food: "alimentación",
+    medicine: "medicación",
     tension: "tensión"
   };
-  addNotification("reminder", time, {
+  addNotification("reminder", date.getTime(), {
     id: `undone_${id}`,
     title: `Recuerda registrar tu ${goals[id]}`
   });
