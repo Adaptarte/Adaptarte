@@ -18,6 +18,10 @@ type SchemaType<T extends SchemaName> = StrictUnion<
   SchemaTypes[T] & { readonly id: number }
 >;
 
+type Collection<T extends SchemaName> = Realm.Collection<
+  Realm.Object<SchemaType<T>> & SchemaType<T>
+>;
+
 interface SchemaProps extends PropertiesTypes {
   id: "int";
 }
@@ -28,4 +32,4 @@ interface Schema extends ObjectSchema {
   properties: SchemaProps;
 }
 
-export type { SchemaName, SchemaType, Schema };
+export type { Collection, SchemaName, SchemaType, Schema };
