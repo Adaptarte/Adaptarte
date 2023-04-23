@@ -8,6 +8,7 @@ import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 import { registerFoodGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
@@ -16,7 +17,6 @@ import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
-import { RegisterFoodGA } from "utils/analytics/analytics";
 
 const Consumption: FC<TAppViewProps<"Consumption">> = ({
   navigation: { canGoBack, goBack },
