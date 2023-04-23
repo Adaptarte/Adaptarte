@@ -8,8 +8,11 @@ GoogleSignin.configure({
     "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com"
 });
 
-const signOut = (): void => {
-  auth().signOut().catch(console.error);
+const signInEmailPassword = async (
+  email: string,
+  password: string
+): Promise<FirebaseAuthTypes.UserCredential> => {
+  return await auth().signInWithEmailAndPassword(email, password);
 };
 
 const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
@@ -17,6 +20,10 @@ const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   const token = await GoogleSignin.signIn();
   const credential = auth.GoogleAuthProvider.credential(token.idToken);
   return auth().signInWithCredential(credential);
+};
+
+const signOut = (): void => {
+  auth().signOut().catch(console.error);
 };
 
 const useAuth = (): FirebaseAuthTypes.User | null | undefined => {
@@ -40,4 +47,11 @@ const useUser = (): FirebaseAuthTypes.User => {
   return ctx;
 };
 
-export { signInGoogle, signOut, useAuth, UserProvider, useUser };
+export {
+  signInEmailPassword,
+  signInGoogle,
+  signOut,
+  useAuth,
+  UserProvider,
+  useUser
+};

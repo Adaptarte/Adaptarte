@@ -14,6 +14,7 @@ const Input: FC<InputProps> = ({
   onChange,
   placeholder,
   type = "default",
+  secure = false,
   value
 }: InputProps): JSX.Element => {
   return (
@@ -25,6 +26,7 @@ const Input: FC<InputProps> = ({
         onChangeText={onChange}
         placeholder={placeholder}
         placeholderTextColor={colors.GREY}
+        secureTextEntry={secure}
         style={[styles.input, styles.inputText]}
         value={value}
       />
