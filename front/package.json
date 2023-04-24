@@ -35,6 +35,8 @@
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/runtime": "^7.21.0",
+    "@testing-library/jest-native": "^5.4.2",
+    "@testing-library/react-native": "^11.5.1",
     "@tsconfig/react-native": "^2.0.3",
     "@types/jest": "^29.5.0",
     "@types/react": "^18.0.34",
@@ -51,16 +53,5 @@
     "prettier": "^2.8.7",
     "react-test-renderer": "18.2.0",
     "typescript": "^5.0.0"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
   }
 }
