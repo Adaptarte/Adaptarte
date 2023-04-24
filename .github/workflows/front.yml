@@ -1,9 +1,5 @@
-name: main
+name: front
 on:
-  push:
-    branches:
-      - "*"
-      - "!main"
   pull_request:
     branches:
       - main
@@ -18,9 +14,6 @@ jobs:
         working-directory: ./front
     steps:
       - uses: actions/checkout@v3
-
-      - name: Install packages
-        run: npm ci
 
       - name: Prettier
         run: npm run format
