@@ -1,0 +1,25 @@
+name: front
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - front/**
+jobs:
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./front
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint:check
+
+      - name: Format
+        run: npm run format:check
