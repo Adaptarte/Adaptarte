@@ -11,7 +11,7 @@ import { Splash } from "views/Splash";
 
 setupNotifications();
 
-const App: FC = (): any => {
+const App: FC = (): JSX.Element => {
   useDisuseNotifications();
   const user = useAuth();
   if (user === undefined) {
