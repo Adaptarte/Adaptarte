@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import type { ImageStyle, TextStyle, ViewStyle } from "react-native";
 import { TouchableOpacity, View } from "react-native";
 
@@ -8,7 +8,7 @@ import { Text } from "components/Text";
 import { colors } from "styles/colors";
 import { dateToString } from "utils/date";
 
-import { styles, textVars } from "./styles";
+import { imgs, styles, textVars } from "./styles";
 import type { DailyGoalProps } from "./types";
 
 const DailyGoal = ({
@@ -18,20 +18,11 @@ const DailyGoal = ({
   title,
   type
 }: DailyGoalProps): JSX.Element => {
-  const [timePassed, setTimePassed] = useState(false);
-
-  useEffect(() => {
-    const action = setTimeout(() => {
-      setTimePassed(true);
-    }, date.getTime() - Date.now());
-
-    return () => {
-      clearTimeout(action);
-    };
-  }, [date, setTimePassed]);
+  const overdue = date.getTime() <= Date.now() && !done;
+  const disabled = done || onPress === undefined;
 
   const containerVarStyle: ViewStyle = {
-    borderColor: timePassed && !done ? "red" : colors.TRANSPARENT
+    borderColor: overdue ? "red" : colors.TRANSPARENT
   };
 
   const imgVarStyle: ImageStyle = {
@@ -39,15 +30,12 @@ const DailyGoal = ({
   };
 
   const titleVarStyle: TextStyle = {
-    textDecorationLine: type === "Record" ? "underline" : "none"
+    textDecorationLine: disabled ? "none" : "underline"
   };
 
   return (
     <View style={[styles.container, containerVarStyle]}>
-      <Img
-        src={type === "Record" ? "diseaseRegister" : "pills"}
-        style={[styles.img, imgVarStyle]}
-      />
+      <Img src={imgs[type]} style={[styles.img, imgVarStyle]} />
       <TouchableOpacity
         disabled={done || onPress === undefined}
         onPress={onPress}

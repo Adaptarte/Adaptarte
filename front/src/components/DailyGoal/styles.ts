@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
 
+import type { ImgName } from "components/Img/types";
 import type { TextVariants } from "components/Text/types";
 import { colors } from "styles";
+import type { DailyGoalType } from "types/dailyGoals";
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +29,11 @@ const styles = StyleSheet.create({
   }
 });
 
+const imgs: Record<DailyGoalType, ImgName> = {
+  Pill: "pills",
+  Record: "diseaseRegister"
+};
+
 const textVars: TextVariants<"hour" | "title"> = {
   hour: {
     size: 1
@@ -36,4 +43,4 @@ const textVars: TextVariants<"hour" | "title"> = {
   }
 };
 
-export { styles, textVars };
+export { imgs, styles, textVars };

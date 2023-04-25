@@ -9,4 +9,4 @@ interface ImgProps {
   style?: StyleProp<ImageStyle>;
 }
 
-export type { ImgProps };
+export type { ImgName, ImgProps };
