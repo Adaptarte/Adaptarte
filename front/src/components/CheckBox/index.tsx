@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React, { useCallback, useEffect, useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 
@@ -7,9 +6,9 @@ import { Text } from "components/Text";
 import { getCheckboxStyle, getCheckboxTextVars, styles } from "./styles";
 import type { CheckBoxProps } from "./types";
 
-const CheckBox: FC<CheckBoxProps> = ({
-  disabled = false,
-  isChecked = false,
+const CheckBox = ({
+  disabled,
+  isChecked,
   label,
   onChange,
   variant = {}
