@@ -6,7 +6,7 @@ import { Text } from "components/Text";
 import { getButtonStyle, getButtonTextVar, styles } from "./styles";
 import type { ButtonProps } from "./types";
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   children,
   disabled,
   onPress,
