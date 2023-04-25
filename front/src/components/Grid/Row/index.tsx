@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React, { createContext } from "react";
 import { View } from "react-native";
 
@@ -7,7 +6,7 @@ import type { IRowProps } from "./types";
 
 const RowContext = createContext({ columns: 1, spacing: 8 });
 
-const Row: FC<IRowProps> = ({
+const Row = ({
   children,
   columns = 1,
   spacing = 8
