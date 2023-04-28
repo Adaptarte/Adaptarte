@@ -3,7 +3,6 @@ import { View } from "react-native";
 
 import { Button } from "components/Button";
 import { CheckBox } from "components/CheckBox";
-import { Column } from "components/Grid";
 import { Img } from "components/Img";
 import { colors } from "styles";
 
@@ -18,17 +17,15 @@ const Card = ({
   onPress
 }: CardProps): JSX.Element => {
   return (
-    <Column>
-      <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>
-        <View style={[styles.checkBox]}>
-          <CheckBox />
-        </View>
-        <Img src={img} style={styles.img} />
-        <Button onPress={onPress} variant={{ color, style: "text" }}>
-          {children}
-        </Button>
+    <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>
+      <View style={[styles.checkBox]}>
+        <CheckBox />
       </View>
-    </Column>
+      <Img src={img} style={styles.img} />
+      <Button onPress={onPress} variant={{ color, style: "text" }}>
+        {children}
+      </Button>
+    </View>
   );
 };
 
