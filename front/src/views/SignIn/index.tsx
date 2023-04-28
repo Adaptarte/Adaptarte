@@ -2,6 +2,7 @@ import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 
 import { Button } from "components/Button";
+import { ComingSoon } from "components/ComingSoon";
 import { Img } from "components/Img";
 import { Input } from "components/Input";
 import { Screen } from "components/Screen";
@@ -64,9 +65,11 @@ const SignIn = (): JSX.Element => {
       >
         {"Ingresar con Google"}
       </Button>
-      <Button style={styles.btn} variant={btnVars.thirdParty}>
-        {"Ingresar con Apple"}
-      </Button>
+      <ComingSoon>
+        <Button style={styles.btn} variant={btnVars.thirdParty}>
+          {"Ingresar con Apple"}
+        </Button>
+      </ComingSoon>
     </Screen>
   );
 };
