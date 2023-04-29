@@ -8,6 +8,20 @@ GoogleSignin.configure({
     "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com"
 });
 
+const updateDisplayname = async (name: string): Promise<void> => {
+  const update = {
+    displayName: name
+  };
+  return await auth().currentUser?.updateProfile(update);
+};
+
+const signUpEmailPassword = async (
+  email: string,
+  password: string
+): Promise<FirebaseAuthTypes.UserCredential> => {
+  return await auth().createUserWithEmailAndPassword(email, password);
+};
+
 const signInEmailPassword = async (
   email: string,
   password: string
@@ -48,6 +62,8 @@ const useUser = (): FirebaseAuthTypes.User => {
 };
 
 export {
+  updateDisplayname,
+  signUpEmailPassword,
   signInEmailPassword,
   signInGoogle,
   signOut,
