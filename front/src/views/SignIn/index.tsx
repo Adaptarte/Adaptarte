@@ -28,7 +28,9 @@ const SignIn = (): JSX.Element => {
       signUpEmailPassword(email, password)
         .then(() => {
           updateDisplayname(username)
-            .then(() => console.log("Created account"))
+            .then(() => {
+              console.log("Created account");
+            })
             .catch(console.error);
         })
         .catch(console.error);
@@ -48,7 +50,7 @@ const SignIn = (): JSX.Element => {
             "[auth/user-not-found] There is no user record corresponding to " +
             "this identifier. The user may have been deleted.";
           const errorMessage = err.message;
-          if (errorMessage == errMExpected) {
+          if (errorMessage === errMExpected) {
             setIsRegister(true);
           }
           console.error(err);
