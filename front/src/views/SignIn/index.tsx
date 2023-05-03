@@ -20,6 +20,24 @@ const SignIn = (): JSX.Element => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isRegister, setIsRegister] = useState(false);
+  const [openRegister, setOpenRegister] = useState(false);
+
+  const handleSignUpEmailPassword = (): void => {
+    if (username !== "" || email !== "" || password !== "") {
+      signUpEmailPassword(email, password)
+        .then(() => {
+          updateDisplayname(username)
+            .then(() => {
+              console.log("Created account");
+            })
+            .catch(console.error);
+        })
+        .catch(console.error);
+    } else {
+      console.error("Relleno los campos");
+    }
+  };
 
   const handleSignInEmailPassword = (): void => {
     if (email !== "" || password !== "") {
@@ -27,7 +45,18 @@ const SignIn = (): JSX.Element => {
         .then(() => {
           console.log("Signed in with email/password");
         })
-        .catch(console.error);
+        .catch((err) => {
+          const errMExpected =
+            "[auth/user-not-found] There is no user record corresponding to " +
+            "this identifier. The user may have been deleted.";
+          const errorMessage = err.message;
+          if (errorMessage === errMExpected) {
+            setIsRegister(true);
+          }
+          console.error(err);
+        });
+    } else {
+      console.error("Relleno los campos");
     }
   };
 
