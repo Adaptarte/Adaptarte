@@ -45,7 +45,7 @@ const dateToString = (date: Date, format: DateFormat = "full"): string => {
   if (format === "time") {
     return formatTime(date);
   }
-  return `${formatDate(date)} ${formatTime(date)}`;
+  return `${formatDate(date)}, ${formatTime(date)}`;
 };
 
 const getDayTime = (date: Date): number => {
@@ -58,4 +58,13 @@ const setDayTime = (date: Date, time: number, unit: TimeUnit = "ms"): Date => {
   return addTime(date, time, unit);
 };
 
-export { addTime, compareDates, dateToString, getDayTime, setDayTime, TIME };
+export {
+  formatDate,
+  formatTime,
+  addTime,
+  compareDates,
+  dateToString,
+  getDayTime,
+  setDayTime,
+  TIME
+};
