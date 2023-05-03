@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React, { Fragment } from "react";
 
 import { Row } from "components/Grid";
@@ -19,7 +18,7 @@ import { FoodCard } from "./FoodCard";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
-const Feeding: FC<TAppViewProps<"Feeding">> = ({
+const Feeding = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const consumption = groupConsumptionByFoodType(

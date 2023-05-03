@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     margin: 4,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    textShadowColor: colors["WHITE"],
+    textShadowColor: colors.WHITE,
     textShadowRadius: 4
   }
 });

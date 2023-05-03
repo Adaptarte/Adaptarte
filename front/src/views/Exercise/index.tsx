@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { Modal, TouchableOpacity, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
@@ -12,7 +11,7 @@ import type { TAppViewProps } from "navigation/App/types";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
-const Exercise: FC<TAppViewProps<"Exercise">> = ({
+const Exercise = ({
   navigation: { canGoBack, goBack }
 }: TAppViewProps<"Exercise">): JSX.Element => {
   return (

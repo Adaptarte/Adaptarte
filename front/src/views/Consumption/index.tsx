@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { TouchableOpacity } from "react-native";
 
@@ -17,7 +16,7 @@ import { getFoodByType } from "utils/food";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
-const Consumption: FC<TAppViewProps<"Consumption">> = ({
+const Consumption = ({
   navigation: { canGoBack, goBack },
   route: { params }
 }: TAppViewProps<"Consumption">): JSX.Element => {
