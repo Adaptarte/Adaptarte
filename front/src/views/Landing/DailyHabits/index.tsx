@@ -4,6 +4,8 @@ import React, { useCallback } from "react";
 import { ComingSoon } from "components/ComingSoon";
 import { Column, Row } from "components/Grid";
 import { Habit } from "components/Habit";
+import { compareDates } from "utils/date";
+import { useDbObjs } from "utils/db/realm";
 
 import type { IDailyHabitsProps } from "./types";
 
@@ -17,6 +19,10 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
   const goToFeeding = useCallback((): void => {
     navigate("Feeding");
   }, [navigate]);
+
+  const foodIntakes = useDbObjs("Consumption").filter(
+    ({ date }) => compareDates(date, new Date(), true) === 0
+  );
 
   return (
     <Row columns={2}>
@@ -33,6 +39,7 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
       <Column>
         <Habit
           bgColor={"GREEN_TRANSLUCID"}
+          checked={foodIntakes.length >= 15 * 0.8}
           color={"GREEN"}
           img={"diet"}
           onPress={goToFeeding}
