@@ -4,11 +4,12 @@ import type { ButtonProps } from "components/Button/types";
 import type { ImgProps } from "components/Img/types";
 import type { TColor } from "styles/colors";
 
-interface CardProps extends Pick<ButtonProps, "onPress"> {
+interface HabitProps extends Pick<ButtonProps, "onPress"> {
   bgColor: TColor;
+  checked?: boolean;
   children: ReactNode;
   color: TColor;
   img: ImgProps["src"];
 }
 
-export type { CardProps };
+export type { HabitProps };

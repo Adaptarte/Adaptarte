@@ -8,16 +8,16 @@ import type { CheckBoxProps } from "./types";
 
 const CheckBox = ({
   disabled,
-  isChecked,
+  checked,
   label,
   onChange,
   variant = {}
 }: CheckBoxProps): JSX.Element => {
-  const [value, setValue] = useState(isChecked);
+  const [value, setValue] = useState(checked);
 
   useEffect(() => {
-    setValue(isChecked);
-  }, [isChecked, setValue]);
+    setValue(checked);
+  }, [checked, setValue]);
 
   const handleSwitch = useCallback((): void => {
     const newValue = !value;

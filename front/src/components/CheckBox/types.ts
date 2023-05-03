@@ -10,7 +10,7 @@ interface CheckBoxVariant {
 
 interface CheckBoxProps {
   disabled?: boolean;
-  isChecked?: boolean;
+  checked?: boolean;
   label?: string;
   onChange?: (val: boolean) => void;
   variant?: CheckBoxVariant;
