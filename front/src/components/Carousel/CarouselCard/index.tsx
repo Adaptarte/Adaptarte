@@ -41,7 +41,7 @@ const CarouselCard = ({
           {description}
         </Text>
         <CheckBox
-          isChecked={check}
+          checked={check}
           label={check ? "Completado" : "Por completar"}
           onChange={handleSwitch}
           variant={{ border: "circle", color: "WHITE" }}

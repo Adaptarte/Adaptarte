@@ -46,7 +46,7 @@ const DailyGoal = ({
         </Text>
         <Text variant={textVars.hour}>{dateToString(date)}</Text>
       </TouchableOpacity>
-      <CheckBox disabled isChecked={done} />
+      <CheckBox disabled checked={done} />
     </View>
   );
 };

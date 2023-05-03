@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import React, { useCallback } from "react";
 
-import { Card } from "components/Card";
 import { ComingSoon } from "components/ComingSoon";
 import { Column, Row } from "components/Grid";
+import { Habit } from "components/Habit";
 
 import type { IDailyHabitsProps } from "./types";
 
@@ -21,41 +21,41 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
   return (
     <Row columns={2}>
       <Column>
-        <Card
+        <Habit
           bgColor={"ORANGE_TRANSLUCID"}
           color={"ORANGE"}
           img={"exercise"}
           onPress={goToExercise}
         >
           {"Ejercicio"}
-        </Card>
+        </Habit>
       </Column>
       <Column>
-        <Card
+        <Habit
           bgColor={"GREEN_TRANSLUCID"}
           color={"GREEN"}
           img={"diet"}
           onPress={goToFeeding}
         >
           {"Alimentación"}
-        </Card>
+        </Habit>
       </Column>
       <Column>
         <ComingSoon>
-          <Card
+          <Habit
             bgColor={"BLUE_TRANSLUCID"}
             color={"BLUE"}
             img={"drinkingWater"}
           >
             {"Agua"}
-          </Card>
+          </Habit>
         </ComingSoon>
       </Column>
       <Column>
         <ComingSoon>
-          <Card bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} img={"calm"}>
+          <Habit bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} img={"calm"}>
             {"Calma"}
-          </Card>
+          </Habit>
         </ComingSoon>
       </Column>
     </Row>
