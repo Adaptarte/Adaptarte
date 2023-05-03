@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { View } from "react-native";
 
@@ -14,7 +13,7 @@ import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
 import { styles, textVars } from "./styles";
 
-const Landing: FC<TAppViewProps<"Landing">> = ({
+const Landing = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
   const user = useUser();
