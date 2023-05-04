@@ -5,7 +5,7 @@ interface TagProps extends TagVarProps {
 }
 
 interface TagVarProps {
-  color?: TColor;
+  bg?: TColor;
 }
 
 export type { TagProps, TagVarProps };

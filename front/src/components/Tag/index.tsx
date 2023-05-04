@@ -5,8 +5,8 @@ import { Text } from "components/Text";
 import { getTagStyle, styles } from "./styles";
 import type { TagProps } from "./types";
 
-const Tag = ({ children, color }: TagProps): JSX.Element => {
-  const varStyle = getTagStyle({ color });
+const Tag = ({ children, bg }: TagProps): JSX.Element => {
+  const varStyle = getTagStyle({ bg });
 
   return (
     <Text style={[styles.text, varStyle.text]} variant={{ weight: "bold" }}>

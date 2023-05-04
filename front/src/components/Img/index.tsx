@@ -8,7 +8,7 @@ import type { ImgProps } from "./types";
 const Img = ({ src, style }: ImgProps): JSX.Element => {
   return (
     <Image
-      source={typeof src === "number" ? src : imgs[src]}
+      source={typeof src === "string" ? imgs[src] : src}
       style={[styles.img, style]}
     />
   );

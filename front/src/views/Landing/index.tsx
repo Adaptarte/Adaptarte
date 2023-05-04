@@ -21,7 +21,7 @@ const Landing = ({
   const name = user.displayName?.split(" ")[0] ?? "paciente";
 
   return (
-    <Screen style={styles.screen}>
+    <Screen bg={"LIGHT"} style={styles.screen}>
       <View style={styles.welcome}>
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}

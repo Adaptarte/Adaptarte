@@ -28,7 +28,7 @@ const Feeding = ({
   );
 
   return (
-    <Screen bg={"WHITE"}>
+    <Screen>
       {foodTypes.map((type) => {
         const tSection = t()[type];
 

@@ -10,21 +10,24 @@ import { styles, textVarTitle } from "./styles";
 const Header = ({
   navigation: { canGoBack, goBack },
   options: { headerStyle, headerTitle }
-}: NativeStackHeaderProps): JSX.Element => {
-  return (
+}: NativeStackHeaderProps): JSX.Element | null => {
+  const hasGoBack = canGoBack();
+  const hasHeader = typeof headerTitle === "string";
+
+  return hasGoBack || hasHeader ? (
     <View style={[styles.container, headerStyle]}>
-      {canGoBack() ? (
+      {hasGoBack ? (
         <TouchableOpacity onPress={goBack} style={styles.backButton}>
           <Img src={"back"} style={styles.backImage} />
         </TouchableOpacity>
-      ) : undefined}
-      {typeof headerTitle === "string" ? (
+      ) : null}
+      {hasHeader ? (
         <Text style={styles.title} variant={textVarTitle}>
           {headerTitle}
         </Text>
-      ) : undefined}
+      ) : null}
     </View>
-  );
+  ) : null;
 };
 
 export { Header };
