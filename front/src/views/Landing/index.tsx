@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View } from "react-native";
 
 import { Button } from "components/Button";
@@ -7,7 +7,7 @@ import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { signOut, useUser } from "utils/auth";
+import { useUser } from "utils/auth";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -20,13 +20,17 @@ const Landing = ({
 
   const name = user.displayName?.split(" ")[0] ?? "paciente";
 
+  const goToProfile = useCallback(() => {
+    navigate("Profile");
+  }, [navigate]);
+
   return (
     <Screen bg={"LIGHT"} style={styles.screen}>
       <View style={styles.welcome}>
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡Bienvenido(a) de nuevo, ${name}!`}
         </Text>
-        <Button onPress={signOut}>
+        <Button onPress={goToProfile}>
           <Img src={"profile"} style={styles.profile} />
         </Button>
       </View>

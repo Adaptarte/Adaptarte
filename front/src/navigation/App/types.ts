@@ -8,6 +8,7 @@ type IAppParams = {
   Feeding: undefined;
   Exercise: undefined;
   Landing: undefined;
+  Profile: undefined;
 };
 
 type TAppViewProps<T extends keyof IAppParams> = NativeStackScreenProps<
