@@ -16,10 +16,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const getTagStyle = ({ color = "GREY" }: TagVarProps): VarStyle<"text"> => {
+const getTagStyle = ({ bg = "GREY_LIGHT" }: TagVarProps): VarStyle<"text"> => {
   return {
     text: {
-      backgroundColor: colors[color]
+      backgroundColor: colors[bg]
     }
   };
 };

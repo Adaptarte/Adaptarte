@@ -25,7 +25,7 @@ const Consumption = ({
   const user = useUser();
 
   return (
-    <Screen bg={"WHITE"}>
+    <Screen>
       <Text style={styles.title} variant={textVars.title}>
         {t().title}
       </Text>

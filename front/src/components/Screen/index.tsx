@@ -7,7 +7,7 @@ import { styles } from "./styles";
 import type { IScreenProps } from "./types";
 
 const Screen = ({
-  bg = "LIGHT",
+  bg = "WHITE",
   children,
   style
 }: IScreenProps): JSX.Element => {
