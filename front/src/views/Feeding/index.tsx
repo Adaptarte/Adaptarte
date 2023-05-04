@@ -39,10 +39,10 @@ const Feeding = ({
             </Text>
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
-              {consumption?.[type].map((el) => {
-                const { id, img, name } = getFoodById(el.food);
+              {consumption?.[type].map(({ food, id }) => {
+                const { img, name } = getFoodById(food);
 
-                return <FoodCard img={img} key={id} name={name} id={el.id} />;
+                return <FoodCard img={img} key={id} name={name} id={id} />;
               })}
               {getConsumptionExpected(type, consumption?.[type].length).map(
                 (el: number) => {
