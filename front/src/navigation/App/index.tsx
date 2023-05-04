@@ -8,6 +8,7 @@ import { Consumption } from "views/Consumption";
 import { Exercise } from "views/Exercise";
 import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
+import { Profile } from "views/Profile";
 
 import type { IAppParams } from "./types";
 
@@ -15,11 +16,7 @@ const { Navigator, Group, Screen } = createNativeStackNavigator<IAppParams>();
 
 const screenOptions: NativeStackNavigationOptions = {
   header: Header,
-  headerShown: false
-};
-
-const screenModalOptions: NativeStackNavigationOptions = {
-  presentation: "transparentModal"
+  headerShown: true
 };
 
 const AppNavigation = (): JSX.Element => {
@@ -30,12 +27,17 @@ const AppNavigation = (): JSX.Element => {
         <Screen
           component={Feeding}
           name={"Feeding"}
-          options={{ headerShown: true, headerTitle: "Alimentación" }}
+          options={{ headerTitle: "Alimentación" }}
         />
-        <Group screenOptions={screenModalOptions}>
-          <Screen component={Exercise} name={"Exercise"} />
+        <Screen component={Profile} name={"Profile"} />
+        <Group screenOptions={{ headerShown: false }}>
+          <Screen component={Consumption} name={"Consumption"} />
+          <Screen
+            component={Exercise}
+            name={"Exercise"}
+            options={{ presentation: "transparentModal" }}
+          />
         </Group>
-        <Screen component={Consumption} name={"Consumption"} />
       </Navigator>
     </NavigationContainer>
   );
