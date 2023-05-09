@@ -8,10 +8,8 @@
     "android:build": "npm run android:bundle && cd android && gradlew assembleDebug && find . -type d -regex '.*/res/drawable-.*dpi' -exec rm -rf {} ; && cd ..",
     "android:clean": "cd android && gradlew clean && gradlew build && cd ..",
     "format": "prettier --write src",
-    "format:check": "prettier --check src",
     "ios": "react-native run-ios",
     "lint": "eslint src --ext .ts,.tsx --fix",
-    "lint:check": "eslint src --ext .ts,.tsx",
     "start": "react-native start",
     "test": "jest"
   },
@@ -44,15 +42,11 @@
     "@types/react": "^18.0.34",
     "@types/react-native": "^0.71.5",
     "@types/react-test-renderer": "^18.0.0",
-    "@typescript-eslint/parser": "^5.58.0",
     "babel-jest": "^29.5.0",
     "babel-plugin-module-resolver": "^5.0.0",
-    "eslint": "^8.38.0",
-    "eslint-config-estidlore": "github:estidlore/eslint-config-estidlore",
     "eslint-plugin-react-native": "^4.0.0",
     "jest": "^29.5.0",
     "metro-react-native-babel-preset": "0.74.1",
-    "prettier": "^2.8.7",
     "react-test-renderer": "18.2.0",
     "typescript": "^5.0.0"
   }
