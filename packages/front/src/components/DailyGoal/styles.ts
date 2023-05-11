@@ -3,7 +3,8 @@ import { StyleSheet } from "react-native";
 import type { ImgName } from "components/Img/types";
 import type { TextVariants } from "components/Text/types";
 import { colors } from "styles";
-import type { DailyGoalType } from "types/dailyGoals";
+
+import type { DailyGoalType } from "./types";
 
 const styles = StyleSheet.create({
   container: {

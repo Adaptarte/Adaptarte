@@ -1,15 +1,19 @@
 import type { ObjectSchema, PropertiesTypes } from "realm";
 
-import type { ITension } from "types/hypertension";
-import type { IMedicineIntake, IMedicineRecipe } from "types/medicine";
-import type { IConsumption } from "utils/food/types";
 import type { StrictUnion } from "utils/types";
 
+import type {
+  DBFoodIntake,
+  DBMedicineIntake,
+  DBMedicineRecipe,
+  DBTension
+} from "../types";
+
 interface SchemaTypes {
-  Tension: ITension;
-  Consumption: IConsumption;
-  MedicineIntake: IMedicineIntake;
-  MedicineRecipe: IMedicineRecipe;
+  Tension: DBTension;
+  Consumption: DBFoodIntake;
+  MedicineIntake: DBMedicineIntake;
+  MedicineRecipe: DBMedicineRecipe;
 }
 
 type SchemaName = keyof SchemaTypes;

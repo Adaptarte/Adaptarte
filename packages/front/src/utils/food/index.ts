@@ -1,7 +1,8 @@
 import { arr } from "utils/array";
+import type { SchemaType } from "utils/db/realm/types";
 
 import { food } from "./data";
-import type { IConsumption, IFood } from "./types";
+import type { IFood } from "./types";
 
 const getConsumptionExpected = (type: IFood["type"], current = 0): number[] => {
   const expected: Record<IFood["type"], number> = {
@@ -26,9 +27,9 @@ const getFoodById = (id: IFood["id"]): IFood => {
 };
 
 const groupConsumptionByFoodType = (
-  data: IConsumption[]
-): Record<IFood["type"], IConsumption[]> => {
-  const res: Record<IFood["type"], IConsumption[]> = {
+  data: SchemaType<"Consumption">[]
+): Record<IFood["type"], SchemaType<"Consumption">[]> => {
+  const res: Record<IFood["type"], SchemaType<"Consumption">[]> = {
     carbs: [],
     dairy: [],
     fruitsAndVegetables: [],

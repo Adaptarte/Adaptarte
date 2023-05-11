@@ -4,11 +4,11 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
-import type { ITension } from "types/hypertension";
 import { registerMedicineGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
+import type { DBTension } from "utils/db/types";
 
 import type { TensionProps } from "./types";
 
@@ -21,7 +21,7 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
 
   const handleSave = useCallback(() => {
     registerMedicineGA().catch(console.error);
-    const data: ITension = {
+    const data: DBTension = {
       date,
       diastolic: parseInt(diastolic),
       systolic: parseInt(systolic)

@@ -1,7 +1,7 @@
-import type { ITension } from "types/hypertension";
 import { addTime, compareDates, getDayTime, setDayTime } from "utils/date";
+import type { DBTension } from "utils/db/types";
 
-const getNextTension = (data: ITension[]): Date => {
+const getNextTension = (data: DBTension[]): Date => {
   const date = new Date();
   setDayTime(date, 0);
   if (data.length === 0) {
