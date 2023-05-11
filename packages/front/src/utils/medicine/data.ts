@@ -1,6 +1,6 @@
-import type { IMedicineRecipe } from "types/medicine";
+import type { SchemaType } from "utils/db/realm/types";
 
-const recipes: IMedicineRecipe[] = [
+const recipes: SchemaType<"MedicineRecipe">[] = [
   {
     amount: 0,
     details: "Tomar 30 min antes del desayuno",
@@ -11,6 +11,7 @@ const recipes: IMedicineRecipe[] = [
   },
   {
     amount: 0,
+    details: "",
     id: 2,
     interval: 12,
     medicine: "Amlodipino x 5mg",

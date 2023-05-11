@@ -1,10 +1,11 @@
-import type { IMedicineIntake, IMedicineRecipe } from "types/medicine";
 import { addTime, compareDates } from "utils/date";
+import type { SchemaType } from "utils/db/realm/types";
+import type { DBMedicineIntake, DBMedicineRecipe } from "utils/db/types";
 
 import { recipes } from "./data";
 
-const getLastIntakes = (data: IMedicineIntake[]): IMedicineIntake[] => {
-  return data.reduce<IMedicineIntake[]>((acc, curr) => {
+const getLastIntakes = (data: DBMedicineIntake[]): DBMedicineIntake[] => {
+  return data.reduce<DBMedicineIntake[]>((acc, curr) => {
     const accDate = acc[curr.recipe]?.date;
     if (accDate === undefined || compareDates(curr.date, accDate, false) > 0) {
       acc[curr.recipe] = curr;
@@ -14,8 +15,8 @@ const getLastIntakes = (data: IMedicineIntake[]): IMedicineIntake[] => {
 };
 
 const getNextIntake = (
-  recipe: IMedicineRecipe,
-  last?: IMedicineIntake
+  recipe: DBMedicineRecipe,
+  last?: DBMedicineIntake
 ): Date => {
   if (last === undefined) {
     return new Date(recipe.takeFrom);
@@ -23,7 +24,7 @@ const getNextIntake = (
   return addTime(new Date(last.date), recipe.interval, "hour");
 };
 
-const getRecipeById = (id: number): IMedicineRecipe => {
+const getRecipeById = (id: number): SchemaType<"MedicineRecipe"> => {
   const expected = recipes[id - 1];
   if (id !== expected.id) {
     throw new Error("Unexpected recipe id");

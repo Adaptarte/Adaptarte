@@ -4,10 +4,10 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
-import type { IMedicineIntake } from "types/medicine";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import { dbCreate, useRealm } from "utils/db/realm";
+import type { DBMedicineIntake } from "utils/db/types";
 import { cancelMedicineNotification } from "utils/notifications";
 
 import type { MedicineIntakeProps } from "./types";
@@ -22,7 +22,7 @@ const MedicineIntake = ({
   const user = useUser();
 
   const handleSave = useCallback(() => {
-    const data: IMedicineIntake = {
+    const data: DBMedicineIntake = {
       date,
       recipe: recipe.id
     };

@@ -1,4 +1,4 @@
-import type { DailyGoalType } from "types/dailyGoals";
+type DailyGoalType = "Pill" | "Record";
 
 interface DailyGoalProps {
   date: Date;
@@ -8,4 +8,4 @@ interface DailyGoalProps {
   type: DailyGoalType;
 }
 
-export type { DailyGoalProps };
+export type { DailyGoalProps, DailyGoalType };
