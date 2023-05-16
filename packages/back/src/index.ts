@@ -1,10 +1,7 @@
-import dotenv from "dotenv";
+import functions from "firebase-functions";
 
-import { app } from "./app";
+import { app as expressApp } from "./app";
 
-dotenv.config();
+const app = functions.https.onRequest(expressApp);
 
-const { PORT = 8000 } = process.env;
-app.listen(PORT, () => {
-  console.log(`Server running at port ${PORT}`);
-});
+export { app };
