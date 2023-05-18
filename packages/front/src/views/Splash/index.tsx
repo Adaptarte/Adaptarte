@@ -13,7 +13,7 @@ const Splash = (): JSX.Element => {
     <Screen style={styles.container}>
       <Text variant={textVars.header}>{"Adaptarte"}</Text>
       <View>
-        <Img src={"helloCuidador"} style={styles.img} />
+        <Img src={"care"} style={styles.img} />
         <ActivityIndicator color={colors.BLUE} size={192} />
       </View>
     </Screen>

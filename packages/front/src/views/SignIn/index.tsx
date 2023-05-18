@@ -89,7 +89,7 @@ const SignIn = (): JSX.Element => {
     <Screen>
       <Text variant={textVars.appName}>{"Adaptarte"}</Text>
       <View style={styles.header}>
-        <Img src={"helloCuidador"} style={styles.img} />
+        <Img src={"care"} style={styles.img} />
       </View>
       <Text variant={textVars.signIn}>
         {openRegister ? "Crear cuenta" : "Inicia sesión"}
