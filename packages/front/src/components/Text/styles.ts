@@ -1,15 +1,7 @@
-import { StyleSheet } from "react-native";
-
 import { colors } from "styles";
 import type { Style } from "utils/types";
 
 import type { TextSize, TextVariant, TextWeight } from "./types";
-
-const styles = StyleSheet.create({
-  text: {
-    fontFamily: "Lexend-Bold"
-  }
-});
 
 const sizes: Record<TextSize, number> = {
   1: 14,
@@ -36,4 +28,4 @@ const getTextStyle = ({
   };
 };
 
-export { getTextStyle, styles };
+export { getTextStyle };
