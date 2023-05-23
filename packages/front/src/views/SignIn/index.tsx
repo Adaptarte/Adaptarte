@@ -68,18 +68,6 @@ const SignIn = (): JSX.Element => {
       .catch(console.error);
   }, []);
 
-  const changeUsername = (value: React.SetStateAction<string>): void => {
-    setUsername(value);
-  };
-
-  const changeEmail = (value: React.SetStateAction<string>): void => {
-    setEmail(value);
-  };
-
-  const changePassword = (value: React.SetStateAction<string>): void => {
-    setPassword(value);
-  };
-
   const openSignUp = (): void => {
     setOpenRegister(!openRegister);
     setIsRegister(false);
@@ -95,10 +83,10 @@ const SignIn = (): JSX.Element => {
         {openRegister ? "Crear cuenta" : "Inicia sesión"}
       </Text>
       {openRegister && (
-        <Input onChange={changeUsername} label={"Nombre de usuario"} />
+        <Input onChange={setUsername} label={"Nombre de usuario"} />
       )}
-      <Input onChange={changeEmail} label={"Correo electrónico"} />
-      <Input onChange={changePassword} label={"Contraseña"} secure />
+      <Input onChange={setEmail} label={"Correo electrónico"} />
+      <Input onChange={setPassword} label={"Contraseña"} secure />
       {isRegister && (
         <Button onPress={openSignUp}>{"¿Quieres crear una cuenta?"}</Button>
       )}
