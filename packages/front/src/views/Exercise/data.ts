@@ -1,6 +1,6 @@
-import type { CarouselCardProps } from "./types";
+import type { CarouselProps } from "components/Carousel/types";
 
-const data: CarouselCardProps[] = [
+const data: CarouselProps["data"] = [
   {
     background: "#FFB186",
     complete: true,

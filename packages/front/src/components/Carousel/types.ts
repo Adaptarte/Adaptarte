@@ -1,10 +1,7 @@
-import type { ViewProps } from "react-native";
-
 import type { CarouselCardProps } from "./CarouselCard/types";
 
-interface CarouselProps extends Pick<ViewProps, "style"> {
+interface CarouselProps {
   data: CarouselCardProps[];
-  onPress?: () => void;
 }
 
 export type { CarouselProps };
