@@ -6,7 +6,7 @@ import { Carousel } from ".";
 
 describe("Carousel", () => {
   it("Renders Content", () => {
-    expect.assertions(1 + data.length * 2);
+    expect.assertions(7);
     render(<Carousel data={data} />);
 
     expect(screen.queryByText(">")).toBeOnTheScreen();

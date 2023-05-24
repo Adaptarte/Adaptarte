@@ -3,7 +3,7 @@ module.exports = {
     amd: true,
     browser: true
   },
-  extends: ["estidlore/typescript"],
+  extends: ["estidlore/typescript", "estidlore/jest"],
   globals: {
     module: true,
     window: true
