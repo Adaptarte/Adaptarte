@@ -3,10 +3,10 @@ import { Modal, TouchableOpacity, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
 import { Carousel } from "components/Carousel";
-import { data } from "components/Carousel/CarouselCard/data";
 import { Img } from "components/Img";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { data } from "views/Exercise/data";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
@@ -38,7 +38,7 @@ const Exercise = ({
             <Text style={styles.excerciseText} variant={textVars.details}>
               {t().note}
             </Text>
-            <Carousel data={data}></Carousel>
+            <Carousel data={data} />
           </View>
         </View>
       </Modal>
