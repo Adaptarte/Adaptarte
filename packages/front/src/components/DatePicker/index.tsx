@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { View } from "react-native";
 import NDatePicker from "react-native-date-picker";
@@ -9,7 +8,7 @@ import { colors } from "styles";
 import { styles } from "./styles";
 import type { DatePickerProps } from "./types";
 
-const DatePicker: FC<DatePickerProps> = ({
+const DatePicker = ({
   date,
   label,
   maxDate,
