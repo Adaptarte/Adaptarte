@@ -8,7 +8,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ["src/**/*.{ts,tsx}"],
   coverageDirectory: "coverage",
-  coveragePathIgnorePatterns: ["index.ts", "src/.*types.*"],
+  coveragePathIgnorePatterns: ["src/index.ts", "src/.*types.*"],
   coverageThreshold: {
     global: {
       branches: 50,

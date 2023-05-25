@@ -1,14 +1,13 @@
-import type { FC } from "react";
 import React from "react";
 import { View } from "react-native";
 
 import { Img } from "components/Img";
 import { Text } from "components/Text";
-import { pickDataDose } from "utils/dataDoses";
 
+import { pickDataDose } from "./data";
 import { styles, textVars } from "./styles";
 
-const DataDose: FC = (): JSX.Element => {
+const DataDose = (): JSX.Element => {
   const dose = pickDataDose();
 
   return (
