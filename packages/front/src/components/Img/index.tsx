@@ -6,9 +6,12 @@ import { styles } from "./styles";
 import type { ImgProps } from "./types";
 
 const Img = ({ src, style }: ImgProps): JSX.Element => {
+  const byName = typeof src === "string";
+
   return (
     <Image
-      source={typeof src === "string" ? imgs[src] : src}
+      accessibilityValue={{ text: byName ? src : undefined }}
+      source={byName ? imgs[src] : src}
       style={[styles.img, style]}
     />
   );
