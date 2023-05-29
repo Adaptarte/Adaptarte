@@ -41,6 +41,12 @@ const Profile = (): JSX.Element => {
       </Text>
       <Row columns={3}>
         <Column size={1}>
+          <Text variant={textVars.info}>{"C.C."}</Text>
+        </Column>
+        <Column size={2}>
+          <Text>{"??"}</Text>
+        </Column>
+        <Column size={1}>
           <Text variant={textVars.info}>{"Teléfono"}</Text>
         </Column>
         <Column size={2}>

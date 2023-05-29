@@ -90,13 +90,16 @@ const SignIn = (): JSX.Element => {
       {isRegister && (
         <Button onPress={openSignUp}>{"¿Quieres crear una cuenta?"}</Button>
       )}
+      {openRegister && (
+        <Button onPress={openSignUp}>{"Iniciar sesión"}</Button>
+      )}
       <Button
         onPress={
           openRegister ? handleSignUpEmailPassword : handleSignInEmailPassword
         }
         style={styles.btn}
         variant={btnVars.signIn}
-      >
+        >
         {openRegister ? "Crear cuenta" : "Inicia sesión"}
       </Button>
       <View style={styles.hr} />
