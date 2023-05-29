@@ -1,5 +1,8 @@
 import type { ModalProps } from "components/Modal/types";
+import type { DBTension } from "utils/db/types";
 
-type TensionProps = Pick<ModalProps, "setVisible" | "visible">;
+interface TensionProps extends Pick<ModalProps, "setVisible" | "visible"> {
+  onSave: (data: DBTension) => void;
+}
 
 export type { TensionProps };

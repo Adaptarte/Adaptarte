@@ -4,35 +4,26 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
-import { registerMedicineGA } from "utils/analytics/analytics";
-import { useUser } from "utils/auth";
-import { addUserData } from "utils/db/firebase";
-import { dbCreate, useRealm } from "utils/db/realm";
-import type { DBTension } from "utils/db/types";
 
 import type { TensionProps } from "./types";
 
-const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
+const Tension = ({
+  onSave,
+  setVisible,
+  visible
+}: TensionProps): JSX.Element => {
   const [diastolic, setDiastolic] = useState("");
   const [systolic, setSystolic] = useState("");
   const [date, setDate] = useState(new Date());
-  const realm = useRealm();
-  const user = useUser();
 
   const handleSave = useCallback(() => {
-    registerMedicineGA().catch(console.error);
-    const data: DBTension = {
+    onSave({
       date,
       diastolic: parseInt(diastolic),
       systolic: parseInt(systolic)
-    };
-
-    realm.write(() => {
-      dbCreate(realm, "Tension", data);
     });
-    addUserData(user.uid, "Tension", data).catch(console.error);
     setVisible?.(false);
-  }, [diastolic, setVisible, systolic]);
+  }, [date, diastolic, onSave, setVisible, systolic]);
 
   useEffect(() => {
     setDate(new Date());
@@ -47,12 +38,14 @@ const Tension = ({ setVisible, visible }: TensionProps): JSX.Element => {
       <Input
         label={"Presión diastólica"}
         onChange={setDiastolic}
+        placeholder={"80"}
         type={"numeric"}
         value={diastolic}
       />
       <Input
         label={"Presión sistólica"}
         onChange={setSystolic}
+        placeholder={"120"}
         type={"numeric"}
         value={systolic}
       />
