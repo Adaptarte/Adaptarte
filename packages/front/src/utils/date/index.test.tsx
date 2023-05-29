@@ -13,7 +13,11 @@ describe("date", () => {
     expect.assertions(1);
 
     const date: Date = new Date("December 24, 2000 03:24:00:00");
-    const expected = "24 de dic";
+    const expected = new Date(2000, 11, 24, 3, 24, 0)
+      .toLocaleDateString(undefined, {
+      day: "2-digit",
+      month: "short"
+    });
     expect(formatDate(date)).toBe(expected);
   });
 
@@ -76,7 +80,11 @@ describe("date", () => {
     expect.assertions(1);
 
     const date: Date = new Date("December 24, 2000 05:00:00:00:00");
-    const expected = "24 de dic";
+    const expected = new Date(2000, 11, 24, 3, 24, 0)
+      .toLocaleDateString(undefined, {
+      day: "2-digit",
+      month: "short"
+    });
     expect(dateToString(date, "date")).toBe(expected);
   });
 
