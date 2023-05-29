@@ -4,36 +4,25 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
-import { useUser } from "utils/auth";
-import { addUserData } from "utils/db/firebase";
-import { dbCreate, useRealm } from "utils/db/realm";
-import type { DBMedicineIntake } from "utils/db/types";
-import { cancelMedicineNotification } from "utils/notifications";
 
 import type { MedicineIntakeProps } from "./types";
 
 const MedicineIntake = ({
+  onSave,
   recipe,
   setVisible,
   visible
 }: MedicineIntakeProps): JSX.Element => {
-  const realm = useRealm();
   const [date, setDate] = useState(new Date());
-  const user = useUser();
 
   const handleSave = useCallback(() => {
-    const data: DBMedicineIntake = {
+    onSave({
       date,
       recipe: recipe.id
-    };
-
-    realm.write(() => {
-      dbCreate(realm, "MedicineIntake", data);
     });
-    addUserData(user.uid, "MedicineIntake", data).catch(console.error);
-    cancelMedicineNotification(recipe.id);
+
     setVisible?.(false);
-  }, [date, recipe.id, realm, setVisible]);
+  }, [date, recipe.id, setVisible]);
 
   useEffect(() => {
     setDate(new Date());

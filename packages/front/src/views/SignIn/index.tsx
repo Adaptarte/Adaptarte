@@ -99,7 +99,7 @@ const SignIn = (): JSX.Element => {
         }
         style={styles.btn}
         variant={btnVars.signIn}
-        >
+      >
         {openRegister ? "Crear cuenta" : "Inicia sesión"}
       </Button>
       <View style={styles.hr} />
