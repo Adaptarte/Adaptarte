@@ -27,7 +27,7 @@ const AppNavigation = (): JSX.Element => {
         <Screen
           component={Feeding}
           name={"Feeding"}
-          options={{ headerTitle: "Alimentación" }}
+          options={{ title: "Alimentación" }}
         />
         <Screen component={Profile} name={"Profile"} />
         <Group screenOptions={{ headerShown: false }}>
