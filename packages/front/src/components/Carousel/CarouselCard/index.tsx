@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { ViewStyle } from "react-native";
 import { View } from "react-native";
 
@@ -26,11 +26,6 @@ const CarouselCard = ({
     backgroundColor: background
   };
 
-  const handleSwitch = useCallback((): void => {
-    const newValue = !check;
-    setCheck(newValue);
-  }, [check, setCheck]);
-
   return (
     <View style={[styles.container, containerVarStyle]}>
       <View style={[styles.textContainer]}>
@@ -43,7 +38,7 @@ const CarouselCard = ({
         <CheckBox
           checked={check}
           label={check ? "Completado" : "Por completar"}
-          onChange={handleSwitch}
+          onChange={setCheck}
           variant={{ border: "circle", color: "WHITE" }}
         />
       </View>

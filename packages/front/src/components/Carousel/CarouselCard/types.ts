@@ -2,7 +2,7 @@ import type { ImgProps } from "components/Img/types";
 
 interface CarouselCardProps {
   background: string;
-  complete?: boolean;
+  complete: boolean;
   description: string;
   img: ImgProps["src"];
   onPress?: () => void;
