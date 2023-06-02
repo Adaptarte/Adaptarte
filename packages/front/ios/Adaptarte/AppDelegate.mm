@@ -1,3 +1,5 @@
+#import <Firebase.h>
+
 #import "AppDelegate.h"
 
 #import <React/RCTBridge.h>
@@ -27,11 +29,20 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 @end
 #endif
 
+
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RCTAppSetupPrepareApp(application);
+  
+  if ([FIRApp defaultApp] == nil) {
+    [FIRApp configure];
+  }
+  
+  
+  RCTAppSetupPrepareApp(application, true);
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
@@ -44,7 +55,7 @@ static NSString *const kRNConcurrentRoot = @"concurrentRoot";
 #endif
 
   NSDictionary *initProps = [self prepareInitialProps];
-  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"Adaptarte", initProps);
+  UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"Adaptarte", initProps, true);
 
   if (@available(iOS 13.0, *)) {
     rootView.backgroundColor = [UIColor systemBackgroundColor];
