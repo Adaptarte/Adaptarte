@@ -1,4 +1,16 @@
+interface DBDoc<T> {
+  id: string;
+  data: T;
+}
+
 interface DBUser {
+  diet: {
+    carbs: number;
+    dairy: number;
+    fruitsAndVegetables: number;
+    liquids: number;
+    protein: number;
+  };
   score: number;
 }
 
@@ -36,6 +48,7 @@ interface DBUserCollections {
 type DBUserCollectionName = keyof DBUserCollections;
 
 export type {
+  DBDoc,
   DBUserCollectionName,
   DBFoodIntake,
   DBMedicineIntake,
