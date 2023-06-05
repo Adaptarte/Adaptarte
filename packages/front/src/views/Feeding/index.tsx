@@ -22,7 +22,7 @@ const Feeding = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const consumption = groupConsumptionByFoodType(
-    useDbObjs("Consumption").filter(
+    useDbObjs("FoodIntake").filter(
       ({ date }) => compareDates(date, new Date(), true) === 0
     )
   );

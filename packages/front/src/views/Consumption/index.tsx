@@ -38,7 +38,7 @@ const Consumption = ({
               food: el.id
             };
             realm.write(() => {
-              dbCreate(realm, "Consumption", data);
+              dbCreate(realm, "FoodIntake", data);
             });
             addUserData(user.uid, "FoodIntake", data).catch(console.error);
             goBack();

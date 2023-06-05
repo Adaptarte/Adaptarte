@@ -47,7 +47,7 @@ const useDbUser = (id: string): DBUser | undefined => {
     return refUser(id).onSnapshot((snapshot) => {
       setData(snapshot.data());
     });
-  }, [id]);
+  }, [id, setData]);
 
   return data;
 };
@@ -71,7 +71,7 @@ const useDbUserData = <T extends keyof DBUserCollections>(
     return () => {
       sub();
     };
-  }, [user]);
+  }, [collection, filter, setData, user]);
 
   return data;
 };

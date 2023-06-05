@@ -33,7 +33,10 @@ interface DBUserCollections {
   Tension: DBTension;
 }
 
+type DBUserCollectionName = keyof DBUserCollections;
+
 export type {
+  DBUserCollectionName,
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
