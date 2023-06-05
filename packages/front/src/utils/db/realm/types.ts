@@ -2,27 +2,13 @@ import type { ObjectSchema, PropertiesTypes } from "realm";
 
 import type { StrictUnion } from "utils/types";
 
-import type {
-  DBFoodIntake,
-  DBMedicineIntake,
-  DBMedicineRecipe,
-  DBTension
-} from "../types";
+import type { DBUserCollectionName, DBUserCollections } from "../types";
 
-interface SchemaTypes {
-  Tension: DBTension;
-  Consumption: DBFoodIntake;
-  MedicineIntake: DBMedicineIntake;
-  MedicineRecipe: DBMedicineRecipe;
-}
-
-type SchemaName = keyof SchemaTypes;
-
-type SchemaType<T extends SchemaName> = StrictUnion<
-  SchemaTypes[T] & { readonly id: number }
+type SchemaType<T extends DBUserCollectionName> = StrictUnion<
+  DBUserCollections[T] & { readonly id: number }
 >;
 
-type Collection<T extends SchemaName> = Realm.Collection<
+type Collection<T extends DBUserCollectionName> = Realm.Collection<
   Realm.Object<SchemaType<T>> & SchemaType<T>
 >;
 
@@ -31,9 +17,9 @@ interface SchemaProps extends PropertiesTypes {
 }
 
 interface Schema extends ObjectSchema {
-  name: SchemaName;
+  name: DBUserCollectionName;
   primaryKey: "id";
   properties: SchemaProps;
 }
 
-export type { Collection, SchemaName, SchemaType, Schema };
+export type { Collection, SchemaType, Schema };

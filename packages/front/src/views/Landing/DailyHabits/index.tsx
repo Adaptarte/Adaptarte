@@ -20,7 +20,7 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
     navigate("Feeding");
   }, [navigate]);
 
-  const foodIntakes = useDbObjs("Consumption").filter(
+  const foodIntakes = useDbObjs("FoodIntake").filter(
     ({ date }) => compareDates(date, new Date(), true) === 0
   );
 

@@ -31,7 +31,7 @@ const DailyGoals: FC = (): JSX.Element => {
     };
   });
 
-  const foodIntakes = useDbObjs("Consumption").filter(
+  const foodIntakes = useDbObjs("FoodIntake").filter(
     ({ date }) => compareDates(date, new Date(), true) === 0
   );
   setUndoneNotification("food", foodIntakes.length >= 15 * 0.8);

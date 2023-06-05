@@ -27,9 +27,9 @@ const getFoodById = (id: IFood["id"]): IFood => {
 };
 
 const groupConsumptionByFoodType = (
-  data: SchemaType<"Consumption">[]
-): Record<IFood["type"], SchemaType<"Consumption">[]> => {
-  const res: Record<IFood["type"], SchemaType<"Consumption">[]> = {
+  data: SchemaType<"FoodIntake">[]
+): Record<IFood["type"], SchemaType<"FoodIntake">[]> => {
+  const res: Record<IFood["type"], SchemaType<"FoodIntake">[]> = {
     carbs: [],
     dairy: [],
     fruitsAndVegetables: [],

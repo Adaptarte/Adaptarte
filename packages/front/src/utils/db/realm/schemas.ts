@@ -12,7 +12,7 @@ const schemas: Schema[] = [
     }
   },
   {
-    name: "Consumption",
+    name: "FoodIntake",
     primaryKey: "id",
     properties: {
       date: "date",

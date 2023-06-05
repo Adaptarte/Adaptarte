@@ -14,7 +14,7 @@ const FoodCard = ({ id, img, name }: Omit<IFood, "type">): JSX.Element => {
 
   const onPressDeleteItem = (): void => {
     realm.write(() => {
-      dbDelete(realm, "Consumption", id);
+      dbDelete(realm, "FoodIntake", id);
     });
   };
 
