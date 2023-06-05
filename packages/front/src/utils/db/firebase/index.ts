@@ -1,13 +1,20 @@
 import firestore from "@react-native-firebase/firestore";
 import { useEffect, useState } from "react";
 
-import type { DBUser, DBUserCollections } from "../types";
+import type { DBDoc, DBUser, DBUserCollections } from "../types";
 import type { ColRef, DocRef, Query, QueryFilter } from "./types";
 
 const addUser = async (id: string): Promise<void> => {
   const snapshot = await refUser(id).get();
   if (!snapshot.exists) {
     return snapshot.ref.set({
+      diet: {
+        carbs: 3,
+        dairy: 3,
+        fruitsAndVegetables: 4,
+        liquids: 6,
+        protein: 2
+      },
       score: 0
     });
   }
@@ -56,8 +63,8 @@ const useDbUserData = <T extends keyof DBUserCollections>(
   user: string,
   collection: T,
   filter?: QueryFilter<DBUserCollections[T]>
-): DBUserCollections[T][] | undefined => {
-  const [data, setData] = useState<DBUserCollections[T][]>();
+): DBDoc<DBUserCollections[T]>[] => {
+  const [data, setData] = useState<DBDoc<DBUserCollections[T]>[]>([]);
 
   useEffect(() => {
     let ref = refUserCol(user, collection) as Query<DBUserCollections[T]>;
@@ -65,7 +72,12 @@ const useDbUserData = <T extends keyof DBUserCollections>(
       ref = ref.where(field, op, val);
     });
     const sub = ref.onSnapshot((snapshot) => {
-      setData(snapshot.docs.map((doc) => doc.data()));
+      setData(
+        snapshot.docs.map((doc) => ({
+          data: doc.data(),
+          id: doc.id
+        }))
+      );
     });
 
     return () => {
