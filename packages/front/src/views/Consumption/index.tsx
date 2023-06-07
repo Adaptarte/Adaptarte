@@ -10,7 +10,6 @@ import type { TAppViewProps } from "navigation/App/types";
 import { registerFoodGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
-import { dbCreate, useRealm } from "utils/db/realm";
 import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
@@ -21,7 +20,6 @@ const Consumption = ({
   route: { params }
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
-  const realm = useRealm();
   const user = useUser();
 
   return (
@@ -37,9 +35,6 @@ const Consumption = ({
               date: new Date(),
               food: el.id
             };
-            realm.write(() => {
-              dbCreate(realm, "FoodIntake", data);
-            });
             addUserData(user.uid, "FoodIntake", data).catch(console.error);
             goBack();
           }

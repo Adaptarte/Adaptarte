@@ -71,7 +71,7 @@ const useDbUserData = <T extends keyof DBUserCollections>(
     filter?.forEach(([field, op, val]) => {
       ref = ref.where(field, op, val);
     });
-    const sub = ref.onSnapshot((snapshot) => {
+    return ref.onSnapshot((snapshot) => {
       setData(
         snapshot.docs.map((doc) => ({
           data: doc.data(),
@@ -79,11 +79,7 @@ const useDbUserData = <T extends keyof DBUserCollections>(
         }))
       );
     });
-
-    return () => {
-      sub();
-    };
-  }, [collection, filter, setData, user]);
+  }, [collection, setData, user]);
 
   return data;
 };
