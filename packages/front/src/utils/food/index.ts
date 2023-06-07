@@ -1,5 +1,5 @@
 import { arr } from "utils/array";
-import type { SchemaType } from "utils/db/realm/types";
+import type { DBDoc, DBFoodIntake } from "utils/db/types";
 
 import { food } from "./data";
 import type { IFood } from "./types";
@@ -27,9 +27,9 @@ const getFoodById = (id: IFood["id"]): IFood => {
 };
 
 const groupConsumptionByFoodType = (
-  data: SchemaType<"FoodIntake">[]
-): Record<IFood["type"], SchemaType<"FoodIntake">[]> => {
-  const res: Record<IFood["type"], SchemaType<"FoodIntake">[]> = {
+  data: DBDoc<DBFoodIntake>[]
+): Record<IFood["type"], DBDoc<DBFoodIntake>[]> => {
+  const res: Record<IFood["type"], DBDoc<DBFoodIntake>[]> = {
     carbs: [],
     dairy: [],
     fruitsAndVegetables: [],
@@ -37,7 +37,7 @@ const groupConsumptionByFoodType = (
   };
 
   data.forEach((el) => {
-    const type = getFoodById(el.food).type;
+    const type = getFoodById(el.data.food).type;
     res[type].push(el);
   });
   return res;

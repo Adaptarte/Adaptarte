@@ -4,13 +4,10 @@ import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { compareDates } from "utils/date";
-import { useDbObjs } from "utils/db/realm";
-import {
-  getConsumptionExpected,
-  getFoodById,
-  groupConsumptionByFoodType
-} from "utils/food";
+import { useUser } from "utils/auth";
+import { setDayTime } from "utils/date";
+import { useDbUserData } from "utils/db/firebase";
+import { getConsumptionExpected, groupConsumptionByFoodType } from "utils/food";
 import { foodTypes } from "utils/food/types";
 
 import { AddConsumption } from "./AddConsumption";
@@ -21,11 +18,11 @@ import { t } from "./translations";
 const Feeding = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
-  const consumption = groupConsumptionByFoodType(
-    useDbObjs("FoodIntake").filter(
-      ({ date }) => compareDates(date, new Date(), true) === 0
-    )
-  );
+  const user = useUser();
+  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
+    ["date", ">=", setDayTime(new Date(), 0)]
+  ]);
+  const intakes = groupConsumptionByFoodType(foodIntakes);
 
   return (
     <Screen>
@@ -39,12 +36,10 @@ const Feeding = ({
             </Text>
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
-              {consumption?.[type].map(({ food, id }) => {
-                const { img, name } = getFoodById(food);
-
-                return <FoodCard img={img} key={id} name={name} id={id} />;
+              {intakes?.[type].map(({ data, id }) => {
+                return <FoodCard data={data} key={id} id={id} />;
               })}
-              {getConsumptionExpected(type, consumption?.[type].length).map(
+              {getConsumptionExpected(type, intakes?.[type].length).map(
                 (el: number) => {
                   const handleAdd = (): void => {
                     navigate("Consumption", { type });
