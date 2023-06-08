@@ -37,15 +37,11 @@ const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   return auth().signInWithCredential(credential);
 };
 
-const signInApple = async () => {
+const signInApple = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   const appleAuthRequestResponse = await appleAuth.performRequest({
     requestedOperation: appleAuth.Operation.LOGIN,
     requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
   });
-
-  const credentialState = await appleAuth.getCredentialStateForUser(
-    appleAuthRequestResponse.user
-  );
 
   if (!appleAuthRequestResponse.identityToken) {
     throw new Error("Apple Sign-In Failed - no identity token returned");
