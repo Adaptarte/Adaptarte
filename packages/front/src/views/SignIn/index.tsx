@@ -3,7 +3,6 @@ import { View } from "react-native";
 
 import { AppleButton } from "@invertase/react-native-apple-authentication";
 import { Button } from "components/Button";
-import { ComingSoon } from "components/ComingSoon";
 import { Img } from "components/Img";
 import { Input } from "components/Input";
 import { Screen } from "components/Screen";
@@ -72,7 +71,7 @@ const SignIn = (): JSX.Element => {
 
   const handleSignInApple = useCallback(() => {
     signInApple()
-      .then((result) => {
+      .then(() => {
         console.log("Signed in with Apple!");
       })
       .catch(console.error);
@@ -122,8 +121,8 @@ const SignIn = (): JSX.Element => {
         buttonStyle={AppleButton.Style.BLACK}
         buttonType={AppleButton.Type.SIGN_IN}
         style={{
-          width: "auto",
-          height: 45
+          height: 45,
+          width: "auto"
         }}
         onPress={handleSignInApple}
       />
