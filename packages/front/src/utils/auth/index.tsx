@@ -1,6 +1,7 @@
 import type { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { appleAuth } from "@invertase/react-native-apple-authentication";
 import { createContext, useContext, useEffect, useState } from "react";
 
 GoogleSignin.configure({
@@ -36,6 +37,29 @@ const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   return auth().signInWithCredential(credential);
 };
 
+const signInApple = async () => {
+  const appleAuthRequestResponse = await appleAuth.performRequest({
+    requestedOperation: appleAuth.Operation.LOGIN,
+    requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
+  });
+
+  const credentialState = await appleAuth.getCredentialStateForUser(
+    appleAuthRequestResponse.user
+  );
+
+  if (!appleAuthRequestResponse.identityToken) {
+    throw new Error("Apple Sign-In Failed - no identity token returned");
+  }
+
+  const { identityToken, nonce } = appleAuthRequestResponse;
+  const appleCredential = auth.AppleAuthProvider.credential(
+    identityToken,
+    nonce
+  );
+
+  return auth().signInWithCredential(appleCredential);
+};
+
 const signOut = (): void => {
   auth().signOut().catch(console.error);
 };
@@ -66,6 +90,7 @@ export {
   signUpEmailPassword,
   signInEmailPassword,
   signInGoogle,
+  signInApple,
   signOut,
   useAuth,
   UserProvider,
