@@ -1140,6 +1140,8 @@ PODS:
     - React-perflogger (= 0.71.8)
   - RealmJS (11.9.0):
     - React
+  - RNAppleAuthentication (2.2.2):
+    - React-Core
   - RNFBAnalytics (17.5.0):
     - Firebase/Analytics (= 10.7.0)
     - React-Core
@@ -1208,6 +1210,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RealmJS (from `../node_modules/realm`)
+  - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
   - "RNFBAnalytics (from `../node_modules/@react-native-firebase/analytics`)"
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBAuth (from `../node_modules/@react-native-firebase/auth`)"
@@ -1316,6 +1319,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RealmJS:
     :path: "../node_modules/realm"
+  RNAppleAuthentication:
+    :path: "../node_modules/@invertase/react-native-apple-authentication"
   RNFBAnalytics:
     :path: "../node_modules/@react-native-firebase/analytics"
   RNFBApp:
@@ -1393,6 +1398,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 7c51ae9d4b3e9608a2366e39ccaa606aa551b9ed
   ReactCommon: 9957c7530467adbdf4a4a1476d636bd00b2e4dd8
   RealmJS: 64ae0907c1f21ce8e74bd480a8503032b19804fd
+  RNAppleAuthentication: 0571c08da8c327ae2afc0261b48b4a515b0286a6
   RNFBAnalytics: 3444df9286d36b630b5fae9283a5c797b524e437
   RNFBApp: 0d8bf86673bbad0524d1ceac3944d71ccf48a0e4
   RNFBAuth: a8f774e0dd28c1b0f4c3ab8a52333276b34fd3a4
