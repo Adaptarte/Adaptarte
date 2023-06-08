@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 
+import { AppleButton } from "@invertase/react-native-apple-authentication";
 import { Button } from "components/Button";
 import { ComingSoon } from "components/ComingSoon";
 import { Img } from "components/Img";
@@ -10,6 +11,7 @@ import { Text } from "components/Text";
 import {
   signInEmailPassword,
   signInGoogle,
+  signInApple,
   signUpEmailPassword,
   updateDisplayname
 } from "utils/auth";
@@ -68,6 +70,14 @@ const SignIn = (): JSX.Element => {
       .catch(console.error);
   }, []);
 
+  const handleSignInApple = useCallback(() => {
+    signInApple()
+      .then((result) => {
+        console.log("Signed in with Apple!");
+      })
+      .catch(console.error);
+  }, []);
+
   const openSignUp = (): void => {
     setOpenRegister(!openRegister);
     setIsRegister(false);
@@ -90,9 +100,7 @@ const SignIn = (): JSX.Element => {
       {isRegister && (
         <Button onPress={openSignUp}>{"¿Quieres crear una cuenta?"}</Button>
       )}
-      {openRegister && (
-        <Button onPress={openSignUp}>{"Iniciar sesión"}</Button>
-      )}
+      {openRegister && <Button onPress={openSignUp}>{"Iniciar sesión"}</Button>}
       <Button
         onPress={
           openRegister ? handleSignUpEmailPassword : handleSignInEmailPassword
@@ -110,11 +118,15 @@ const SignIn = (): JSX.Element => {
       >
         {"Ingresar con Google"}
       </Button>
-      <ComingSoon>
-        <Button style={styles.btn} variant={btnVars.thirdParty}>
-          {"Ingresar con Apple"}
-        </Button>
-      </ComingSoon>
+      <AppleButton
+        buttonStyle={AppleButton.Style.BLACK}
+        buttonType={AppleButton.Type.SIGN_IN}
+        style={{
+          width: "auto",
+          height: 45
+        }}
+        onPress={handleSignInApple}
+      />
     </Screen>
   );
 };
