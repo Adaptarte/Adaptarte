@@ -4,7 +4,6 @@ import { DailyGoal } from "components/DailyGoal";
 import { MedicineIntake } from "components/MedicineIntake";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
-import { dbCreate, useRealm } from "utils/db/realm";
 import type { DBMedicineIntake } from "utils/db/types";
 import { getRecipeById } from "utils/medicine";
 import {
@@ -20,19 +19,15 @@ const MedicineGoal = ({
   recipeId
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
-  const realm = useRealm();
   const user = useUser();
   const recipe = getRecipeById(recipeId);
 
   const handleSave = useCallback(
     (data: DBMedicineIntake) => {
-      realm.write(() => {
-        dbCreate(realm, "MedicineIntake", data);
-      });
       addUserData(user.uid, "MedicineIntake", data).catch(console.error);
       cancelMedicineNotification(recipe.id);
     },
-    [realm, recipe, user]
+    [recipe, user.uid]
   );
 
   useEffect(() => {

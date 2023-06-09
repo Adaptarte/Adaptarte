@@ -47,6 +47,17 @@ const refUserCol = <T extends keyof DBUserCollections>(
   return refUser(user).collection(collection) as ColRef<DBUserCollections[T]>;
 };
 
+const timestampsToDate = <T>(obj: T): T => {
+  if (obj instanceof firestore.Timestamp) {
+    return obj.toDate() as T;
+  } else if (typeof obj === "object" && obj !== null) {
+    for (let key in obj) {
+      obj[key] = timestampsToDate(obj[key]);
+    }
+  }
+  return obj;
+};
+
 const useDbUser = (id: string): DBUser | undefined => {
   const [data, setData] = useState<DBUser>();
 
@@ -74,7 +85,7 @@ const useDbUserData = <T extends keyof DBUserCollections>(
     return ref.onSnapshot((snapshot) => {
       setData(
         snapshot.docs.map((doc) => ({
-          data: doc.data(),
+          data: timestampsToDate(doc.data()),
           id: doc.id
         }))
       );
