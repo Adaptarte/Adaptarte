@@ -10,7 +10,7 @@ describe("MedicineIntake", () => {
   it("Render content", () => {
     expect.assertions(2);
     const onSave = jest.fn();
-    render(<MedicineIntake recipe={recipe} onSave={onSave} visible />);
+    render(<MedicineIntake onSave={onSave} recipe={recipe} visible />);
 
     const text = screen.queryByText(`Medicina: ${recipe.medicine}`);
     expect(text).toBeOnTheScreen();

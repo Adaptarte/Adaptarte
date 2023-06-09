@@ -20,7 +20,7 @@ const Habit = ({
   return (
     <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>
       <View style={[styles.checkBox]}>
-        <CheckBox disabled checked={checked} />
+        <CheckBox checked={checked} disabled />
       </View>
       <Img src={img} style={styles.img} />
       <Button onPress={onPress} variant={{ color, style: "text" }}>

@@ -1,7 +1,7 @@
+import { appleAuth } from "@invertase/react-native-apple-authentication";
 import type { FirebaseAuthTypes } from "@react-native-firebase/auth";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
-import { appleAuth } from "@invertase/react-native-apple-authentication";
 import { createContext, useContext, useEffect, useState } from "react";
 
 GoogleSignin.configure({
