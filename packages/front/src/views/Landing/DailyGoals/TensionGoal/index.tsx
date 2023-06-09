@@ -6,7 +6,6 @@ import { registerMedicineGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { dateToString } from "utils/date";
 import { addUserData } from "utils/db/firebase";
-import { dbCreate, useRealm } from "utils/db/realm";
 import type { DBTension } from "utils/db/types";
 import {
   addTensionNotification,
@@ -18,7 +17,6 @@ import type { TensionGoalProps } from "./types";
 
 const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
-  const realm = useRealm();
   const user = useUser();
 
   setUndoneNotification("tension", done);
@@ -33,9 +31,6 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
 
   const handleSaveTension = useCallback((data: DBTension) => {
     registerMedicineGA().catch(console.error);
-    realm.write(() => {
-      dbCreate(realm, "Tension", data);
-    });
     addUserData(user.uid, "Tension", data).catch(console.error);
   }, []);
 
