@@ -37,7 +37,7 @@ const Feeding = ({
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
               {intakes?.[type].map(({ data, id }) => {
-                return <FoodCard data={data} key={id} id={id} />;
+                return <FoodCard data={data} id={id} key={id} />;
               })}
               {getConsumptionExpected(type, intakes?.[type].length).map(
                 (el: number) => {

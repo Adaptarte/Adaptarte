@@ -18,7 +18,7 @@ const Profile = (): JSX.Element => {
   return (
     <Screen>
       <View style={styles.header}>
-        <Img style={styles.img} src={photoSrc} />
+        <Img src={photoSrc} style={styles.img} />
         <Text
           style={styles.title}
           variant={{

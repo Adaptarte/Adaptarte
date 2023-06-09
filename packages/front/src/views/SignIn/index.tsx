@@ -1,16 +1,16 @@
+import { AppleButton } from "@invertase/react-native-apple-authentication";
 import React, { useCallback, useState } from "react";
 import { View } from "react-native";
 
-import { AppleButton } from "@invertase/react-native-apple-authentication";
 import { Button } from "components/Button";
 import { Img } from "components/Img";
 import { Input } from "components/Input";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import {
+  signInApple,
   signInEmailPassword,
   signInGoogle,
-  signInApple,
   signUpEmailPassword,
   updateDisplayname
 } from "utils/auth";
@@ -92,10 +92,10 @@ const SignIn = (): JSX.Element => {
         {openRegister ? "Crear cuenta" : "Inicia sesión"}
       </Text>
       {openRegister && (
-        <Input onChange={setUsername} label={"Nombre de usuario"} />
+        <Input label={"Nombre de usuario"} onChange={setUsername} />
       )}
-      <Input onChange={setEmail} label={"Correo electrónico"} />
-      <Input onChange={setPassword} label={"Contraseña"} secure />
+      <Input label={"Correo electrónico"} onChange={setEmail} />
+      <Input label={"Contraseña"} onChange={setPassword} secure />
       {isRegister && (
         <Button onPress={openSignUp}>{"¿Quieres crear una cuenta?"}</Button>
       )}
@@ -120,11 +120,11 @@ const SignIn = (): JSX.Element => {
       <AppleButton
         buttonStyle={AppleButton.Style.BLACK}
         buttonType={AppleButton.Type.SIGN_IN}
+        onPress={handleSignInApple}
         style={{
           height: 45,
           width: "auto"
         }}
-        onPress={handleSignInApple}
       />
     </Screen>
   );
