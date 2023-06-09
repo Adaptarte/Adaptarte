@@ -1,6 +1,6 @@
 import type { NativeStackHeaderProps } from "@react-navigation/native-stack";
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { Platform, SafeAreaView, TouchableOpacity } from "react-native";
 
 import { Img } from "components/Img";
 import { Text } from "components/Text";
@@ -15,9 +15,17 @@ const Header = ({
   const hasTitle = title !== undefined;
 
   return (
-    <View style={[(hasGoBack || hasTitle) && styles.container, headerStyle]}>
+    <SafeAreaView
+      style={[(hasGoBack || hasTitle) && styles.container, headerStyle]}
+    >
       {hasGoBack ? (
-        <TouchableOpacity onPress={goBack} style={styles.backButton}>
+        <TouchableOpacity
+          onPress={goBack}
+          style={[
+            styles.backButton,
+            Platform.OS === "ios" ? { paddingLeft: 20 } : null
+          ]}
+        >
           <Img src={"back"} style={styles.backImage} />
         </TouchableOpacity>
       ) : null}
@@ -26,7 +34,7 @@ const Header = ({
           {title}
         </Text>
       ) : null}
-    </View>
+    </SafeAreaView>
   );
 };
 
