@@ -1,14 +1,19 @@
 import { addTime, compareDates } from "utils/date";
 import type { SchemaType } from "utils/db/realm/types";
-import type { DBMedicineIntake, DBMedicineRecipe } from "utils/db/types";
+import type { DBDoc, DBMedicineIntake, DBMedicineRecipe } from "utils/db/types";
 
 import { recipes } from "./data";
 
-const getLastIntakes = (data: DBMedicineIntake[]): DBMedicineIntake[] => {
-  return data.reduce<DBMedicineIntake[]>((acc, curr) => {
-    const accDate = acc[curr.recipe]?.date;
-    if (accDate === undefined || compareDates(curr.date, accDate, false) > 0) {
-      acc[curr.recipe] = curr;
+const getLastIntakes = (
+  data: DBDoc<DBMedicineIntake>[]
+): DBDoc<DBMedicineIntake>[] => {
+  return data.reduce<DBDoc<DBMedicineIntake>[]>((acc, curr) => {
+    const accDate = acc[curr.data.recipe]?.data.date;
+    if (
+      accDate === undefined ||
+      compareDates(curr.data.date, accDate, false) > 0
+    ) {
+      acc[curr.data.recipe] = curr;
     }
     return acc;
   }, []);
