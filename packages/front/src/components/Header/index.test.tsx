@@ -2,6 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { render, screen } from "@testing-library/react-native";
+import { useEffect } from "react";
 
 import { Text } from "components/Text";
 
@@ -14,9 +15,11 @@ const DummyScreen = ({
   navigation: { navigate },
   route: { name }
 }: NativeStackScreenProps<HeaderNavParams>): JSX.Element => {
-  if (name === "Root") {
-    navigate("Dummy");
-  }
+  useEffect(() => {
+    if (name === "Root") {
+      navigate("Dummy");
+    }
+  }, [name, navigate]);
 
   return <Text>{"Hello"}</Text>;
 };
