@@ -8,5 +8,8 @@ module.exports = {
     tsconfigRootDir: __dirname
   },
   plugins: ["react-native"],
-  root: false
+  root: false,
+  settings: {
+    "import/ignore": ["react-native"]
+  }
 };

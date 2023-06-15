@@ -1,17 +1,15 @@
-import type { FC } from "react";
 import React, { useCallback } from "react";
 
 import { ComingSoon } from "components/ComingSoon";
 import { Column, Row } from "components/Grid";
 import { Habit } from "components/Habit";
-import { compareDates } from "utils/date";
-import { useDbObjs } from "utils/db/realm";
+import { useUser } from "utils/auth";
+import { setDayTime } from "utils/date";
+import { useDbUserData } from "utils/db/firebase";
 
 import type { IDailyHabitsProps } from "./types";
 
-const DailyHabits: FC<IDailyHabitsProps> = ({
-  navigate
-}: IDailyHabitsProps): JSX.Element => {
+const DailyHabits = ({ navigate }: IDailyHabitsProps): JSX.Element => {
   const goToExercise = useCallback((): void => {
     navigate("Exercise");
   }, [navigate]);
@@ -20,9 +18,11 @@ const DailyHabits: FC<IDailyHabitsProps> = ({
     navigate("Feeding");
   }, [navigate]);
 
-  const foodIntakes = useDbObjs("FoodIntake").filter(
-    ({ date }) => compareDates(date, new Date(), true) === 0
-  );
+  const user = useUser();
+  const today = setDayTime(new Date(), 0);
+  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
+    ["date", ">=", today]
+  ]);
 
   return (
     <Row columns={2}>
