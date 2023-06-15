@@ -3,7 +3,6 @@ import React from "react";
 
 import { AppNavigation } from "navigation/App";
 import { useAuth, UserProvider } from "utils/auth";
-import { RealmProvider } from "utils/db/realm";
 import { useDisuseNotifications } from "utils/notifications";
 import { setupNotifications } from "utils/notifications/setup";
 import { SignIn } from "views/SignIn";
@@ -23,9 +22,7 @@ const App: FC = (): JSX.Element => {
 
   return (
     <UserProvider value={user}>
-      <RealmProvider>
-        <AppNavigation />
-      </RealmProvider>
+      <AppNavigation />
     </UserProvider>
   );
 };
