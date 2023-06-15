@@ -17,6 +17,6 @@ describe("DataDose", () => {
       tip: values[0]
     };
 
-    expect(dataDoses).toContainEqual(dose);
+    expect(dataDoses.flat()).toContainEqual(dose);
   });
 });
