@@ -9,7 +9,7 @@ import type { MedicineIntakeProps } from "./types";
 
 const MedicineIntake = ({
   onSave,
-  recipe,
+  recipe: { data, id },
   setVisible,
   visible
 }: MedicineIntakeProps): JSX.Element => {
@@ -18,11 +18,11 @@ const MedicineIntake = ({
   const handleSave = useCallback(() => {
     onSave({
       date,
-      recipe: recipe.id
+      recipe: id
     });
 
     setVisible?.(false);
-  }, [date, recipe.id, setVisible]);
+  }, [date, id, setVisible]);
 
   useEffect(() => {
     setDate(new Date());
@@ -34,7 +34,7 @@ const MedicineIntake = ({
       title={"Registro de medicina"}
       visible={visible}
     >
-      <Text>{`Medicina: ${recipe.medicine}`}</Text>
+      <Text>{`Medicina: ${data.medicine}`}</Text>
       <DatePicker
         date={date}
         label={"Hora"}

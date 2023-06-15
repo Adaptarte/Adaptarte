@@ -24,9 +24,9 @@ const DailyGoals = (): JSX.Element => {
   setUndoneNotification("food", foodIntakes.length >= 15 * 0.8);
 
   const lastMedIntakes = getLastIntakes(medIntakes);
-  const nextMedIntakes = recipes.map((recipe) => ({
-    date: getNextIntake(recipe, lastMedIntakes[recipe.id]?.data),
-    recipe: recipe.id
+  const nextMedIntakes = recipes.map(({ data, id }) => ({
+    date: getNextIntake(data, lastMedIntakes[parseInt(id)]?.data),
+    recipe: id
   }));
 
   const tensionDone = tensionExam !== undefined;

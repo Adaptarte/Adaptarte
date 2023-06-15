@@ -33,11 +33,11 @@ const addNotification = (
 
 const addMedicineNotification = ({ date, recipe }: DBMedicineIntake): void => {
   const time = date.getTime() - 10 * 60e3; // 10 minutes before
-  const { id, medicine } = getRecipeById(recipe);
+  const { id, data } = getRecipeById(recipe);
   addNotification("reminder", time, {
     body: dateToString(date),
     id: `medicine${id}`,
-    subtitle: medicine,
+    subtitle: data.medicine,
     title: "Es hora de tu medicina"
   });
 };
@@ -55,7 +55,7 @@ const cancelNotification = (id: string): void => {
   Notifee.cancelNotification(id).catch(console.error);
 };
 
-const cancelMedicineNotification = (recipe: number): void => {
+const cancelMedicineNotification = (recipe: string): void => {
   cancelNotification(recipe.toString());
 };
 

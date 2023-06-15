@@ -1,10 +1,9 @@
 import type { ModalProps } from "components/Modal/types";
-import type { SchemaType } from "utils/db/realm/types";
-import type { DBMedicineIntake } from "utils/db/types";
+import type { DBDoc, DBMedicineIntake, DBMedicineRecipe } from "utils/db/types";
 
 interface MedicineIntakeProps
   extends Pick<ModalProps, "setVisible" | "visible"> {
-  recipe: SchemaType<"MedicineRecipe">;
+  recipe: DBDoc<DBMedicineRecipe>;
   onSave: (data: DBMedicineIntake) => void;
 }
 

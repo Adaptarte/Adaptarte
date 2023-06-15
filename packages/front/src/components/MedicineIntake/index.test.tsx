@@ -5,14 +5,14 @@ import { getRecipeById } from "utils/medicine";
 import { MedicineIntake } from ".";
 
 describe("MedicineIntake", () => {
-  const recipe = getRecipeById(1);
+  const recipe = getRecipeById("1");
 
   it("Render content", () => {
     expect.assertions(2);
     const onSave = jest.fn();
     render(<MedicineIntake onSave={onSave} recipe={recipe} visible />);
 
-    const text = screen.queryByText(`Medicina: ${recipe.medicine}`);
+    const text = screen.queryByText(`Medicina: ${recipe.data.medicine}`);
     expect(text).toBeOnTheScreen();
     const saveBtn = screen.queryByText("Registrar");
     expect(saveBtn).toBeOnTheScreen();

@@ -1,4 +1,4 @@
-interface DBDoc<T> {
+interface DBDoc<T extends object> {
   id: string;
   data: T;
 }
@@ -21,7 +21,7 @@ interface DBFoodIntake {
 
 interface DBMedicineIntake {
   date: Date;
-  recipe: number;
+  recipe: string;
 }
 
 interface DBMedicineRecipe {

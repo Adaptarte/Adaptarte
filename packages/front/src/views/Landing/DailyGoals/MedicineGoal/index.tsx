@@ -27,7 +27,7 @@ const MedicineGoal = ({
       addUserData(user.uid, "MedicineIntake", data).catch(console.error);
       cancelMedicineNotification(recipe.id);
     },
-    [recipe, user.uid]
+    [recipe.id, user.uid]
   );
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const MedicineGoal = ({
         date={date}
         done={done}
         onPress={setIsOpen}
-        title={recipe.medicine}
+        title={recipe.data.medicine}
         type={"Pill"}
       />
     </>
