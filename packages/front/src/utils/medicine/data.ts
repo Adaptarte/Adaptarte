@@ -1,4 +1,4 @@
-import { DBDoc, DBMedicineRecipe } from "utils/db/types";
+import type { DBDoc, DBMedicineRecipe } from "utils/db/types";
 
 const recipes: DBDoc<DBMedicineRecipe>[] = [
   {
