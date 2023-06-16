@@ -1,8 +1,11 @@
-interface ModalProps {
+interface ModalProps extends ModalBaseProps {
   children: React.ReactNode;
-  setVisible?: (visible: boolean) => void;
   title: string;
+}
+
+interface ModalBaseProps {
+  setVisible?: (visible: boolean) => void;
   visible: boolean;
 }
 
-export type { ModalProps };
+export type { ModalProps, ModalBaseProps };

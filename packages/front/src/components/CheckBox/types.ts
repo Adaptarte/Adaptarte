@@ -1,3 +1,5 @@
+import type { ViewStyle } from "react-native";
+
 import type { TColor } from "styles/colors";
 
 type CheckBoxBorder = "circle" | "rounded";
@@ -13,6 +15,7 @@ interface CheckBoxProps {
   checked?: boolean;
   label?: string;
   onChange?: (val: boolean) => void;
+  style?: ViewStyle;
   variant?: CheckBoxVariant;
 }
 
