@@ -24,6 +24,10 @@ const Landing = ({
     navigate("Profile");
   }, [navigate]);
 
+  const goToPanic = useCallback(() => {
+    navigate("Panic");
+  }, [navigate]);
+
   return (
     <Screen bg={"LIGHT"} style={styles.screen}>
       <View style={styles.welcome}>
@@ -44,6 +48,13 @@ const Landing = ({
           {"Hábitos diarios"}
         </Text>
         <DailyHabits navigate={navigate} />
+        <Button
+          onPress={goToPanic}
+          style={styles.panicBtn}
+          variant={textVars.panicTextColor}
+        >
+          {"Pánico"}
+        </Button>
       </View>
     </Screen>
   );

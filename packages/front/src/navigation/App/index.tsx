@@ -8,6 +8,7 @@ import { Consumption } from "views/Consumption";
 import { Exercise } from "views/Exercise";
 import { Feeding } from "views/Feeding";
 import { Landing } from "views/Landing";
+import { Panic } from "views/Panic";
 import { Profile } from "views/Profile";
 
 import type { IAppParams } from "./types";
@@ -30,6 +31,11 @@ const AppNavigation = (): JSX.Element => {
           options={{ title: "Alimentación" }}
         />
         <Screen component={Profile} name={"Profile"} />
+        <Screen
+          component={Panic}
+          name={"Panic"}
+          options={{ title: "Mantenga la calma" }}
+        />
         <Group screenOptions={{ headerShown: false }}>
           <Screen component={Consumption} name={"Consumption"} />
           <Screen

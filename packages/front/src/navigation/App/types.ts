@@ -8,6 +8,7 @@ type IAppParams = {
   Feeding: undefined;
   Exercise: undefined;
   Landing: undefined;
+  Panic: undefined;
   Profile: undefined;
 };
 
