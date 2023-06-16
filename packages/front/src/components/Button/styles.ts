@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 });
 
 const getButtonTextVar = ({
-  color = "BLACK",
+  color = "GLAUCOUS",
   style = "ghost"
 }: ButtonVariant): TextVariant => {
   return {
@@ -38,7 +38,7 @@ const getButtonTextVar = ({
 };
 
 const getButtonStyle = (
-  { color = "BLUE", style = "ghost" }: ButtonVariant,
+  { color = "GLAUCOUS", style = "ghost" }: ButtonVariant,
   disabled = false
 ): Style => {
   const varStyle: VarStyle<typeof style> = {

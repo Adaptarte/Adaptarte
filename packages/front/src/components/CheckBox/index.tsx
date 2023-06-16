@@ -11,6 +11,7 @@ const CheckBox = ({
   checked,
   label,
   onChange,
+  style,
   variant = {}
 }: CheckBoxProps): JSX.Element => {
   const [value, setValue] = useState(checked);
@@ -32,7 +33,7 @@ const CheckBox = ({
     <TouchableOpacity
       disabled={disabled}
       onPress={handleSwitch}
-      style={styles.container}
+      style={[styles.container, style]}
     >
       <View style={[styles.box, varStyle]}>
         <Text variant={textVars.check}>{value ? "✓" : " "}</Text>
