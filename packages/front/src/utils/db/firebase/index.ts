@@ -15,6 +15,10 @@ const addUser = async (id: string): Promise<void> => {
         liquids: 6,
         protein: 2
       },
+      diseases: {
+        epoc: false,
+        hypertension: false
+      },
       score: 0
     });
   }
