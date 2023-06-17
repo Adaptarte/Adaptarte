@@ -11,6 +11,10 @@ interface DBUser {
     liquids: number;
     protein: number;
   };
+  diseases: {
+    epoc: boolean;
+    hypertension: boolean;
+  };
   score: number;
 }
 
