@@ -1,9 +1,9 @@
-import React from "react";
-import { View } from "react-native";
+import React, { useCallback } from "react";
+import { Linking, TouchableOpacity, View } from "react-native";
 
+import { IconF } from "components/Icon";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
-import { colors } from "styles";
 
 import { contactDirectory } from "./data";
 import { styles, textVars } from "./styles";
@@ -11,10 +11,10 @@ import { t } from "./translations";
 
 const Panic = (): JSX.Element => {
   const data = t();
-  const colorsContacts: string[][] = [
-    ["Acompañante", "EPS", "Médico"],
-    [colors.ORANGE_LIGHT, colors.GREEN_LIGHT, colors.BLUE_PURPLE]
-  ];
+
+  const handleCall = useCallback(async (phoneNumber: string): Promise<void> => {
+    await Linking.openURL(`tel:${phoneNumber}`);
+  }, []);
 
   return (
     <Screen>
@@ -36,21 +36,19 @@ const Panic = (): JSX.Element => {
         </Text>
         {contactDirectory.map((contact, index) => {
           return (
-            <View
-              key={index}
-              style={[
-                styles.contacts,
-                {
-                  backgroundColor:
-                    colorsContacts[1][
-                      colorsContacts[0].indexOf(contact.occupation)
-                    ]
-                }
-              ]}
-            >
-              <Text variant={textVars.textContact}>
-                {`${contact.name} (${contact.occupation}) - ${contact.phone}`}
+            <View key={index} style={styles.contacts}>
+              <Text style={styles.textContacts} variant={textVars.textContact}>
+                {`${contact.name} (${contact.occupation})`}
               </Text>
+              <Text style={styles.textContacts}>{contact.phone}</Text>
+              <TouchableOpacity
+                style={styles.callBtn}
+                onPress={(): void => {
+                  handleCall(contact.phone).catch(console.error);
+                }}
+              >
+                <IconF name={"phone"} size={25} />
+              </TouchableOpacity>
             </View>
           );
         })}

@@ -5,17 +5,25 @@ import { colors } from "styles";
 import type { TextVariants } from "../../components/Text/types";
 
 const styles = StyleSheet.create({
+  callBtn: {
+    position: "absolute",
+    right: 20,
+    top: "40%",
+    width: 30
+  },
   contacts: {
     backgroundColor: colors.YELLOW,
     borderRadius: 8,
     elevation: 4,
     marginBottom: 16,
     padding: 10,
+    position: "relative",
     shadowColor: "#000000",
     shadowOffset: {
       height: 3,
       width: 0
-    }
+    },
+    textAlign: "center"
   },
   description: {
     marginBottom: 16
@@ -39,7 +47,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textContacts: {
-    fontWeight: "bold"
+    textAlign: "center"
   },
   title: {
     marginBottom: 16
