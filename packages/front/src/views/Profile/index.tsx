@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { View } from "react-native";
 
 import { Button } from "components/Button";
 import { Column, Row } from "components/Grid";
 import { Img } from "components/Img";
 import { Screen } from "components/Screen";
-import { Tag } from "components/Tag";
 import { Text } from "components/Text";
 import { signOut, useUser } from "utils/auth";
+import { refUser, useDbUser } from "utils/db/firebase";
+import type { DBUser } from "utils/db/types";
 
+import { Diseases } from "./Diseases";
 import { styles, textVars } from "./styles";
 
 const Profile = (): JSX.Element => {
   const user = useUser();
+  const userData = useDbUser(user.uid);
   const photoSrc = user.photoURL === null ? "profile" : { uri: user.photoURL };
+
+  const handleChangeDiseases = useCallback((diseases: DBUser["diseases"]) => {
+    refUser(user.uid).update({ diseases }).catch(console.error);
+  }, []);
 
   return (
     <Screen>
@@ -29,13 +36,10 @@ const Profile = (): JSX.Element => {
           {user.displayName ?? "Paciente"}
         </Text>
       </View>
-      <Row spacing={8}>
-        {["Hipertensión", "Artritis"].map((el) => (
-          <Tag bg={"YELLOW"} key={el}>
-            {el}
-          </Tag>
-        ))}
-      </Row>
+      <Diseases
+        diseases={userData?.diseases ?? {}}
+        onChange={handleChangeDiseases}
+      />
       <Text style={styles.title} variant={textVars.title}>
         {"Datos básicos"}
       </Text>
