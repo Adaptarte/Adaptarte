@@ -8,7 +8,7 @@ import { styles } from "./styles";
 import type { EditDiseasesProps } from "./types";
 
 const EditDiseases = ({
-  diseases: { epoc = false, hypertension = false } = {},
+  diseases: { epoc, hypertension },
   onSave,
   setVisible,
   visible
@@ -21,7 +21,7 @@ const EditDiseases = ({
       epoc: hasEpoc,
       hypertension: hasHypertension
     });
-  }, [hasEpoc, hasHypertension]);
+  }, [hasEpoc, hasHypertension, onSave]);
 
   return (
     <Modal setVisible={setVisible} title={"Enfermedades"} visible={visible}>

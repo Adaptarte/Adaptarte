@@ -1,3 +1,6 @@
+const allDiseases = ["epoc", "hypertension"] as const;
+type TDiseases = Record<(typeof allDiseases)[number], boolean>;
+
 interface DBDoc<T extends object> {
   id: string;
   data: T;
@@ -11,10 +14,7 @@ interface DBUser {
     liquids: number;
     protein: number;
   };
-  diseases: {
-    epoc: boolean;
-    hypertension: boolean;
-  };
+  diseases: TDiseases;
   score: number;
 }
 
@@ -59,5 +59,7 @@ export type {
   DBMedicineRecipe,
   DBTension,
   DBUser,
-  DBUserCollections
+  DBUserCollections,
+  TDiseases
 };
+export { allDiseases };

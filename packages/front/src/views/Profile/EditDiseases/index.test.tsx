@@ -3,10 +3,15 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { EditDiseases } from ".";
 
 describe("Diseases", () => {
+  const diseases = {
+    epoc: false,
+    hypertension: true
+  };
+
   it("Render content", () => {
     expect.assertions(4);
 
-    render(<EditDiseases visible />);
+    render(<EditDiseases diseases={diseases} visible />);
 
     const title = screen.queryByText("Enfermedades");
     expect(title).toBeOnTheScreen();
@@ -22,7 +27,7 @@ describe("Diseases", () => {
     expect.assertions(2);
 
     const onSave = jest.fn();
-    render(<EditDiseases onSave={onSave} visible />);
+    render(<EditDiseases diseases={diseases} onSave={onSave} visible />);
 
     const epocLabel = screen.getByText("Epoc");
     const saveBtn = screen.getByText("Guardar");
