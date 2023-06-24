@@ -18,6 +18,12 @@ interface DBUser {
   score: number;
 }
 
+interface DBExercise {
+  date: Date;
+  exercise: string;
+  duration: number;
+}
+
 interface DBFoodIntake {
   date: Date;
   food: number;
@@ -43,6 +49,7 @@ interface DBTension {
 }
 
 interface DBUserCollections {
+  Exercises: DBExercise;
   FoodIntake: DBFoodIntake;
   MedicineIntake: DBMedicineIntake;
   MedicineRecipe: DBMedicineRecipe;
@@ -60,6 +67,7 @@ export type {
   DBTension,
   DBUser,
   DBUserCollections,
-  TDiseases
+  TDiseases,
+  DBExercise
 };
 export { allDiseases };
