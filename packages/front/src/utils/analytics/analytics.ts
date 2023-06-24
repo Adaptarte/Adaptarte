@@ -1,5 +1,11 @@
 import analytics from "@react-native-firebase/analytics";
 
+const registerExercise = async (): Promise<void> => {
+  await analytics().logEvent("register_exercise", {
+    eventName: "exercise_registered"
+  });
+};
+
 const registerFoodGA = async (): Promise<void> => {
   await analytics().logEvent("register_food", {
     eventName: "food_registered"
@@ -18,4 +24,4 @@ const registerSignal = async (): Promise<void> => {
   });
 };
 
-export { registerFoodGA, registerMedicineGA, registerSignal };
+export { registerFoodGA, registerMedicineGA, registerSignal, registerExercise };

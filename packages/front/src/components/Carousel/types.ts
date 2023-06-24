@@ -1,7 +1,7 @@
-import type { CarouselCardProps } from "./CarouselCard/types";
+import type { ExcerciseProps } from "views/Exercise/types";
 
 interface CarouselProps {
-  data: CarouselCardProps[];
+  data: ExcerciseProps[];
 }
 
 export type { CarouselProps };

@@ -1,12 +1,12 @@
-import type { ImgProps } from "components/Img/types";
+import type { Dispatch, SetStateAction } from "react";
 
-interface CarouselCardProps {
-  background: string;
-  complete: boolean;
-  description: string;
-  img: ImgProps["src"];
-  onPress?: () => void;
-  title: string;
+import type { DBExcercise } from "utils/db/types";
+import type { ExcerciseProps } from "views/Exercise/types";
+
+interface CarouselCardProps extends ExcerciseProps {
+  complete?: boolean;
+  setComplete?: Dispatch<SetStateAction<boolean>>;
+  onSave: (data: DBExcercise) => void;
 }
 
 export type { CarouselCardProps };
