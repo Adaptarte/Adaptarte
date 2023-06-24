@@ -1,6 +1,6 @@
 import type { ImgProps } from "components/Img/types";
 
-interface ExcerciseProps {
+interface ExerciseProps {
   background: string;
   description: string;
   img: ImgProps["src"];
@@ -8,4 +8,4 @@ interface ExcerciseProps {
   title: string;
 }
 
-export type { ExcerciseProps };
+export type { ExerciseProps };

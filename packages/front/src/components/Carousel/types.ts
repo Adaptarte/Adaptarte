@@ -1,7 +1,7 @@
-import type { ExcerciseProps } from "views/Exercise/types";
+import type { ExerciseProps } from "views/Exercise/types";
 
 interface CarouselProps {
-  data: ExcerciseProps[];
+  data: ExerciseProps[];
 }
 
 export type { CarouselProps };

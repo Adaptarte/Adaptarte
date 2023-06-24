@@ -23,19 +23,19 @@ const Exercise = ({
         visible
       >
         <View style={styles.modalExercise}>
-          <View style={styles.excercise}>
+          <View style={styles.exercise}>
             {canGoBack() ? (
               <TouchableOpacity onPress={goBack} style={styles.closeButton}>
                 <Img src={"close"} style={styles.closeImage} />
               </TouchableOpacity>
             ) : undefined}
-            <Text style={styles.excerciseTitle} variant={textVars.title}>
+            <Text style={styles.exerciseTitle} variant={textVars.title}>
               {t().title}
             </Text>
-            <Text style={styles.excerciseText} variant={textVars.details}>
+            <Text style={styles.exerciseText} variant={textVars.details}>
               {t().information}
             </Text>
-            <Text style={styles.excerciseText} variant={textVars.details}>
+            <Text style={styles.exerciseText} variant={textVars.details}>
               {t().note}
             </Text>
             <Carousel data={data} />
