@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     width: 28,
     zIndex: 0
   },
-  excercise: {
+  exercise: {
     backgroundColor: colors.WHITE,
     borderRadius: 20,
     elevation: 10,
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     shadowRadius: 7.68,
     width: "100%"
   },
-  excerciseText: {
+  exerciseText: {
     marginBottom: 12
   },
-  excerciseTitle: {
+  exerciseTitle: {
     marginBottom: 8
   },
   modalExercise: {
