@@ -18,6 +18,10 @@ describe("DataDose", () => {
       tip: values[0]
     };
 
-    expect(getDataDoses(diseases).flat()).toContainEqual(dose);
+    expect(
+      getDataDoses(diseases)
+        .map((el) => el.data)
+        .flat()
+    ).toContainEqual(dose);
   });
 });

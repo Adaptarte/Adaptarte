@@ -1,8 +1,17 @@
-import type { IDataDose } from "types/dataDoses";
 import type { TDiseases } from "utils/db/types";
 import { fillDiseases } from "utils/patient";
 
-const basic: IDataDose[] = [
+import type { TDataDose, TDataDoseGroup } from "./types";
+
+const WEIGHTS = {
+  basic: 1,
+  carer: 1,
+  disease: 1,
+  medicine: 1,
+  stress: 1
+};
+
+const basic: TDataDose[] = [
   {
     details: "08:00 am - 06:00 pm",
     tip: "Recuerda beber 8 vasos de agua al día"
@@ -13,30 +22,16 @@ const basic: IDataDose[] = [
   }
 ];
 
-const carer: IDataDose[] = [];
+const carer: TDataDose[] = [];
 
-const byDisease: Record<keyof TDiseases, IDataDose[]> = {
+const byDisease: Record<keyof TDiseases, TDataDose[]> = {
   epoc: [],
   hypertension: []
 };
 
-const medicine: IDataDose[] = [];
+const medicine: TDataDose[] = [];
 
-const stress: IDataDose[] = [];
-
-const BASIC_WEIGHT = 1;
-const CARER_WEIGHT = 0;
-const DISEASE_WEIGHT = 0;
-const MEDICINE_WEIGHT = 0;
-const STREES_WEIGHT = 0;
-
-const weights = [
-  BASIC_WEIGHT,
-  CARER_WEIGHT,
-  DISEASE_WEIGHT,
-  MEDICINE_WEIGHT,
-  STREES_WEIGHT
-];
+const stress: TDataDose[] = [];
 
 const weightedRandom = (weights: number[]): number => {
   const wSum = [weights[0]];
@@ -47,20 +42,24 @@ const weightedRandom = (weights: number[]): number => {
   return wSum.findIndex((val) => val >= rand);
 };
 
-const getDataDoses = (diseases: Partial<TDiseases>): IDataDose[][] => {
-  const disease = Object.entries(fillDiseases(diseases)).reduce<IDataDose[]>(
+const getDataDoses = (diseases: Partial<TDiseases>): TDataDoseGroup[] => {
+  const disease = Object.entries(fillDiseases(diseases)).reduce<TDataDose[]>(
     (acc, [key, val]) =>
       val ? acc.concat(byDisease[key as keyof TDiseases] ?? []) : acc,
     []
   );
-  return [basic, carer, disease, medicine, stress];
+  const doses = { basic, carer, disease, medicine, stress };
+  return Object.entries(doses).map(([key, val]) => ({
+    data: val,
+    weight: WEIGHTS[key as keyof typeof doses] * val.length
+  }));
 };
 
-const pickDataDose = (diseases: Partial<TDiseases>): IDataDose => {
+const pickDataDose = (diseases: Partial<TDiseases>): TDataDose => {
   const doses = getDataDoses(diseases);
-  const group = doses[weightedRandom(weights)];
-  const i = Math.floor(Math.random() * group.length);
-  return group[i];
+  const group = doses[weightedRandom(doses.map((el) => el.weight))];
+  const i = Math.floor(Math.random() * group.data.length);
+  return group.data[i];
 };
 
 export { getDataDoses, pickDataDose };
