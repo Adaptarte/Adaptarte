@@ -8,6 +8,7 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { useUser } from "utils/auth";
+import { useDbUser } from "utils/db/firebase";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -17,6 +18,7 @@ const Landing = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
   const user = useUser();
+  const userData = useDbUser(user.uid);
 
   const name = user.displayName?.split(" ")[0] ?? "paciente";
 
@@ -38,7 +40,7 @@ const Landing = ({
           <Img src={"profile"} style={styles.profile} />
         </Button>
       </View>
-      <DataDose />
+      <DataDose diseases={userData?.diseases ?? {}} />
       <View style={styles.container}>
         <Text style={styles.sectionTitle} variant={textVars.title}>
           {"Metas diarias"}

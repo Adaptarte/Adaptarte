@@ -1,4 +1,6 @@
 import type { IDataDose } from "types/dataDoses";
+import type { TDiseases } from "utils/db/types";
+import { fillDiseases } from "utils/patient";
 
 const basic: IDataDose[] = [
   {
@@ -13,14 +15,28 @@ const basic: IDataDose[] = [
 
 const carer: IDataDose[] = [];
 
-const illness: IDataDose[] = [];
+const byDisease: Record<keyof TDiseases, IDataDose[]> = {
+  epoc: [],
+  hypertension: []
+};
 
 const medicine: IDataDose[] = [];
 
 const stress: IDataDose[] = [];
 
-const dataDoses = [basic, carer, illness, medicine, stress];
-const weights = [1, 0, 0, 0, 0];
+const BASIC_WEIGHT = 1;
+const CARER_WEIGHT = 0;
+const DISEASE_WEIGHT = 0;
+const MEDICINE_WEIGHT = 0;
+const STREES_WEIGHT = 0;
+
+const weights = [
+  BASIC_WEIGHT,
+  CARER_WEIGHT,
+  DISEASE_WEIGHT,
+  MEDICINE_WEIGHT,
+  STREES_WEIGHT
+];
 
 const weightedRandom = (weights: number[]): number => {
   const wSum = [weights[0]];
@@ -31,10 +47,20 @@ const weightedRandom = (weights: number[]): number => {
   return wSum.findIndex((val) => val >= rand);
 };
 
-const pickDataDose = (): IDataDose => {
-  const group = dataDoses[weightedRandom(weights)];
+const getDataDoses = (diseases: Partial<TDiseases>): IDataDose[][] => {
+  const disease = Object.entries(fillDiseases(diseases)).reduce<IDataDose[]>(
+    (acc, [key, val]) =>
+      val ? acc.concat(byDisease[key as keyof TDiseases] ?? []) : acc,
+    []
+  );
+  return [basic, carer, disease, medicine, stress];
+};
+
+const pickDataDose = (diseases: Partial<TDiseases>): IDataDose => {
+  const doses = getDataDoses(diseases);
+  const group = doses[weightedRandom(weights)];
   const i = Math.floor(Math.random() * group.length);
   return group[i];
 };
 
-export { dataDoses, pickDataDose };
+export { getDataDoses, pickDataDose };
