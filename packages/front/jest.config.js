@@ -1,5 +1,7 @@
 const esModules = [
+  "@invertase/react-native-apple-authentication",
   "@react-native",
+  "@react-native-firebase",
   "react-native",
   "react-native-date-picker"
 ].join("|");
