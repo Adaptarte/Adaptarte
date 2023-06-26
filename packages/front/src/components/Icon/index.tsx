@@ -10,7 +10,7 @@ const IconF = ({
   size = 30,
   color = colors.BLACK
 }: IconProps): JSX.Element => {
-  return <Icon name={name} size={size} color={color} />;
+  return <Icon color={color} name={name} size={size} />;
 };
 
 export { IconF };

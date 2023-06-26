@@ -36,8 +36,8 @@ const Exercises = ({
       />
       <Input
         label={"Tiempo de duración en minutos"}
-        type={"numeric"}
         onChange={setDuration}
+        type={"numeric"}
         value={duration}
       />
       <Button

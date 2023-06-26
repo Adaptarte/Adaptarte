@@ -48,8 +48,8 @@ const Carousel = ({ data }: CarouselProps): JSX.Element => {
       <CarouselCard
         {...data[selection]}
         complete={check}
-        setComplete={setCheck}
         onSave={handleSaveExercises}
+        setComplete={setCheck}
       />
       <Button onPress={handleNext} style={[styles.nextBtn]}>
         <Text variant={textVarNextBtn}>{">"}</Text>

@@ -36,16 +36,16 @@ const CarouselCard = ({
           </Text>
           {complete ? (
             <CheckBox
-              disabled
               checked={complete}
+              disabled
               label={complete ? "Completado" : "Por completar"}
               variant={{ border: "circle", color: "WHITE" }}
             />
           ) : (
             <TouchableOpacity onPress={setIsOpen}>
               <CheckBox
-                disabled
                 checked={complete}
+                disabled
                 label={complete ? "Completado" : "Por completar"}
                 variant={{ border: "circle", color: "WHITE" }}
               />

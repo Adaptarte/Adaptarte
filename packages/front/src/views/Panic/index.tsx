@@ -42,10 +42,10 @@ const Panic = (): JSX.Element => {
               </Text>
               <Text style={styles.textContacts}>{contact.phone}</Text>
               <TouchableOpacity
-                style={styles.callBtn}
                 onPress={(): void => {
                   handleCall(contact.phone).catch(console.error);
                 }}
+                style={styles.callBtn}
               >
                 <IconF name={"phone"} size={25} />
               </TouchableOpacity>
