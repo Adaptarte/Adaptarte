@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react-native";
 
 import { DataDose } from ".";
-import { dataDoses } from "./data";
+import { getDataDoses } from "./data";
 
 describe("DataDose", () => {
   it("Renders content", () => {
     expect.assertions(2);
-    render(<DataDose />);
+    const diseases = { hypertension: true };
+    render(<DataDose diseases={diseases} />);
 
     const texts = screen.queryAllByText(/./);
     expect(texts).toHaveLength(2);
@@ -17,6 +18,6 @@ describe("DataDose", () => {
       tip: values[0]
     };
 
-    expect(dataDoses.flat()).toContainEqual(dose);
+    expect(getDataDoses(diseases).flat()).toContainEqual(dose);
   });
 });

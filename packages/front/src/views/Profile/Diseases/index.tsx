@@ -3,23 +3,18 @@ import { useReducer } from "react";
 import { Button } from "components/Button";
 import { Row } from "components/Grid";
 import { Tag } from "components/Tag";
-import type { TDiseases } from "utils/db/types";
 import { allDiseases } from "utils/db/types";
+import { fillDiseases } from "utils/patient";
 
 import { EditDiseases } from "../EditDiseases";
 import { styles } from "./styles";
 import { t } from "./translations";
 import type { DiseasesProps } from "./types";
 
-const defaultDiseases: TDiseases = {
-  epoc: false,
-  hypertension: false
-};
-
 const Diseases = ({ diseases, onChange }: DiseasesProps): JSX.Element => {
   const [editing, toggleEditing] = useReducer((val) => !val, false);
 
-  const fullDiseases = Object.assign({}, defaultDiseases, diseases);
+  const fullDiseases = fillDiseases(diseases);
 
   return (
     <>
