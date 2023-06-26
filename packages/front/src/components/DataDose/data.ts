@@ -26,7 +26,25 @@ const carer: TDataDose[] = [];
 
 const byDisease: Record<keyof TDiseases, TDataDose[]> = {
   epoc: [],
-  hypertension: []
+  hypertension: [
+    {
+      details:
+        "Evita alimentos con más de 500mg de sodio por cada 100g de producto",
+      tip: "Evita alimentos con sal o sodio"
+    },
+    {
+      details: "En especial los efervescentes",
+      tip: "Evita fármacos que contengan sodio"
+    },
+    {
+      details: "Estas sustancias aumentan la presión arterial",
+      tip: "Evita sustancias excitantes como alcohol y cafeína"
+    },
+    {
+      details: "Fumar disminuye la oxigenación de tu cuerpo",
+      tip: "Pide ayuda si tienes problemas para dejar de fumar"
+    }
+  ]
 };
 
 const medicine: TDataDose[] = [];
