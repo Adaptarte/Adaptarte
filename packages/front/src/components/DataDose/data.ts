@@ -25,7 +25,16 @@ const basic: TDataDose[] = [
 const carer: TDataDose[] = [];
 
 const byDisease: Record<keyof TDiseases, TDataDose[]> = {
-  diabetesMellitus: [],
+  diabetesMellitus: [
+    {
+      details: "La etiqueta nutricional del alimento indica su contenido",
+      tip: "Evite alimentos ricos en azúcar, grasa, sal o sodio"
+    },
+    {
+      details: "Mida el nivel de azúcar según indica el profesional de salud",
+      tip: "Cumpla con los exámenes de azúcar en la sangre"
+    }
+  ],
   epoc: [
     {
       details: "En caso de requerir oxígeno, debe emplearse mientras come",
@@ -48,7 +57,21 @@ const byDisease: Record<keyof TDiseases, TDataDose[]> = {
       tip: "Tome los medicamentos una hora o más antes de comer"
     }
   ],
-  heartFailure: [],
+  heartFailure: [
+    {
+      details:
+        "Si registra un cambio anormal de peso de un día a otro consulte al médico",
+      tip: "Pésese a diario despúes de orinar y antes de desayunar"
+    },
+    {
+      details: "Puede reemplazar la sal por hierbas y especias",
+      tip: "Evite alimentos con sal o sodio"
+    },
+    {
+      details: "La actividad física ayuda a fortalecer su corazón",
+      tip: "Haga ejercicio según su cuerpo lo permita"
+    }
+  ],
   hypertension: [
     {
       details:
