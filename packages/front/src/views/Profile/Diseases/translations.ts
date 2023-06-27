@@ -1,5 +1,7 @@
 const SPA = {
+  diabetesMellitus: "Diabetes Mellitus",
   epoc: "Epoc",
+  heartFailure: "Deficiencia Cardiaca",
   hypertension: "Hipertensión"
 };
 

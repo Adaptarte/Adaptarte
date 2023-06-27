@@ -8,27 +8,44 @@ import { styles } from "./styles";
 import type { EditDiseasesProps } from "./types";
 
 const EditDiseases = ({
-  diseases: { epoc, hypertension },
+  diseases: { diabetesMellitus, epoc, heartFailure, hypertension },
   onSave,
   setVisible,
   visible
 }: EditDiseasesProps): JSX.Element => {
+  const [hasDiabetesMellitus, setHasDiabetesMellitus] =
+    useState(diabetesMellitus);
   const [hasEpoc, setHasEpoc] = useState(epoc);
+  const [hasHeartFailure, setHasHeartFailure] = useState(heartFailure);
   const [hasHypertension, setHasHypertension] = useState(hypertension);
 
   const handleSave = useCallback(() => {
     onSave?.({
+      diabetesMellitus: hasDiabetesMellitus,
       epoc: hasEpoc,
+      heartFailure: hasHeartFailure,
       hypertension: hasHypertension
     });
-  }, [hasEpoc, hasHypertension, onSave]);
+  }, [hasDiabetesMellitus, hasEpoc, hasHeartFailure, hasHypertension, onSave]);
 
   return (
     <Modal setVisible={setVisible} title={"Enfermedades"} visible={visible}>
       <CheckBox
+        checked={hasDiabetesMellitus}
+        label={"Diabetes Mellitus"}
+        onChange={setHasDiabetesMellitus}
+        style={styles.checkbox}
+      />
+      <CheckBox
         checked={hasHypertension}
         label={"Hipertensión"}
         onChange={setHasHypertension}
+        style={styles.checkbox}
+      />
+      <CheckBox
+        checked={hasHeartFailure}
+        label={"Deficiencia Cardiaca"}
+        onChange={setHasHeartFailure}
         style={styles.checkbox}
       />
       <CheckBox
@@ -38,7 +55,12 @@ const EditDiseases = ({
         style={styles.checkbox}
       />
       <Button
-        disabled={hasEpoc === epoc && hasHypertension === hypertension}
+        disabled={
+          hasDiabetesMellitus === diabetesMellitus &&
+          hasEpoc === epoc &&
+          hasHeartFailure === heartFailure &&
+          hasHypertension === hypertension
+        }
         onPress={handleSave}
         variant={{ style: "solid" }}
       >

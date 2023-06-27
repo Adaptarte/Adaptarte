@@ -25,6 +25,7 @@ const basic: TDataDose[] = [
 const carer: TDataDose[] = [];
 
 const byDisease: Record<keyof TDiseases, TDataDose[]> = {
+  diabetesMellitus: [],
   epoc: [
     {
       details: "En caso de requerir oxígeno, debe emplearse mientras come",
@@ -47,6 +48,7 @@ const byDisease: Record<keyof TDiseases, TDataDose[]> = {
       tip: "Tome los medicamentos una hora o más antes de comer"
     }
   ],
+  heartFailure: [],
   hypertension: [
     {
       details:
