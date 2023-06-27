@@ -25,7 +25,28 @@ const basic: TDataDose[] = [
 const carer: TDataDose[] = [];
 
 const byDisease: Record<keyof TDiseases, TDataDose[]> = {
-  epoc: [],
+  epoc: [
+    {
+      details: "En caso de requerir oxígeno, debe emplearse mientras come",
+      tip: "Si necesita oxígeno, no lo suspensa al comer"
+    },
+    {
+      details: "Los alimentos muy calientes o fríos pueden causar tos",
+      tip: "Consuma alimentos a una temperatura intermedia"
+    },
+    {
+      details: "Use un mayor número de comidas al día y porciones pequeñas",
+      tip: "Consuma cantidades de comida moderadas"
+    },
+    {
+      details: "Comer alimentos blandos produce menos fatiga",
+      tip: "Consuma alimentos fáciles de digerir y masticar"
+    },
+    {
+      details: "Tomar los medicamentos previo a comer evita la falta de aire",
+      tip: "Tome los medicamentos una hora o más antes de comer"
+    }
+  ],
   hypertension: [
     {
       details:
