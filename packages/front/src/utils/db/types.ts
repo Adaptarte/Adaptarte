@@ -1,4 +1,9 @@
-const allDiseases = ["epoc", "hypertension"] as const;
+const allDiseases = [
+  "diabetesMellitus",
+  "epoc",
+  "heartFailure",
+  "hypertension"
+] as const;
 type TDiseases = Record<(typeof allDiseases)[number], boolean>;
 
 interface DBDoc<T extends object> {

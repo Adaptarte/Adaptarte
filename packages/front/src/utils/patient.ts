@@ -1,7 +1,9 @@
 import type { TDiseases } from "./db/types";
 
 const defaultDiseases: TDiseases = {
+  diabetesMellitus: false,
   epoc: false,
+  heartFailure: false,
   hypertension: false
 };
 
