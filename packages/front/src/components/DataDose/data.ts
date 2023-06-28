@@ -22,7 +22,17 @@ const basic: TDataDose[] = [
   }
 ];
 
-const carer: TDataDose[] = [];
+const carer: TDataDose[] = [
+  {
+    details: "El cuidador familiar da al paciente motivación y apoyo valiosos",
+    tip: "El cuidador ayuda a una rutina sea más amable y saludable"
+  },
+  {
+    details:
+      "Conocer las potencialidades y limitaciones ayuda a realizar mejor este rol",
+    tip: "Analiza la experienca del cuidado como paciente y cuidador"
+  }
+];
 
 const byDisease: Record<keyof TDiseases, TDataDose[]> = {
   diabetesMellitus: [
