@@ -109,7 +109,24 @@ const byDisease: Record<keyof TDiseases, TDataDose[]> = {
 
 const medicine: TDataDose[] = [];
 
-const stress: TDataDose[] = [];
+const stress: TDataDose[] = [
+  {
+    details: "Al conocer sus situaciones de estrés podrá manejarlas mejor",
+    tip: "Revise cuáles eventos le generan estrés"
+  },
+  {
+    details: "Estas actividades ayudan a disminuir el estrés",
+    tip: "Realice actividades de relajación y duerma lo suficiente"
+  },
+  {
+    details: "Estas actividades ayudan a controlar el estrés",
+    tip: "Realice actividades físicar y recreativas"
+  },
+  {
+    details: "Ocuparse solo de lo más importante libera estrés innecesario",
+    tip: "Establezca prioridades en sus actividades"
+  }
+];
 
 const weightedRandom = (weights: number[]): number => {
   const wSum = [weights[0]];
