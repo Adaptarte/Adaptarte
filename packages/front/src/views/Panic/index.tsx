@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Linking, TouchableOpacity, View } from "react-native";
 
-import { IconF } from "components/Icon";
+import { Icon } from "components/Icon";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 
@@ -47,7 +47,7 @@ const Panic = (): JSX.Element => {
                 }}
                 style={styles.callBtn}
               >
-                <IconF name={"phone"} size={25} />
+                <Icon name={"phone"} size={25} />
               </TouchableOpacity>
             </View>
           );

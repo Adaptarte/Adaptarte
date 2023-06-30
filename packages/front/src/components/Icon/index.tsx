@@ -1,16 +1,18 @@
 import React from "react";
-import Icon from "react-native-vector-icons/FontAwesome";
+import FaIcon from "react-native-vector-icons/FontAwesome5";
 
 import { colors } from "styles";
 
 import type { IconProps } from "./types";
 
-const IconF = ({
+const Icon = ({
   name,
   size = 30,
   color = colors.BLACK
 }: IconProps): JSX.Element => {
-  return <Icon color={color} name={name} size={size} />;
+  return (
+    <FaIcon color={color} name={name} size={size} testID={`icon-${name}`} />
+  );
 };
 
-export { IconF };
+export { Icon };
