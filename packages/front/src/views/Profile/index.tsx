@@ -38,6 +38,7 @@ const Profile = (): JSX.Element => {
       </View>
       <Diseases
         diseases={userData?.diseases ?? {}}
+        key={JSON.stringify(userData?.diseases)}
         onChange={handleChangeDiseases}
       />
       <Text style={styles.title} variant={textVars.title}>
