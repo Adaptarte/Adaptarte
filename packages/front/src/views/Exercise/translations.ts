@@ -1,8 +1,8 @@
 const SPA = {
   information:
-    "Recuerda incluir como minimo 10 minutos de actividad física " +
-    "al día. Poco a poco aumenta el tiempo hasta conseguir de 25 a 45 " +
-    "minutos diarios.",
+    "Esté tan activo como su comodidad lo permita. Comience lentamente, " +
+    "por ejemplo, con 10 minutos de actividad física al día. Poco a poco " +
+    "aumente la duración hasta lograr de 25 a 40 minutos",
   note: "Para cumplir con este hábito completa al menos un actividad.",
   title: "Ejercicio"
 };
