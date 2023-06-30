@@ -19,6 +19,10 @@ const basic: TDataDose[] = [
   {
     details: "Tomarla a una misma hora es más preciso",
     tip: "Toma tu tensión 3 o más veces por semana"
+  },
+  {
+    details: "Es importante permanecer hidratado",
+    tip: "Tome agua antes, durante y después de ejercitarse"
   }
 ];
 

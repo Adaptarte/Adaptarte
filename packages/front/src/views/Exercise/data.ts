@@ -4,9 +4,9 @@ const data: CarouselProps["data"] = [
   {
     background: "#FFB186",
     description:
-      "Recuerda incluir mínimo 10 minutos de actividad " +
-      "física al día. Poco a poco aumenta el tiempo hasta conseguir " +
-      "de 25 a 40 minutos diarios.",
+      "Puedes caminar por la casa durante los momentos libres, llamadas " +
+      "telefónicas u otras actividades. También puedes usar las escaleras en " +
+      "lugar del ascensor",
     img: "walking",
     title: "Camina"
   },
@@ -22,7 +22,7 @@ const data: CarouselProps["data"] = [
   {
     background: "#B3A4FF",
     description:
-      "Prueba los siguientes ejercicios: " +
+      "Si permanece sentado, haga 3 minutos de actividad leve cada media hora" +
       "\n • Levantar brevemente las piernas." +
       "\n • Levantar los brazos a la altura de los hombros",
     img: "stretching",
