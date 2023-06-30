@@ -3,7 +3,8 @@ const esModules = [
   "@react-native",
   "@react-native-firebase",
   "react-native",
-  "react-native-date-picker"
+  "react-native-date-picker",
+  "react-native-vector-icons"
 ].join("|");
 
 module.exports = {
