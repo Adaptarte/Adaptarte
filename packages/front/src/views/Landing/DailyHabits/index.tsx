@@ -10,6 +10,10 @@ import { useDbUserData } from "utils/db/firebase";
 import type { IDailyHabitsProps } from "./types";
 
 const DailyHabits = ({ navigate }: IDailyHabitsProps): JSX.Element => {
+  const goToCalm = useCallback((): void => {
+    navigate("Calm");
+  }, [navigate]);
+
   const goToExercise = useCallback((): void => {
     navigate("Exercise");
   }, [navigate]);
@@ -59,11 +63,14 @@ const DailyHabits = ({ navigate }: IDailyHabitsProps): JSX.Element => {
         </ComingSoon>
       </Column>
       <Column>
-        <ComingSoon>
-          <Habit bgColor={"PURPLE_TRANSLUCID"} color={"PURPLE"} img={"calm"}>
-            {"Calma"}
-          </Habit>
-        </ComingSoon>
+        <Habit
+          bgColor={"PURPLE_TRANSLUCID"}
+          color={"PURPLE"}
+          img={"calm"}
+          onPress={goToCalm}
+        >
+          {"Calma"}
+        </Habit>
       </Column>
     </Row>
   );

@@ -4,6 +4,7 @@ import type { IConsumptionProps } from "views/Consumption/types";
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type IAppParams = {
+  Calm: undefined;
   Consumption: IConsumptionProps;
   Feeding: undefined;
   Exercise: undefined;

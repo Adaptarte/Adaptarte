@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 import { Header } from "components/Header";
+import { Calm } from "views/Calm";
 import { Consumption } from "views/Consumption";
 import { Exercise } from "views/Exercise";
 import { Feeding } from "views/Feeding";
@@ -25,6 +26,7 @@ const AppNavigation = (): JSX.Element => {
     <NavigationContainer>
       <Navigator initialRouteName={"Landing"} screenOptions={screenOptions}>
         <Screen component={Landing} name={"Landing"} />
+        <Screen component={Calm} name={"Calm"} />
         <Screen
           component={Feeding}
           name={"Feeding"}
