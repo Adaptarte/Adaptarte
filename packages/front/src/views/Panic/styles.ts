@@ -5,16 +5,10 @@ import { colors } from "styles";
 import type { TextVariants } from "../../components/Text/types";
 
 const styles = StyleSheet.create({
-  callBtn: {
-    position: "absolute",
-    right: 20,
-    top: "40%",
-    width: 30
-  },
   contacts: {
     backgroundColor: colors.YELLOW,
     borderRadius: 8,
-    elevation: 4,
+    elevation: 1,
     marginBottom: 16,
     padding: 10,
     position: "relative",
@@ -23,18 +17,30 @@ const styles = StyleSheet.create({
       height: 3,
       width: 0
     },
+    shadowOpacity: 0.17,
+    shadowRadius: 3.05,
     textAlign: "center"
   },
   description: {
     marginBottom: 16
   },
+  iconContainer: {
+    alignItems: "center",
+    height: 30,
+    justifyContent: "center",
+    position: "absolute",
+    right: 20,
+    top: "40%",
+    width: 30,
+    zIndex: 1
+  },
   note: {
     textAlign: "center"
   },
   noteContainer: {
-    backgroundColor: colors.YELLOW,
+    backgroundColor: colors.GLAUCOUS,
     borderRadius: 8,
-    elevation: 4,
+    elevation: 1,
     marginVertical: 16,
     padding: 16,
     shadowColor: "#000000",
@@ -54,7 +60,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const textVars: TextVariants<"textContact" | "title"> = {
+const textVars: TextVariants<"note" | "textContact" | "title"> = {
+  note: {
+    color: "WHITE"
+  },
   textContact: {
     weight: "bold"
   },

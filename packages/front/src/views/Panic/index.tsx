@@ -27,7 +27,9 @@ const Panic = (): JSX.Element => {
           return <Text key={index}>{`• ${signal}`}</Text>;
         })}
         <View style={styles.noteContainer}>
-          <Text style={styles.note}>{data.note}</Text>
+          <Text style={styles.note} variant={textVars.note}>
+            {data.note}
+          </Text>
         </View>
       </View>
       <View>
@@ -36,20 +38,21 @@ const Panic = (): JSX.Element => {
         </Text>
         {contactDirectory.map((contact, index) => {
           return (
-            <View key={index} style={styles.contacts}>
+            <TouchableOpacity
+              onPress={(): void => {
+                handleCall(contact.phone).catch(console.error);
+              }}
+              key={index}
+              style={styles.contacts}
+            >
               <Text style={styles.textContacts} variant={textVars.textContact}>
                 {`${contact.name} (${contact.occupation})`}
               </Text>
               <Text style={styles.textContacts}>{contact.phone}</Text>
-              <TouchableOpacity
-                onPress={(): void => {
-                  handleCall(contact.phone).catch(console.error);
-                }}
-                style={styles.callBtn}
-              >
-                <Icon name={"phone"} size={25} />
-              </TouchableOpacity>
-            </View>
+              <View style={styles.iconContainer}>
+                <Icon name={"phone"} size={22} />
+              </View>
+            </TouchableOpacity>
           );
         })}
       </View>
