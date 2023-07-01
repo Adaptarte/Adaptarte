@@ -107,7 +107,32 @@ const byDisease: Record<keyof TDiseases, TDataDose[]> = {
   ]
 };
 
-const medicine: TDataDose[] = [];
+const medicine: TDataDose[] = [
+  {
+    details: "Este puede alterar el efecto esperado de estos.",
+    tip:
+      "Verifique si debe tomar los medicamentos antes, durante o después de " +
+      "los alimentos"
+  },
+  {
+    details: "Tome la dosis el número de veces recetadas",
+    tip: "Si olvida tomar algún medicamento, no tome doble dosis."
+  },
+  {
+    details: "Esto ayudará que su tratamiento sea efectivo",
+    tip:
+      "Recuerde tomar sus medicamentos tal y como el médico se lo ha " +
+      "formulado."
+  },
+  {
+    details: "Te ayuda a tomar la dosis receta por el médico",
+    tip: "Para los medicamentos en forma liquida use el dosificador incluido."
+  },
+  {
+    details: "Consultelo con su equipo de salud.",
+    tip: "Si nota alguna reacción anormal al tomar su medicina."
+  }
+];
 
 const stress: TDataDose[] = [
   {
