@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1,
     paddingHorizontal: 8,
-    paddingVertical: 4
+    paddingVertical: 2
   },
   inputText: getTextStyle({
     color: "BLACK",
