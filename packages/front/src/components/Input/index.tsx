@@ -1,4 +1,3 @@
-import type { FC } from "react";
 import React from "react";
 import { TextInput, View } from "react-native";
 
@@ -8,7 +7,7 @@ import { InputLabel } from "./Label";
 import { styles } from "./styles";
 import type { InputProps } from "./types";
 
-const Input: FC<InputProps> = ({
+const Input = ({
   label,
   maxLength,
   onChange,
