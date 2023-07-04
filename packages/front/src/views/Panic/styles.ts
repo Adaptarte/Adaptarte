@@ -65,6 +65,7 @@ const textVars: TextVariants<"note" | "textContact" | "title"> = {
     color: "WHITE"
   },
   textContact: {
+    color: "BLACK",
     weight: "bold"
   },
   title: {
