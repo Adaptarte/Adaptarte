@@ -25,7 +25,7 @@ const SignIn = (): JSX.Element => {
   const [openRegister, setOpenRegister] = useState(false);
 
   const handleSignUpEmailPassword = (): void => {
-    if (username !== "" || email !== "" || password !== "") {
+    if (username !== "" && email !== "" && password !== "") {
       signUpEmailPassword(email, password)
         .then(() => {
           updateDisplayname(username)
@@ -41,7 +41,7 @@ const SignIn = (): JSX.Element => {
   };
 
   const handleSignInEmailPassword = (): void => {
-    if (email !== "" || password !== "") {
+    if (email !== "" && password !== "") {
       signInEmailPassword(email, password)
         .then(() => {
           console.log("Signed in with email/password");

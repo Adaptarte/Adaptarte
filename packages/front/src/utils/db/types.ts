@@ -23,6 +23,11 @@ interface DBUser {
   score: number;
 }
 
+interface DBEmergencyContacts {
+  name: string;
+  phone: string;
+}
+
 interface DBExercise {
   date: Date;
   exercise: string;
@@ -54,6 +59,7 @@ interface DBTension {
 }
 
 interface DBUserCollections {
+  EmergencyContacts: DBEmergencyContacts;
   Exercises: DBExercise;
   FoodIntake: DBFoodIntake;
   MedicineIntake: DBMedicineIntake;
@@ -66,13 +72,14 @@ type DBUserCollectionName = keyof DBUserCollections;
 export type {
   DBDoc,
   DBUserCollectionName,
+  DBEmergencyContacts,
+  DBExercise,
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
   DBTension,
   DBUser,
   DBUserCollections,
-  TDiseases,
-  DBExercise
+  TDiseases
 };
 export { allDiseases };
