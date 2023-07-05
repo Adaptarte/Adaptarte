@@ -12,6 +12,10 @@ interface DBDoc<T extends object> {
 }
 
 interface DBUser {
+  basicInfo?: {
+    id?: string;
+    phone?: string;
+  };
   diet: {
     carbs: number;
     dairy: number;
