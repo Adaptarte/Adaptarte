@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer, useState } from "react";
 import { View } from "react-native";
 
 import { Button } from "components/Button";
@@ -16,9 +16,17 @@ const EditableText = ({
   placeholder,
   style,
   type,
-  value
+  value = ""
 }: EditableTextProps): JSX.Element => {
   const [editing, toggleEditing] = useReducer((val) => !val, false);
+  const [input, setInput] = useState(value);
+
+  const handleChange = useCallback(() => {
+    if (input !== value) {
+      onChange?.(input);
+    }
+    toggleEditing();
+  }, [input, onChange, toggleEditing]);
 
   return (
     <View style={styles.container}>
@@ -26,16 +34,19 @@ const EditableText = ({
         {editing ? (
           <Input
             maxLength={maxLength}
-            onChange={onChange}
+            onChange={setInput}
             placeholder={placeholder}
             type={type}
-            value={value}
+            value={input}
           />
         ) : (
           <Text style={[styles.text, style]}>{value}</Text>
         )}
       </View>
-      <Button onPress={toggleEditing} style={styles.button}>
+      <Button
+        onPress={editing ? handleChange : toggleEditing}
+        style={styles.button}
+      >
         <Icon
           color={colors.GLAUCOUS}
           name={editing ? "save" : "edit"}

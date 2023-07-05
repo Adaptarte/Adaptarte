@@ -7,7 +7,7 @@ const defaultDiseases: TDiseases = {
   hypertension: false
 };
 
-const fillDiseases = (diseases: Partial<TDiseases>): TDiseases => {
+const fillDiseases = (diseases?: Partial<TDiseases>): TDiseases => {
   return Object.assign({}, defaultDiseases, diseases);
 };
 

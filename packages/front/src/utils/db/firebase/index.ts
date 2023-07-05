@@ -1,6 +1,8 @@
 import firestore from "@react-native-firebase/firestore";
 import { useEffect, useState } from "react";
 
+import { fillDiseases } from "utils/patient";
+
 import type { DBDoc, DBUser, DBUserCollections } from "../types";
 import type { ColRef, DocRef, Query, QueryFilter } from "./types";
 
@@ -15,10 +17,7 @@ const addUser = async (id: string): Promise<void> => {
         liquids: 6,
         protein: 2
       },
-      diseases: {
-        epoc: false,
-        hypertension: false
-      },
+      diseases: fillDiseases(),
       score: 0
     });
   }
