@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { View } from "react-native";
 
 import { Button } from "components/Button";
-import { Column, Row } from "components/Grid";
 import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
@@ -10,8 +9,9 @@ import { signOut, useUser } from "utils/auth";
 import { refUser, useDbUser } from "utils/db/firebase";
 import type { DBUser } from "utils/db/types";
 
+import { BasicInfo } from "./BasicInfo";
 import { Diseases } from "./Diseases";
-import { styles, textVars } from "./styles";
+import { styles } from "./styles";
 
 const Profile = (): JSX.Element => {
   const user = useUser();
@@ -21,6 +21,13 @@ const Profile = (): JSX.Element => {
   const handleChangeDiseases = useCallback((diseases: DBUser["diseases"]) => {
     refUser(user.uid).update({ diseases }).catch(console.error);
   }, []);
+
+  const handleChangeBasicInfo = useCallback(
+    (basicInfo: DBUser["basicInfo"]) => {
+      refUser(user.uid).update({ basicInfo }).catch(console.error);
+    },
+    []
+  );
 
   return (
     <Screen>
@@ -41,29 +48,7 @@ const Profile = (): JSX.Element => {
         key={JSON.stringify(userData?.diseases)}
         onChange={handleChangeDiseases}
       />
-      <Text style={styles.title} variant={textVars.title}>
-        {"Datos básicos"}
-      </Text>
-      <Row columns={3}>
-        <Column size={1}>
-          <Text variant={textVars.info}>{"C.C."}</Text>
-        </Column>
-        <Column size={2}>
-          <Text>{"??"}</Text>
-        </Column>
-        <Column size={1}>
-          <Text variant={textVars.info}>{"Teléfono"}</Text>
-        </Column>
-        <Column size={2}>
-          <Text>{user.phoneNumber ?? "??"}</Text>
-        </Column>
-        <Column size={1}>
-          <Text variant={textVars.info}>{"Email"}</Text>
-        </Column>
-        <Column size={2}>
-          <Text>{user.email ?? "??"}</Text>
-        </Column>
-      </Row>
+      <BasicInfo data={userData?.basicInfo} onChange={handleChangeBasicInfo} />
       <Button
         onPress={signOut}
         style={styles.signOut}
