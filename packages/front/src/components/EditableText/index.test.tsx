@@ -43,4 +43,17 @@ describe("EditableText", () => {
     fireEvent.press(screen.getByTestId("icon-save"));
     expect(screen.queryByText("321")).toBeOnTheScreen();
   });
+
+  it("Not change same value", () => {
+    expect.assertions(1);
+    const onChange = jest.fn();
+    render(
+      <EditableText onChange={onChange} placeholder={"id"} value={undefined} />
+    );
+
+    fireEvent.press(screen.getByTestId("icon-edit"));
+    fireEvent.changeText(screen.getByPlaceholderText("id"), "");
+    fireEvent.press(screen.getByTestId("icon-save"));
+    expect(onChange).not.toHaveBeenCalled();
+  });
 });
