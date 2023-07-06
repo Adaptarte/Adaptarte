@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useReducer } from "react";
 
 import { DailyGoal } from "components/DailyGoal";
-import { Tension } from "components/Tension";
 import { useUser } from "utils/auth";
 import { dateToString } from "utils/date";
 import { addUserData } from "utils/db/firebase";
@@ -11,6 +10,7 @@ import {
   cancelTensionNotification,
   setUndoneNotification
 } from "utils/notifications";
+import { TensionRecord } from "views/modals/TensionRecord";
 
 import type { TensionGoalProps } from "./types";
 
@@ -28,14 +28,17 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
     }
   }, [done]);
 
-  const handleSaveTension = useCallback((data: DBTension) => {
-    addUserData(user.uid, "Tension", data).catch(console.error);
-  }, []);
+  const handleSave = useCallback(
+    (data: DBTension) => {
+      addUserData(user.uid, "Tension", data).catch(console.error);
+    },
+    [user.uid]
+  );
 
   return (
     <>
-      <Tension
-        onSave={handleSaveTension}
+      <TensionRecord
+        onSave={handleSave}
         setVisible={setIsOpen}
         visible={isOpen}
       />

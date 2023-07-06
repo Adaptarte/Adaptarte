@@ -5,13 +5,13 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 
-import type { TensionProps } from "./types";
+import type { TensionRecordProps } from "./types";
 
-const Tension = ({
+const TensionRecord = ({
   onSave,
   setVisible,
   visible
-}: TensionProps): JSX.Element => {
+}: TensionRecordProps): JSX.Element => {
   const [diastolic, setDiastolic] = useState("");
   const [systolic, setSystolic] = useState("");
   const [date, setDate] = useState(new Date());
@@ -66,4 +66,4 @@ const Tension = ({
   );
 };
 
-export { Tension };
+export { TensionRecord };
