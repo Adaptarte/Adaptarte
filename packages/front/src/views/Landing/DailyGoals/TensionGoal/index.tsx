@@ -30,7 +30,6 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
   }, [done]);
 
   const handleSaveTension = useCallback((data: DBTension) => {
-    registerMedicineGA().catch(console.error);
     addUserData(user.uid, "Tension", data).catch(console.error);
   }, []);
 
