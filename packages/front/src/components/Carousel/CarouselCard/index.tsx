@@ -3,9 +3,9 @@ import type { ViewStyle } from "react-native";
 import { TouchableOpacity, View } from "react-native";
 
 import { CheckBox } from "components/CheckBox";
-import { Exercises } from "components/Exercises";
 import { Img } from "components/Img";
 import { Text } from "components/Text";
+import { ExerciseRecord } from "views/modals/ExerciseRecord";
 
 import { styles, textVars } from "./styles";
 import type { CarouselCardProps } from "./types";
@@ -54,7 +54,7 @@ const CarouselCard = ({
         </View>
         <Img src={img} style={styles.image} />
       </View>
-      <Exercises onSave={onSave} setVisible={setIsOpen} visible={isOpen} />
+      <ExerciseRecord onSave={onSave} setVisible={setIsOpen} visible={isOpen} />
     </>
   );
 };
