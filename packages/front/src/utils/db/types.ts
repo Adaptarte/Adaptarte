@@ -62,6 +62,11 @@ interface DBTension {
   systolic: number;
 }
 
+interface DBWeight {
+  date: Date;
+  kg: number;
+}
+
 interface DBUserCollections {
   EmergencyContacts: DBEmergencyContacts;
   Exercises: DBExercise;
@@ -69,6 +74,7 @@ interface DBUserCollections {
   MedicineIntake: DBMedicineIntake;
   MedicineRecipe: DBMedicineRecipe;
   Tension: DBTension;
+  Weight: DBWeight;
 }
 
 type DBUserCollectionName = keyof DBUserCollections;
@@ -84,6 +90,7 @@ export type {
   DBTension,
   DBUser,
   DBUserCollections,
+  DBWeight,
   TDiseases
 };
 export { allDiseases };
