@@ -4,13 +4,13 @@ import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 
-import type { ExercisesProps } from "./types";
+import type { ExerciseRecordProps } from "./types";
 
-const Exercises = ({
+const ExerciseRecord = ({
   onSave,
   setVisible,
   visible
-}: ExercisesProps): JSX.Element => {
+}: ExerciseRecordProps): JSX.Element => {
   const [exercise, setExercise] = useState("");
   const [duration, setDuration] = useState("");
 
@@ -52,4 +52,4 @@ const Exercises = ({
   );
 };
 
-export { Exercises };
+export { ExerciseRecord };

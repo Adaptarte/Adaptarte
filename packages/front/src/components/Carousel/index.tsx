@@ -37,7 +37,7 @@ const Carousel = ({ data }: CarouselProps): JSX.Element => {
     setSelection((selection + 1) % data.length);
   }, [data.length, selection]);
 
-  const handleSaveExercises = useCallback((data: DBExercise) => {
+  const handleSaveExercise = useCallback((data: DBExercise) => {
     registerExercise().catch(console.error);
     addUserData(user.uid, "Exercises", data).catch(console.error);
     setCheck?.(true);
@@ -48,7 +48,7 @@ const Carousel = ({ data }: CarouselProps): JSX.Element => {
       <CarouselCard
         {...data[selection]}
         complete={check}
-        onSave={handleSaveExercises}
+        onSave={handleSaveExercise}
         setComplete={setCheck}
       />
       <Button onPress={handleNext} style={[styles.nextBtn]}>
