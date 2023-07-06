@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useReducer } from "react";
 
 import { DailyGoal } from "components/DailyGoal";
 import { Tension } from "components/Tension";
-import { registerMedicineGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { dateToString } from "utils/date";
 import { addUserData } from "utils/db/firebase";
@@ -30,7 +29,6 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
   }, [done]);
 
   const handleSaveTension = useCallback((data: DBTension) => {
-    registerMedicineGA().catch(console.error);
     addUserData(user.uid, "Tension", data).catch(console.error);
   }, []);
 
