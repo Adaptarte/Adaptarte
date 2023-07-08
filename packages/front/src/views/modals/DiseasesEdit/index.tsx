@@ -5,6 +5,7 @@ import { CheckBox } from "components/CheckBox";
 import { Modal } from "components/Modal";
 
 import { styles } from "./styles";
+import { t } from "./translations";
 import type { DiseasesEditProps } from "./types";
 
 const DiseasesEdit = ({
@@ -29,28 +30,28 @@ const DiseasesEdit = ({
   }, [hasDiabetesMellitus, hasEpoc, hasHeartFailure, hasHypertension, onSave]);
 
   return (
-    <Modal setVisible={setVisible} title={"Enfermedades"} visible={visible}>
+    <Modal setVisible={setVisible} title={t().title} visible={visible}>
       <CheckBox
         checked={hasDiabetesMellitus}
-        label={"Diabetes Mellitus"}
+        label={t().diabetesMellitus}
         onChange={setHasDiabetesMellitus}
         style={styles.checkbox}
       />
       <CheckBox
         checked={hasHypertension}
-        label={"Hipertensión"}
+        label={t().hypertension}
         onChange={setHasHypertension}
         style={styles.checkbox}
       />
       <CheckBox
         checked={hasHeartFailure}
-        label={"Deficiencia Cardiaca"}
+        label={t().heartFailure}
         onChange={setHasHeartFailure}
         style={styles.checkbox}
       />
       <CheckBox
         checked={hasEpoc}
-        label={"Epoc"}
+        label={t().epoc}
         onChange={setHasEpoc}
         style={styles.checkbox}
       />
@@ -64,7 +65,7 @@ const DiseasesEdit = ({
         onPress={handleSave}
         variant={{ style: "solid" }}
       >
-        {"Guardar"}
+        {t().save}
       </Button>
     </Modal>
   );
