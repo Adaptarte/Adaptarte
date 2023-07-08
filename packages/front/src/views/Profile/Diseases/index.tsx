@@ -5,8 +5,8 @@ import { Row } from "components/Grid";
 import { Tag } from "components/Tag";
 import { allDiseases } from "utils/db/types";
 import { fillDiseases } from "utils/patient";
+import { DiseasesEdit } from "views/modals/DiseasesEdit";
 
-import { EditDiseases } from "../EditDiseases";
 import { styles } from "./styles";
 import { t } from "./translations";
 import type { DiseasesProps } from "./types";
@@ -34,7 +34,7 @@ const Diseases = ({ diseases, onChange }: DiseasesProps): JSX.Element => {
       >
         {"Editar enfermedades"}
       </Button>
-      <EditDiseases
+      <DiseasesEdit
         diseases={fullDiseases}
         onSave={onChange}
         setVisible={toggleEditing}

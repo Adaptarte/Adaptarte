@@ -5,14 +5,14 @@ import { CheckBox } from "components/CheckBox";
 import { Modal } from "components/Modal";
 
 import { styles } from "./styles";
-import type { EditDiseasesProps } from "./types";
+import type { DiseasesEditProps } from "./types";
 
-const EditDiseases = ({
+const DiseasesEdit = ({
   diseases: { diabetesMellitus, epoc, heartFailure, hypertension },
   onSave,
   setVisible,
   visible
-}: EditDiseasesProps): JSX.Element => {
+}: DiseasesEditProps): JSX.Element => {
   const [hasDiabetesMellitus, setHasDiabetesMellitus] =
     useState(diabetesMellitus);
   const [hasEpoc, setHasEpoc] = useState(epoc);
@@ -70,4 +70,4 @@ const EditDiseases = ({
   );
 };
 
-export { EditDiseases };
+export { DiseasesEdit };
