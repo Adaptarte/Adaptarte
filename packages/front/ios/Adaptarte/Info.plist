@@ -54,6 +54,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>FontAwesome5Free_Solid.ttf</string>
 		<string>Lexend-Regular.ttf</string>
 		<string>Lexend-Bold.ttf</string>
 	</array>
