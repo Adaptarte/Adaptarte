@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 
+import { t } from "./translations";
 import type { TensionRecordProps } from "./types";
 
 const TensionRecord = ({
@@ -30,37 +31,33 @@ const TensionRecord = ({
   }, [visible]);
 
   return (
-    <Modal
-      setVisible={setVisible}
-      title={"Registro de Tensión"}
-      visible={visible}
-    >
+    <Modal setVisible={setVisible} title={t().title} visible={visible}>
       <Input
-        label={"Presión diastólica"}
-        onChange={setDiastolic}
-        placeholder={"80"}
-        type={"numeric"}
-        value={diastolic}
-      />
-      <Input
-        label={"Presión sistólica"}
+        label={t().systolic.label}
         onChange={setSystolic}
-        placeholder={"120"}
+        placeholder={t().systolic.placeholder}
         type={"numeric"}
         value={systolic}
       />
+      <Input
+        label={t().diastolic.label}
+        onChange={setDiastolic}
+        placeholder={t().diastolic.placeholder}
+        type={"numeric"}
+        value={diastolic}
+      />
       <DatePicker
         date={date}
-        label={"Hora"}
+        label={t().date}
         maxDate={new Date()}
         onDateChange={setDate}
       />
       <Button
-        disabled={diastolic.length === 0 || systolic.length === 0}
+        disabled={isNaN(parseFloat(diastolic)) || isNaN(parseFloat(systolic))}
         onPress={handleSave}
-        variant={{ color: "GLAUCOUS", style: "solid" }}
+        variant={{ style: "solid" }}
       >
-        {"Registrar"}
+        {t().save}
       </Button>
     </Modal>
   );
