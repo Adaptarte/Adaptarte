@@ -3,6 +3,7 @@ import { fireEvent, render, screen } from "@testing-library/react-native";
 import { fillDiseases } from "utils/patient";
 
 import { DiseasesEdit } from ".";
+import { t } from "./translations";
 
 describe("Diseases", () => {
   const diseases = fillDiseases({
@@ -10,18 +11,16 @@ describe("Diseases", () => {
   });
 
   it("Render content", () => {
-    expect.assertions(4);
+    expect.assertions(6);
 
     render(<DiseasesEdit diseases={diseases} visible />);
 
-    const title = screen.queryByText("Enfermedades");
-    expect(title).toBeOnTheScreen();
-    const epocLabel = screen.queryByText("Epoc");
-    expect(epocLabel).toBeOnTheScreen();
-    const hypertensionLabel = screen.queryByText("Hipertensión");
-    expect(hypertensionLabel).toBeOnTheScreen();
-    const saveBtn = screen.queryByText("Guardar");
-    expect(saveBtn).toBeOnTheScreen();
+    expect(screen.queryByText(t().title)).toBeOnTheScreen();
+    expect(screen.queryByText(t().diabetesMellitus)).toBeOnTheScreen();
+    expect(screen.queryByText(t().epoc)).toBeOnTheScreen();
+    expect(screen.queryByText(t().heartFailure)).toBeOnTheScreen();
+    expect(screen.queryByText(t().hypertension)).toBeOnTheScreen();
+    expect(screen.queryByText(t().save)).toBeOnTheScreen();
   });
 
   it("Save data", () => {
@@ -30,8 +29,8 @@ describe("Diseases", () => {
     const onSave = jest.fn();
     render(<DiseasesEdit diseases={diseases} onSave={onSave} visible />);
 
-    const epocLabel = screen.getByText("Epoc");
-    const saveBtn = screen.getByText("Guardar");
+    const epocLabel = screen.getByText(t().epoc);
+    const saveBtn = screen.getByText(t().save);
 
     fireEvent.press(saveBtn);
     expect(onSave).toHaveBeenCalledTimes(0);
