@@ -1,12 +1,13 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
 
 import { Button } from "components/Button";
 import { Column, Row } from "components/Grid";
+import { Icon } from "components/Icon";
 import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 import { registerFoodGA } from "utils/analytics/analytics";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
@@ -42,12 +43,13 @@ const Consumption = ({
             <Column key={el.name}>
               <Img src={el.img} style={styles.foodImage} />
               <Text style={styles.foodName}>{el.name}</Text>
-              <TouchableOpacity
+              <Button
                 onPress={addConsumption}
                 style={styles.foodAddButton}
+                variant={{ style: "solid" }}
               >
-                <Img src={"plus"} style={styles.foodAddImage} />
-              </TouchableOpacity>
+                <Icon color={colors.LIGHT} name={"plus"} size={16} />
+              </Button>
             </Column>
           );
         })}

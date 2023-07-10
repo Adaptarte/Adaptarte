@@ -8,10 +8,7 @@ const styles = StyleSheet.create({
     marginTop: 16
   },
   foodAddButton: {
-    alignSelf: "center",
-    backgroundColor: colors.GLAUCOUS,
-    borderRadius: 8,
-    padding: 8
+    alignSelf: "center"
   },
   foodAddImage: {
     tintColor: colors.WHITE,

@@ -1,5 +1,5 @@
-interface IAddConsumptionProps {
+interface AddConsumptionProps {
   onPress?: () => void;
 }
 
-export type { IAddConsumptionProps };
+export type { AddConsumptionProps };
