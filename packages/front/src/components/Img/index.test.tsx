@@ -13,7 +13,7 @@ describe("Img", () => {
       </>
     );
 
-    const img = screen.queryByAccessibilityValue({ text: "close" });
+    const img = screen.queryByTestId("img-close");
     expect(img).toBeOnTheScreen();
   });
 });

@@ -1,21 +1,23 @@
-import type { FC } from "react";
 import React from "react";
-import { TouchableOpacity } from "react-native";
 
+import { Button } from "components/Button";
 import { Column } from "components/Grid";
-import { Img } from "components/Img";
+import { Icon } from "components/Icon";
+import { colors } from "styles";
 
 import { styles } from "./styles";
-import type { IAddConsumptionProps } from "./types";
+import type { AddConsumptionProps } from "./types";
 
-const AddConsumption: FC<IAddConsumptionProps> = ({
-  onPress
-}: IAddConsumptionProps): JSX.Element => {
+const AddConsumption = ({ onPress }: AddConsumptionProps): JSX.Element => {
   return (
     <Column>
-      <TouchableOpacity onPress={onPress} style={styles.plusButton}>
-        <Img src={"plus"} style={styles.plusImage} />
-      </TouchableOpacity>
+      <Button
+        onPress={onPress}
+        style={styles.plusButton}
+        variant={{ style: "solid" }}
+      >
+        <Icon color={colors.LIGHT} name={"plus"} size={32} />
+      </Button>
     </Column>
   );
 };
