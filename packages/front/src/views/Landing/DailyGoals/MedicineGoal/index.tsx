@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useReducer } from "react";
 
 import { DailyGoal } from "components/DailyGoal";
-import { MedicineIntake } from "components/MedicineIntake";
 import { useUser } from "utils/auth";
 import { addUserData } from "utils/db/firebase";
 import type { DBMedicineIntake } from "utils/db/types";
@@ -10,6 +9,7 @@ import {
   addMedicineNotification,
   cancelMedicineNotification
 } from "utils/notifications";
+import { MedicineIntakeRecord } from "views/modals/MedicineIntakeRecord";
 
 import type { MedicineGoalProps } from "./types";
 
@@ -38,7 +38,7 @@ const MedicineGoal = ({
 
   return (
     <>
-      <MedicineIntake
+      <MedicineIntakeRecord
         onSave={handleSave}
         recipe={recipe}
         setVisible={setIsOpen}

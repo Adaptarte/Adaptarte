@@ -7,7 +7,7 @@ import { Text } from "components/Text";
 
 import type { MedicineIntakeProps } from "./types";
 
-const MedicineIntake = ({
+const MedicineIntakeRecord = ({
   onSave,
   recipe: { data, id },
   setVisible,
@@ -51,4 +51,4 @@ const MedicineIntake = ({
   );
 };
 
-export { MedicineIntake };
+export { MedicineIntakeRecord };
