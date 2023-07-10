@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
 
+import { t } from "./translations";
 import type { MedicineIntakeProps } from "./types";
 
 const MedicineIntakeRecord = ({
@@ -29,15 +30,11 @@ const MedicineIntakeRecord = ({
   }, [visible]);
 
   return (
-    <Modal
-      setVisible={setVisible}
-      title={"Registro de medicina"}
-      visible={visible}
-    >
-      <Text>{`Medicina: ${data.medicine}`}</Text>
+    <Modal setVisible={setVisible} title={t().title} visible={visible}>
+      <Text>{`${t().medicine}: ${data.medicine}`}</Text>
       <DatePicker
         date={date}
-        label={"Hora"}
+        label={t().date}
         maxDate={new Date()}
         onDateChange={setDate}
       />
@@ -45,7 +42,7 @@ const MedicineIntakeRecord = ({
         onPress={handleSave}
         variant={{ color: "GLAUCOUS", style: "solid" }}
       >
-        {"Registrar"}
+        {t().save}
       </Button>
     </Modal>
   );

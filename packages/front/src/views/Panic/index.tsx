@@ -65,10 +65,10 @@ const Panic = (): JSX.Element => {
         {emergencyContacts.map((contact, index) => {
           return (
             <TouchableOpacity
+              key={index}
               onPress={(): void => {
                 handleCall(contact.data.phone).catch(console.error);
               }}
-              key={index}
               style={styles.contacts}
             >
               <Text style={styles.textContacts} variant={textVars.textContact}>
