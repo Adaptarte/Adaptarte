@@ -3,13 +3,17 @@ import React, { useCallback } from "react";
 import { ComingSoon } from "components/ComingSoon";
 import { Column, Row } from "components/Grid";
 import { Habit } from "components/Habit";
-import { useUser } from "utils/auth";
-import { setDayTime } from "utils/date";
-import { useDbUserData } from "utils/db/firebase";
 
-import type { IDailyHabitsProps } from "./types";
+import { t } from "./translations";
+import type { DailyHabitsProps } from "./types";
 
-const DailyHabits = ({ navigate }: IDailyHabitsProps): JSX.Element => {
+const DailyHabits = ({
+  calm = false,
+  exercise = false,
+  feeding = false,
+  hydration = false,
+  navigate
+}: DailyHabitsProps): JSX.Element => {
   const goToCalm = useCallback((): void => {
     navigate("Calm");
   }, [navigate]);
@@ -22,54 +26,51 @@ const DailyHabits = ({ navigate }: IDailyHabitsProps): JSX.Element => {
     navigate("Feeding");
   }, [navigate]);
 
-  const user = useUser();
-  const today = setDayTime(new Date(), 0);
-  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
-    ["date", ">=", today]
-  ]);
-
   return (
     <Row columns={2}>
       <Column>
         <Habit
           bgColor={"ORANGE_TRANSLUCID"}
+          checked={exercise}
           color={"ORANGE"}
           img={"exercise"}
           onPress={goToExercise}
         >
-          {"Ejercicio"}
+          {t().exercise}
         </Habit>
       </Column>
       <Column>
         <Habit
           bgColor={"GREEN_TRANSLUCID"}
-          checked={foodIntakes.length >= 15 * 0.8}
+          checked={feeding}
           color={"GREEN"}
           img={"diet"}
           onPress={goToFeeding}
         >
-          {"Alimentación"}
+          {t().feeding}
         </Habit>
       </Column>
       <Column>
         <ComingSoon>
           <Habit
             bgColor={"BLUE_TRANSLUCID"}
+            checked={hydration}
             color={"BLUE"}
             img={"drinkingWater"}
           >
-            {"Agua"}
+            {t().hydration}
           </Habit>
         </ComingSoon>
       </Column>
       <Column>
         <Habit
           bgColor={"PURPLE_TRANSLUCID"}
+          checked={calm}
           color={"PURPLE"}
           img={"calm"}
           onPress={goToCalm}
         >
-          {"Calma"}
+          {t().calm}
         </Habit>
       </Column>
     </Row>

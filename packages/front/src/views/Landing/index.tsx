@@ -8,7 +8,8 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { useUser } from "utils/auth";
-import { useDbUser } from "utils/db/firebase";
+import { setDayTime } from "utils/date";
+import { useDbUser, useDbUserData } from "utils/db/firebase";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -19,8 +20,12 @@ const Landing = ({
 }: TAppViewProps<"Landing">): JSX.Element => {
   const user = useUser();
   const userData = useDbUser(user.uid);
-
   const name = user.displayName?.split(" ")[0] ?? "paciente";
+
+  const today = setDayTime(new Date(), 0);
+  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
+    ["date", ">=", today]
+  ]);
 
   const goToProfile = useCallback(() => {
     navigate("Profile");
@@ -49,7 +54,10 @@ const Landing = ({
         <Text style={styles.sectionTitle} variant={textVars.title}>
           {"Hábitos diarios"}
         </Text>
-        <DailyHabits navigate={navigate} />
+        <DailyHabits
+          feeding={foodIntakes.length >= 15 * 0.8}
+          navigate={navigate}
+        />
         <Button
           onPress={goToPanic}
           style={styles.panicBtn}
