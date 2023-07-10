@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import type { ViewStyle } from "react-native";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 
 import { CheckBox } from "components/CheckBox";
 import { Img } from "components/Img";
@@ -34,23 +34,14 @@ const CarouselCard = ({
           <Text style={styles.details} variant={textVars.content}>
             {description}
           </Text>
-          {complete ? (
-            <CheckBox
-              checked={complete}
-              disabled
-              label={complete ? "Completado" : "Por completar"}
-              variant={{ border: "circle", color: "WHITE" }}
-            />
-          ) : (
-            <TouchableOpacity onPress={setIsOpen}>
-              <CheckBox
-                checked={complete}
-                disabled
-                label={complete ? "Completado" : "Por completar"}
-                variant={{ border: "circle", color: "WHITE" }}
-              />
-            </TouchableOpacity>
-          )}
+
+          <CheckBox
+            checked={complete}
+            disabled={complete}
+            label={complete ? "Completado" : "Por completar"}
+            onChange={setIsOpen}
+            variant={{ border: "circle", color: "WHITE" }}
+          />
         </View>
         <Img src={img} style={styles.image} />
       </View>

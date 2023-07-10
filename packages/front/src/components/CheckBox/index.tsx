@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { TouchableOpacity, View } from "react-native";
 
 import { Text } from "components/Text";
@@ -14,29 +14,21 @@ const CheckBox = ({
   style,
   variant = {}
 }: CheckBoxProps): JSX.Element => {
-  const [value, setValue] = useState(checked);
+  const textVars = getCheckboxTextVars(variant, checked);
+  const varStyle = getCheckboxStyle(variant, checked, disabled);
 
-  useEffect(() => {
-    setValue(checked);
-  }, [checked, setValue]);
-
-  const handleSwitch = useCallback((): void => {
-    const newValue = !value;
-    onChange?.(newValue);
-    setValue(newValue);
-  }, [onChange, setValue, value]);
-
-  const textVars = getCheckboxTextVars(variant, value);
-  const varStyle = getCheckboxStyle(variant, value, disabled);
+  const handlePress = useCallback(() => {
+    onChange?.(!checked);
+  }, [checked, onChange]);
 
   return (
     <TouchableOpacity
       disabled={disabled}
-      onPress={handleSwitch}
+      onPress={handlePress}
       style={[styles.container, style]}
     >
       <View style={[styles.box, varStyle]}>
-        <Text variant={textVars.check}>{value ? "✓" : " "}</Text>
+        <Text variant={textVars.check}>{checked ? "✓" : " "}</Text>
       </View>
       {label && (
         <Text style={styles.label} variant={textVars.label}>
