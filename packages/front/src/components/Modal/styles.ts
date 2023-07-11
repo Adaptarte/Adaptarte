@@ -4,10 +4,6 @@ import type { TextVariant } from "components/Text/types";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  closeButtonImage: {
-    tintColor: colors.BLACK,
-    width: 24
-  },
   container: {
     backgroundColor: colors.WHITE,
     borderRadius: 8,

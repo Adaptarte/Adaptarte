@@ -12,12 +12,6 @@ const styles = StyleSheet.create({
     top: 15,
     zIndex: 1
   },
-  closeImage: {
-    position: "relative",
-    tintColor: colors.ORANGE,
-    width: 28,
-    zIndex: 0
-  },
   exercise: {
     backgroundColor: colors.WHITE,
     borderRadius: 20,

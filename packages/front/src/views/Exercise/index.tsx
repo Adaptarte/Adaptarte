@@ -1,11 +1,13 @@
 import React from "react";
-import { Modal, TouchableOpacity, View } from "react-native";
+import { Modal, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
+import { Button } from "components/Button";
 import { Carousel } from "components/Carousel";
-import { Img } from "components/Img";
+import { Icon } from "components/Icon";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 import { data } from "views/Exercise/data";
 
 import { styles, textVars } from "./styles";
@@ -25,9 +27,9 @@ const Exercise = ({
         <View style={styles.modalExercise}>
           <View style={styles.exercise}>
             {canGoBack() ? (
-              <TouchableOpacity onPress={goBack} style={styles.closeButton}>
-                <Img src={"close"} style={styles.closeImage} />
-              </TouchableOpacity>
+              <Button onPress={goBack} style={styles.closeButton}>
+                <Icon color={colors.ORANGE} name={"times"} size={20} />
+              </Button>
             ) : undefined}
             <Text style={styles.exerciseTitle} variant={textVars.title}>
               {t().title}

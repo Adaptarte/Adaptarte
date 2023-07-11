@@ -21,8 +21,8 @@ describe("Modal", () => {
     expect(title).toBeOnTheScreen();
     const text = screen.queryByText("You're awesome");
     expect(text).toBeOnTheScreen();
-    const closeImg = screen.queryByA11yValue({ text: "close" });
-    expect(closeImg).toBeOnTheScreen();
+    const closeBtn = screen.queryByTestId("icon-times");
+    expect(closeBtn).toBeOnTheScreen();
   });
 
   it("Be toggleable", async () => {
@@ -54,9 +54,9 @@ describe("Modal", () => {
     });
 
     expect(screen.queryByText("Congrats")).toBeOnTheScreen();
-    const closeImg = screen.getByA11yValue({ text: "close" });
+    const closeBtn = screen.getByTestId("icon-times");
     await act(() => {
-      fireEvent.press(closeImg);
+      fireEvent.press(closeBtn);
     });
     expect(screen.queryByText("Congrats")).not.toBeOnTheScreen();
   });

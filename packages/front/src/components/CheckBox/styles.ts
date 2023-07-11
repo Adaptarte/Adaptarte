@@ -25,32 +25,33 @@ const styles = StyleSheet.create({
   }
 });
 
+const getCheckboxColor = (
+  { color = "BLACK", checkedColor = color }: CheckBoxVariant,
+  checked: boolean
+): string => {
+  return colors[checked ? checkedColor : color];
+};
+
 const getCheckboxStyle = (
   {
     border = "rounded",
     color = "BLACK",
     checkedColor = color
   }: CheckBoxVariant,
-  checked = false,
+  checked: boolean,
   disabled = false
 ): Style => {
   return {
-    borderColor: colors[checked ? checkedColor : color],
+    borderColor: getCheckboxColor({ checkedColor, color }, checked),
     borderRadius: border === "circle" ? 12 : 8,
     opacity: disabled ? 0.6 : 1
   };
 };
 
-const getCheckboxTextVars = (
-  { color = "BLACK", checkedColor = color }: CheckBoxVariant,
-  checked = false
-): TextVariants<"check" | "label"> => {
+const getCheckboxTextVars = ({
+  color = "BLACK"
+}: CheckBoxVariant): TextVariants<"label"> => {
   return {
-    check: {
-      color: checked ? checkedColor : color,
-      size: 1,
-      weight: "bold"
-    },
     label: {
       color,
       weight: "bold"
@@ -58,4 +59,4 @@ const getCheckboxTextVars = (
   };
 };
 
-export { getCheckboxStyle, getCheckboxTextVars, styles };
+export { getCheckboxColor, getCheckboxStyle, getCheckboxTextVars, styles };

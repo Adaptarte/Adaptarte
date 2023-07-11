@@ -8,12 +8,12 @@ describe("Img", () => {
 
     render(
       <>
-        <Img src={"close"} />
+        <Img src={"care"} />
         <Img src={{ uri: "https://picsum.photos/200" }} />
       </>
     );
 
-    const img = screen.queryByTestId("img-close");
+    const img = screen.queryByTestId("img-care");
     expect(img).toBeOnTheScreen();
   });
 });
