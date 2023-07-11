@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react-native";
 
+import { getDataDoses } from "utils/datadose";
+
 import { DataDose } from ".";
-import { getDataDoses } from "./data";
 
 describe("DataDose", () => {
   it("Renders content", () => {
@@ -13,15 +14,21 @@ describe("DataDose", () => {
     expect(texts).toHaveLength(2);
 
     const values = texts.map((el) => el.children[0]);
+
     const dose = {
       details: values[1],
       tip: values[0]
     };
 
-    expect(
-      getDataDoses(diseases)
-        .map((el) => el.data)
-        .flat()
-    ).toContainEqual(dose);
+    const data = getDataDoses(diseases)
+      .map((el) => el.data)
+      .flat()
+      .filter((e) => {
+        return e.details === dose.details;
+      })[0];
+
+    const received = { details: data.details, tip: data.tip };
+
+    expect(received).toEqual(dose);
   });
 });
