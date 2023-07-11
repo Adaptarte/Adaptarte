@@ -3,10 +3,11 @@ import { View } from "react-native";
 
 import { Button } from "components/Button";
 import { DataDose } from "components/DataDose";
-import { Img } from "components/Img";
+import { Icon } from "components/Icon";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
+import { colors } from "styles";
 import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
 import { useDbUser, useDbUserData } from "utils/db/firebase";
@@ -42,7 +43,7 @@ const Landing = ({
           {`¡Bienvenido(a) de nuevo, ${name}!`}
         </Text>
         <Button onPress={goToProfile}>
-          <Img src={"profile"} style={styles.profile} />
+          <Icon color={colors.GLAUCOUS} name={"user-circle"} size={48} />
         </Button>
       </View>
       <DataDose diseases={userData?.diseases ?? {}} />

@@ -6,9 +6,9 @@ import { colors } from "styles";
 import type { IconProps } from "./types";
 
 const Icon = ({
+  color = colors.BLACK,
   name,
-  size = 30,
-  color = colors.BLACK
+  size = 30
 }: IconProps): JSX.Element => {
   return (
     <FaIcon

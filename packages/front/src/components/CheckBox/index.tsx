@@ -1,20 +1,26 @@
 import React, { useCallback } from "react";
 import { TouchableOpacity, View } from "react-native";
 
+import { Icon } from "components/Icon";
 import { Text } from "components/Text";
 
-import { getCheckboxStyle, getCheckboxTextVars, styles } from "./styles";
+import {
+  getCheckboxColor,
+  getCheckboxStyle,
+  getCheckboxTextVars,
+  styles
+} from "./styles";
 import type { CheckBoxProps } from "./types";
 
 const CheckBox = ({
   disabled,
-  checked,
+  checked = false,
   label,
   onChange,
   style,
   variant = {}
 }: CheckBoxProps): JSX.Element => {
-  const textVars = getCheckboxTextVars(variant, checked);
+  const textVars = getCheckboxTextVars(variant);
   const varStyle = getCheckboxStyle(variant, checked, disabled);
 
   const handlePress = useCallback(() => {
@@ -28,7 +34,13 @@ const CheckBox = ({
       style={[styles.container, style]}
     >
       <View style={[styles.box, varStyle]}>
-        <Text variant={textVars.check}>{checked ? "✓" : " "}</Text>
+        {checked && (
+          <Icon
+            color={getCheckboxColor(variant, checked)}
+            name={"check"}
+            size={14}
+          />
+        )}
       </View>
       {label && (
         <Text style={styles.label} variant={textVars.label}>

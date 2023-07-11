@@ -15,10 +15,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     margin: 30
   },
-  profile: {
-    marginLeft: 20,
-    width: 60
-  },
   screen: {
     padding: 0
   },

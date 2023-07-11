@@ -1,8 +1,10 @@
 import React, { useCallback } from "react";
-import { Modal as NModal, TouchableOpacity, View } from "react-native";
+import { Modal as NModal, View } from "react-native";
 
-import { Img } from "components/Img";
+import { Button } from "components/Button";
+import { Icon } from "components/Icon";
 import { Text } from "components/Text";
+import { colors } from "styles";
 
 import { styles, titleVar } from "./styles";
 import type { ModalProps } from "./types";
@@ -28,9 +30,9 @@ const Modal = ({
         <View style={styles.container}>
           <View style={styles.header}>
             <Text variant={titleVar}>{title}</Text>
-            <TouchableOpacity onPress={handleClose}>
-              <Img src={"close"} style={styles.closeButtonImage} />
-            </TouchableOpacity>
+            <Button onPress={handleClose}>
+              <Icon color={colors.BLACK} name={"times"} size={20} />
+            </Button>
           </View>
           {children}
         </View>
