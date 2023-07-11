@@ -3,8 +3,8 @@ import { View } from "react-native";
 
 import { Img } from "components/Img";
 import { Text } from "components/Text";
+import { pickDataDose } from "utils/datadose";
 
-import { pickDataDose } from "./data";
 import { styles, textVars } from "./styles";
 import type { DataDoseProps } from "./types";
 
@@ -17,7 +17,7 @@ const DataDose = ({ diseases }: DataDoseProps): JSX.Element => {
         <Text variant={textVars.tip}>{dose.tip}</Text>
         <Text variant={textVars.details}>{dose.details}</Text>
       </View>
-      <Img src={"dataDose"} style={styles.img} />
+      <Img src={dose.img} style={styles.img} />
     </View>
   );
 };
