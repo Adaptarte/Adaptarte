@@ -11,7 +11,13 @@ const Icon = ({
   color = colors.BLACK
 }: IconProps): JSX.Element => {
   return (
-    <FaIcon color={color} name={name} size={size} testID={`icon-${name}`} />
+    <FaIcon
+      color={color}
+      name={name}
+      size={size}
+      solid
+      testID={`icon-${name}`}
+    />
   );
 };
 
