@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback } from "react";
 
 import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
@@ -6,7 +6,7 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
-import { useDbUserData } from "utils/db/firebase";
+import { delUserData, useDbUserData } from "utils/db/firebase";
 import { getConsumptionExpected, groupConsumptionByFoodType } from "utils/food";
 import { foodTypes } from "utils/food/types";
 
@@ -24,10 +24,21 @@ const Feeding = ({
   ]);
   const intakes = groupConsumptionByFoodType(foodIntakes);
 
+  const handleDelete = useCallback(
+    (id: string): void => {
+      delUserData(user.uid, "FoodIntake", id);
+    },
+    [user.uid]
+  );
+
   return (
     <Screen>
       {foodTypes.map((type) => {
         const tSection = t()[type];
+
+        const handleAdd = (): void => {
+          navigate("Consumption", { type });
+        };
 
         return (
           <Fragment key={type}>
@@ -37,18 +48,19 @@ const Feeding = ({
             <Text style={styles.description}>{tSection.description}</Text>
             <Row columns={3}>
               {intakes?.[type].map(({ data, id }) => {
-                return <FoodCard data={data} id={id} key={id} />;
+                return (
+                  <FoodCard
+                    data={data}
+                    id={id}
+                    key={id}
+                    onDelete={handleDelete}
+                  />
+                );
               })}
               {getConsumptionExpected(type, intakes?.[type].length).map(
-                (el: number) => {
-                  const handleAdd = (): void => {
-                    navigate("Consumption", { type });
-                  };
-
-                  return (
-                    <AddConsumption key={`${type}${el}`} onPress={handleAdd} />
-                  );
-                }
+                (el: number) => (
+                  <AddConsumption key={`${type}${el}`} onPress={handleAdd} />
+                )
               )}
             </Row>
           </Fragment>

@@ -15,17 +15,11 @@ const styles = StyleSheet.create({
   },
   deleteBtn: {
     position: "absolute",
-    right: 5,
-    top: 5,
+    right: 0,
+    top: 0,
     zIndex: 1
   },
-  deleteBtnImg: {
-    borderColor: colors.BLUE_PURPLE,
-    borderRadius: 10,
-    borderWidth: 2,
-    tintColor: colors.BLUE_PURPLE,
-    width: 20
-  },
+
   image: {
     flexBasis: 1,
     flexGrow: 1,

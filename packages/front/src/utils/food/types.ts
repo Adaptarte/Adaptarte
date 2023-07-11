@@ -1,11 +1,11 @@
-import type { ImgProps } from "components/Img/types";
+import type { ImgName } from "components/Img/types";
 
 const foodTypes = ["liquids", "carbs", "fruitsAndVegetables", "dairy"] as const;
 type FoodType = (typeof foodTypes)[number];
 
 interface IFood {
   id: number;
-  img: ImgProps["src"];
+  img: ImgName;
   name: string;
   type: FoodType;
 }
