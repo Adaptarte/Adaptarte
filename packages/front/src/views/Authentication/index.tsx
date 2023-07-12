@@ -17,7 +17,7 @@ import {
 
 import { btnVars, styles, textVars } from "./styles";
 
-const SignIn = (): JSX.Element => {
+const Authentication = (): JSX.Element => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -130,4 +130,4 @@ const SignIn = (): JSX.Element => {
   );
 };
 
-export { SignIn };
+export { Authentication };
