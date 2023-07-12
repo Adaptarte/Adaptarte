@@ -32,28 +32,21 @@ const signInEmailPassword = async (
 
 const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   await GoogleSignin.hasPlayServices();
-  const token = await GoogleSignin.signIn();
-  const credential = auth.GoogleAuthProvider.credential(token.idToken);
+  const { idToken } = await GoogleSignin.signIn();
+  const credential = auth.GoogleAuthProvider.credential(idToken);
   return auth().signInWithCredential(credential);
 };
 
 const signInApple = async (): Promise<FirebaseAuthTypes.UserCredential> => {
-  const appleAuthRequestResponse = await appleAuth.performRequest({
+  const { identityToken, nonce } = await appleAuth.performRequest({
     requestedOperation: appleAuth.Operation.LOGIN,
     requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
   });
-
-  if (!appleAuthRequestResponse.identityToken) {
-    throw new Error("Apple Sign-In Failed - no identity token returned");
+  if (identityToken === null) {
+    throw new Error("Apple Sign-In failed - no identify token returned");
   }
-
-  const { identityToken, nonce } = appleAuthRequestResponse;
-  const appleCredential = auth.AppleAuthProvider.credential(
-    identityToken,
-    nonce
-  );
-
-  return auth().signInWithCredential(appleCredential);
+  const credential = auth.AppleAuthProvider.credential(identityToken, nonce);
+  return auth().signInWithCredential(credential);
 };
 
 const signOut = (): void => {
