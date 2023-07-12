@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   btn: {
     marginVertical: 4
   },
-
   header: {
     display: "flex",
     flexDirection: "row",
@@ -27,14 +26,10 @@ const styles = StyleSheet.create({
   }
 });
 
-const btnVars: Record<"signIn" | "thirdParty", ButtonVariant> = {
+const btnVars: Record<"signIn", ButtonVariant> = {
   signIn: {
     color: "GLAUCOUS",
     style: "solid"
-  },
-  thirdParty: {
-    color: "GLAUCOUS",
-    style: "outline"
   }
 };
 

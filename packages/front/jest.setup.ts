@@ -16,6 +16,11 @@ jest.mock("@react-native-firebase/analytics", () => () => ({
   logEvent: jest.fn()
 }));
 
+jest.mock("utils/auth", () => ({
+  signInApple: jest.fn(() => Promise.resolve()),
+  signInGoogle: jest.fn(() => Promise.resolve())
+}));
+
 // Enable excluding hidden elements from the queries by default
 configure({
   defaultIncludeHiddenElements: false
