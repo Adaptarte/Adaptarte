@@ -18,9 +18,15 @@ const updateDisplayname = async (name: string): Promise<void> => {
 
 const signUpEmailPassword = async (
   email: string,
-  password: string
+  password: string,
+  username: string
 ): Promise<FirebaseAuthTypes.UserCredential> => {
-  return await auth().createUserWithEmailAndPassword(email, password);
+  const credential = await auth().createUserWithEmailAndPassword(
+    email,
+    password
+  );
+  await updateDisplayname(username);
+  return credential;
 };
 
 const signInEmailPassword = async (
