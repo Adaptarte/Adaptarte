@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback } from "react";
 import { Modal, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
 
@@ -9,7 +9,7 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { registerExercise } from "utils/analytics/analytics";
-import { formatDate } from "utils/date";
+import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import type { DBExercise } from "utils/db/types";
 import { data } from "views/Exercise/data";
@@ -22,25 +22,12 @@ const Exercise = ({
 }: TAppViewProps<"Exercise">): JSX.Element => {
   const db = useDB();
 
-  const [check, setCheck] = useState(false);
-
-  const exercise = db.getDocs("Exercises")[0];
-
-  const exerciseDone = exercise !== undefined;
-  const exerciseCheck = exerciseDone ? exercise.data.date : undefined;
-
-  useEffect(() => {
-    if (exerciseCheck) {
-      if (formatDate(exerciseCheck) === formatDate(new Date())) {
-        setCheck(true);
-      }
-    }
-  }, [exerciseCheck, setCheck, check]);
+  const today = setDayTime(new Date(), 0);
+  const exercise = db.getDocs("Exercises", [["date", ">=", today]])[0];
 
   const handleSaveExercise = useCallback((data: DBExercise) => {
     registerExercise().catch(console.error);
     db.addDoc("Exercises", data);
-    setCheck?.(true);
   }, []);
 
   return (
@@ -68,10 +55,9 @@ const Exercise = ({
               {t().note}
             </Text>
             <Carousel
-              check={check}
+              check={exercise !== undefined}
               data={data}
               onSave={handleSaveExercise}
-              setComplete={setCheck}
             />
           </View>
         </View>
