@@ -11,9 +11,7 @@ const styles = StyleSheet.create({
     padding: 16
   },
   panicBtn: {
-    backgroundColor: colors.RED_LIGHT,
-    borderRadius: 8,
-    margin: 30
+    marginTop: 20
   },
   screen: {
     padding: 0
@@ -33,12 +31,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const textVars: TextVariants<"panicTextColor" | "title" | "welcome"> = {
-  panicTextColor: {
-    color: "WHITE",
-    size: 4,
-    weight: "bold"
-  },
+const textVars: TextVariants<"title" | "welcome"> = {
   title: {
     color: "GLAUCOUS",
     size: 3,

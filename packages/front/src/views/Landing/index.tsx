@@ -15,6 +15,7 @@ import { useDB } from "utils/db";
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
 import { styles, textVars } from "./styles";
+import { t } from "./translations";
 
 const Landing = ({
   navigation: { navigate }
@@ -39,7 +40,7 @@ const Landing = ({
     <Screen bg={"LIGHT"} style={styles.screen}>
       <View style={styles.welcome}>
         <Text style={styles.welcomeText} variant={textVars.welcome}>
-          {`¡Bienvenido(a) de nuevo, ${name}!`}
+          {`¡${t().welcome}, ${name}!`}
         </Text>
         <Button onPress={goToProfile}>
           <Icon color={colors.GLAUCOUS} name={"user-circle"} size={48} />
@@ -48,11 +49,11 @@ const Landing = ({
       <DataDose diseases={userData?.diseases ?? {}} />
       <View style={styles.container}>
         <Text style={styles.sectionTitle} variant={textVars.title}>
-          {"Metas diarias"}
+          {t().dailyGoals}
         </Text>
         <DailyGoals />
         <Text style={styles.sectionTitle} variant={textVars.title}>
-          {"Hábitos diarios"}
+          {t().dailyHabits}
         </Text>
         <DailyHabits
           feeding={foodIntakes.length >= 15 * 0.8}
@@ -61,9 +62,9 @@ const Landing = ({
         <Button
           onPress={goToPanic}
           style={styles.panicBtn}
-          variant={textVars.panicTextColor}
+          variant={{ color: "RED_LIGHT", style: "solid" }}
         >
-          {"Pánico"}
+          {t().panic}
         </Button>
       </View>
     </Screen>
