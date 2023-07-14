@@ -4,9 +4,8 @@ import { Row } from "components/Grid";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
-import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
-import { delUserData, useDbUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import { getConsumptionExpected, groupConsumptionByFoodType } from "utils/food";
 import { foodTypes } from "utils/food/types";
 
@@ -18,18 +17,15 @@ import { t } from "./translations";
 const Feeding = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
-  const user = useUser();
-  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
+  const db = useDB();
+  const foodIntakes = db.getDocs("FoodIntake", [
     ["date", ">=", setDayTime(new Date(), 0)]
   ]);
   const intakes = groupConsumptionByFoodType(foodIntakes);
 
-  const handleDelete = useCallback(
-    (id: string): void => {
-      delUserData(user.uid, "FoodIntake", id);
-    },
-    [user.uid]
-  );
+  const handleDelete = useCallback((id: string): void => {
+    db.delDoc("FoodIntake", id);
+  }, []);
 
   return (
     <Screen>

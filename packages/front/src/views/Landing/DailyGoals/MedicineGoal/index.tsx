@@ -1,8 +1,7 @@
 import React, { useCallback, useEffect, useReducer } from "react";
 
 import { DailyGoal } from "components/DailyGoal";
-import { useUser } from "utils/auth";
-import { addUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import type { DBMedicineIntake } from "utils/db/types";
 import { getRecipeById } from "utils/medicine";
 import {
@@ -19,15 +18,15 @@ const MedicineGoal = ({
   recipeId
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
-  const user = useUser();
+  const db = useDB();
   const recipe = getRecipeById(recipeId);
 
   const handleSave = useCallback(
     (data: DBMedicineIntake) => {
-      addUserData(user.uid, "MedicineIntake", data).catch(console.error);
+      db.addDoc("MedicineIntake", data);
       cancelMedicineNotification(recipe.id);
     },
-    [recipe.id, user.uid]
+    [recipe.id]
   );
 
   useEffect(() => {

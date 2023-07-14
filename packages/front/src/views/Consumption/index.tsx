@@ -9,8 +9,7 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { registerFoodGA } from "utils/analytics/analytics";
-import { useUser } from "utils/auth";
-import { addUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
@@ -21,7 +20,7 @@ const Consumption = ({
   route: { params }
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
-  const user = useUser();
+  const db = useDB();
 
   return (
     <Screen>
@@ -36,7 +35,7 @@ const Consumption = ({
               date: new Date(),
               food: el.id
             };
-            addUserData(user.uid, "FoodIntake", data).catch(console.error);
+            db.addDoc("FoodIntake", data);
             goBack();
           }
           return (

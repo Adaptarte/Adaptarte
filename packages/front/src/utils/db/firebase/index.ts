@@ -1,6 +1,7 @@
 import firestore from "@react-native-firebase/firestore";
 import { useEffect, useState } from "react";
 
+import { useUser } from "utils/auth";
 import { fillDiseases } from "utils/patient";
 
 import type { DBDoc, DBUser, DBUserCollections } from "../types";
@@ -21,22 +22,6 @@ const addUser = async (id: string): Promise<void> => {
       score: 0
     });
   }
-};
-
-const addUserData = async <T extends keyof DBUserCollections>(
-  user: string,
-  collection: T,
-  data: DBUserCollections[T]
-): Promise<DocRef<DBUserCollections[T]>> => {
-  return refUserCol(user, collection).add(data);
-};
-
-const delUserData = <T extends keyof DBUserCollections>(
-  user: string,
-  collection: T,
-  id: string
-): void => {
-  refUserCol(user, collection).doc(id).delete().catch(console.error);
 };
 
 const refUser = (id: string): DocRef<DBUser> => {
@@ -61,27 +46,28 @@ const timestampsToDate = <T>(obj: T): T => {
   return obj;
 };
 
-const useDbUser = (id: string): DBUser | undefined => {
+const useDbUser = (): DBUser | undefined => {
   const [data, setData] = useState<DBUser>();
+  const { uid } = useUser();
 
   useEffect(() => {
-    return refUser(id).onSnapshot((snapshot) => {
+    return refUser(uid).onSnapshot((snapshot) => {
       setData(snapshot.data());
     });
-  }, [id, setData]);
+  }, [setData, uid]);
 
   return data;
 };
 
 const useDbUserData = <T extends keyof DBUserCollections>(
-  user: string,
   collection: T,
   filter?: QueryFilter<DBUserCollections[T]>
 ): DBDoc<DBUserCollections[T]>[] => {
   const [data, setData] = useState<DBDoc<DBUserCollections[T]>[]>([]);
+  const { uid } = useUser();
 
   useEffect(() => {
-    let ref = refUserCol(user, collection) as Query<DBUserCollections[T]>;
+    let ref = refUserCol(uid, collection) as Query<DBUserCollections[T]>;
     filter?.forEach(([field, op, val]) => {
       ref = ref.where(field, op, val);
     });
@@ -93,9 +79,9 @@ const useDbUserData = <T extends keyof DBUserCollections>(
         }))
       );
     });
-  }, [collection, setData, user]);
+  }, [collection, setData, uid]);
 
   return data;
 };
 
-export { addUser, addUserData, delUserData, refUser, useDbUser, useDbUserData };
+export { addUser, refUser, refUserCol, useDbUser, useDbUserData };

@@ -1,9 +1,8 @@
 import React from "react";
 import { View } from "react-native";
 
-import { useUser } from "utils/auth";
 import { addTime, setDayTime } from "utils/date";
-import { useDbUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import { getLastIntakes, getNextIntake, recipes } from "utils/medicine";
 import { setUndoneNotification } from "utils/notifications";
 
@@ -12,14 +11,14 @@ import { TensionGoal } from "./TensionGoal";
 import { WeightGoal } from "./WeightGoal";
 
 const DailyGoals = (): JSX.Element => {
-  const user = useUser();
+  const db = useDB();
   const today = setDayTime(new Date(), 0);
   const filterToday = ["date", ">=", today] as ["date", ">=", Date];
 
-  const medIntakes = useDbUserData(user.uid, "MedicineIntake");
-  const tensionExam = useDbUserData(user.uid, "Tension", [filterToday])[0];
-  const weight = useDbUserData(user.uid, "Weight", [filterToday])[0];
-  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [filterToday]);
+  const medIntakes = db.getDocs("MedicineIntake");
+  const tensionExam = db.getDocs("Tension", [filterToday])[0];
+  const weight = db.getDocs("Weight", [filterToday])[0];
+  const foodIntakes = db.getDocs("FoodIntake", [filterToday]);
 
   setUndoneNotification("food", foodIntakes.length >= 15 * 0.8);
 
