@@ -1,3 +1,5 @@
+import type { QueryFilter } from "./firebase/types";
+
 const allDiseases = [
   "diabetesMellitus",
   "epoc",
@@ -56,6 +58,20 @@ interface DBMedicineRecipe {
   takeFrom: Date;
 }
 
+interface DBOperations {
+  addDoc: <T extends keyof DBUserCollections>(
+    collection: T,
+    data: DBUserCollections[T]
+  ) => void;
+  delDoc: (collection: keyof DBUserCollections, doc: string) => void;
+  getDocs: <T extends keyof DBUserCollections>(
+    collection: T,
+    filter?: QueryFilter<DBUserCollections[T]>
+  ) => DBDoc<DBUserCollections[T]>[];
+  getUser: () => DBUser | undefined;
+  updateUser: (data: Partial<DBUser>) => void;
+}
+
 interface DBTension {
   date: Date;
   diastolic: number;
@@ -87,6 +103,7 @@ export type {
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
+  DBOperations,
   DBTension,
   DBUser,
   DBUserCollections,

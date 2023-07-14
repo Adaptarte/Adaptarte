@@ -10,7 +10,7 @@ import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
-import { useDbUser, useDbUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -19,14 +19,13 @@ import { styles, textVars } from "./styles";
 const Landing = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
+  const db = useDB();
   const user = useUser();
-  const userData = useDbUser(user.uid);
+  const userData = db.getUser();
   const name = user.displayName?.split(" ")[0] ?? "paciente";
 
   const today = setDayTime(new Date(), 0);
-  const foodIntakes = useDbUserData(user.uid, "FoodIntake", [
-    ["date", ">=", today]
-  ]);
+  const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
 
   const goToProfile = useCallback(() => {
     navigate("Profile");

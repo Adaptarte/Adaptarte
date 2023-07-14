@@ -6,20 +6,19 @@ import { EditableText } from "components/EditableText";
 import { Icon } from "components/Icon";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
-import { useUser } from "utils/auth";
-import { addUserData, useDbUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Panic = (): JSX.Element => {
-  const user = useUser();
+  const db = useDB();
   const data = t();
 
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
 
-  const directory = useDbUserData(user.uid, "EmergencyContacts");
+  const directory = db.getDocs("EmergencyContacts");
 
   const emergencyContacts = directory;
 
@@ -33,7 +32,7 @@ const Panic = (): JSX.Element => {
         name: contactName,
         phone: contactPhone
       };
-      addUserData(user.uid, "EmergencyContacts", data).catch(console.error);
+      db.addDoc("EmergencyContacts", data);
       setContactName("");
       setContactPhone("");
     } else {

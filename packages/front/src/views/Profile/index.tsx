@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import { Button } from "components/Button";
 import { Screen } from "components/Screen";
 import { signOut, useUser } from "utils/auth";
-import { refUser, useDbUser } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import type { DBUser } from "utils/db/types";
 
 import { BasicInfo } from "./BasicInfo";
@@ -12,16 +12,17 @@ import { ProfileHeader } from "./Header";
 import { styles } from "./styles";
 
 const Profile = (): JSX.Element => {
+  const db = useDB();
   const user = useUser();
-  const userData = useDbUser(user.uid);
+  const userData = db.getUser();
 
   const handleChangeDiseases = useCallback((diseases: DBUser["diseases"]) => {
-    refUser(user.uid).update({ diseases }).catch(console.error);
+    db.updateUser({ diseases });
   }, []);
 
   const handleChangeBasicInfo = useCallback(
     (basicInfo: DBUser["basicInfo"]) => {
-      refUser(user.uid).update({ basicInfo }).catch(console.error);
+      db.updateUser({ basicInfo });
     },
     []
   );
@@ -34,7 +35,11 @@ const Profile = (): JSX.Element => {
         key={JSON.stringify(userData?.diseases)}
         onChange={handleChangeDiseases}
       />
-      <BasicInfo data={userData?.basicInfo} onChange={handleChangeBasicInfo} />
+      <BasicInfo
+        data={userData?.basicInfo}
+        key={JSON.stringify(userData?.basicInfo)}
+        onChange={handleChangeBasicInfo}
+      />
       <Button
         onPress={signOut}
         style={styles.signOut}

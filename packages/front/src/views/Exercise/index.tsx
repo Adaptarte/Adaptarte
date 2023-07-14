@@ -9,9 +9,8 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { registerExercise } from "utils/analytics/analytics";
-import { useUser } from "utils/auth";
 import { formatDate } from "utils/date";
-import { addUserData, useDbUserData } from "utils/db/firebase";
+import { useDB } from "utils/db";
 import type { DBExercise } from "utils/db/types";
 import { data } from "views/Exercise/data";
 
@@ -21,11 +20,11 @@ import { t } from "./translations";
 const Exercise = ({
   navigation: { canGoBack, goBack }
 }: TAppViewProps<"Exercise">): JSX.Element => {
-  const user = useUser();
+  const db = useDB();
 
   const [check, setCheck] = useState(false);
 
-  const exercise = useDbUserData(user.uid, "Exercises")[0];
+  const exercise = db.getDocs("Exercises")[0];
 
   const exerciseDone = exercise !== undefined;
   const exerciseCheck = exerciseDone ? exercise.data.date : undefined;
@@ -40,7 +39,7 @@ const Exercise = ({
 
   const handleSaveExercise = useCallback((data: DBExercise) => {
     registerExercise().catch(console.error);
-    addUserData(user.uid, "Exercises", data).catch(console.error);
+    db.addDoc("Exercises", data);
     setCheck?.(true);
   }, []);
 
