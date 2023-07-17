@@ -15,6 +15,9 @@ jobs:
         working-directory: packages/front
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: Install dependencies
         run: npm ci
@@ -28,3 +31,24 @@ jobs:
 
       - name: Format
         run: npm run format:check
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/front
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./
+
+      - name: Install front dependencies
+        run: npm ci
+
+      - name: Test
+        run: npm run test
