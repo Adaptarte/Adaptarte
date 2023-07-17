@@ -5,6 +5,7 @@ on:
       - main
     paths:
       - packages/front/**
+  workflow_dispatch:
 jobs:
   lint:
     name: Lint & Format
