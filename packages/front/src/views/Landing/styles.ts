@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     padding: 16
   },
+  img: {
+    borderRadius: 30,
+    width: 60
+  },
   panicBtn: {
     marginTop: 20
   },

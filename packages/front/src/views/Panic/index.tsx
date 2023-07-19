@@ -8,12 +8,21 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import { useDB } from "utils/db";
 
+import { getSymptoms } from "./data";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Panic = (): JSX.Element => {
   const db = useDB();
+  const userData = db.getUser();
   const data = t();
+
+  const signal = getSymptoms(userData?.diseases ?? {});
+
+  const newData = {
+    ...data,
+    signals: signal
+  };
 
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
@@ -46,13 +55,13 @@ const Panic = (): JSX.Element => {
         <Text style={styles.title} variant={textVars.title}>
           {"Signos de alarma"}
         </Text>
-        <Text style={styles.description}>{data.information}</Text>
-        {data.signals.map((signal, index) => {
+        <Text style={styles.description}>{newData.information}</Text>
+        {newData.signals.map((signal, index) => {
           return <Text key={index}>{`• ${signal}`}</Text>;
         })}
         <View style={styles.noteContainer}>
           <Text style={styles.note} variant={textVars.note}>
-            {data.note}
+            {newData.note}
           </Text>
         </View>
       </View>

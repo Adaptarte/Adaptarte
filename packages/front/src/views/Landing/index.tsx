@@ -4,6 +4,7 @@ import { View } from "react-native";
 import { Button } from "components/Button";
 import { DataDose } from "components/DataDose";
 import { Icon } from "components/Icon";
+import { Img } from "components/Img";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
@@ -43,7 +44,11 @@ const Landing = ({
           {`¡${t().welcome}, ${name}!`}
         </Text>
         <Button onPress={goToProfile}>
-          <Icon color={colors.GLAUCOUS} name={"user-circle"} size={48} />
+          {user.photoURL ? (
+            <Img src={{ uri: user.photoURL }} style={styles.img} />
+          ) : (
+            <Icon color={colors.GREY} name={"user-circle"} size={48} />
+          )}
         </Button>
       </View>
       <DataDose diseases={userData?.diseases ?? {}} />
