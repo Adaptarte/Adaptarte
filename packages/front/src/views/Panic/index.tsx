@@ -18,11 +18,7 @@ const Panic = (): JSX.Element => {
   const data = t();
 
   const signal = getSymptoms(userData?.diseases ?? {});
-
-  const newData = {
-    ...data,
-    signals: signal
-  };
+  !signal.length ? null : (data.signals = signal);
 
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
@@ -55,13 +51,13 @@ const Panic = (): JSX.Element => {
         <Text style={styles.title} variant={textVars.title}>
           {"Signos de alarma"}
         </Text>
-        <Text style={styles.description}>{newData.information}</Text>
-        {newData.signals.map((signal, index) => {
+        <Text style={styles.description}>{data.information}</Text>
+        {data.signals.map((signal, index) => {
           return <Text key={index}>{`• ${signal}`}</Text>;
         })}
         <View style={styles.noteContainer}>
           <Text style={styles.note} variant={textVars.note}>
-            {newData.note}
+            {data.note}
           </Text>
         </View>
       </View>
