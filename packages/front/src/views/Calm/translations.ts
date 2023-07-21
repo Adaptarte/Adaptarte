@@ -1,4 +1,12 @@
+import type { CalmActivity } from "./types";
+
 const SPA = {
+  activities: {
+    leisure: "Ocio",
+    meditation: "Meditación",
+    relaxation: "Relajación",
+    snap: "Siesta"
+  } as Record<CalmActivity, string>,
   calm: {
     content: "El ocio y la relajación son importantes para controlar el estrés",
     title: "Calma"
