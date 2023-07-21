@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react-native";
 
 import { Calm } from ".";
 import { t } from "./translations";
+import { activities } from "./types";
 
 describe("Calm", () => {
   beforeEach(() => {
@@ -9,7 +10,7 @@ describe("Calm", () => {
   });
 
   it("Render properly", () => {
-    expect.assertions(6);
+    expect.assertions(6 + activities.length);
 
     const texts = [
       t().stress.title,
@@ -20,6 +21,9 @@ describe("Calm", () => {
     ];
     texts.forEach((text) => {
       expect(screen.queryByText(text)).toBeOnTheScreen();
+    });
+    activities.forEach((activity) => {
+      expect(screen.queryByText(t().activities[activity])).toBeOnTheScreen();
     });
     expect(screen.queryByTestId("img-calm")).toBeOnTheScreen();
   });

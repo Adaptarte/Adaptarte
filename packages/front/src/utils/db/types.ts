@@ -29,6 +29,11 @@ interface DBUser {
   score: number;
 }
 
+interface DBCalmActivity {
+  activity: string;
+  date: Date;
+}
+
 interface DBEmergencyContacts {
   name: string;
   phone: string;
@@ -84,6 +89,7 @@ interface DBWeight {
 }
 
 interface DBUserCollections {
+  CalmActivities: DBCalmActivity;
   EmergencyContacts: DBEmergencyContacts;
   Exercises: DBExercise;
   FoodIntake: DBFoodIntake;
@@ -96,6 +102,7 @@ interface DBUserCollections {
 type DBUserCollectionName = keyof DBUserCollections;
 
 export type {
+  DBCalmActivity,
   DBDoc,
   DBUserCollectionName,
   DBEmergencyContacts,
