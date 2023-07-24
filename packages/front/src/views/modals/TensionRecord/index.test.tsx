@@ -1,13 +1,23 @@
+import { NavigationContainer } from "@react-navigation/native";
 import { fireEvent, render, screen } from "@testing-library/react-native";
 
 import { TensionRecord } from ".";
 import { t } from "./translations";
 
 describe("Tension", () => {
+  let onSave: jest.Mock;
+
+  beforeEach(() => {
+    onSave = jest.fn();
+    render(
+      <NavigationContainer>
+        <TensionRecord onSave={onSave} visible />
+      </NavigationContainer>
+    );
+  });
+
   it("Render content", () => {
     expect.assertions(4);
-    const onSave = jest.fn();
-    render(<TensionRecord onSave={onSave} visible />);
 
     expect(
       screen.queryByPlaceholderText(t().diastolic.placeholder)
@@ -21,8 +31,6 @@ describe("Tension", () => {
 
   it("Save data", () => {
     expect.assertions(1);
-    const onSave = jest.fn();
-    render(<TensionRecord onSave={onSave} visible />);
 
     const diastolicInput = screen.getByPlaceholderText(
       t().diastolic.placeholder
@@ -38,8 +46,6 @@ describe("Tension", () => {
 
   it("Not save incorrect data", () => {
     expect.assertions(1);
-    const onSave = jest.fn();
-    render(<TensionRecord onSave={onSave} visible />);
 
     const diastolicInput = screen.getByPlaceholderText(
       t().diastolic.placeholder
@@ -58,5 +64,23 @@ describe("Tension", () => {
     fireEvent.press(saveButton);
 
     expect(onSave).not.toHaveBeenCalled();
+  });
+
+  it("Show abnormal values alert", () => {
+    expect.assertions(2);
+
+    fireEvent.changeText(
+      screen.getByPlaceholderText(t().diastolic.placeholder),
+      "81"
+    );
+    fireEvent.changeText(
+      screen.getByPlaceholderText(t().systolic.placeholder),
+      "121"
+    );
+    expect(
+      screen.queryByTestId("icon-exclamation-circle")
+    ).not.toBeOnTheScreen();
+    fireEvent.press(screen.getByText(t().save));
+    expect(screen.queryByTestId("icon-exclamation-circle")).toBeOnTheScreen();
   });
 });
