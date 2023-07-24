@@ -10,7 +10,7 @@ describe("Splash", () => {
     const text = screen.queryByText("Adaptarte");
     expect(text).toBeOnTheScreen();
 
-    const img = screen.queryByA11yValue({ text: "care" });
+    const img = screen.queryByTestId("img-care");
     expect(img).toBeOnTheScreen();
   });
 });

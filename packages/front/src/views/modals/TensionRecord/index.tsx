@@ -1,12 +1,17 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 
 import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 
+import { TensionAbnormal } from "./Abnormal";
 import { t } from "./translations";
 import type { TensionRecordProps } from "./types";
+
+const isTensionAbnormal = (diastolic: number, systolic: number): boolean => {
+  return diastolic > 80 || systolic > 120 || diastolic < 60 || systolic < 90;
+};
 
 const TensionRecord = ({
   onSave,
@@ -16,6 +21,15 @@ const TensionRecord = ({
   const [diastolic, setDiastolic] = useState("");
   const [systolic, setSystolic] = useState("");
   const [date, setDate] = useState(new Date());
+  const [showAlert, toggleShowAlert] = useReducer((val) => !val, false);
+
+  const validateTension = useCallback(() => {
+    if (isTensionAbnormal(parseInt(diastolic), parseInt(systolic))) {
+      toggleShowAlert();
+    } else {
+      handleSave();
+    }
+  }, [diastolic, systolic]);
 
   const handleSave = useCallback(() => {
     onSave({
@@ -30,7 +44,14 @@ const TensionRecord = ({
     setDate(new Date());
   }, [visible]);
 
-  return (
+  return showAlert ? (
+    <TensionAbnormal
+      onConfirm={handleSave}
+      setVisible={toggleShowAlert}
+      value={`${systolic}/${diastolic}`}
+      visible={visible}
+    />
+  ) : (
     <Modal setVisible={setVisible} title={t().title} visible={visible}>
       <Input
         label={t().systolic.label}
@@ -54,7 +75,7 @@ const TensionRecord = ({
       />
       <Button
         disabled={isNaN(parseFloat(diastolic)) || isNaN(parseFloat(systolic))}
-        onPress={handleSave}
+        onPress={validateTension}
         variant={{ style: "solid" }}
       >
         {t().save}
