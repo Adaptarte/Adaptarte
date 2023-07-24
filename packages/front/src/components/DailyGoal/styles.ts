@@ -9,7 +9,7 @@ import type { DailyGoalType } from "./types";
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: colors.YELLOW,
+    backgroundColor: colors.YELLOW_LIGHT,
     borderRadius: 16,
     borderWidth: 1,
     display: "flex",

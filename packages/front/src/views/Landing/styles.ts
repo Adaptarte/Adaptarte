@@ -12,10 +12,13 @@ const styles = StyleSheet.create({
   },
   img: {
     borderRadius: 30,
-    width: 60
+    width: 48
   },
   panicBtn: {
     marginTop: 20
+  },
+  profileBtn: {
+    flexDirection: "column"
   },
   screen: {
     padding: 0

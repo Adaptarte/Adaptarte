@@ -19,6 +19,7 @@ type TColor =
   | "RED_LIGHT"
   | "TRANSPARENT"
   | "WHITE"
+  | "YELLOW_LIGHT"
   | "YELLOW";
 
 const colors: Record<TColor, string> = {
@@ -42,7 +43,8 @@ const colors: Record<TColor, string> = {
   RED_LIGHT: "#D76682",
   TRANSPARENT: "#FFF0",
   WHITE: "#FFF",
-  YELLOW: "#FFEFCA"
+  YELLOW: "#EE9B00",
+  YELLOW_LIGHT: "#FFEFCA"
 };
 
 export { colors };

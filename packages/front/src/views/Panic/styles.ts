@@ -1,12 +1,11 @@
 import { StyleSheet } from "react-native";
 
+import type { TextVariants } from "components/Text/types";
 import { colors } from "styles";
-
-import type { TextVariants } from "../../components/Text/types";
 
 const styles = StyleSheet.create({
   contacts: {
-    backgroundColor: colors.YELLOW,
+    backgroundColor: colors.YELLOW_LIGHT,
     borderRadius: 8,
     elevation: 1,
     marginBottom: 16,

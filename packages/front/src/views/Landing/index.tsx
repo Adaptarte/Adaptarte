@@ -22,12 +22,12 @@ const Landing = ({
   navigation: { navigate }
 }: TAppViewProps<"Landing">): JSX.Element => {
   const db = useDB();
-  const user = useUser();
   const userData = db.getUser();
-  const name = user.displayName?.split(" ")[0] ?? "paciente";
-
   const today = setDayTime(new Date(), 0);
   const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
+
+  const user = useUser();
+  const name = user.displayName?.split(" ")[0] ?? "paciente";
 
   const goToProfile = useCallback(() => {
     navigate("Profile");
@@ -43,12 +43,16 @@ const Landing = ({
         <Text style={styles.welcomeText} variant={textVars.welcome}>
           {`¡${t().welcome}, ${name}!`}
         </Text>
-        <Button onPress={goToProfile}>
+        <Button onPress={goToProfile} style={styles.profileBtn}>
           {user.photoURL ? (
             <Img src={{ uri: user.photoURL }} style={styles.img} />
           ) : (
             <Icon color={colors.GREY} name={"user-circle"} size={48} />
           )}
+          <Text>
+            <Icon color={colors.YELLOW} name={"star"} size={16} />
+            {userData?.score ?? 0}
+          </Text>
         </Button>
       </View>
       <DataDose diseases={userData?.diseases ?? {}} />
