@@ -21,7 +21,7 @@ const Diseases = ({ diseases, onChange }: DiseasesProps): JSX.Element => {
       <Row>
         {allDiseases.map((el) =>
           fullDiseases[el] ? (
-            <Tag bg={"YELLOW"} key={el}>
+            <Tag bg={"YELLOW_LIGHT"} key={el}>
               {t()[el]}
             </Tag>
           ) : null

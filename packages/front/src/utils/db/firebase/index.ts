@@ -2,27 +2,9 @@ import firestore from "@react-native-firebase/firestore";
 import { useEffect, useState } from "react";
 
 import { useUser } from "utils/auth";
-import { fillDiseases } from "utils/patient";
 
 import type { DBDoc, DBUser, DBUserCollections } from "../types";
 import type { ColRef, DocRef, Query, QueryFilter } from "./types";
-
-const addUser = async (id: string): Promise<void> => {
-  const snapshot = await refUser(id).get();
-  if (!snapshot.exists) {
-    return snapshot.ref.set({
-      diet: {
-        carbs: 3,
-        dairy: 3,
-        fruitsAndVegetables: 4,
-        liquids: 6,
-        protein: 2
-      },
-      diseases: fillDiseases(),
-      score: 0
-    });
-  }
-};
 
 const refUser = (id: string): DocRef<DBUser> => {
   return firestore().collection<DBUser>("Users").doc(id);
@@ -84,4 +66,4 @@ const useDbUserData = <T extends keyof DBUserCollections>(
   return data;
 };
 
-export { addUser, refUser, refUserCol, useDbUser, useDbUserData };
+export { refUser, refUserCol, useDbUser, useDbUserData };
