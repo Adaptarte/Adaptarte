@@ -6,6 +6,7 @@ import { Text } from "components/Text";
 import type { TAppViewProps } from "navigation/App/types";
 import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
+import { useScore } from "utils/engagement/score";
 import { getConsumptionExpected, groupConsumptionByFoodType } from "utils/food";
 import { foodTypes } from "utils/food/types";
 
@@ -18,14 +19,19 @@ const Feeding = ({
   navigation: { navigate }
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const db = useDB();
+  const score = useScore();
   const foodIntakes = db.getDocs("FoodIntake", [
     ["date", ">=", setDayTime(new Date(), 0)]
   ]);
   const intakes = groupConsumptionByFoodType(foodIntakes);
 
-  const handleDelete = useCallback((id: string): void => {
-    db.delDoc("FoodIntake", id);
-  }, []);
+  const handleDelete = useCallback(
+    (id: string): void => {
+      db.delDoc("FoodIntake", id);
+      score.add(-1);
+    },
+    [score.add]
+  );
 
   return (
     <Screen>

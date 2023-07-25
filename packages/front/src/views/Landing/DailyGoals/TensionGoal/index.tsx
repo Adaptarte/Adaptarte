@@ -4,6 +4,7 @@ import { DailyGoal } from "components/DailyGoal";
 import { dateToString } from "utils/date";
 import { useDB } from "utils/db";
 import type { DBTension } from "utils/db/types";
+import { useScore } from "utils/engagement/score";
 import {
   addTensionNotification,
   cancelTensionNotification,
@@ -16,6 +17,7 @@ import type { TensionGoalProps } from "./types";
 const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
   const db = useDB();
+  const score = useScore();
 
   setUndoneNotification("tension", done);
 
@@ -27,9 +29,13 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
     }
   }, [done]);
 
-  const handleSave = useCallback((data: DBTension) => {
-    db.addDoc("Tension", data);
-  }, []);
+  const handleSave = useCallback(
+    (data: DBTension) => {
+      db.addDoc("Tension", data);
+      score.add(10);
+    },
+    [score.add]
+  );
 
   return (
     <>

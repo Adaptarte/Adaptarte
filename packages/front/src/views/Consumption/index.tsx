@@ -10,6 +10,7 @@ import type { TAppViewProps } from "navigation/App/types";
 import { colors } from "styles";
 import { registerFoodGA } from "utils/analytics/analytics";
 import { useDB } from "utils/db";
+import { useScore } from "utils/engagement/score";
 import { getFoodByType } from "utils/food";
 
 import { styles, textVars } from "./styles";
@@ -21,6 +22,7 @@ const Consumption = ({
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
   const db = useDB();
+  const score = useScore();
 
   return (
     <Screen>
@@ -36,6 +38,7 @@ const Consumption = ({
               food: el.id
             };
             db.addDoc("FoodIntake", data);
+            score.add(1);
             goBack();
           }
           return (

@@ -12,6 +12,7 @@ import { colors } from "styles";
 import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
+import { useScore } from "utils/engagement/score";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -23,6 +24,7 @@ const Landing = ({
 }: TAppViewProps<"Landing">): JSX.Element => {
   const db = useDB();
   const userData = db.getUser();
+  const score = useScore();
   const today = setDayTime(new Date(), 0);
   const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
 
@@ -51,7 +53,7 @@ const Landing = ({
           )}
           <Text>
             <Icon color={colors.YELLOW} name={"star"} size={16} />
-            {userData?.score ?? 0}
+            {score.value}
           </Text>
         </Button>
       </View>
