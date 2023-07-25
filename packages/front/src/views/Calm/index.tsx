@@ -9,6 +9,7 @@ import { Text } from "components/Text";
 import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import type { DBCalmActivity, DBDoc } from "utils/db/types";
+import { useScore } from "utils/engagement/score";
 
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
@@ -16,6 +17,7 @@ import { activities } from "./types";
 
 const Calm = (): JSX.Element => {
   const db = useDB();
+  const score = useScore();
 
   const today = setDayTime(new Date(), 0);
   const todayActivities = db.getDocs("CalmActivities", [["date", ">=", today]]);
@@ -50,12 +52,15 @@ const Calm = (): JSX.Element => {
           const doc = calmHabit[activity];
           const done = doc !== undefined;
           const handlePress = useCallback(() => {
+            const SCORE = 2;
             if (done) {
               db.delDoc("CalmActivities", doc.id);
+              score.add(-SCORE);
             } else {
               db.addDoc("CalmActivities", { activity, date: new Date() });
+              score.add(SCORE);
             }
-          }, [doc]);
+          }, [doc, score.add]);
 
           return (
             <Button

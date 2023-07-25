@@ -12,6 +12,7 @@ import { registerExercise } from "utils/analytics/analytics";
 import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import type { DBExercise } from "utils/db/types";
+import { useScore } from "utils/engagement/score";
 import { data } from "views/Exercise/data";
 
 import { styles, textVars } from "./styles";
@@ -21,14 +22,19 @@ const Exercise = ({
   navigation: { canGoBack, goBack }
 }: TAppViewProps<"Exercise">): JSX.Element => {
   const db = useDB();
+  const score = useScore();
 
   const today = setDayTime(new Date(), 0);
   const exercise = db.getDocs("Exercises", [["date", ">=", today]])[0];
 
-  const handleSaveExercise = useCallback((data: DBExercise) => {
-    registerExercise().catch(console.error);
-    db.addDoc("Exercises", data);
-  }, []);
+  const handleSaveExercise = useCallback(
+    (data: DBExercise) => {
+      registerExercise().catch(console.error);
+      db.addDoc("Exercises", data);
+      score.add(5);
+    },
+    [score.add]
+  );
 
   return (
     <GestureRecognizer onSwipeDown={goBack} style={{ flex: 1 }}>

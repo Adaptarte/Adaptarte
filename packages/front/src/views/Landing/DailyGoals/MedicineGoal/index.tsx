@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useReducer } from "react";
 import { DailyGoal } from "components/DailyGoal";
 import { useDB } from "utils/db";
 import type { DBMedicineIntake } from "utils/db/types";
+import { useScore } from "utils/engagement/score";
 import { getRecipeById } from "utils/medicine";
 import {
   addMedicineNotification,
@@ -19,14 +20,16 @@ const MedicineGoal = ({
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
   const db = useDB();
+  const score = useScore();
   const recipe = getRecipeById(recipeId);
 
   const handleSave = useCallback(
     (data: DBMedicineIntake) => {
       db.addDoc("MedicineIntake", data);
+      score.add(10);
       cancelMedicineNotification(recipe.id);
     },
-    [recipe.id]
+    [recipe.id, score.add]
   );
 
   useEffect(() => {
