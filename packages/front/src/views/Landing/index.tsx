@@ -13,6 +13,7 @@ import { useUser } from "utils/auth";
 import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import { useScore } from "utils/engagement/score";
+import { NotificationsPermission } from "views/modals/NotificationsPermission";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -77,6 +78,7 @@ const Landing = ({
         >
           {t().panic}
         </Button>
+        <NotificationsPermission />
       </View>
     </Screen>
   );
