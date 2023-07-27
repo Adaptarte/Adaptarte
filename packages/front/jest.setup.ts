@@ -16,6 +16,11 @@ jest.mock("@notifee/react-native", () => ({
     })
   ),
   openAlarmPermissionSettings: jest.fn(),
+  requestPermission: jest.fn(() =>
+    Promise.resolve({
+      authorizationStatus: 1
+    })
+  ),
   TriggerType: {
     TIMESTAMP: 0
   }
