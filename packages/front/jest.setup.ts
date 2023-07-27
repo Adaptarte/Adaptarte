@@ -10,6 +10,12 @@ jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter");
 jest.mock("@notifee/react-native", () => ({
   cancelNotification: jest.fn(() => Promise.resolve()),
   createTriggerNotification: jest.fn(() => Promise.resolve()),
+  getNotificationSettings: jest.fn(() =>
+    Promise.resolve({
+      authorizationStatus: 0
+    })
+  ),
+  openAlarmPermissionSettings: jest.fn(),
   TriggerType: {
     TIMESTAMP: 0
   }
