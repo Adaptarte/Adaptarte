@@ -25,6 +25,9 @@ const addNotification = (
       }
     },
     {
+      alarmManager: {
+        allowWhileIdle: true
+      },
       timestamp: Math.max(Date.now() + 1e3, time),
       type: TriggerType.TIMESTAMP
     }
