@@ -1,8 +1,10 @@
-import React from "react";
+import type { ChangeEvent } from "react";
+import React, { useCallback } from "react";
 
 import type { InputProps } from "./types";
 
 const Input = ({
+  className = "",
   disabled,
   id,
   label,
@@ -11,8 +13,15 @@ const Input = ({
   placeholder,
   value
 }: InputProps): JSX.Element => {
+  const handleChange = useCallback(
+    (ev: ChangeEvent<HTMLInputElement>) => {
+      onChange?.(ev.target.value);
+    },
+    [onChange]
+  );
+
   return (
-    <div className={"mb-2 mt-1"}>
+    <div className={className}>
       {label === undefined ? null : (
         <label className={"mb-1"} htmlFor={id}>
           {label}
@@ -23,7 +32,7 @@ const Input = ({
         disabled={disabled}
         id={id}
         name={name}
-        onChange={onChange}
+        onChange={handleChange}
         placeholder={placeholder}
         value={value}
       />
