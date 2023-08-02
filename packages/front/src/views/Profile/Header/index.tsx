@@ -22,8 +22,8 @@ const ProfileHeader = ({ name, photo }: ProfileHeaderProps): JSX.Element => {
           <Icon color={colors.GREY} name={"user-circle"} size={128} />
         )}
       </View>
-      <Text variant={{ size: 3, weight: "bold" }}>
-        {(name ?? "Paciente") + " - "}
+      <Text variant={{ size: 3, weight: "bold" }}>{name ?? "Paciente"}</Text>
+      <Text variant={{ size: 2, weight: "bold" }}>
         <Icon color={colors.YELLOW} name={"star"} size={16} />
         {score.value}
       </Text>
