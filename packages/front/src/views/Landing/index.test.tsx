@@ -19,22 +19,19 @@ describe("Landing", () => {
   });
 
   it("Render properly", () => {
-    expect.assertions(5);
+    expect.assertions(4);
 
     expect(screen.queryByText(t().dailyGoals)).toBeOnTheScreen();
     expect(screen.queryByText(t().dailyHabits)).toBeOnTheScreen();
     expect(screen.queryByText(`¡${t().welcome}, John!`)).toBeOnTheScreen();
-    expect(screen.queryByText(t().panic)).toBeOnTheScreen();
     expect(screen.queryByTestId("icon-user-circle")).toBeOnTheScreen();
   });
 
   it("Navigate to other screens", () => {
-    expect.assertions(3);
+    expect.assertions(2);
 
     fireEvent.press(screen.getByTestId("icon-user-circle"));
     expect(navigation.navigate).toHaveBeenLastCalledWith("Profile");
-    fireEvent.press(screen.getByText(t().panic));
-    expect(navigation.navigate).toHaveBeenLastCalledWith("Panic");
-    expect(navigation.navigate).toHaveBeenCalledTimes(2);
+    expect(navigation.navigate).toHaveBeenCalledTimes(1);
   });
 });

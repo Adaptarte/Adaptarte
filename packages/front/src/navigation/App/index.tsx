@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
 import { Header } from "components/Header";
+import { colors } from "styles";
 import { Calm } from "views/Calm";
 import { Consumption } from "views/Consumption";
 import { Exercise } from "views/Exercise";
@@ -32,7 +33,11 @@ const AppNavigation = (): JSX.Element => {
           name={"Feeding"}
           options={{ title: "Alimentación" }}
         />
-        <Screen component={Profile} name={"Profile"} />
+        <Group
+          screenOptions={{ headerStyle: { backgroundColor: colors.LIGHT } }}
+        >
+          <Screen component={Profile} name={"Profile"} />
+        </Group>
         <Screen
           component={Panic}
           name={"Panic"}
