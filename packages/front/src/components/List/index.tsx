@@ -4,7 +4,7 @@ import { Column, Row } from "components/Grid";
 
 import type { ListProps } from "./types";
 
-const List = <T, >({
+const List = <T,>({
   columns,
   data,
   keyGetter,
