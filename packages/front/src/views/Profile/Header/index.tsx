@@ -23,10 +23,8 @@ const ProfileHeader = ({ name, photo }: ProfileHeaderProps): JSX.Element => {
         )}
       </View>
       <Text variant={{ size: 3, weight: "bold" }}>
-        {name ?? "Paciente"}
-{' '}
-{"-"}
-<Icon color={colors.YELLOW} name={"star"} size={16} />
+        {name ?? "Paciente"} {"-"}
+        <Icon color={colors.YELLOW} name={"star"} size={16} />
         {score.value}
       </Text>
     </View>
