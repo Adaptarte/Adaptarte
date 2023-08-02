@@ -28,16 +28,13 @@ const Landing = ({
   const score = useScore();
   const today = setDayTime(new Date(), 0);
   const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
+  const exerciseDone = db.getDocs("Exercises", [["date", ">=", today]]);
 
   const user = useUser();
   const name = user.displayName?.split(" ")[0] ?? "paciente";
 
   const goToProfile = useCallback(() => {
     navigate("Profile");
-  }, [navigate]);
-
-  const goToPanic = useCallback(() => {
-    navigate("Panic");
   }, [navigate]);
 
   return (
@@ -68,16 +65,10 @@ const Landing = ({
           {t().dailyHabits}
         </Text>
         <DailyHabits
+          exercise={exerciseDone.length > 0}
           feeding={foodIntakes.length >= 15 * 0.8}
           navigate={navigate}
         />
-        <Button
-          onPress={goToPanic}
-          style={styles.panicBtn}
-          variant={{ color: "RED_LIGHT", style: "solid" }}
-        >
-          {t().panic}
-        </Button>
         <NotificationsPermission />
       </View>
     </Screen>
