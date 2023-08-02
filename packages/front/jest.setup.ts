@@ -8,6 +8,9 @@ jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
 jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter");
 
 jest.mock("@notifee/react-native", () => ({
+  AndroidNotificationSetting: {
+    DISABLED: 0
+  },
   cancelNotification: jest.fn(() => Promise.resolve()),
   createTriggerNotification: jest.fn(() => Promise.resolve()),
   getNotificationSettings: jest.fn(() =>
@@ -23,7 +26,15 @@ jest.mock("@notifee/react-native", () => ({
   ),
   TriggerType: {
     TIMESTAMP: 0
-  }
+  },
+  getNotificationSettings: jest.fn(() =>
+    Promise.resolve({
+      android: {
+        alarm: 0
+      }
+    })
+  ),
+  openAlarmPermissionSettings: jest.fn()
 }));
 jest.mock("@react-native-google-signin/google-signin", () => ({
   GoogleSignin: {
