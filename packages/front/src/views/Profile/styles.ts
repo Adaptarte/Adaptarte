@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     marginTop: 100,
     padding: 16,
-    paddingTop: 130
+    paddingTop: 150
   },
   hr: {
     borderBottomColor: colors.GLAUCOUS,
