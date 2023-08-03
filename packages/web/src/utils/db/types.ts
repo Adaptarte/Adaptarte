@@ -4,7 +4,8 @@ const allDiseases = [
   "heartFailure",
   "hypertension"
 ] as const;
-type TDiseases = Record<(typeof allDiseases)[number], boolean>;
+
+type DBDisease = (typeof allDiseases)[number];
 
 interface DBDoc<T extends object> {
   id: string;
@@ -18,7 +19,7 @@ interface DBUser {
     name?: string;
     phone?: string;
   };
-  diseases?: TDiseases;
+  diseases?: DBDisease[];
   score?: number;
 }
 
@@ -49,8 +50,7 @@ interface DBMedicineIntake {
 }
 
 interface DBMedicineRecipe {
-  amount: number;
-  details: string;
+  details?: string;
   interval: number;
   medicine: string;
   takeFrom: Date;
@@ -82,6 +82,7 @@ type DBUserCollectionName = keyof DBUserCollections;
 
 export type {
   DBCalmActivity,
+  DBDisease,
   DBDoc,
   DBUserCollectionName,
   DBEmergencyContacts,
@@ -92,7 +93,6 @@ export type {
   DBTension,
   DBUser,
   DBUserCollections,
-  DBWeight,
-  TDiseases
+  DBWeight
 };
 export { allDiseases };
