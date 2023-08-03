@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
-import { Paper } from "components/Paper";
 
+import { MedicineRecipe } from "./MedicineRecipe";
 import { PatientInfo } from "./PatientInfo";
 import { t } from "./translations";
 
@@ -21,9 +21,17 @@ const Landing = (): JSX.Element => {
         />
         <Button>{t().search.button}</Button>
       </div>
-      <Paper className={"mb-2"}>
-        <PatientInfo />
-      </Paper>
+      <PatientInfo />
+      <p className={"h4 mb-1 mt-4"}>{t().medicineRecipes}</p>
+      <div className={"row"}>
+        <MedicineRecipe
+          data={{
+            interval: 8,
+            medicine: "Acído Acetilsalicílico",
+            takeFrom: new Date()
+          }}
+        />
+      </div>
     </div>
   );
 };
