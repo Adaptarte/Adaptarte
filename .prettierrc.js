@@ -9,6 +9,6 @@ module.exports = {
   singleAttributePerLine: false,
   singleQuote: false,
   tabWidth: 2,
-  trailingComma: "none",
-  useTabs: false
+  trailingComma: "all",
+  useTabs: false,
 };
