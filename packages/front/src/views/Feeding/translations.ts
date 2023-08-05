@@ -17,6 +17,12 @@ const SPA = {
   liquids: {
     description: "Recuerda consumir tus 5 porciones de líquidos",
     title: "Líquidos"
+  },
+  protein: {
+    description:
+      "Consume 2 porciones de proteínas animales. La porción es " +
+      "es el equivalente a 250g o una presa mediana de pollo, carne o pescado.",
+    title: "Proteína"
   }
 };
 

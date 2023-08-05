@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
     marginTop: 100,
+    minHeight: 635,
     padding: 16,
     paddingTop: 150
   },

@@ -162,6 +162,36 @@ const food: IFood[] = [
     img: "lemonade",
     name: "Limonada",
     type: "liquids"
+  },
+  {
+    id: 28,
+    img: "lemonade",
+    name: "Carnes magras",
+    type: "protein"
+  },
+  {
+    id: 29,
+    img: "lemonade",
+    name: "Pescado",
+    type: "protein"
+  },
+  {
+    id: 30,
+    img: "lemonade",
+    name: "Mariscos",
+    type: "protein"
+  },
+  {
+    id: 31,
+    img: "lemonade",
+    name: "Aves",
+    type: "protein"
+  },
+  {
+    id: 32,
+    img: "lemonade",
+    name: "Huevos",
+    type: "protein"
   }
 ];
 
