@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 import { Button } from "components/Button";
 import { Paper } from "components/Paper";
 import type { DBDisease } from "utils/db/types";
 
+import { EditPatientInfo } from "./Edit";
 import { t } from "./translations";
 import type { PatientInfoProps } from "./types";
 
@@ -14,6 +15,8 @@ const styles = {
 };
 
 const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
+  const [edit, toggleEdit] = useReducer((val) => !val, false);
+
   const diseases = Object.keys(data.diseases ?? {}).filter(
     (key) => data.diseases?.[key as DBDisease],
   ) as DBDisease[];
@@ -63,7 +66,10 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
           </Paper>
         </div>
       </div>
-      <Button className={"mt-3"}>{t().edit}</Button>
+      <Button className={"mt-3"} onClick={toggleEdit}>
+        {t().edit}
+      </Button>
+      <EditPatientInfo data={data} onClose={toggleEdit} visible={edit} />
     </Paper>
   );
 };
