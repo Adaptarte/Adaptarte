@@ -1,8 +1,11 @@
-interface ModalProps {
+interface ModalProps extends ModalVisibilityProps {
   children?: React.ReactNode;
-  onClose: (visible: boolean) => void;
   title: string;
+}
+
+interface ModalVisibilityProps {
+  onClose: (visible: boolean) => void;
   visible: boolean;
 }
 
-export type { ModalProps };
+export type { ModalProps, ModalVisibilityProps };

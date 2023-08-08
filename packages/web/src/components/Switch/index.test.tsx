@@ -8,7 +8,7 @@ describe("components/Switch", () => {
   const TestSwitch = (): JSX.Element => {
     const [value, setValue] = useState(false);
 
-    return <Switch label={label} onChange={setValue} value={value} />;
+    return <Switch checked={value} label={label} onChange={setValue} />;
   };
 
   beforeEach(() => {

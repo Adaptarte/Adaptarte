@@ -2,7 +2,7 @@ const allDiseases = [
   "diabetesMellitus",
   "epoc",
   "heartFailure",
-  "hypertension"
+  "hypertension",
 ] as const;
 
 type DBDisease = (typeof allDiseases)[number];
@@ -19,7 +19,7 @@ interface DBUser {
     name?: string;
     phone?: string;
   };
-  diseases?: DBDisease[];
+  diseases?: Record<DBDisease, boolean>;
   score?: number;
 }
 
@@ -93,6 +93,6 @@ export type {
   DBTension,
   DBUser,
   DBUserCollections,
-  DBWeight
+  DBWeight,
 };
 export { allDiseases };

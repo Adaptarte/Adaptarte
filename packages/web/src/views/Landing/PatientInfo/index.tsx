@@ -2,6 +2,7 @@ import React from "react";
 
 import { Button } from "components/Button";
 import { Paper } from "components/Paper";
+import type { DBDisease } from "utils/db/types";
 
 import { t } from "./translations";
 import type { PatientInfoProps } from "./types";
@@ -9,10 +10,13 @@ import type { PatientInfoProps } from "./types";
 const styles = {
   col: "col-12 col-md-6 col-xl-3",
   key: "fw-bold mb-0",
-  val: "mb-0"
+  val: "mb-0",
 };
 
 const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
+  const diseases = Object.keys(data.diseases ?? {}).filter(
+    (key) => data.diseases?.[key as DBDisease],
+  ) as DBDisease[];
   return (
     <Paper>
       <div className={"row gy-3"}>
@@ -50,7 +54,7 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
           <Paper>
             <p className={styles.key}>{t().diseases.label}</p>
             <div className={"d-flex flex-wrap"}>
-              {data.diseases?.map((el) => (
+              {diseases.map((el) => (
                 <p className={"mb-0 me-3"} key={el}>
                   {t().diseases[el]}
                 </p>
