@@ -1,7 +1,9 @@
-interface SwitchProps {
+import type { InputHTMLAttributes } from "react";
+
+interface SwitchProps
+  extends Pick<InputHTMLAttributes<HTMLInputElement>, "checked" | "className"> {
   label?: string;
   onChange: (val: boolean) => void;
-  value: boolean;
 }
 
 export type { SwitchProps };

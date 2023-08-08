@@ -6,7 +6,12 @@ import type { SwitchProps } from "./types";
 const size = 12;
 const transitionDuration = "0.4s";
 
-const Switch = ({ label, onChange, value }: SwitchProps): JSX.Element => {
+const Switch = ({
+  checked,
+  className = "",
+  label,
+  onChange,
+}: SwitchProps): JSX.Element => {
   const handleChange = useCallback(
     (ev: ChangeEvent<HTMLInputElement>) => {
       onChange(ev.target.checked);
@@ -14,10 +19,10 @@ const Switch = ({ label, onChange, value }: SwitchProps): JSX.Element => {
     [onChange],
   );
 
-  const bg = `bg-${value ? "primary" : "secondary"}`;
+  const bg = `bg-${checked ? "primary" : "secondary"}`;
 
   return (
-    <label>
+    <label className={`d-block ${className}`.trimEnd()}>
       <span
         className={`${bg} d-inline-flex p-1 me-2`}
         style={{
@@ -27,7 +32,7 @@ const Switch = ({ label, onChange, value }: SwitchProps): JSX.Element => {
         }}
       >
         <input
-          checked={value}
+          checked={checked}
           hidden
           onChange={handleChange}
           type={"checkbox"}
@@ -37,7 +42,7 @@ const Switch = ({ label, onChange, value }: SwitchProps): JSX.Element => {
           style={{
             aspectRatio: 1,
             transitionDuration,
-            translate: value ? "150%" : "0",
+            translate: checked ? "150%" : "0",
             width: size,
           }}
         />
