@@ -11,7 +11,7 @@ const Button = ({
   disabled,
   onPress,
   style,
-  variant = {}
+  variant = {},
 }: ButtonProps): JSX.Element => {
   const textVar = getButtonTextVar(variant);
   const varStyle = getButtonStyle(variant, disabled);

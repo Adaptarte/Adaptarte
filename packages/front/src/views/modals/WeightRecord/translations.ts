@@ -4,8 +4,8 @@ const SPA = {
   title: "Registro de peso",
   weight: {
     label: "Peso (kg)",
-    placeholder: "65.4"
-  }
+    placeholder: "65.4",
+  },
 };
 
 const t = (): typeof SPA => SPA;

@@ -18,7 +18,7 @@ import { t } from "./translations";
 
 const Consumption = ({
   navigation: { canGoBack, goBack },
-  route: { params }
+  route: { params },
 }: TAppViewProps<"Consumption">): JSX.Element => {
   const { type = "liquids" } = params;
   const db = useDB();
@@ -35,7 +35,7 @@ const Consumption = ({
             registerFoodGA().catch(console.error);
             const data = {
               date: new Date(),
-              food: el.id
+              food: el.id,
             };
             db.addDoc("FoodIntake", data);
             score.add(1);

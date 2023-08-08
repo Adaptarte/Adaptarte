@@ -12,14 +12,14 @@ const MedicineIntakeRecord = ({
   onSave,
   recipe: { data, id },
   setVisible,
-  visible
+  visible,
 }: MedicineIntakeProps): JSX.Element => {
   const [date, setDate] = useState(new Date());
 
   const handleSave = useCallback(() => {
     onSave({
       date,
-      recipe: id
+      recipe: id,
     });
 
     setVisible?.(false);

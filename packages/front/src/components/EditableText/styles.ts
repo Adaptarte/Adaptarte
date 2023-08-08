@@ -4,21 +4,21 @@ import { colors } from "styles";
 
 const styles = StyleSheet.create({
   button: {
-    marginLeft: 4
+    marginLeft: 4,
   },
   container: {
     alignItems: "center",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   field: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   text: {
     borderBottomColor: colors.BLACK,
     borderBottomWidth: 1,
-    paddingVertical: 2
-  }
+    paddingVertical: 2,
+  },
 });
 
 export { styles };

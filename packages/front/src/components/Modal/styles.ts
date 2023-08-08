@@ -8,14 +8,14 @@ const styles = StyleSheet.create({
     backgroundColor: colors.WHITE,
     borderRadius: 8,
     flexGrow: 1,
-    padding: 16
+    padding: 16,
   },
   header: {
     alignItems: "center",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 16
+    marginBottom: 16,
   },
   modal: {
     alignItems: "center",
@@ -25,14 +25,14 @@ const styles = StyleSheet.create({
     height: "100%",
     justifyContent: "center",
     padding: 8,
-    width: "100%"
-  }
+    width: "100%",
+  },
 });
 
 const titleVar: TextVariant = {
   color: "GLAUCOUS",
   size: 4,
-  weight: "bold"
+  weight: "bold",
 };
 
 export { styles, titleVar };

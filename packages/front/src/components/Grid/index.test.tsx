@@ -15,7 +15,7 @@ describe("Grid", () => {
         <Column>
           <Text>{"Col2"}</Text>
         </Column>
-      </Row>
+      </Row>,
     );
 
     expect(screen.queryByText("Col1")).toBeOnTheScreen();

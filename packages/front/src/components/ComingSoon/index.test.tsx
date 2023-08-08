@@ -10,7 +10,7 @@ describe("Coming Soon", () => {
     render(
       <ComingSoon>
         <Text>{"Feature"}</Text>
-      </ComingSoon>
+      </ComingSoon>,
     );
 
     const text = screen.queryByText("Feature");

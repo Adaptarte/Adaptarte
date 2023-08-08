@@ -28,7 +28,7 @@ describe("Button", () => {
     render(
       <Button disabled onPress={onPress}>
         <Text>{"Press"}</Text>
-      </Button>
+      </Button>,
     );
 
     fireEvent.press(screen.getByText("Press"));

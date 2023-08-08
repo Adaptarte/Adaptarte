@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     aspectRatio: 1,
     display: "flex",
-    justifyContent: "center"
-  }
+    justifyContent: "center",
+  },
 });
 
 export { styles };

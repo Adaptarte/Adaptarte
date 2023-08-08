@@ -11,7 +11,7 @@ import type { INotification } from "./types";
 const addNotification = (
   channelId: "engagement" | "reminder",
   time: number,
-  data: INotification
+  data: INotification,
 ): void => {
   cancelNotification(data.id);
   Notifee.createTriggerNotification(
@@ -20,17 +20,17 @@ const addNotification = (
       android: {
         channelId,
         pressAction: {
-          id: "default"
-        }
-      }
+          id: "default",
+        },
+      },
     },
     {
       alarmManager: {
-        allowWhileIdle: true
+        allowWhileIdle: true,
       },
       timestamp: Math.max(Date.now() + 1e3, time),
-      type: TriggerType.TIMESTAMP
-    }
+      type: TriggerType.TIMESTAMP,
+    },
   ).catch(console.error);
 };
 
@@ -41,7 +41,7 @@ const addMedicineNotification = ({ date, recipe }: DBMedicineIntake): void => {
     body: dateToString(date),
     id: `medicine${id}`,
     subtitle: data.medicine,
-    title: "Es hora de tu medicina"
+    title: "Es hora de tu medicina",
   });
 };
 
@@ -50,7 +50,7 @@ const addTensionNotification = (date: Date): void => {
   addNotification("reminder", time, {
     body: dateToString(date),
     id: "tension",
-    title: "Registra tu tensión"
+    title: "Registra tu tensión",
   });
 };
 
@@ -69,16 +69,16 @@ const cancelTensionNotification = (): void => {
 const setUndoneNotification = (
   id: "food" | "medicine" | "tension",
   done = false,
-  date: Date = setDayTime(addTime(new Date(), done ? 1 : 0, "day"), 19, "hour")
+  date: Date = setDayTime(addTime(new Date(), done ? 1 : 0, "day"), 19, "hour"),
 ): void => {
   const goals = {
     food: "alimentación",
     medicine: "medicación",
-    tension: "tensión"
+    tension: "tensión",
   };
   addNotification("reminder", date.getTime(), {
     id: `undone_${id}`,
-    title: `Recuerda registrar tu ${goals[id]}`
+    title: `Recuerda registrar tu ${goals[id]}`,
   });
 };
 
@@ -92,11 +92,11 @@ const useDisuseNotifications = (): void => {
       } else if (state === "background" || state === "inactive") {
         addNotification("engagement", Date.now() + 2 * TIME.day, {
           id: "disuse1",
-          title: "La constancia es tu mejor aliado"
+          title: "La constancia es tu mejor aliado",
         });
         addNotification("engagement", Date.now() + 7 * TIME.day, {
           id: "disuse2",
-          title: "Extrañamos verte adaptarte"
+          title: "Extrañamos verte adaptarte",
         });
       }
     });
@@ -113,5 +113,5 @@ export {
   cancelMedicineNotification,
   cancelTensionNotification,
   setUndoneNotification,
-  useDisuseNotifications
+  useDisuseNotifications,
 };

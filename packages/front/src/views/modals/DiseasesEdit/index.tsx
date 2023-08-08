@@ -12,7 +12,7 @@ const DiseasesEdit = ({
   diseases: { diabetesMellitus, epoc, heartFailure, hypertension },
   onSave,
   setVisible,
-  visible
+  visible,
 }: DiseasesEditProps): JSX.Element => {
   const [hasDiabetesMellitus, setHasDiabetesMellitus] =
     useState(diabetesMellitus);
@@ -25,7 +25,7 @@ const DiseasesEdit = ({
       diabetesMellitus: hasDiabetesMellitus,
       epoc: hasEpoc,
       heartFailure: hasHeartFailure,
-      hypertension: hasHypertension
+      hypertension: hasHypertension,
     });
   }, [hasDiabetesMellitus, hasEpoc, hasHeartFailure, hasHypertension, onSave]);
 

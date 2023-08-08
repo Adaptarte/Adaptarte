@@ -15,14 +15,14 @@ const setupNotifications = (): void => {
     id: "reminder",
     importance: AndroidImportance.HIGH,
     name: "Alarms & Timer",
-    sound: "default"
+    sound: "default",
   }).catch(console.error);
 
   Notifee.createChannel({
     id: "engagement",
     importance: AndroidImportance.DEFAULT,
     name: "Patient Engagement",
-    sound: "default"
+    sound: "default",
   }).catch(console.error);
 };
 

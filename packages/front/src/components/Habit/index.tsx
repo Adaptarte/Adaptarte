@@ -15,7 +15,7 @@ const Habit = ({
   checked,
   color,
   img,
-  onPress
+  onPress,
 }: HabitProps): JSX.Element => {
   return (
     <View style={[styles.container, { backgroundColor: colors[bgColor] }]}>

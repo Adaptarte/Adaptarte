@@ -8,7 +8,7 @@ const data: CarouselProps["data"] = [
       "telefónicas u otras actividades. También puedes usar las escaleras en " +
       "lugar del ascensor",
     img: "walking",
-    title: "Camina"
+    title: "Camina",
   },
   {
     background: "#6BC39E",
@@ -17,7 +17,7 @@ const data: CarouselProps["data"] = [
       "o amigos buscando incluir actividad física como caminatas " +
       "o visitas a lugares específicos",
     img: "walkingdog",
-    title: "Visita algún lugar"
+    title: "Visita algún lugar",
   },
   {
     background: "#B3A4FF",
@@ -26,8 +26,8 @@ const data: CarouselProps["data"] = [
       "\n • Levantar brevemente las piernas." +
       "\n • Levantar los brazos a la altura de los hombros",
     img: "stretching",
-    title: "Pausa activa"
-  }
+    title: "Pausa activa",
+  },
 ];
 
 export { data };

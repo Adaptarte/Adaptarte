@@ -44,7 +44,7 @@ const colors: Record<TColor, string> = {
   TRANSPARENT: "#FFF0",
   WHITE: "#FFF",
   YELLOW: "#EE9B00",
-  YELLOW_LIGHT: "#FFEFCA"
+  YELLOW_LIGHT: "#FFEFCA",
 };
 
 export { colors };

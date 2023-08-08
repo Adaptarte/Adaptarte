@@ -14,7 +14,7 @@ const Input = ({
   placeholder,
   type = "default",
   secure = false,
-  value
+  value,
 }: InputProps): JSX.Element => {
   return (
     <View style={styles.container}>

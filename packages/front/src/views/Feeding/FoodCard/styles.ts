@@ -11,24 +11,24 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     display: "flex",
-    padding: 4
+    padding: 4,
   },
   deleteBtn: {
     position: "absolute",
     right: 0,
     top: 0,
-    zIndex: 1
+    zIndex: 1,
   },
 
   image: {
     flexBasis: 1,
     flexGrow: 1,
-    marginTop: 10
+    marginTop: 10,
   },
   name: {
     marginTop: 10,
-    textAlign: "center"
-  }
+    textAlign: "center",
+  },
 });
 
 export { styles };

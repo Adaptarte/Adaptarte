@@ -1,7 +1,7 @@
 const SPA = {
   confirm: "Confirmar",
   message: "¿Es correcto este valor?",
-  title: "Tensión anormal"
+  title: "Tensión anormal",
 };
 
 const t = (): typeof SPA => SPA;

@@ -28,7 +28,7 @@ const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
             key={el}
             style={[
               styles.pageIndicator,
-              el === selection && styles.pageIndicatorSelected
+              el === selection && styles.pageIndicatorSelected,
             ]}
           />
         ))}

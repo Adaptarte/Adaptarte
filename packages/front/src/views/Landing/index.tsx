@@ -21,7 +21,7 @@ import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Landing = ({
-  navigation: { navigate }
+  navigation: { navigate },
 }: TAppViewProps<"Landing">): JSX.Element => {
   const db = useDB();
   const userData = db.getUser();

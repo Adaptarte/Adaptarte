@@ -11,7 +11,7 @@ import type { ExerciseRecordProps } from "./types";
 const ExerciseRecord = ({
   onSave,
   setVisible,
-  visible
+  visible,
 }: ExerciseRecordProps): JSX.Element => {
   const [activity, setActivity] = useState("");
   const [duration, setDuration] = useState("");
@@ -21,7 +21,7 @@ const ExerciseRecord = ({
     onSave?.({
       date,
       duration: parseInt(duration),
-      exercise: activity
+      exercise: activity,
     });
     setVisible?.(false);
   }, [activity, duration, setVisible]);

@@ -8,7 +8,7 @@ describe("Habit", () => {
     render(
       <Habit bgColor={"ORANGE_TRANSLUCID"} color={"ORANGE"} img={"exercise"}>
         {"Exercise"}
-      </Habit>
+      </Habit>,
     );
 
     const text = screen.queryByText("Exercise");
@@ -21,7 +21,7 @@ describe("Habit", () => {
     render(
       <Habit bgColor={"BLUE"} color={"BLUE"} img={"exercise"} onPress={onPress}>
         {"Exercise"}
-      </Habit>
+      </Habit>,
     );
 
     fireEvent.press(screen.getByText("Exercise"));

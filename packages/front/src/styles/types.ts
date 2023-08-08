@@ -2,7 +2,7 @@ import type {
   ImageStyle,
   StyleSheet,
   TextStyle,
-  ViewStyle
+  ViewStyle,
 } from "react-native";
 
 type VarStyle<T extends string> = StyleSheet.NamedStyles<

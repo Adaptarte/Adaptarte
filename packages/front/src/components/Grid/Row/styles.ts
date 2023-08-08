@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap"
-  }
+    flexWrap: "wrap",
+  },
 });
 
 export { styles };

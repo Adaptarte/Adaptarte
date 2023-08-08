@@ -16,21 +16,21 @@ const DailyGoal = ({
   done,
   onPress,
   title,
-  type
+  type,
 }: DailyGoalProps): JSX.Element => {
   const overdue = date.getTime() <= Date.now() && !done;
   const disabled = done || onPress === undefined;
 
   const containerVarStyle: ViewStyle = {
-    borderColor: overdue ? "red" : colors.TRANSPARENT
+    borderColor: overdue ? "red" : colors.TRANSPARENT,
   };
 
   const imgVarStyle: ImageStyle = {
-    backgroundColor: done ? colors.BLUE_PURPLE : colors.PURPLE_TRANSLUCID
+    backgroundColor: done ? colors.BLUE_PURPLE : colors.PURPLE_TRANSLUCID,
   };
 
   const titleVarStyle: TextStyle = {
-    textDecorationLine: disabled ? "none" : "underline"
+    textDecorationLine: disabled ? "none" : "underline",
   };
 
   return (

@@ -3,7 +3,7 @@ const SPA = {
   password: "Contraseña",
   signUp: "Registrarse",
   title: "Crear Cuenta",
-  username: "Nombre de usuario"
+  username: "Nombre de usuario",
 };
 
 const t = (): typeof SPA => SPA;

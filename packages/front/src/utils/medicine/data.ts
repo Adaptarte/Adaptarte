@@ -7,9 +7,9 @@ const recipes: DBDoc<DBMedicineRecipe>[] = [
       details: "Tomar 30 min antes del desayuno",
       interval: 24,
       medicine: "Levotiroxina x100 Mcgr",
-      takeFrom: new Date(2023, 3, 1, 6)
+      takeFrom: new Date(2023, 3, 1, 6),
     },
-    id: "1"
+    id: "1",
   },
   {
     data: {
@@ -17,10 +17,10 @@ const recipes: DBDoc<DBMedicineRecipe>[] = [
       details: "",
       interval: 12,
       medicine: "Amlodipino x 5mg",
-      takeFrom: new Date(2023, 3, 1, 14)
+      takeFrom: new Date(2023, 3, 1, 14),
     },
-    id: "2"
-  }
+    id: "2",
+  },
 ];
 
 export { recipes };

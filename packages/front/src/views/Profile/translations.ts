@@ -1,5 +1,5 @@
 const SPA = {
-  panic: "Alteración de salud"
+  panic: "Alteración de salud",
 };
 
 const t = (): typeof SPA => SPA;

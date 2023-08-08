@@ -13,7 +13,7 @@ const Modal = ({
   children,
   setVisible,
   title,
-  visible
+  visible,
 }: ModalProps): JSX.Element => {
   const handleClose = useCallback(() => {
     setVisible?.(false);

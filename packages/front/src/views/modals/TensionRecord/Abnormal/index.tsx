@@ -18,7 +18,7 @@ const TensionAbnormal = ({
   onConfirm,
   setVisible,
   value,
-  visible
+  visible,
 }: TensionAbnormalProps): JSX.Element => {
   const navigation = useNavigation<NativeStackNavigationProp<IAppParams>>();
 

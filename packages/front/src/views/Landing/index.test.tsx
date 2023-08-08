@@ -14,7 +14,7 @@ describe("Landing", () => {
       <Landing
         navigation={navigation as Nav}
         route={{ key: "Landing", name: "Landing" }}
-      />
+      />,
     );
   });
 

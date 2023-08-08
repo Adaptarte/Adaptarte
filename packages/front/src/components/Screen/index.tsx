@@ -9,7 +9,7 @@ import type { IScreenProps } from "./types";
 const Screen = ({
   bg = "WHITE",
   children,
-  style
+  style,
 }: IScreenProps): JSX.Element => {
   const bgColor = colors[bg];
 

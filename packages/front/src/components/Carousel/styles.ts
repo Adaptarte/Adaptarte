@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   nextBtn: {
     height: "100%",
     position: "absolute",
-    right: 0
+    right: 0,
   },
   pageIndicator: {
     backgroundColor: "grey",
@@ -14,23 +14,23 @@ const styles = StyleSheet.create({
     height: 6,
     margin: 2,
     opacity: 0.5,
-    width: 6
+    width: 6,
   },
   pageIndicatorSelected: {
-    opacity: 1
+    opacity: 1,
   },
   paginator: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    padding: 5
-  }
+    padding: 5,
+  },
 });
 
 const textVarNextBtn: TextVariant = {
   color: "WHITE",
   size: 3,
-  weight: "bold"
+  weight: "bold",
 };
 
 export { styles, textVarNextBtn };

@@ -8,7 +8,7 @@ const List = <T extends unknown>({
   columns,
   data,
   keyGetter,
-  renderItem
+  renderItem,
 }: ListProps<T>): JSX.Element => {
   return (
     <Row columns={columns}>

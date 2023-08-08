@@ -4,7 +4,7 @@ import type { DBDoc, DBMedicineIntake, DBMedicineRecipe } from "utils/db/types";
 import { recipes } from "./data";
 
 const getLastIntakes = (
-  data: DBDoc<DBMedicineIntake>[]
+  data: DBDoc<DBMedicineIntake>[],
 ): DBDoc<DBMedicineIntake>[] => {
   return data.reduce<DBDoc<DBMedicineIntake>[]>((acc, curr) => {
     const i = parseInt(curr.data.recipe);
@@ -21,7 +21,7 @@ const getLastIntakes = (
 
 const getNextIntake = (
   recipe: DBMedicineRecipe,
-  last?: DBMedicineIntake
+  last?: DBMedicineIntake,
 ): Date => {
   if (last === undefined) {
     return new Date(recipe.takeFrom);

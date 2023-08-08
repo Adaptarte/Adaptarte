@@ -12,7 +12,7 @@ const refUser = (id: string): DocRef<DBUser> => {
 
 const refUserCol = <T extends keyof DBUserCollections>(
   user: string,
-  collection: T
+  collection: T,
 ): ColRef<DBUserCollections[T]> => {
   return refUser(user).collection(collection) as ColRef<DBUserCollections[T]>;
 };
@@ -43,7 +43,7 @@ const useDbUser = (): DBUser | undefined => {
 
 const useDbUserData = <T extends keyof DBUserCollections>(
   collection: T,
-  filter?: QueryFilter<DBUserCollections[T]>
+  filter?: QueryFilter<DBUserCollections[T]>,
 ): DBDoc<DBUserCollections[T]>[] => {
   const [data, setData] = useState<DBDoc<DBUserCollections[T]>[]>([]);
   const { uid } = useUser();
@@ -57,8 +57,8 @@ const useDbUserData = <T extends keyof DBUserCollections>(
       setData(
         snapshot.docs.map((doc) => ({
           data: timestampsToDate(doc.data()),
-          id: doc.id
-        }))
+          id: doc.id,
+        })),
       );
     });
   }, [collection, setData, uid]);

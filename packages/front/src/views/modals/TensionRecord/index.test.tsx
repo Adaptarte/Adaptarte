@@ -12,7 +12,7 @@ describe("Tension", () => {
     render(
       <NavigationContainer>
         <TensionRecord onSave={onSave} visible />
-      </NavigationContainer>
+      </NavigationContainer>,
     );
   });
 
@@ -20,10 +20,10 @@ describe("Tension", () => {
     expect.assertions(4);
 
     expect(
-      screen.queryByPlaceholderText(t().diastolic.placeholder)
+      screen.queryByPlaceholderText(t().diastolic.placeholder),
     ).toBeOnTheScreen();
     expect(
-      screen.queryByPlaceholderText(t().systolic.placeholder)
+      screen.queryByPlaceholderText(t().systolic.placeholder),
     ).toBeOnTheScreen();
     expect(screen.queryByText(t().date)).toBeOnTheScreen();
     expect(screen.queryByText(t().save)).toBeOnTheScreen();
@@ -33,7 +33,7 @@ describe("Tension", () => {
     expect.assertions(1);
 
     const diastolicInput = screen.getByPlaceholderText(
-      t().diastolic.placeholder
+      t().diastolic.placeholder,
     );
     const systolicInput = screen.getByPlaceholderText(t().systolic.placeholder);
     const saveButton = screen.getByText(t().save);
@@ -48,7 +48,7 @@ describe("Tension", () => {
     expect.assertions(1);
 
     const diastolicInput = screen.getByPlaceholderText(
-      t().diastolic.placeholder
+      t().diastolic.placeholder,
     );
     const systolicInput = screen.getByPlaceholderText(t().systolic.placeholder);
     const saveButton = screen.getByText(t().save);
@@ -71,14 +71,14 @@ describe("Tension", () => {
 
     fireEvent.changeText(
       screen.getByPlaceholderText(t().diastolic.placeholder),
-      "81"
+      "81",
     );
     fireEvent.changeText(
       screen.getByPlaceholderText(t().systolic.placeholder),
-      "121"
+      "121",
     );
     expect(
-      screen.queryByTestId("icon-exclamation-circle")
+      screen.queryByTestId("icon-exclamation-circle"),
     ).not.toBeOnTheScreen();
     fireEvent.press(screen.getByText(t().save));
     expect(screen.queryByTestId("icon-exclamation-circle")).toBeOnTheScreen();

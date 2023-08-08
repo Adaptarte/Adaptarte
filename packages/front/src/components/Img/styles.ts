@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     height: undefined,
     resizeMode: "contain",
-    width: undefined
-  }
+    width: undefined,
+  },
 });
 
 export { styles };

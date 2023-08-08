@@ -16,12 +16,12 @@ const CarouselCard = ({
   onSave,
   description,
   img,
-  title
+  title,
 }: CarouselCardProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
 
   const containerVarStyle: ViewStyle = {
-    backgroundColor: background
+    backgroundColor: background,
   };
 
   return (

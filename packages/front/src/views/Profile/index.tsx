@@ -15,7 +15,7 @@ import { styles } from "./styles";
 import { t } from "./translations";
 
 const Profile = ({
-  navigation: { navigate }
+  navigation: { navigate },
 }: TAppViewProps<"Profile">): JSX.Element => {
   const db = useDB();
   const user = useUser();
@@ -29,7 +29,7 @@ const Profile = ({
     (basicInfo: DBUser["basicInfo"]) => {
       db.updateUser({ basicInfo });
     },
-    []
+    [],
   );
 
   const goToPanic = useCallback(() => {

@@ -1,7 +1,7 @@
 const SPA = {
   signIn: "Iniciar sesión",
   signUp: "Crear cuenta",
-  title: "Adaptarte"
+  title: "Adaptarte",
 };
 
 const t = (): typeof SPA => SPA;

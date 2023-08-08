@@ -9,7 +9,7 @@ const getConsumptionExpected = (type: IFood["type"], current = 0): number[] => {
     carbs: 4,
     dairy: 2,
     fruitsAndVegetables: 4,
-    liquids: 5
+    liquids: 5,
   };
   return arr(expected[type] - current);
 };
@@ -27,13 +27,13 @@ const getFoodById = (id: IFood["id"]): IFood => {
 };
 
 const groupConsumptionByFoodType = (
-  data: DBDoc<DBFoodIntake>[]
+  data: DBDoc<DBFoodIntake>[],
 ): Record<IFood["type"], DBDoc<DBFoodIntake>[]> => {
   const res: Record<IFood["type"], DBDoc<DBFoodIntake>[]> = {
     carbs: [],
     dairy: [],
     fruitsAndVegetables: [],
-    liquids: []
+    liquids: [],
   };
 
   data.forEach((el) => {
@@ -48,5 +48,5 @@ export {
   getConsumptionExpected,
   getFoodByType,
   getFoodById,
-  groupConsumptionByFoodType
+  groupConsumptionByFoodType,
 };

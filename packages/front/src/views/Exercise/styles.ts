@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 15,
     top: 15,
-    zIndex: 1
+    zIndex: 1,
   },
   exercise: {
     backgroundColor: colors.WHITE,
@@ -20,33 +20,33 @@ const styles = StyleSheet.create({
     shadowColor: "#000000",
     shadowOffset: {
       height: 7,
-      width: 0
+      width: 0,
     },
     shadowOpacity: 0.21,
     shadowRadius: 7.68,
-    width: "100%"
+    width: "100%",
   },
   exerciseText: {
-    marginBottom: 12
+    marginBottom: 12,
   },
   exerciseTitle: {
-    marginBottom: 8
+    marginBottom: 8,
   },
   modalExercise: {
     flex: 1,
-    justifyContent: "flex-end"
-  }
+    justifyContent: "flex-end",
+  },
 });
 
 const textVars: TextVariants<"details" | "title"> = {
   details: {
-    size: 1
+    size: 1,
   },
   title: {
     color: "ORANGE",
     size: 3,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

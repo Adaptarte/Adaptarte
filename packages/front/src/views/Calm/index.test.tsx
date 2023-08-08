@@ -17,7 +17,7 @@ describe("Calm", () => {
       t().stress.whatIs,
       t().stress.consequences,
       t().calm.title,
-      t().calm.content
+      t().calm.content,
     ];
     texts.forEach((text) => {
       expect(screen.queryByText(text)).toBeOnTheScreen();

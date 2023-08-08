@@ -8,23 +8,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   img: {
     backgroundColor: colors.BLUE,
     borderRadius: 96,
     margin: 32,
     position: "absolute",
-    width: 128
-  }
+    width: 128,
+  },
 });
 
 const textVars: TextVariants<"header"> = {
   header: {
     color: "BLUE",
     size: 5,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

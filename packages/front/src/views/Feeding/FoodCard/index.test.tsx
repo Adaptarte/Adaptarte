@@ -8,7 +8,7 @@ import { FoodCard } from ".";
 describe("FoodCard", () => {
   const data: DBFoodIntake = {
     date: new Date(),
-    food: 1
+    food: 1,
   };
   const id = "A2c";
   let onDelete: jest.Mock;

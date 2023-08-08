@@ -6,7 +6,7 @@ import { colors } from "styles";
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 4,
-    width: "100%"
+    width: "100%",
   },
   input: {
     backgroundColor: colors.LIGHT,
@@ -14,12 +14,12 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1,
     paddingHorizontal: 8,
-    paddingVertical: 2
+    paddingVertical: 2,
   },
   inputText: getTextStyle({
     color: "BLACK",
-    size: 1
-  })
+    size: 1,
+  }),
 });
 
 export { styles };

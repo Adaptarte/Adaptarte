@@ -5,7 +5,7 @@ import {
   formatDate,
   formatTime,
   getDayTime,
-  setDayTime
+  setDayTime,
 } from "./index";
 
 describe("date", () => {
@@ -17,8 +17,8 @@ describe("date", () => {
       undefined,
       {
         day: "2-digit",
-        month: "short"
-      }
+        month: "short",
+      },
     );
     expect(formatDate(date)).toBe(expected);
   });
@@ -32,8 +32,8 @@ describe("date", () => {
       {
         hour: "2-digit",
         hour12: true,
-        minute: "2-digit"
-      }
+        minute: "2-digit",
+      },
     );
     expect(formatTime(date)).toBe(expected);
   });
@@ -66,13 +66,13 @@ describe("date", () => {
       5,
       0,
       0,
-      0
+      0,
     ).toLocaleTimeString(undefined, {
       day: "2-digit",
       hour: "2-digit",
       hour12: true,
       minute: "2-digit",
-      month: "short"
+      month: "short",
     });
 
     expect(dateToString(date, "full")).toBe(expected);
@@ -86,8 +86,8 @@ describe("date", () => {
       undefined,
       {
         day: "2-digit",
-        month: "short"
-      }
+        month: "short",
+      },
     );
     expect(dateToString(date, "date")).toBe(expected);
   });
@@ -101,8 +101,8 @@ describe("date", () => {
       {
         hour: "2-digit",
         hour12: true,
-        minute: "2-digit"
-      }
+        minute: "2-digit",
+      },
     );
 
     expect(dateToString(date, "time")).toBe(expected);

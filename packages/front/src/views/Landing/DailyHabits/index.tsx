@@ -12,7 +12,7 @@ const DailyHabits = ({
   exercise = false,
   feeding = false,
   hydration = false,
-  navigate
+  navigate,
 }: DailyHabitsProps): JSX.Element => {
   const goToCalm = useCallback((): void => {
     navigate("Calm");

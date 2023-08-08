@@ -16,48 +16,48 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    padding: 4
+    padding: 4,
   },
   text: {
     paddingHorizontal: 4,
     paddingVertical: 8,
     textAlign: "center",
-    textAlignVertical: "center"
-  }
+    textAlignVertical: "center",
+  },
 });
 
 const getButtonTextVar = ({
   color = "GLAUCOUS",
-  style = "ghost"
+  style = "ghost",
 }: ButtonVariant): TextVariant => {
   return {
     color: style === "solid" ? "WHITE" : color,
     size: 1,
-    weight: "normal"
+    weight: "normal",
   };
 };
 
 const getButtonStyle = (
   { color = "GLAUCOUS", style = "ghost" }: ButtonVariant,
-  disabled = false
+  disabled = false,
 ): Style => {
   const varStyle: VarStyle<typeof style> = {
     ghost: {},
     outline: {
-      borderColor: colors[color]
+      borderColor: colors[color],
     },
     solid: {
-      backgroundColor: colors[color]
+      backgroundColor: colors[color],
     },
     text: {
       backgroundColor: colors.WHITE,
-      elevation: 8
-    }
+      elevation: 8,
+    },
   };
 
   return {
     ...varStyle[style],
-    opacity: disabled ? 0.6 : 1
+    opacity: disabled ? 0.6 : 1,
   };
 };
 

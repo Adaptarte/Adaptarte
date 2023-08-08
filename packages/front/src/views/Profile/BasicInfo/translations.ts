@@ -1,7 +1,7 @@
 const SPA = {
   id: "C.C.",
   phone: "Teléfono",
-  title: "Datos básicos"
+  title: "Datos básicos",
 };
 
 const t = (): typeof SPA => SPA;

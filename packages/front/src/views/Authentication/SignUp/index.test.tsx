@@ -27,7 +27,7 @@ describe("Sign up", () => {
 
     fireEvent.changeText(
       screen.getByPlaceholderText(t().email),
-      "john@email.com"
+      "john@email.com",
     );
     fireEvent.changeText(screen.getByPlaceholderText(t().password), "secret");
     fireEvent.changeText(screen.getByPlaceholderText(t().username), "John Doe");

@@ -17,14 +17,14 @@ const BasicInfo = ({ data, onChange }: BasicInfoProps): JSX.Element => {
       setId(id);
       onChange?.({ id, phone });
     },
-    [onChange, phone, setId]
+    [onChange, phone, setId],
   );
   const handleChangePhone = useCallback(
     (phone: string) => {
       setPhone(phone);
       onChange?.({ id, phone });
     },
-    [id, onChange, setPhone]
+    [id, onChange, setPhone],
   );
 
   return (

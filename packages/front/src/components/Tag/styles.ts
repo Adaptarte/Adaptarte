@@ -12,15 +12,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     textShadowColor: colors.WHITE,
-    textShadowRadius: 4
-  }
+    textShadowRadius: 4,
+  },
 });
 
 const getTagStyle = ({ bg = "GREY_LIGHT" }: TagVarProps): VarStyle<"text"> => {
   return {
     text: {
-      backgroundColor: colors[bg]
-    }
+      backgroundColor: colors[bg],
+    },
   };
 };
 

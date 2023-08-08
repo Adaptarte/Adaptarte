@@ -8,7 +8,7 @@ import { useScore } from "utils/engagement/score";
 import {
   addTensionNotification,
   cancelTensionNotification,
-  setUndoneNotification
+  setUndoneNotification,
 } from "utils/notifications";
 import { TensionRecord } from "views/modals/TensionRecord";
 
@@ -34,7 +34,7 @@ const TensionGoal = ({ date, done }: TensionGoalProps): JSX.Element => {
       db.addDoc("Tension", data);
       score.add(10);
     },
-    [score.add]
+    [score.add],
   );
 
   return (

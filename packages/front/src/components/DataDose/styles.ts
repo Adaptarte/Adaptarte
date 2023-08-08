@@ -11,28 +11,28 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     margin: 16,
-    padding: 24
+    padding: 24,
   },
   img: {
     marginLeft: 24,
-    width: 80
+    width: 80,
   },
   textWrapper: {
     flexBasis: 0,
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 });
 
 const textVars: TextVariants<"details" | "tip"> = {
   details: {
     color: "WHITE",
-    size: 1
+    size: 1,
   },
   tip: {
     color: "WHITE",
     size: 1,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

@@ -7,7 +7,7 @@ import { t } from "./translations";
 
 describe("Diseases", () => {
   const diseases = fillDiseases({
-    hypertension: true
+    hypertension: true,
   });
 
   it("Render content", () => {

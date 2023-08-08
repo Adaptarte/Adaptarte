@@ -8,47 +8,47 @@ const styles = StyleSheet.create({
     backgroundColor: colors.WHITE,
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
-    padding: 16
+    padding: 16,
   },
   img: {
     borderRadius: 30,
-    width: 48
+    width: 48,
   },
   panicBtn: {
-    marginTop: 20
+    marginTop: 20,
   },
   profileBtn: {
-    flexDirection: "column"
+    flexDirection: "column",
   },
   screen: {
-    padding: 0
+    padding: 0,
   },
   sectionTitle: {
     marginBottom: 16,
-    marginLeft: 12
+    marginLeft: 12,
   },
   welcome: {
     display: "flex",
     flexDirection: "row",
-    margin: 16
+    margin: 16,
   },
   welcomeText: {
     flexBasis: 0,
-    flexGrow: 1
-  }
+    flexGrow: 1,
+  },
 });
 
 const textVars: TextVariants<"title" | "welcome"> = {
   title: {
     color: "GLAUCOUS",
     size: 3,
-    weight: "bold"
+    weight: "bold",
   },
   welcome: {
     color: "GLAUCOUS",
     size: 5,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

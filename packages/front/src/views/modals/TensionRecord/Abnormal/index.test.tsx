@@ -27,7 +27,7 @@ describe("TensionRecord/Abnormal", () => {
           <Screen component={Demo} name={"Demo"} />
           <Screen component={Panic} name={"Panic"} />
         </Navigator>
-      </NavigationContainer>
+      </NavigationContainer>,
     );
   });
 

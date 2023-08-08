@@ -14,7 +14,7 @@ describe("List", () => {
         data={data}
         keyGetter={(el): string => el}
         renderItem={(el): JSX.Element => <Text>{el}</Text>}
-      />
+      />,
     );
 
     data.forEach((el) => {
