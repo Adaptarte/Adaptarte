@@ -1,9 +1,12 @@
 const SPA = {
-  medicineRecipes: "Recetas médicas",
+  medicineRecipes: {
+    add: "Agregar",
+    title: "Recetas médicas",
+  },
   search: {
     button: "Buscar",
-    placeholder: "Paciente"
-  }
+    placeholder: "Paciente",
+  },
 };
 
 const t = (): typeof SPA => SPA;

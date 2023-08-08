@@ -5,11 +5,13 @@ import type { ButtonProps } from "./types";
 const Button = ({
   children,
   className = "",
-  onClick
+  disabled,
+  onClick,
 }: ButtonProps): JSX.Element => {
   return (
     <button
       className={`btn btn-primary text-light ${className}`.trimEnd()}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}
