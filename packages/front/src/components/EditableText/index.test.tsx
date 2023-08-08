@@ -48,7 +48,7 @@ describe("EditableText", () => {
     expect.assertions(1);
     const onChange = jest.fn();
     render(
-      <EditableText onChange={onChange} placeholder={"id"} value={undefined} />
+      <EditableText onChange={onChange} placeholder={"id"} value={undefined} />,
     );
 
     fireEvent.press(screen.getByTestId("icon-edit"));

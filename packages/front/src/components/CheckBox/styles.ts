@@ -13,21 +13,21 @@ const styles = StyleSheet.create({
     display: "flex",
     height: 24,
     justifyContent: "center",
-    width: 24
+    width: 24,
   },
   container: {
     alignItems: "center",
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   label: {
-    marginLeft: 8
-  }
+    marginLeft: 8,
+  },
 });
 
 const getCheckboxColor = (
   { color = "BLACK", checkedColor = color }: CheckBoxVariant,
-  checked: boolean
+  checked: boolean,
 ): string => {
   return colors[checked ? checkedColor : color];
 };
@@ -36,26 +36,26 @@ const getCheckboxStyle = (
   {
     border = "rounded",
     color = "BLACK",
-    checkedColor = color
+    checkedColor = color,
   }: CheckBoxVariant,
   checked: boolean,
-  disabled = false
+  disabled = false,
 ): Style => {
   return {
     borderColor: getCheckboxColor({ checkedColor, color }, checked),
     borderRadius: border === "circle" ? 12 : 8,
-    opacity: disabled ? 0.6 : 1
+    opacity: disabled ? 0.6 : 1,
   };
 };
 
 const getCheckboxTextVars = ({
-  color = "BLACK"
+  color = "BLACK",
 }: CheckBoxVariant): TextVariants<"label"> => {
   return {
     label: {
       color,
-      weight: "bold"
-    }
+      weight: "bold",
+    },
   };
 };
 

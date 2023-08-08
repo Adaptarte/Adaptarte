@@ -6,7 +6,7 @@ import { t } from "./translations";
 describe("Profile/BasicInfo", () => {
   const data = {
     id: "987 654",
-    phone: "310 203 0405"
+    phone: "310 203 0405",
   };
 
   it("Render content", () => {

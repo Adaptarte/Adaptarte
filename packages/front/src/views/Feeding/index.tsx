@@ -16,12 +16,12 @@ import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Feeding = ({
-  navigation: { navigate }
+  navigation: { navigate },
 }: TAppViewProps<"Feeding">): JSX.Element => {
   const db = useDB();
   const score = useScore();
   const foodIntakes = db.getDocs("FoodIntake", [
-    ["date", ">=", setDayTime(new Date(), 0)]
+    ["date", ">=", setDayTime(new Date(), 0)],
   ]);
   const intakes = groupConsumptionByFoodType(foodIntakes);
 
@@ -30,7 +30,7 @@ const Feeding = ({
       db.delDoc("FoodIntake", id);
       score.add(-1);
     },
-    [score.add]
+    [score.add],
   );
 
   return (
@@ -62,7 +62,7 @@ const Feeding = ({
               {getConsumptionExpected(type, intakes?.[type].length).map(
                 (el: number) => (
                   <AddConsumption key={`${type}${el}`} onPress={handleAdd} />
-                )
+                ),
               )}
             </Row>
           </Fragment>

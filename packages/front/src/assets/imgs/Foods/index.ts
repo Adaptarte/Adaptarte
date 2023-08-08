@@ -53,7 +53,7 @@ const foodImgs = {
   water,
   watermelon,
   wine,
-  yogurt
+  yogurt,
 };
 
 export { foodImgs };

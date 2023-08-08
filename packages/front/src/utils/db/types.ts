@@ -4,7 +4,7 @@ const allDiseases = [
   "diabetesMellitus",
   "epoc",
   "heartFailure",
-  "hypertension"
+  "hypertension",
 ] as const;
 type TDiseases = Record<(typeof allDiseases)[number], boolean>;
 
@@ -66,12 +66,12 @@ interface DBMedicineRecipe {
 interface DBOperations {
   addDoc: <T extends keyof DBUserCollections>(
     collection: T,
-    data: DBUserCollections[T]
+    data: DBUserCollections[T],
   ) => void;
   delDoc: (collection: keyof DBUserCollections, doc: string) => void;
   getDocs: <T extends keyof DBUserCollections>(
     collection: T,
-    filter?: QueryFilter<DBUserCollections[T]>
+    filter?: QueryFilter<DBUserCollections[T]>,
   ) => DBDoc<DBUserCollections[T]>[];
   getUser: () => DBUser | undefined;
   updateUser: (data: Partial<DBUser>) => void;
@@ -115,6 +115,6 @@ export type {
   DBUser,
   DBUserCollections,
   DBWeight,
-  TDiseases
+  TDiseases,
 };
 export { allDiseases };

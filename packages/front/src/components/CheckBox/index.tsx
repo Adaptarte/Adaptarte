@@ -8,7 +8,7 @@ import {
   getCheckboxColor,
   getCheckboxStyle,
   getCheckboxTextVars,
-  styles
+  styles,
 } from "./styles";
 import type { CheckBoxProps } from "./types";
 
@@ -18,7 +18,7 @@ const CheckBox = ({
   label,
   onChange,
   style,
-  variant = {}
+  variant = {},
 }: CheckBoxProps): JSX.Element => {
   const textVars = getCheckboxTextVars(variant);
   const varStyle = getCheckboxStyle(variant, checked, disabled);

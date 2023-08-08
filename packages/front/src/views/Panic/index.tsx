@@ -35,7 +35,7 @@ const Panic = (): JSX.Element => {
     if (contactName !== "" && contactPhone !== "") {
       const data = {
         name: contactName,
-        phone: contactPhone
+        phone: contactPhone,
       };
       db.addDoc("EmergencyContacts", data);
       setContactName("");

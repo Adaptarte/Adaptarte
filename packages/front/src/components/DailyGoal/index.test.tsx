@@ -21,7 +21,7 @@ describe("DailyGoal", () => {
         onPress={onPress}
         title={"ToDo"}
         type={"Record"}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByText("ToDo"));
@@ -38,7 +38,7 @@ describe("DailyGoal", () => {
         onPress={onPress}
         title={"ToDo"}
         type={"Pill"}
-      />
+      />,
     );
 
     fireEvent.press(screen.getByText("ToDo"));

@@ -16,7 +16,7 @@ const isTensionAbnormal = (diastolic: number, systolic: number): boolean => {
 const TensionRecord = ({
   onSave,
   setVisible,
-  visible
+  visible,
 }: TensionRecordProps): JSX.Element => {
   const [diastolic, setDiastolic] = useState("");
   const [systolic, setSystolic] = useState("");
@@ -35,7 +35,7 @@ const TensionRecord = ({
     onSave({
       date,
       diastolic: parseInt(diastolic),
-      systolic: parseInt(systolic)
+      systolic: parseInt(systolic),
     });
     setVisible?.(false);
   }, [date, diastolic, onSave, setVisible, systolic]);

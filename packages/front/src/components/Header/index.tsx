@@ -11,7 +11,7 @@ import { styles, textVarTitle } from "./styles";
 
 const Header = ({
   navigation: { canGoBack, goBack },
-  options: { headerStyle, title }
+  options: { headerStyle, title },
 }: NativeStackHeaderProps): JSX.Element => {
   const hasGoBack = canGoBack();
   const hasTitle = title !== undefined;

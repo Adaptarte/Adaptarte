@@ -14,7 +14,7 @@ describe("Profile", () => {
       <Profile
         navigation={navigation as Nav}
         route={{ key: "Profile", name: "Profile" }}
-      />
+      />,
     );
   });
 

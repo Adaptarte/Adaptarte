@@ -10,7 +10,7 @@ describe("Img", () => {
       <>
         <Img src={"care"} />
         <Img src={{ uri: "https://picsum.photos/200" }} />
-      </>
+      </>,
     );
 
     const img = screen.queryByTestId("img-care");

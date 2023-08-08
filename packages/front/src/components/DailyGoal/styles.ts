@@ -17,31 +17,31 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginBottom: 20,
     paddingHorizontal: 12,
-    paddingVertical: 8
+    paddingVertical: 8,
   },
   content: {
     flexBasis: 1,
     flexGrow: 1,
-    marginHorizontal: 16
+    marginHorizontal: 16,
   },
   img: {
     borderRadius: 25,
-    width: 50
-  }
+    width: 50,
+  },
 });
 
 const imgs: Record<DailyGoalType, ImgName> = {
   Pill: "pills",
-  Record: "diseaseRegister"
+  Record: "diseaseRegister",
 };
 
 const textVars: TextVariants<"hour" | "title"> = {
   hour: {
-    size: 1
+    size: 1,
   },
   title: {
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { imgs, styles, textVars };

@@ -5,11 +5,11 @@ const SPA = {
     leisure: "Ocio",
     meditation: "Meditación",
     relaxation: "Relajación",
-    snap: "Siesta"
+    snap: "Siesta",
   } as Record<CalmActivity, string>,
   calm: {
     content: "El ocio y la relajación son importantes para controlar el estrés",
-    title: "Calma"
+    title: "Calma",
   },
   register: "Registrar actividad",
   stress: {
@@ -17,8 +17,8 @@ const SPA = {
       "El estrés prolongado pueve provocar deterioro físico y mental",
     title: "El estrés",
     whatIs:
-      "Es un estado de tensión de cuerpo y mente ante situaciones adversas."
-  }
+      "Es un estado de tensión de cuerpo y mente ante situaciones adversas.",
+  },
 };
 
 const t = (): typeof SPA => SPA;

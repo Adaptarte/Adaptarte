@@ -5,12 +5,12 @@ const styles = StyleSheet.create({
     alignItems: "stretch",
     display: "flex",
     flexDirection: "column",
-    paddingVertical: 4
+    paddingVertical: 4,
   },
   picker: {
     height: 120,
-    width: undefined
-  }
+    width: undefined,
+  },
 });
 
 export { styles };

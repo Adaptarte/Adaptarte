@@ -19,7 +19,7 @@ import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
 const Exercise = ({
-  navigation: { canGoBack, goBack }
+  navigation: { canGoBack, goBack },
 }: TAppViewProps<"Exercise">): JSX.Element => {
   const db = useDB();
   const score = useScore();
@@ -33,7 +33,7 @@ const Exercise = ({
       db.addDoc("Exercises", data);
       score.add(5);
     },
-    [score.add]
+    [score.add],
   );
 
   return (

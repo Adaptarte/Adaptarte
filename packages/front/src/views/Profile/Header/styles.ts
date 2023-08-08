@@ -10,17 +10,17 @@ const styles = StyleSheet.create({
     left: "28%",
     marginTop: 20,
     position: "absolute",
-    zIndex: 2
+    zIndex: 2,
   },
   img: {
     borderRadius: 64,
-    width: 128
+    width: 128,
   },
   imgContainer: {
     backgroundColor: colors.WHITE,
     borderRadius: 100,
-    padding: 20
-  }
+    padding: 20,
+  },
 });
 
 export { styles };

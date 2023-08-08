@@ -5,35 +5,35 @@ import { colors } from "styles";
 
 const styles = StyleSheet.create({
   cancelButton: {
-    marginTop: 16
+    marginTop: 16,
   },
   foodAddButton: {
-    alignSelf: "center"
+    alignSelf: "center",
   },
   foodAddImage: {
     tintColor: colors.WHITE,
-    width: 16
+    width: 16,
   },
   foodImage: {
     aspectRatio: 1.5,
     marginBottom: 4,
-    width: "100%"
+    width: "100%",
   },
   foodName: {
     marginBottom: 8,
-    textAlign: "center"
+    textAlign: "center",
   },
   title: {
-    marginBottom: 16
-  }
+    marginBottom: 16,
+  },
 });
 
 const textVars: TextVariants<"title"> = {
   title: {
     color: "GLAUCOUS",
     size: 3,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

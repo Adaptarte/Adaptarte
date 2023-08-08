@@ -8,7 +8,7 @@ const getSymptoms = (diseases: Partial<TDiseases>): string[] => {
         ? acc.concat(symptomsByDiease[key as keyof TDiseases] ?? [])
         : acc;
     },
-    []
+    [],
   );
 };
 
@@ -20,7 +20,7 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
     "Dolor abdominal.",
     "Respiración rápida.",
     "Adormecimiento.",
-    "Nivel de glucosa en sangre mayor a 250 mg/dL o menor a 70 mg/dL."
+    "Nivel de glucosa en sangre mayor a 250 mg/dL o menor a 70 mg/dL.",
   ],
   epoc: [
     "Aumento de la sensación de ahogo.",
@@ -31,13 +31,13 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
     "Pies hinchados.",
     "Dolor en el área del pecho o espalda.",
     "Somnolencia o insomnio",
-    "Dolor de cabeza"
+    "Dolor de cabeza",
   ],
   heartFailure: [
     "Necesita más almohadas de lo habitual para dormir.",
     "Tiene dificultad para respirar cuando hace actividades.",
     "Le falta aire al hacer actividades.",
-    "Su peso aumenta más de 1 kilo de un día para otro."
+    "Su peso aumenta más de 1 kilo de un día para otro.",
   ],
   hypertension: [
     "Dolor de cabeza intenso.",
@@ -49,8 +49,8 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
     "Sensación de dolor u opresión en el pecho.",
     "Adormecimiento.",
     "Náuseas y vómitos.",
-    "Convulsiones."
-  ]
+    "Convulsiones.",
+  ],
 };
 
 export { getSymptoms };

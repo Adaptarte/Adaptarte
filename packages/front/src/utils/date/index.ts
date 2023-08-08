@@ -5,13 +5,13 @@ const TIME: Record<TimeUnit, number> = {
   hour: 1000 * 60 * 60,
   min: 1000 * 60,
   ms: 1,
-  sec: 1000
+  sec: 1000,
 };
 
 const formatDate = (date: Date): string => {
   return date.toLocaleDateString(undefined, {
     day: "2-digit",
-    month: "short"
+    month: "short",
   });
 };
 
@@ -19,7 +19,7 @@ const formatTime = (date: Date): string => {
   return date.toLocaleTimeString(undefined, {
     hour: "2-digit",
     hour12: true,
-    minute: "2-digit"
+    minute: "2-digit",
   });
 };
 
@@ -66,5 +66,5 @@ export {
   dateToString,
   getDayTime,
   setDayTime,
-  TIME
+  TIME,
 };

@@ -17,7 +17,7 @@ describe("DataDose", () => {
 
     const dose = {
       details: values[1],
-      tip: values[0]
+      tip: values[0],
     };
 
     const data = getDataDoses(diseases)

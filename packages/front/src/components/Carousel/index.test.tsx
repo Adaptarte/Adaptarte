@@ -15,7 +15,7 @@ describe("Carousel", () => {
         onSave={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
+      />,
     );
 
     expect(screen.queryByText(">")).toBeOnTheScreen();
@@ -37,7 +37,7 @@ describe("Carousel", () => {
         onSave={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("Por completar")).toBeOnTheScreen();
@@ -52,7 +52,7 @@ describe("Carousel", () => {
         onSave={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
+      />,
     );
 
     expect(screen.getByText("Completado")).toBeOnTheScreen();
@@ -67,7 +67,7 @@ describe("Carousel", () => {
         onSave={function (): void {
           throw new Error("Function not implemented.");
         }}
-      />
+      />,
     );
 
     const openExercise = screen.getByText("Por completar");

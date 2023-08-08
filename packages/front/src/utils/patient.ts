@@ -4,7 +4,7 @@ const defaultDiseases: TDiseases = {
   diabetesMellitus: false,
   epoc: false,
   heartFailure: false,
-  hypertension: false
+  hypertension: false,
 };
 
 const fillDiseases = (diseases?: Partial<TDiseases>): TDiseases => {

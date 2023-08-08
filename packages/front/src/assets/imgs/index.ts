@@ -33,7 +33,7 @@ const imgs = {
   profile,
   stretching,
   walking,
-  walkingdog
+  walkingdog,
 };
 
 export { imgs };

@@ -9,10 +9,10 @@ describe("ExerciseRecord", () => {
     render(<ExerciseRecord visible />);
 
     expect(
-      screen.queryByPlaceholderText(t().activity.placeholder)
+      screen.queryByPlaceholderText(t().activity.placeholder),
     ).toBeOnTheScreen();
     expect(
-      screen.queryByPlaceholderText(t().duration.placeholder)
+      screen.queryByPlaceholderText(t().duration.placeholder),
     ).toBeOnTheScreen();
     expect(screen.queryByText(t().date)).toBeOnTheScreen();
     expect(screen.queryByText(t().save)).toBeOnTheScreen();
@@ -40,10 +40,10 @@ describe("ExerciseRecord", () => {
       render(<ExerciseRecord onSave={onSave} visible />);
 
       const activityInput = screen.getByPlaceholderText(
-        t().activity.placeholder
+        t().activity.placeholder,
       );
       const durationInput = screen.getByPlaceholderText(
-        t().duration.placeholder
+        t().duration.placeholder,
       );
       const saveButton = screen.getByText(t().save);
 

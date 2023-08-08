@@ -25,7 +25,7 @@ const DailyGoals = (): JSX.Element => {
   const lastMedIntakes = getLastIntakes(medIntakes);
   const nextMedIntakes = recipes.map(({ data, id }) => ({
     date: getNextIntake(data, lastMedIntakes[parseInt(id)]?.data),
-    recipe: id
+    recipe: id,
   }));
 
   const undoneMedIntake = nextMedIntakes.reduce((prev, { date }) => {
@@ -34,7 +34,7 @@ const DailyGoals = (): JSX.Element => {
   setUndoneNotification(
     "medicine",
     false,
-    addTime(new Date(undoneMedIntake), 4, "hour")
+    addTime(new Date(undoneMedIntake), 4, "hour"),
   );
 
   return (

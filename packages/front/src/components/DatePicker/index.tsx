@@ -14,7 +14,7 @@ const DatePicker = ({
   maxDate,
   minDate,
   mode,
-  onDateChange
+  onDateChange,
 }: DatePickerProps): JSX.Element => {
   return (
     <View style={styles.container}>

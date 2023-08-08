@@ -9,7 +9,7 @@ describe("WeightRecord", () => {
     render(<WeightRecord visible />);
 
     expect(
-      screen.queryByPlaceholderText(t().weight.placeholder)
+      screen.queryByPlaceholderText(t().weight.placeholder),
     ).toBeOnTheScreen();
     expect(screen.queryByText(t().date)).toBeOnTheScreen();
     expect(screen.queryByText(t().save)).toBeOnTheScreen();

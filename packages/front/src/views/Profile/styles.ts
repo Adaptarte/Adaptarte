@@ -9,23 +9,23 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     marginTop: 100,
     padding: 16,
-    paddingTop: 150
+    paddingTop: 150,
   },
   hr: {
     borderBottomColor: colors.GLAUCOUS,
     borderBottomWidth: 2,
-    marginVertical: 12
+    marginVertical: 12,
   },
   panicBtn: {
-    marginVertical: 20
+    marginVertical: 20,
   },
   signOut: {
-    marginTop: 16
+    marginTop: 16,
   },
   tags: {
     display: "flex",
-    flexDirection: "row"
-  }
+    flexDirection: "row",
+  },
 });
 
 export { styles };

@@ -4,7 +4,7 @@ const SPA = {
   heartFailure: "Deficiencia Cardiaca",
   hypertension: "Hipertensión",
   save: "Guardar",
-  title: "Enfermedades"
+  title: "Enfermedades",
 };
 
 const t = (): typeof SPA => SPA;

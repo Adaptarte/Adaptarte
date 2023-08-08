@@ -19,7 +19,7 @@ const WeightGoal = ({ date, done }: WeightGoalProps): JSX.Element => {
       db.addDoc("Weight", data);
       score.add(10);
     },
-    [score.add]
+    [score.add],
   );
 
   return (

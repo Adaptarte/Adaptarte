@@ -14,14 +14,14 @@ const styles = StyleSheet.create({
     shadowColor: "#000000",
     shadowOffset: {
       height: 3,
-      width: 0
+      width: 0,
     },
     shadowOpacity: 0.17,
     shadowRadius: 3.05,
-    textAlign: "center"
+    textAlign: "center",
   },
   description: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   iconContainer: {
     alignItems: "center",
@@ -31,10 +31,10 @@ const styles = StyleSheet.create({
     right: 20,
     top: "40%",
     width: 30,
-    zIndex: 1
+    zIndex: 1,
   },
   note: {
-    textAlign: "center"
+    textAlign: "center",
   },
   noteContainer: {
     backgroundColor: colors.GLAUCOUS,
@@ -45,33 +45,33 @@ const styles = StyleSheet.create({
     shadowColor: "#000000",
     shadowOffset: {
       height: 3,
-      width: 0
+      width: 0,
     },
     shadowOpacity: 0.17,
     shadowRadius: 3.05,
-    textAlign: "center"
+    textAlign: "center",
   },
   textContacts: {
-    textAlign: "center"
+    textAlign: "center",
   },
   title: {
-    marginBottom: 16
-  }
+    marginBottom: 16,
+  },
 });
 
 const textVars: TextVariants<"note" | "textContact" | "title"> = {
   note: {
-    color: "WHITE"
+    color: "WHITE",
   },
   textContact: {
     color: "BLACK",
-    weight: "bold"
+    weight: "bold",
   },
   title: {
     color: "GLAUCOUS",
     size: 3,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

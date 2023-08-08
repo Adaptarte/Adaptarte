@@ -16,7 +16,7 @@ const EditableText = ({
   placeholder,
   style,
   type,
-  value = ""
+  value = "",
 }: EditableTextProps): JSX.Element => {
   const [editing, toggleEditing] = useReducer((val) => !val, false);
   const [input, setInput] = useState(value);

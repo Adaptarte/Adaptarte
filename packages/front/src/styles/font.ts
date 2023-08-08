@@ -5,7 +5,7 @@ const sizes: Record<TFontSize, number> = {
   2: 16,
   3: 18,
   4: 22,
-  5: 26
+  5: 26,
 };
 
 const font = { sizes };

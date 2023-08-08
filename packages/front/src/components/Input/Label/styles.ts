@@ -4,14 +4,14 @@ import type { TextVariants } from "components/Text/types";
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 4
-  }
+    marginBottom: 4,
+  },
 });
 
 const textVars: TextVariants<"label"> = {
   label: {
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

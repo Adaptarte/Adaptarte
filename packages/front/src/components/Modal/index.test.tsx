@@ -14,7 +14,7 @@ describe("Modal", () => {
     render(
       <Modal title={"Congrats"} visible>
         <Text>{"You're awesome"}</Text>
-      </Modal>
+      </Modal>,
     );
 
     const title = screen.queryByText("Congrats");

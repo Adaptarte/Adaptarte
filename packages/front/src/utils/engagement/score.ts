@@ -16,7 +16,7 @@ const useScore = (): Score => {
       const score = Math.max(0, value + amount);
       db.updateUser({ score });
     },
-    [db.updateUser, value]
+    [db.updateUser, value],
   );
 
   return { add, value };

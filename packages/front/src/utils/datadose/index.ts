@@ -3,7 +3,7 @@ import {
   byDisease,
   carer,
   medicine,
-  stress
+  stress,
 } from "components/DataDose/data";
 import type { TDataDose, TDataDoseGroup } from "components/DataDose/types";
 import type { TDiseases } from "utils/db/types";
@@ -14,7 +14,7 @@ const WEIGHTS = {
   carer: 1,
   disease: 1,
   medicine: 1,
-  stress: 1
+  stress: 1,
 };
 
 const weightedRandom = (weights: number[]): number => {
@@ -30,12 +30,12 @@ const getDataDoses = (diseases: Partial<TDiseases>): TDataDoseGroup[] => {
   const disease = Object.entries(fillDiseases(diseases)).reduce<TDataDose[]>(
     (acc, [key, val]) =>
       val ? acc.concat(byDisease[key as keyof TDiseases] ?? []) : acc,
-    []
+    [],
   );
   const doses = { basic, carer, disease, medicine, stress };
   return Object.entries(doses).map(([key, val]) => ({
     data: val,
-    weight: WEIGHTS[key as keyof typeof doses] * val.length
+    weight: WEIGHTS[key as keyof typeof doses] * val.length,
   }));
 };
 

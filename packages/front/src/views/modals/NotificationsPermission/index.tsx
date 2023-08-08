@@ -21,7 +21,7 @@ const NotificationsPermission = (): JSX.Element => {
         })
         .catch(console.error);
     },
-    []
+    [],
   );
 
   useEffect(() => {

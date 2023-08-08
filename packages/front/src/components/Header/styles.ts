@@ -5,11 +5,11 @@ import { colors } from "styles";
 
 const styles = StyleSheet.create({
   backButton: {
-    padding: 4
+    padding: 4,
   },
   backImage: {
     tintColor: colors.GLAUCOUS,
-    width: 16
+    width: 16,
   },
   container: {
     alignItems: "center",
@@ -17,17 +17,17 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     paddingHorizontal: 16,
-    paddingVertical: 8
+    paddingVertical: 8,
   },
   title: {
-    marginLeft: 16
-  }
+    marginLeft: 16,
+  },
 });
 
 const textVarTitle: TextVariant = {
   color: "GLAUCOUS",
   size: 5,
-  weight: "bold"
+  weight: "bold",
 };
 
 export { styles, textVarTitle };

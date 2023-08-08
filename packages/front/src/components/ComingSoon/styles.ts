@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   text: {
     textShadowColor: colors.BLACK,
     textShadowOffset: { height: 0, width: 0 },
-    textShadowRadius: 8
+    textShadowRadius: 8,
   },
   touchable: {
     alignItems: "center",
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "absolute",
     width: "100%",
-    zIndex: 1
-  }
+    zIndex: 1,
+  },
 });
 
 export { styles };

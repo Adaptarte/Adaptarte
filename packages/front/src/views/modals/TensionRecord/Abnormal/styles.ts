@@ -4,11 +4,11 @@ const styles = StyleSheet.create({
   center: {
     alignItems: "center",
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
   message: {
-    marginVertical: 8
-  }
+    marginVertical: 8,
+  },
 });
 
 export { styles };

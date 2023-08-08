@@ -7,7 +7,7 @@ import { useScore } from "utils/engagement/score";
 import { getRecipeById } from "utils/medicine";
 import {
   addMedicineNotification,
-  cancelMedicineNotification
+  cancelMedicineNotification,
 } from "utils/notifications";
 import { MedicineIntakeRecord } from "views/modals/MedicineIntakeRecord";
 
@@ -16,7 +16,7 @@ import type { MedicineGoalProps } from "./types";
 const MedicineGoal = ({
   date,
   done,
-  recipeId
+  recipeId,
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
   const db = useDB();
@@ -29,7 +29,7 @@ const MedicineGoal = ({
       score.add(10);
       cancelMedicineNotification(recipe.id);
     },
-    [recipe.id, score.add]
+    [recipe.id, score.add],
   );
 
   useEffect(() => {

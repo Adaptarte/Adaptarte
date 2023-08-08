@@ -11,7 +11,7 @@ import type { WeightRecordProps } from "./types";
 const WeightRecord = ({
   onSave,
   setVisible,
-  visible
+  visible,
 }: WeightRecordProps): JSX.Element => {
   const [date, setDate] = useState(new Date());
   const [weight, setWeight] = useState("");
@@ -19,7 +19,7 @@ const WeightRecord = ({
   const handleSave = useCallback(() => {
     onSave?.({
       date,
-      kg: parseFloat(weight)
+      kg: parseFloat(weight),
     });
     setVisible?.(false);
   }, [date, onSave, setVisible, weight]);

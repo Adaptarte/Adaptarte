@@ -8,23 +8,23 @@ const sizes: Record<TextSize, number> = {
   2: 16,
   3: 18,
   4: 22,
-  5: 26
+  5: 26,
 };
 
 const familyLexend: Record<TextWeight, string> = {
   bold: "Lexend-Bold",
-  normal: "Lexend-Regular"
+  normal: "Lexend-Regular",
 };
 
 const getTextStyle = ({
   color = "BLACK",
   size = 2,
-  weight = "normal"
+  weight = "normal",
 }: TextVariant): Style => {
   return {
     color: colors[color],
     fontFamily: familyLexend[weight],
-    fontSize: sizes[size]
+    fontSize: sizes[size],
   };
 };
 

@@ -19,7 +19,7 @@ const { Navigator, Group, Screen } = createNativeStackNavigator<IAppParams>();
 
 const screenOptions: NativeStackNavigationOptions = {
   header: Header,
-  headerShown: true
+  headerShown: true,
 };
 
 const AppNavigation = (): JSX.Element => {

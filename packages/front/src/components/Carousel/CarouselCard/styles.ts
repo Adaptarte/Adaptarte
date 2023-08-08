@@ -8,34 +8,34 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     display: "flex",
     flexDirection: "row",
-    padding: 20
+    padding: 20,
   },
   details: {
-    marginBottom: 15
+    marginBottom: 15,
   },
   image: {
     height: 100,
-    width: 60
+    width: 60,
   },
   textContainer: {
     flexBasis: 1,
-    flexGrow: 1
+    flexGrow: 1,
   },
   title: {
-    marginBottom: 15
-  }
+    marginBottom: 15,
+  },
 });
 
 const textVars: TextVariants<"content" | "title"> = {
   content: {
     color: "WHITE",
-    size: 1
+    size: 1,
   },
   title: {
     color: "WHITE",
     size: 4,
-    weight: "bold"
-  }
+    weight: "bold",
+  },
 };
 
 export { styles, textVars };

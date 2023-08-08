@@ -13,7 +13,7 @@ type HeaderNavParams = Record<"Dummy" | "Root", undefined>;
 const { Navigator, Screen } = createNativeStackNavigator<HeaderNavParams>();
 const DummyScreen = ({
   navigation: { navigate },
-  route: { name }
+  route: { name },
 }: NativeStackScreenProps<HeaderNavParams>): JSX.Element => {
   useEffect(() => {
     if (name === "Root") {
@@ -38,7 +38,7 @@ describe("Header", () => {
             options={{ title: "Dummy" }}
           />
         </Navigator>
-      </NavigationContainer>
+      </NavigationContainer>,
     );
 
     const title = screen.queryByText("Dummy");

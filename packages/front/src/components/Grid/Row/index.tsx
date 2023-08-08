@@ -9,7 +9,7 @@ const RowContext = createContext({ columns: 1, spacing: 8 });
 const Row = ({
   children,
   columns = 1,
-  spacing = 8
+  spacing = 8,
 }: IRowProps): JSX.Element => {
   const margin = spacing / -2;
 

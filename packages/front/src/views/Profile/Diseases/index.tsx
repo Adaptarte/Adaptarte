@@ -24,7 +24,7 @@ const Diseases = ({ diseases, onChange }: DiseasesProps): JSX.Element => {
             <Tag bg={"YELLOW_LIGHT"} key={el}>
               {t()[el]}
             </Tag>
-          ) : null
+          ) : null,
         )}
       </Row>
       <Button

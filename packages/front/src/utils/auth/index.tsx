@@ -6,12 +6,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 GoogleSignin.configure({
   webClientId:
-    "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com"
+    "288895389085-2uqd4dqq95l9r46jqm2p533jkidn3lph.apps.googleusercontent.com",
 });
 
 const updateDisplayname = async (name: string): Promise<void> => {
   const update = {
-    displayName: name
+    displayName: name,
   };
   return await auth().currentUser?.updateProfile(update);
 };
@@ -19,11 +19,11 @@ const updateDisplayname = async (name: string): Promise<void> => {
 const signUpEmailPassword = async (
   email: string,
   password: string,
-  username: string
+  username: string,
 ): Promise<FirebaseAuthTypes.UserCredential> => {
   const credential = await auth().createUserWithEmailAndPassword(
     email,
-    password
+    password,
   );
   await updateDisplayname(username);
   return credential;
@@ -31,7 +31,7 @@ const signUpEmailPassword = async (
 
 const signInEmailPassword = async (
   email: string,
-  password: string
+  password: string,
 ): Promise<FirebaseAuthTypes.UserCredential> => {
   return await auth().signInWithEmailAndPassword(email, password);
 };
@@ -46,7 +46,7 @@ const signInGoogle = async (): Promise<FirebaseAuthTypes.UserCredential> => {
 const signInApple = async (): Promise<FirebaseAuthTypes.UserCredential> => {
   const { identityToken, nonce } = await appleAuth.performRequest({
     requestedOperation: appleAuth.Operation.LOGIN,
-    requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME]
+    requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
   });
   if (identityToken === null) {
     throw new Error("Apple Sign-In failed - no identify token returned");
@@ -89,5 +89,5 @@ export {
   signOut,
   useAuth,
   UserProvider,
-  useUser
+  useUser,
 };

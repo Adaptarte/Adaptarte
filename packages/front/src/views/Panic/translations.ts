@@ -11,8 +11,8 @@ const SPA = {
     "Pies hinchados",
     "Dolor en el área del pecho o espalda",
     "Somnolencia o insomnio",
-    "Dolor de cabeza"
-  ]
+    "Dolor de cabeza",
+  ],
 };
 
 const t = (): typeof SPA => SPA;
