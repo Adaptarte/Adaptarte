@@ -25,6 +25,11 @@ import lemonade from "./Liquids/Lemonade.webp";
 import tea from "./Liquids/Tea.webp";
 import water from "./Liquids/Water.webp";
 import wine from "./Liquids/Wine.webp";
+import chickens from "./Protein/Chickens.webp";
+import eggs from "./Protein/Eggs.webp";
+import fish from "./Protein/Fish.webp";
+import leanmeats from "./Protein/LeanMeats.webp";
+import shellfish from "./Protein/Shellfish.webp";
 
 const foodImgs = {
   apple,
@@ -33,14 +38,18 @@ const foodImgs = {
   bread,
   cassava,
   cherry,
+  chickens,
   chocolate,
   coffee,
   cookie,
   corn,
+  eggs,
   empanada,
+  fish,
   grape,
   juice,
   kiwi,
+  leanmeats,
   lemonade,
   milk,
   orange,
@@ -49,6 +58,7 @@ const foodImgs = {
   pineapple,
   potato,
   rice,
+  shellfish,
   tea,
   water,
   watermelon,

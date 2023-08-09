@@ -10,6 +10,7 @@ const getConsumptionExpected = (type: IFood["type"], current = 0): number[] => {
     dairy: 2,
     fruitsAndVegetables: 4,
     liquids: 5,
+    protein: 2,
   };
   return arr(expected[type] - current);
 };
@@ -34,6 +35,7 @@ const groupConsumptionByFoodType = (
     dairy: [],
     fruitsAndVegetables: [],
     liquids: [],
+    protein: [],
   };
 
   data.forEach((el) => {

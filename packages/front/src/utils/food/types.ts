@@ -1,6 +1,12 @@
 import type { ImgName } from "components/Img/types";
 
-const foodTypes = ["liquids", "carbs", "fruitsAndVegetables", "dairy"] as const;
+const foodTypes = [
+  "liquids",
+  "carbs",
+  "fruitsAndVegetables",
+  "dairy",
+  "protein",
+] as const;
 type FoodType = (typeof foodTypes)[number];
 
 interface IFood {
