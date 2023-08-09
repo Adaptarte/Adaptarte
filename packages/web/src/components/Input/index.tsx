@@ -11,13 +11,14 @@ const Input = ({
   name,
   onChange,
   placeholder,
-  value
+  type,
+  value,
 }: InputProps): JSX.Element => {
   const handleChange = useCallback(
     (ev: ChangeEvent<HTMLInputElement>) => {
       onChange?.(ev.target.value);
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -34,6 +35,7 @@ const Input = ({
         name={name}
         onChange={handleChange}
         placeholder={placeholder}
+        type={type}
         value={value}
       />
     </div>
