@@ -10,7 +10,10 @@ describe("views/Authentication", () => {
   });
 
   it("Show content", () => {
-    expect.assertions(1);
+    expect.assertions(4);
     expect(screen.queryByText(t().title)).toBeInTheDocument();
+    expect(screen.queryByText(t().email.label)).toBeInTheDocument();
+    expect(screen.queryByText(t().password.label)).toBeInTheDocument();
+    expect(screen.queryByText(t().signIn)).toBeInTheDocument();
   });
 });
