@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
+import { signIn } from "utils/auth";
 
 import { t } from "./translations";
 
@@ -12,6 +13,10 @@ const styles = {
 const Authentication = (): JSX.Element => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSignIn = useCallback(() => {
+    signIn(email, password);
+  }, [email, password]);
 
   return (
     <div>
@@ -32,7 +37,7 @@ const Authentication = (): JSX.Element => {
         type={"password"}
         value={password}
       />
-      <Button>{t().signIn}</Button>
+      <Button onClick={handleSignIn}>{t().signIn}</Button>
     </div>
   );
 };

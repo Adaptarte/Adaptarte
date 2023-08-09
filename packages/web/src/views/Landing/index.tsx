@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
+import { signOut } from "utils/auth";
 
 import { MedicineRecipe } from "./MedicineRecipe";
 import { AddMedicineRecipe } from "./MedicineRecipe/Add";
@@ -13,7 +14,7 @@ const Landing = (): JSX.Element => {
   const [addMedicine, toggleAddMedicine] = useReducer((val) => !val, false);
 
   return (
-    <div>
+    <>
       <div className={"align-content-stretch d-flex mb-3"}>
         <Input
           className={"flex-grow-1 me-2"}
@@ -36,7 +37,13 @@ const Landing = (): JSX.Element => {
         />
         <AddMedicineRecipe onClose={toggleAddMedicine} visible={addMedicine} />
       </div>
-    </div>
+      <Button
+        className={"position-absolute end-0 mx-4 my-3 top-0"}
+        onClick={signOut}
+      >
+        {t().signOut}
+      </Button>
+    </>
   );
 };
 

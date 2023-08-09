@@ -7,6 +7,7 @@ const SPA = {
     button: "Buscar",
     placeholder: "Paciente",
   },
+  signOut: "Cerrar sesión",
 };
 
 const t = (): typeof SPA => SPA;
