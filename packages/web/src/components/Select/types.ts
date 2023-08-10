@@ -4,6 +4,7 @@ interface SelectOption {
 }
 
 interface SelectProps {
+  className?: string;
   onChange: (option?: SelectOption) => void;
   options: SelectOption[];
   value?: SelectOption["id"];

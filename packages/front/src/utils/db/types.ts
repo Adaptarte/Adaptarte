@@ -14,16 +14,11 @@ interface DBDoc<T extends object> {
 }
 
 interface DBUser {
+  active?: boolean;
   basicInfo?: {
     id?: string;
+    name?: string;
     phone?: string;
-  };
-  diet: {
-    carbs: number;
-    dairy: number;
-    fruitsAndVegetables: number;
-    liquids: number;
-    protein: number;
   };
   diseases: TDiseases;
   score: number;
