@@ -6,6 +6,7 @@ import type { SelectProps } from "./types";
 const defaultValue = "select";
 
 const Select = ({
+  className = "",
   onChange,
   options,
   value = defaultValue,
@@ -23,7 +24,11 @@ const Select = ({
   );
 
   return (
-    <select className={"form-select"} onChange={handleChange} value={value}>
+    <select
+      className={`form-select ${className}`.trimEnd()}
+      onChange={handleChange}
+      value={value}
+    >
       <option value={defaultValue}>{t().select}</option>
       {options.map((el) => (
         <option key={el.id} value={el.id}>
