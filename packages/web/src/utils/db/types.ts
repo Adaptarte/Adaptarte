@@ -9,7 +9,7 @@ type DBDisease = (typeof allDiseases)[number];
 
 interface DBDoc<T extends object> {
   id: string;
-  data: T;
+  data?: T;
 }
 
 interface DBUser {
@@ -53,7 +53,6 @@ interface DBMedicineRecipe {
   details?: string;
   interval: number;
   medicine: string;
-  takeFrom: Date;
 }
 
 interface DBTension {
