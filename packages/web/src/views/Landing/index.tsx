@@ -32,7 +32,6 @@ const Landing = (): JSX.Element => {
           data={{
             interval: 8,
             medicine: "Acído Acetilsalicílico",
-            takeFrom: new Date(),
           }}
         />
         <AddMedicineRecipe onClose={toggleAddMedicine} visible={addMedicine} />

@@ -33,7 +33,7 @@
   "main": "index.js",
   "name": "adaptarte-web",
   "scripts": {
-    "build": "NODE_ENV=production webpack",
+    "build": "webpack-cli ./src/index.tsx",
     "format": "prettier --config .prettierrc.js --write src/**/*.{ts,tsx,scss}",
     "lint": "eslint src --ext .ts,.tsx --fix",
     "start": "webpack serve --port 3000",
