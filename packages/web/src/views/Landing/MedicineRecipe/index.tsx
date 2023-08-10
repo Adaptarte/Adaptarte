@@ -9,7 +9,7 @@ import type { MedicineRecipeProps } from "./types";
 const styles = {
   col: "col-6",
   key: "fw-bold mb-0 me-2",
-  val: "mb-0"
+  val: "mb-0",
 };
 
 const MedicineRecipe = ({ data }: MedicineRecipeProps): JSX.Element => {
@@ -22,10 +22,6 @@ const MedicineRecipe = ({ data }: MedicineRecipeProps): JSX.Element => {
           <div className={"col-6"}>
             <p className={styles.key}>{t().interval}</p>
             <p className={styles.val}>{data.interval}</p>
-          </div>
-          <div className={"col-6"}>
-            <p className={styles.key}>{t().takeFrom}</p>
-            <p className={styles.val}>{data.takeFrom.toLocaleString()}</p>
           </div>
           <div className={"col-12"}>
             <p className={styles.key}>{t().details}</p>
