@@ -33,13 +33,13 @@ const PatientSearch = ({ onFind }: PatientSearchProps): JSX.Element => {
     [onFind],
   );
 
-  const options = patients.map(({ data }) => {
-    const id = data?.basicInfo?.id ?? "-";
+  const options = patients.map(({ data, id }) => {
+    const cc = data?.basicInfo?.id ?? "-";
     const name = data?.basicInfo?.name ?? "-";
 
     return {
       id,
-      name: `CC: ${id} Nombre: ${name}`,
+      name: `CC: ${cc} Nombre: ${name}`,
     };
   });
 

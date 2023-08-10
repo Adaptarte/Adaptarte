@@ -2,6 +2,7 @@ import React, { useReducer, useState } from "react";
 
 import { Button } from "components/Button";
 import { signOut } from "utils/auth";
+import { useDB } from "utils/db";
 
 import { MedicineRecipe } from "./MedicineRecipe";
 import { AddMedicineRecipe } from "./MedicineRecipe/Add";
@@ -13,10 +14,13 @@ const Landing = (): JSX.Element => {
   const [patient, setPatient] = useState<string>();
   const [addMedicine, toggleAddMedicine] = useReducer((val) => !val, false);
 
+  const db = useDB(patient ?? "-");
+  const info = db.getUser()?.data;
+
   return (
     <>
       <PatientSearch onFind={setPatient} />
-      <PatientInfo />
+      <PatientInfo data={info} />
       <p className={"h4 mb-2 mt-4"}>{t().medicineRecipes.title}</p>
       <Button onClick={toggleAddMedicine}>{t().medicineRecipes.add}</Button>
       <div className={"row"}>
