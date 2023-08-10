@@ -19,25 +19,27 @@ const Authentication = (): JSX.Element => {
   }, [email, password]);
 
   return (
-    <div>
-      <p className={"h3"}>{t().title}</p>
-      <Input
-        className={styles.field}
-        label={t().email.label}
-        onChange={setEmail}
-        placeholder={t().email.placeholder}
-        type={"email"}
-        value={email}
-      />
-      <Input
-        className={styles.field}
-        label={t().password.label}
-        onChange={setPassword}
-        placeholder={t().password.placeholder}
-        type={"password"}
-        value={password}
-      />
-      <Button onClick={handleSignIn}>{t().signIn}</Button>
+    <div className={"d-flex justify-content-center"}>
+      <div className={"pt-5 w-100"} style={{ maxWidth: 300 }}>
+        <p className={"h3"}>{t().title}</p>
+        <Input
+          className={styles.field}
+          label={t().email.label}
+          onChange={setEmail}
+          placeholder={t().email.placeholder}
+          type={"email"}
+          value={email}
+        />
+        <Input
+          className={styles.field}
+          label={t().password.label}
+          onChange={setPassword}
+          placeholder={t().password.placeholder}
+          type={"password"}
+          value={password}
+        />
+        <Button onClick={handleSignIn}>{t().signIn}</Button>
+      </div>
     </div>
   );
 };
