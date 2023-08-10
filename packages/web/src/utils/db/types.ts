@@ -1,3 +1,5 @@
+import type { QueryConstraint } from "firebase/firestore";
+
 const allDiseases = [
   "diabetesMellitus",
   "epoc",
@@ -55,6 +57,20 @@ interface DBMedicineRecipe {
   medicine: string;
 }
 
+interface DBOperations {
+  addDoc: <T extends keyof DBUserCollections>(
+    collection: T,
+    data: DBUserCollections[T],
+  ) => void;
+  delDoc: (collection: keyof DBUserCollections, doc: string) => void;
+  getDocs: <T extends keyof DBUserCollections>(
+    collection: T,
+    filter?: QueryConstraint[],
+  ) => DBDoc<DBUserCollections[T]>[];
+  getUser: () => DBDoc<DBUser> | null;
+  updateUser: (data: Partial<DBUser>) => void;
+}
+
 interface DBTension {
   date: Date;
   diastolic: number;
@@ -89,6 +105,7 @@ export type {
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
+  DBOperations,
   DBTension,
   DBUser,
   DBUserCollections,
