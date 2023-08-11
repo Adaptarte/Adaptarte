@@ -2,8 +2,11 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { useAuth } from "utils/auth";
+import { registerCharts } from "utils/charts";
 import { Authentication } from "views/Authentication";
 import { Landing } from "views/Landing";
+
+registerCharts();
 
 const router = createBrowserRouter([
   {

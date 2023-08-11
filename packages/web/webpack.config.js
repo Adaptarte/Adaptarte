@@ -22,10 +22,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          "style-loader",
-          "css-loader",
-        ],
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.scss$/,
@@ -44,9 +41,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
-    ]
+    ],
   },
   output: {
     path: __dirname + "/dist",
