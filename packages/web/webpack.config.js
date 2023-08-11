@@ -46,7 +46,7 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/build",
   },
   plugins: [
     new HtmlWebpackPlugin({
