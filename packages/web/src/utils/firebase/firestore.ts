@@ -53,7 +53,7 @@ const getDocData = <T extends object>(
   doc: DocumentSnapshot<DocumentData>,
 ): DBDoc<T> => {
   return {
-    data: timestampsToDate(doc.data()) as T | undefined,
+    data: timestampsToDate(doc.data()) as T,
     id: doc.id,
   };
 };

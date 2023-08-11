@@ -17,8 +17,8 @@ const PatientSearch = ({ onFind }: PatientSearchProps): JSX.Element => {
         setPatients(
           res.filter(
             (user) =>
-              user.data?.basicInfo?.id !== undefined ||
-              user.data?.basicInfo?.name !== undefined,
+              user.data.basicInfo?.id !== undefined ||
+              user.data.basicInfo?.name !== undefined,
           ),
         );
       })
@@ -45,7 +45,7 @@ const PatientSearch = ({ onFind }: PatientSearchProps): JSX.Element => {
 
   return (
     <Select
-      className={"mb-2"}
+      className={"mb-2 sticky-top"}
       onChange={handleSelect}
       options={options}
       value={patient}

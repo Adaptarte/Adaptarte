@@ -11,7 +11,7 @@ type DBDisease = (typeof allDiseases)[number];
 
 interface DBDoc<T extends object> {
   id: string;
-  data?: T;
+  data: T;
 }
 
 interface DBUser {

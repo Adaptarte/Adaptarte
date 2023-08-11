@@ -1,5 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import type { QueryConstraint } from "firebase/firestore";
+import { orderBy } from "firebase/firestore";
 import { useCallback, useEffect, useState } from "react";
 
 import * as db from "utils/firebase/firestore";
@@ -46,7 +47,11 @@ const useDB = (uid: string): DBOperations => {
     const [docs, setDocs] = useState<DBDoc<DBUserCollections[T]>[]>([]);
     useEffect(() => {
       if (user !== null) {
-        return db.listenCol(`${user}/${collection}`, setDocs, filter);
+        return db.listenCol(
+          `${user}/${collection}`,
+          setDocs,
+          (filter ?? []).concat([orderBy("date")]),
+        );
       }
     }, [collection, filter, user]);
     return docs;
