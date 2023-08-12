@@ -58,9 +58,19 @@ interface DBMedicineRecipe {
   takeFrom: Date;
 }
 
+interface DBHydrationIntake {
+  amount: number;
+  date: Date;
+}
+
 interface DBOperations {
   addDoc: <T extends keyof DBUserCollections>(
     collection: T,
+    data: DBUserCollections[T],
+  ) => void;
+  updateDoc: <T extends keyof DBUserCollections>(
+    collection: T,
+    doc: string,
     data: DBUserCollections[T],
   ) => void;
   delDoc: (collection: keyof DBUserCollections, doc: string) => void;
@@ -91,6 +101,7 @@ interface DBUserCollections {
   MedicineIntake: DBMedicineIntake;
   MedicineRecipe: DBMedicineRecipe;
   Tension: DBTension;
+  Hydration: DBHydrationIntake;
   Weight: DBWeight;
 }
 
@@ -105,6 +116,7 @@ export type {
   DBFoodIntake,
   DBMedicineIntake,
   DBMedicineRecipe,
+  DBHydrationIntake,
   DBOperations,
   DBTension,
   DBUser,
