@@ -24,4 +24,16 @@ const registerSignal = async (): Promise<void> => {
   });
 };
 
-export { registerFoodGA, registerMedicineGA, registerSignal, registerExercise };
+const registerWater = async (): Promise<void> => {
+  await analytics().logEvent("register_water", {
+    eventName: "water_registered",
+  });
+};
+
+export {
+  registerFoodGA,
+  registerMedicineGA,
+  registerSignal,
+  registerExercise,
+  registerWater,
+};
