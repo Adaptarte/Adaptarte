@@ -18,6 +18,17 @@ const useDB = (): DBOperations => {
     [uid],
   );
 
+  const updateDoc = useCallback(
+    <T extends keyof DBUserCollections>(
+      collection: keyof DBUserCollections,
+      doc: string,
+      data: DBUserCollections[T],
+    ) => {
+      refUserCol(uid, collection).doc(doc).update(data).catch(console.error);
+    },
+    [uid],
+  );
+
   const delDoc = useCallback(
     (collection: keyof DBUserCollections, doc: string) => {
       refUserCol(uid, collection).doc(doc).delete().catch(console.error);
@@ -37,6 +48,7 @@ const useDB = (): DBOperations => {
     delDoc,
     getDocs: useDbUserData,
     getUser: useDbUser,
+    updateDoc,
     updateUser,
   };
 };
