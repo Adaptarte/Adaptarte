@@ -11,6 +11,7 @@ type IAppParams = {
   Landing: undefined;
   Panic: undefined;
   Profile: undefined;
+  Hydration: undefined;
 };
 
 type TAppViewProps<T extends keyof IAppParams> = NativeStackScreenProps<

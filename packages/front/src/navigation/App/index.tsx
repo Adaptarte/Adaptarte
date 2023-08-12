@@ -9,6 +9,7 @@ import { Calm } from "views/Calm";
 import { Consumption } from "views/Consumption";
 import { Exercise } from "views/Exercise";
 import { Feeding } from "views/Feeding";
+import { Hydration } from "views/Hydration";
 import { Landing } from "views/Landing";
 import { Panic } from "views/Panic";
 import { Profile } from "views/Profile";
@@ -28,21 +29,22 @@ const AppNavigation = (): JSX.Element => {
       <Navigator initialRouteName={"Landing"} screenOptions={screenOptions}>
         <Screen component={Landing} name={"Landing"} />
         <Screen component={Calm} name={"Calm"} />
+        <Screen component={Hydration} name={"Hydration"} />
         <Screen
           component={Feeding}
           name={"Feeding"}
           options={{ title: "Alimentación" }}
+        />
+        <Screen
+          component={Panic}
+          name={"Panic"}
+          options={{ title: "Mantenga la calma" }}
         />
         <Group
           screenOptions={{ headerStyle: { backgroundColor: colors.LIGHT } }}
         >
           <Screen component={Profile} name={"Profile"} />
         </Group>
-        <Screen
-          component={Panic}
-          name={"Panic"}
-          options={{ title: "Mantenga la calma" }}
-        />
         <Group screenOptions={{ headerShown: false }}>
           <Screen component={Consumption} name={"Consumption"} />
           <Screen

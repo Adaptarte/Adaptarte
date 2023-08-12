@@ -15,6 +15,7 @@ import profile from "./Profile.webp";
 import stretching from "./Stretching.webp";
 import walking from "./Walking.webp";
 import walkingdog from "./WalkingTheDog.webp";
+import waterbottle from "./WaterBottle.webp";
 
 const imgs = {
   ...foodImgs,
@@ -34,6 +35,7 @@ const imgs = {
   stretching,
   walking,
   walkingdog,
+  waterbottle,
 };
 
 export { imgs };

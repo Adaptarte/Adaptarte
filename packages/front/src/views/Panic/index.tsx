@@ -8,7 +8,7 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import { useDB } from "utils/db";
 
-import { getSymptoms } from "./data";
+import { deleteDuplicates, getSymptoms } from "./data";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
 
@@ -17,7 +17,7 @@ const Panic = (): JSX.Element => {
   const userData = db.getUser();
   const data = t();
 
-  const signal = getSymptoms(userData?.diseases ?? {});
+  const signal = deleteDuplicates(getSymptoms(userData?.diseases ?? {}));
   !signal.length ? null : (data.signals = signal);
 
   const [contactName, setContactName] = useState("");
