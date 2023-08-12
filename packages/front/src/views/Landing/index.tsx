@@ -29,6 +29,8 @@ const Landing = ({
   const today = setDayTime(new Date(), 0);
   const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
   const exerciseDone = db.getDocs("Exercises", [["date", ">=", today]]);
+  const hydration = db.getDocs("Hydration", [["date", ">=", today]])[0];
+  const hydrationDone = hydration === undefined ? 0 : hydration.data.amount;
 
   const user = useUser();
   const name = user.displayName?.split(" ")[0] ?? "paciente";
@@ -67,6 +69,7 @@ const Landing = ({
         <DailyHabits
           exercise={exerciseDone.length > 0}
           feeding={foodIntakes.length >= 15 * 0.8}
+          hydration={hydrationDone >= 8}
           navigate={navigate}
         />
         <NotificationsPermission />

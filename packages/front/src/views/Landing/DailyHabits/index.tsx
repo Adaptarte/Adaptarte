@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 
-import { ComingSoon } from "components/ComingSoon";
 import { Column, Row } from "components/Grid";
 import { Habit } from "components/Habit";
 
@@ -24,6 +23,10 @@ const DailyHabits = ({
 
   const goToFeeding = useCallback((): void => {
     navigate("Feeding");
+  }, [navigate]);
+
+  const goToWater = useCallback((): void => {
+    navigate("Hydration");
   }, [navigate]);
 
   return (
@@ -51,16 +54,15 @@ const DailyHabits = ({
         </Habit>
       </Column>
       <Column>
-        <ComingSoon>
-          <Habit
-            bgColor={"BLUE_TRANSLUCID"}
-            checked={hydration}
-            color={"BLUE"}
-            img={"drinkingWater"}
-          >
-            {t().hydration}
-          </Habit>
-        </ComingSoon>
+        <Habit
+          bgColor={"BLUE_TRANSLUCID"}
+          checked={hydration}
+          color={"BLUE"}
+          img={"drinkingWater"}
+          onPress={goToWater}
+        >
+          {t().hydration}
+        </Habit>
       </Column>
       <Column>
         <Habit

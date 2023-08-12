@@ -1,6 +1,11 @@
 import type { TDiseases } from "utils/db/types";
 import { fillDiseases } from "utils/patient";
 
+const deleteDuplicates = (symptoms: string[]): string[] => {
+  const result = new Set(symptoms);
+  return [...result];
+};
+
 const getSymptoms = (diseases: Partial<TDiseases>): string[] => {
   return Object.entries(fillDiseases(diseases)).reduce<string[]>(
     (acc, [key, val]) => {
@@ -53,4 +58,4 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
   ],
 };
 
-export { getSymptoms };
+export { deleteDuplicates, getSymptoms };
