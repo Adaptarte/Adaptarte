@@ -21,13 +21,13 @@ describe("DailyHabits", () => {
   });
 
   it("Navigate to other screens", () => {
-    expect.assertions(4);
+    expect.assertions(5);
 
     texts.forEach((text) => {
       fireEvent.press(screen.getByText(text));
     });
 
-    const expCalls = ["Calm", "Exercise", "Feeding"];
+    const expCalls = ["Calm", "Exercise", "Feeding", "Hydration"];
     expect(navigate).toHaveBeenCalledTimes(expCalls.length);
     expCalls.forEach((expCall, idx) => {
       expect(navigate).toHaveBeenNthCalledWith(idx + 1, expCall);
