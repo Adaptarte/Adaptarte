@@ -30,9 +30,11 @@ const Modal = ({
         <View style={styles.container}>
           <View style={styles.header}>
             <Text variant={titleVar}>{title}</Text>
-            <Button onPress={handleClose}>
-              <Icon color={colors.BLACK} name={"times"} size={20} />
-            </Button>
+            {setVisible === undefined ? null : (
+              <Button onPress={handleClose}>
+                <Icon color={colors.BLACK} name={"times"} size={20} />
+              </Button>
+            )}
           </View>
           {children}
         </View>
