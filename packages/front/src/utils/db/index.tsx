@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import { useUser } from "utils/auth";
 
@@ -43,14 +43,17 @@ const useDB = (): DBOperations => {
     [uid],
   );
 
-  return {
-    addDoc,
-    delDoc,
-    getDocs: useDbUserData,
-    getUser: useDbUser,
-    updateDoc,
-    updateUser,
-  };
+  return useMemo(
+    () => ({
+      addDoc,
+      delDoc,
+      getDocs: useDbUserData,
+      getUser: useDbUser,
+      updateDoc,
+      updateUser,
+    }),
+    [uid],
+  );
 };
 
 export { useDB };
