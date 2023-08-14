@@ -12,7 +12,7 @@ const SPA = {
     placeholder: "312 456 7890",
   },
   save: "Guardar cambios",
-  title: "Editar datos básicos",
+  title: "Edita tus datos",
 };
 
 const t = (): typeof SPA => SPA;

@@ -10,9 +10,8 @@ import { Modal } from ".";
 describe("Modal", () => {
   it("Render content", () => {
     expect.assertions(3);
-
     render(
-      <Modal title={"Congrats"} visible>
+      <Modal setVisible={jest.fn()} title={"Congrats"} visible>
         <Text>{"You're awesome"}</Text>
       </Modal>,
     );
@@ -23,6 +22,16 @@ describe("Modal", () => {
     expect(text).toBeOnTheScreen();
     const closeBtn = screen.queryByTestId("icon-times");
     expect(closeBtn).toBeOnTheScreen();
+  });
+
+  it("Hide close button", () => {
+    expect.assertions(1);
+    render(
+      <Modal title={"Congrats"} visible>
+        <Text>{"You're awesome"}</Text>
+      </Modal>,
+    );
+    expect(screen.queryByTestId("icon-times")).not.toBeOnTheScreen();
   });
 
   it("Be toggleable", async () => {

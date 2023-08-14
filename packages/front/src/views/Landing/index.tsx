@@ -14,6 +14,7 @@ import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import { useScore } from "utils/engagement/score";
 import { NotificationsPermission } from "views/modals/NotificationsPermission";
+import { PatientInfoEdit } from "views/modals/PatientInfoEdit";
 
 import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
@@ -74,6 +75,14 @@ const Landing = ({
         />
         <NotificationsPermission />
       </View>
+      <PatientInfoEdit
+        data={userData?.basicInfo}
+        key={JSON.stringify(userData?.basicInfo)}
+        visible={
+          userData?.basicInfo?.id === undefined ||
+          userData?.basicInfo?.name === undefined
+        }
+      />
     </Screen>
   );
 };
