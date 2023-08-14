@@ -19,6 +19,7 @@ import { DailyGoals } from "./DailyGoals";
 import { DailyHabits } from "./DailyHabits";
 import { styles, textVars } from "./styles";
 import { t } from "./translations";
+import { PatientInfoEdit } from "views/modals/PatientInfoEdit";
 
 const Landing = ({
   navigation: { navigate },
@@ -74,6 +75,14 @@ const Landing = ({
         />
         <NotificationsPermission />
       </View>
+      <PatientInfoEdit
+        data={userData?.basicInfo}
+        key={JSON.stringify(userData?.basicInfo)}
+        visible={
+          userData?.basicInfo?.id === undefined ||
+          userData?.basicInfo?.name === undefined
+        }
+      />
     </Screen>
   );
 };

@@ -50,7 +50,9 @@ const PatientInfoEdit = ({
       />
       <Button
         disabled={
-          id === data?.id && name === data?.name && phone === data?.phone
+          (id === data?.id || id.length === 0) &&
+          (name === data?.name || name.length === 0) &&
+          phone === data?.phone
         }
         onPress={handleSave}
         style={{ marginTop: 8 }}
