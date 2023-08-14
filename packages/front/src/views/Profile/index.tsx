@@ -25,13 +25,6 @@ const Profile = ({
     db.updateUser({ diseases });
   }, []);
 
-  const handleChangeBasicInfo = useCallback(
-    (basicInfo: DBUser["basicInfo"]) => {
-      db.updateUser({ basicInfo });
-    },
-    [],
-  );
-
   const goToPanic = useCallback(() => {
     navigate("Panic");
   }, [navigate]);
@@ -45,11 +38,7 @@ const Profile = ({
           key={JSON.stringify(userData?.diseases)}
           onChange={handleChangeDiseases}
         />
-        <BasicInfo
-          data={userData?.basicInfo}
-          key={JSON.stringify(userData?.basicInfo)}
-          onChange={handleChangeBasicInfo}
-        />
+        <BasicInfo data={userData?.basicInfo} />
         <Button
           onPress={goToPanic}
           style={styles.panicBtn}
@@ -63,7 +52,7 @@ const Profile = ({
           style={styles.signOut}
           variant={{ style: "solid" }}
         >
-          {"Cerrar sesión"}
+          {t().signOut}
         </Button>
       </View>
     </Screen>

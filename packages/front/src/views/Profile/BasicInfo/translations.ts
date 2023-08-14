@@ -1,5 +1,7 @@
 const SPA = {
-  id: "C.C.",
+  edit: "Editar datos",
+  id: "CC",
+  name: "Nombre",
   phone: "Teléfono",
   title: "Datos básicos",
 };
