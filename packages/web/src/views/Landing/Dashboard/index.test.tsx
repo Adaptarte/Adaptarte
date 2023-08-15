@@ -6,7 +6,7 @@ import { t } from "./translations";
 
 describe("views/Landing/Dashboard", () => {
   beforeEach(() => {
-    render(<Dashboard uid={"-"} />);
+    render(<Dashboard />);
   });
 
   it("Show content", () => {

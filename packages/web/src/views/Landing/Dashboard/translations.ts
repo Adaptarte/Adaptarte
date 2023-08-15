@@ -3,7 +3,7 @@ const SPA = {
   exercises: "Ejercicio",
   foodIntakes: "Alimentación",
   medicineIntakes: "Medicación",
-  records: (num: number) => `${num} registros`,
+  records: (num: number): string => `${num} registros`,
   score: "Puntaje",
   tensions: {
     diastolic: "Presión diastólica",

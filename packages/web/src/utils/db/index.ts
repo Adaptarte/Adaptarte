@@ -61,8 +61,11 @@ const getDB = (uid: string): DBOperations => {
   return { addDoc, delDoc, getDocs, getUser, updateUser };
 };
 
-const useDB = (uid: string): DBOperations => {
+const useDB = (uid?: string): DBOperations | null => {
   return useMemo(() => {
+    if (uid === undefined) {
+      return null;
+    }
     return getDB(uid);
   }, [uid]);
 };

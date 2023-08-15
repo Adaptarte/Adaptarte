@@ -1,11 +1,10 @@
 import React from "react";
 
-import { useDB } from "utils/db";
+import { useDBPatient } from "utils/contexts";
 
 import { LineChart } from "./LineChart";
 import { DashboardStat } from "./Stat";
 import { t } from "./translations";
-import type { DashboardProps } from "./types";
 
 const shortDate = (date = new Date()): string => {
   return date.toLocaleDateString(undefined, {
@@ -14,8 +13,8 @@ const shortDate = (date = new Date()): string => {
   });
 };
 
-const Dashboard = ({ uid }: DashboardProps): JSX.Element => {
-  const db = useDB(uid);
+const Dashboard = (): JSX.Element => {
+  const db = useDBPatient();
   const calms = db.getDocs("CalmActivities");
   const exercises = db.getDocs("Exercises");
   const foods = db.getDocs("FoodIntake");
