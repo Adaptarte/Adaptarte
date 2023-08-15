@@ -1,4 +1,5 @@
 const SPA = {
+  date: "Fecha",
   delete: "Eliminar",
   details: "Detalles",
   edit: "Editar",

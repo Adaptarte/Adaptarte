@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
+import { useDBPatient } from "utils/contexts";
 
 import { t } from "./translations";
 import type { AddMedicineRecipeProps } from "./types";
@@ -15,9 +16,20 @@ const AddMedicineRecipe = ({
   onClose,
   visible,
 }: AddMedicineRecipeProps): JSX.Element => {
+  const db = useDBPatient();
   const [medicine, setMedicine] = useState("");
   const [interval, setInterval] = useState("");
   const [details, setDetails] = useState("");
+
+  const handleSave = useCallback(() => {
+    db.addDoc("MedicineRecipes", {
+      date: new Date(),
+      details: details.length === 0 ? undefined : details,
+      interval: parseInt(interval),
+      medicine,
+    });
+    onClose(false);
+  }, [db, details, interval, medicine]);
 
   return (
     <Modal onClose={onClose} title={t().title} visible={visible}>
@@ -42,7 +54,10 @@ const AddMedicineRecipe = ({
         placeholder={t().details.placeholder}
         value={details}
       />
-      <Button disabled={medicine.length === 0 || isNaN(parseInt(interval))}>
+      <Button
+        disabled={medicine.length === 0 || isNaN(parseInt(interval))}
+        onClick={handleSave}
+      >
         {t().save}
       </Button>
     </Modal>
