@@ -2,11 +2,11 @@ import React, { useReducer } from "react";
 
 import { Button } from "components/Button";
 import { Paper } from "components/Paper";
+import { useDBPatient } from "utils/contexts";
 import type { DBDisease } from "utils/db/types";
 
 import { EditPatientInfo } from "./Edit";
 import { t } from "./translations";
-import type { PatientInfoProps } from "./types";
 
 const styles = {
   col: "col-12 col-md-6 col-xl-3",
@@ -14,11 +14,13 @@ const styles = {
   val: "mb-0",
 };
 
-const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
+const PatientInfo = (): JSX.Element => {
   const [edit, toggleEdit] = useReducer((val) => !val, false);
+  const db = useDBPatient();
+  const data = db.getUser()?.data;
 
-  const diseases = Object.keys(data.diseases ?? {}).filter(
-    (key) => data.diseases?.[key as DBDisease],
+  const diseases = Object.keys(data?.diseases ?? {}).filter(
+    (key) => data?.diseases?.[key as DBDisease],
   ) as DBDisease[];
   return (
     <Paper>
@@ -26,14 +28,14 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
         <div className={styles.col}>
           <Paper>
             <p className={styles.key}>{t().id}</p>
-            <p className={styles.val}>{data.basicInfo?.id ?? t().undefined}</p>
+            <p className={styles.val}>{data?.basicInfo?.id ?? t().undefined}</p>
           </Paper>
         </div>
         <div className={styles.col}>
           <Paper>
             <p className={styles.key}>{t().name}</p>
             <p className={styles.val}>
-              {data.basicInfo?.name ?? t().undefined}
+              {data?.basicInfo?.name ?? t().undefined}
             </p>
           </Paper>
         </div>
@@ -41,7 +43,7 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
           <Paper>
             <p className={styles.key}>{t().phone}</p>
             <p className={styles.val}>
-              {data.basicInfo?.phone ?? t().undefined}
+              {data?.basicInfo?.phone ?? t().undefined}
             </p>
           </Paper>
         </div>
@@ -49,7 +51,7 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
           <Paper>
             <p className={styles.key}>{t().status}</p>
             <p className={styles.val}>
-              {data.active ? t().active : t().inactive}
+              {data?.active ? t().active : t().inactive}
             </p>
           </Paper>
         </div>
@@ -69,7 +71,12 @@ const PatientInfo = ({ data = {} }: PatientInfoProps): JSX.Element => {
       <Button className={"mt-3"} onClick={toggleEdit}>
         {t().edit}
       </Button>
-      <EditPatientInfo data={data} onClose={toggleEdit} visible={edit} />
+      <EditPatientInfo
+        data={data ?? {}}
+        key={JSON.stringify(data)}
+        onClose={toggleEdit}
+        visible={edit}
+      />
     </Paper>
   );
 };

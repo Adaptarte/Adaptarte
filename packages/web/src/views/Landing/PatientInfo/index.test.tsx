@@ -16,26 +16,4 @@ describe("views/Landing/PatientInfo", () => {
     expect(screen.queryByText(t().inactive)).toBeInTheDocument();
     expect(screen.queryByText(t().active)).not.toBeInTheDocument();
   });
-
-  it("Show data", () => {
-    expect.assertions(4);
-    const data = {
-      active: true,
-      basicInfo: {
-        id: "A2c",
-        name: "John Doe",
-        phone: "123 456 7890"
-      }
-    };
-    render(<PatientInfo data={data} />);
-    const texts = [
-      t().active,
-      data.basicInfo.id,
-      data.basicInfo.name,
-      data.basicInfo.phone
-    ];
-    texts.forEach((text) => {
-      expect(screen.queryByText(text)).toBeInTheDocument();
-    });
-  });
 });

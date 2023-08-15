@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { Button } from "components/Button";
 import { Modal } from "components/Modal";
 import { Switch } from "components/Switch";
+import { useDBPatient } from "utils/contexts";
 
 import { t } from "./translations";
 import type { EditPatientInfoProps } from "./types";
@@ -13,10 +14,11 @@ const styles = {
 };
 
 const EditPatientInfo = ({
-  data: { active = false, diseases },
+  data: { active = false, diseases } = {},
   onClose,
   visible,
 }: EditPatientInfoProps): JSX.Element => {
+  const db = useDBPatient();
   const [status, setStatus] = useState(active);
   const [diabetesMellitus, setDiabetesMellitus] = useState(
     diseases?.diabetesMellitus ?? false,
@@ -28,6 +30,20 @@ const EditPatientInfo = ({
   const [hypertension, setHypertension] = useState(
     diseases?.hypertension ?? false,
   );
+  const hasDiseases = diabetesMellitus || epoc || heartFailure || hypertension;
+
+  const handleSave = useCallback(() => {
+    db.updateUser({
+      active: status,
+      diseases: {
+        diabetesMellitus: diabetesMellitus,
+        epoc,
+        heartFailure,
+        hypertension,
+      },
+    });
+    onClose(false);
+  }, [active, db, diabetesMellitus, epoc, heartFailure, hypertension, onClose]);
 
   return (
     <Modal onClose={onClose} title={t().title} visible={visible}>
@@ -62,7 +78,20 @@ const EditPatientInfo = ({
         label={t().diseases.hypertension}
         onChange={setHypertension}
       />
-      <Button className={"mt-2"}>{t().save}</Button>
+      <Button
+        className={"mt-2"}
+        disabled={
+          (diabetesMellitus === diseases?.diabetesMellitus &&
+            epoc === diseases.epoc &&
+            heartFailure === diseases.heartFailure &&
+            hypertension === diseases.hypertension &&
+            status === active) ||
+          !hasDiseases
+        }
+        onClick={handleSave}
+      >
+        {t().save}
+      </Button>
     </Modal>
   );
 };
