@@ -12,13 +12,18 @@ const styles = StyleSheet.create({
     width: "100%",
     zIndex: 2,
   },
+  diseases: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 8,
+  },
   img: {
     borderRadius: 64,
     width: 128,
   },
   imgContainer: {
     backgroundColor: colors.WHITE,
-    borderRadius: 100,
+    borderRadius: 84,
     padding: 20,
   },
 });
