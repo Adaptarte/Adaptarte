@@ -6,7 +6,6 @@ import { Screen } from "components/Screen";
 import type { TAppViewProps } from "navigation/App/types";
 import { signOut, useUser } from "utils/auth";
 import { useDB } from "utils/db";
-import type { DBUser } from "utils/db/types";
 
 import { BasicInfo } from "./BasicInfo";
 import { Diseases } from "./Diseases";
@@ -21,10 +20,6 @@ const Profile = ({
   const user = useUser();
   const userData = db.getUser();
 
-  const handleChangeDiseases = useCallback((diseases: DBUser["diseases"]) => {
-    db.updateUser({ diseases });
-  }, []);
-
   const goToPanic = useCallback(() => {
     navigate("Panic");
   }, [navigate]);
@@ -33,11 +28,7 @@ const Profile = ({
     <Screen bg={"LIGHT"} style={{ padding: 0 }}>
       <ProfileHeader name={user.displayName} photo={user.photoURL} />
       <View style={styles.container}>
-        <Diseases
-          diseases={userData?.diseases ?? {}}
-          key={JSON.stringify(userData?.diseases)}
-          onChange={handleChangeDiseases}
-        />
+        <Diseases diseases={userData?.diseases ?? {}} />
         <BasicInfo data={userData?.basicInfo} />
         <Button
           onPress={goToPanic}
