@@ -24,13 +24,13 @@ const Profile = ({
   }, [navigate]);
 
   return (
-    <Screen bg={"LIGHT"} style={{ padding: 0 }}>
-      <ProfileHeader
-        diseases={userData?.diseases ?? {}}
-        name={userData?.basicInfo?.name}
-        photo={user.photoURL}
-      />
+    <Screen bg={"LIGHT"} style={styles.screen}>
       <View style={styles.container}>
+        <ProfileHeader
+          diseases={userData?.diseases ?? {}}
+          name={userData?.basicInfo?.name}
+          photo={user.photoURL}
+        />
         <BasicInfo data={userData?.basicInfo} />
         <Button
           onPress={goToPanic}
@@ -40,11 +40,7 @@ const Profile = ({
           {t().panic}
         </Button>
         <View style={styles.hr} />
-        <Button
-          onPress={signOut}
-          style={styles.signOut}
-          variant={{ style: "solid" }}
-        >
+        <Button onPress={signOut} variant={{ style: "solid" }}>
           {t().signOut}
         </Button>
       </View>

@@ -8,20 +8,20 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 50,
     borderTopRightRadius: 50,
     marginTop: 100,
-    minHeight: 635,
     padding: 16,
-    paddingTop: 130,
   },
   hr: {
     borderBottomColor: colors.GLAUCOUS,
     borderBottomWidth: 2,
-    marginVertical: 12,
+    marginVertical: 16,
   },
   panicBtn: {
-    marginVertical: 20,
-  },
-  signOut: {
     marginTop: 16,
+  },
+  screen: {
+    display: "flex",
+    flexDirection: "column",
+    padding: 0,
   },
   tags: {
     display: "flex",
