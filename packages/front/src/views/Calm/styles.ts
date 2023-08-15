@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 const textVars: TextVariants<"title"> = {
   title: {
     color: "GLAUCOUS",
-    size: 4,
+    size: 3,
+    weight: "bold",
   },
 };
 

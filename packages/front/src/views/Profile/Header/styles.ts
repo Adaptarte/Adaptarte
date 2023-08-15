@@ -3,14 +3,21 @@ import { StyleSheet } from "react-native";
 import { colors } from "styles";
 
 const styles = StyleSheet.create({
-  header: {
+  container: {
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
-    left: "28%",
-    marginTop: 20,
+    justifyContent: "center",
     position: "absolute",
+    top: 0,
+  },
+  header: {
     zIndex: 2,
+  },
+  headerContainer: {
+    alignItems: "center",
+    display: "flex",
+    position: "relative",
   },
   img: {
     borderRadius: 64,

@@ -36,7 +36,7 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
     "Pies hinchados.",
     "Dolor en el área del pecho o espalda.",
     "Somnolencia o insomnio",
-    "Dolor de cabeza",
+    "Dolor de cabeza.",
   ],
   heartFailure: [
     "Necesita más almohadas de lo habitual para dormir.",
@@ -45,7 +45,7 @@ const symptomsByDiease: Record<keyof TDiseases, string[]> = {
     "Su peso aumenta más de 1 kilo de un día para otro.",
   ],
   hypertension: [
-    "Dolor de cabeza intenso.",
+    "Dolor de cabeza.",
     "Confusión.",
     "Visión borrosa.",
     "Dificultad para respirar.",
