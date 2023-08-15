@@ -1,44 +1,35 @@
 /* eslint-disable max-lines-per-function */
 import type { QueryConstraint } from "firebase/firestore";
 import { orderBy } from "firebase/firestore";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import * as db from "utils/firebase/firestore";
 
 import type { DBDoc, DBOperations, DBUser, DBUserCollections } from "./types";
 
-const useDB = (uid: string): DBOperations => {
+const getDB = (uid: string): DBOperations => {
   const user = `Users/${uid}`;
 
-  const addDoc = useCallback(
-    <T extends keyof DBUserCollections>(
-      collection: T,
-      data: DBUserCollections[T],
-    ) => {
-      if (user !== null) {
-        db.addDoc(`${user}/${collection}`, data).catch(console.error);
-      }
-    },
-    [user],
-  );
+  const addDoc = <T extends keyof DBUserCollections>(
+    collection: T,
+    data: DBUserCollections[T],
+  ): void => {
+    if (user !== null) {
+      db.addDoc(`${user}/${collection}`, data).catch(console.error);
+    }
+  };
 
-  const delDoc = useCallback(
-    (collection: keyof DBUserCollections, doc: string) => {
-      if (user !== null) {
-        db.delDoc(`${user}/${collection}/${doc}`).catch(console.error);
-      }
-    },
-    [user],
-  );
+  const delDoc = (collection: keyof DBUserCollections, doc: string): void => {
+    if (user !== null) {
+      db.delDoc(`${user}/${collection}/${doc}`).catch(console.error);
+    }
+  };
 
-  const updateUser = useCallback(
-    (data: Partial<DBUser>) => {
-      if (user !== null) {
-        db.updateDoc(user, data).catch(console.error);
-      }
-    },
-    [user],
-  );
+  const updateUser = (data: Partial<DBUser>): void => {
+    if (user !== null) {
+      db.updateDoc(user, data).catch(console.error);
+    }
+  };
 
   const getDocs = <T extends keyof DBUserCollections>(
     collection: T,
@@ -68,6 +59,12 @@ const useDB = (uid: string): DBOperations => {
   };
 
   return { addDoc, delDoc, getDocs, getUser, updateUser };
+};
+
+const useDB = (uid: string): DBOperations => {
+  return useMemo(() => {
+    return getDB(uid);
+  }, [uid]);
 };
 
 export { useDB };
