@@ -6,8 +6,8 @@ import { DBPatientContext } from "utils/contexts";
 import { useDB } from "utils/db";
 
 import { Dashboard } from "./Dashboard";
-import { MedicineRecipe } from "./MedicineRecipe";
-import { AddMedicineRecipe } from "./MedicineRecipe/Add";
+import { AddMedicineRecipe } from "./MedicineRecipes/Add";
+import { MedicineRecipe } from "./MedicineRecipes/Card";
 import { PatientInfo } from "./PatientInfo";
 import { PatientSearch } from "./PatientSearch";
 import { t } from "./translations";
