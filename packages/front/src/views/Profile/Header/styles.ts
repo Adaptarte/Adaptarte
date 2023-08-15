@@ -7,17 +7,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
     position: "absolute",
     top: 0,
-  },
-  header: {
+    width: "100%",
     zIndex: 2,
-  },
-  headerContainer: {
-    alignItems: "center",
-    display: "flex",
-    position: "relative",
   },
   img: {
     borderRadius: 64,
