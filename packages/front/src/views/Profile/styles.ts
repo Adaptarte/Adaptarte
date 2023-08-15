@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     minHeight: 635,
     padding: 16,
-    paddingTop: 150,
+    paddingTop: 130,
   },
   hr: {
     borderBottomColor: colors.GLAUCOUS,

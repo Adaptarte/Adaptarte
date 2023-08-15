@@ -15,18 +15,24 @@ const ProfileHeader = ({ name, photo }: ProfileHeaderProps): JSX.Element => {
 
   return (
     <View style={styles.header}>
-      <View style={styles.imgContainer}>
-        {photo ? (
-          <Img src={{ uri: photo }} style={styles.img} />
-        ) : (
-          <Icon color={colors.GREY} name={"user-circle"} size={128} />
-        )}
+      <View style={styles.headerContainer}>
+        <View style={styles.container}>
+          <View style={styles.imgContainer}>
+            {photo ? (
+              <Img src={{ uri: photo }} style={styles.img} />
+            ) : (
+              <Icon color={colors.GREY} name={"user-circle"} size={128} />
+            )}
+          </View>
+          <Text variant={{ size: 3, weight: "bold" }}>
+            {name ?? "Paciente"}
+          </Text>
+          <Text variant={{ size: 2, weight: "bold" }}>
+            <Icon color={colors.YELLOW} name={"star"} size={16} />
+            {score.value}
+          </Text>
+        </View>
       </View>
-      <Text variant={{ size: 3, weight: "bold" }}>{name ?? "Paciente"}</Text>
-      <Text variant={{ size: 2, weight: "bold" }}>
-        <Icon color={colors.YELLOW} name={"star"} size={16} />
-        {score.value}
-      </Text>
     </View>
   );
 };
