@@ -8,13 +8,14 @@ import { t } from "./translations";
 
 describe("MedicineRecipe", () => {
   const data: DBMedicineRecipe = {
+    date: new Date(),
     details: "Take before breakfast",
     interval: 8,
     medicine: "Acetaminophen",
   };
 
   beforeEach(() => {
-    render(<MedicineRecipe data={data} />);
+    render(<MedicineRecipe data={data} id={"0"} />);
   });
 
   it("Show content", () => {

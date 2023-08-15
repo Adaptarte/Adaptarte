@@ -1,8 +1,4 @@
 const SPA = {
-  medicineRecipes: {
-    add: "Agregar",
-    title: "Recetas médicas",
-  },
   search: {
     button: "Buscar",
     placeholder: "Paciente",
