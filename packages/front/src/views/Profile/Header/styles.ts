@@ -7,10 +7,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     flexDirection: "column",
-    position: "absolute",
-    top: 0,
+    marginTop: -100,
     width: "100%",
-    zIndex: 2,
   },
   diseases: {
     display: "flex",
