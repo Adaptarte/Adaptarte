@@ -3,15 +3,24 @@ import { View } from "react-native";
 
 import { Icon } from "components/Icon";
 import { Img } from "components/Img";
+import { Tag } from "components/Tag";
 import { Text } from "components/Text";
 import { colors } from "styles";
+import { allDiseases } from "utils/db/types";
 import { useScore } from "utils/engagement/score";
+import { fillDiseases } from "utils/patient";
 
 import { styles } from "./styles";
+import { t } from "./translations";
 import type { ProfileHeaderProps } from "./types";
 
-const ProfileHeader = ({ name, photo }: ProfileHeaderProps): JSX.Element => {
+const ProfileHeader = ({
+  diseases,
+  name,
+  photo,
+}: ProfileHeaderProps): JSX.Element => {
   const score = useScore();
+  const fullDiseases = fillDiseases(diseases);
 
   return (
     <View style={styles.container}>
@@ -27,6 +36,15 @@ const ProfileHeader = ({ name, photo }: ProfileHeaderProps): JSX.Element => {
         <Icon color={colors.YELLOW} name={"star"} size={16} />
         {score.value}
       </Text>
+      <View style={styles.diseases}>
+        {allDiseases.map((el) =>
+          fullDiseases[el] ? (
+            <Tag bg={"YELLOW_LIGHT"} key={el}>
+              {t()[el]}
+            </Tag>
+          ) : null,
+        )}
+      </View>
     </View>
   );
 };
