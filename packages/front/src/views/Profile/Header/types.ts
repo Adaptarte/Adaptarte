@@ -1,5 +1,8 @@
+import type { TDiseases } from "utils/db/types";
+
 interface ProfileHeaderProps {
-  name: string | null;
+  diseases: Partial<TDiseases>;
+  name?: string;
   photo: string | null;
 }
 

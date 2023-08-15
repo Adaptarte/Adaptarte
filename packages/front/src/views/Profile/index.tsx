@@ -8,7 +8,6 @@ import { signOut, useUser } from "utils/auth";
 import { useDB } from "utils/db";
 
 import { BasicInfo } from "./BasicInfo";
-import { Diseases } from "./Diseases";
 import { ProfileHeader } from "./Header";
 import { styles } from "./styles";
 import { t } from "./translations";
@@ -26,9 +25,12 @@ const Profile = ({
 
   return (
     <Screen bg={"LIGHT"} style={{ padding: 0 }}>
-      <ProfileHeader name={user.displayName} photo={user.photoURL} />
+      <ProfileHeader
+        diseases={userData?.diseases ?? {}}
+        name={userData?.basicInfo?.name}
+        photo={user.photoURL}
+      />
       <View style={styles.container}>
-        <Diseases diseases={userData?.diseases ?? {}} />
         <BasicInfo data={userData?.basicInfo} />
         <Button
           onPress={goToPanic}
