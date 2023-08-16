@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   screen: {
+    justifyContent: "flex-end",
     display: "flex",
     flexDirection: "column",
     padding: 0,
