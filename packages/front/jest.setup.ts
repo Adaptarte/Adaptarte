@@ -9,40 +9,35 @@ jest.mock("react-native/Libraries/EventEmitter/NativeEventEmitter");
 
 jest.mock("@notifee/react-native", () => ({
   AndroidNotificationSetting: {
-    DISABLED: 0
+    DISABLED: 0,
   },
   cancelNotification: jest.fn(() => Promise.resolve()),
   createTriggerNotification: jest.fn(() => Promise.resolve()),
   getNotificationSettings: jest.fn(() =>
     Promise.resolve({
-      authorizationStatus: 0
-    })
+      android: {
+        alarm: 0,
+      },
+      authorizationStatus: 0,
+    }),
   ),
   openAlarmPermissionSettings: jest.fn(),
   requestPermission: jest.fn(() =>
     Promise.resolve({
-      authorizationStatus: 1
-    })
+      authorizationStatus: 1,
+    }),
   ),
   TriggerType: {
-    TIMESTAMP: 0
+    TIMESTAMP: 0,
   },
-  getNotificationSettings: jest.fn(() =>
-    Promise.resolve({
-      android: {
-        alarm: 0
-      }
-    })
-  ),
-  openAlarmPermissionSettings: jest.fn()
 }));
 jest.mock("@react-native-google-signin/google-signin", () => ({
   GoogleSignin: {
-    configure: jest.fn()
-  }
+    configure: jest.fn(),
+  },
 }));
 jest.mock("@react-native-firebase/analytics", () => () => ({
-  logEvent: jest.fn()
+  logEvent: jest.fn(),
 }));
 
 jest.mock("utils/auth", () => ({
@@ -53,20 +48,24 @@ jest.mock("utils/auth", () => ({
   useUser: jest.fn(() => ({
     displayName: "John Doe",
     uid: "U7i",
-    photoURL: ""
-  }))
+    photoURL: "",
+  })),
 }));
 jest.mock("utils/db", () => ({
   useDB: jest.fn(() => ({
     addDoc: jest.fn(),
     delDoc: jest.fn(),
     getDocs: jest.fn(() => []),
-    getUser: jest.fn(() => ({})),
-    updateUser: jest.fn()
-  }))
+    getUser: jest.fn(() => ({
+      basicInfo: {
+        name: "John Doe",
+      },
+    })),
+    updateUser: jest.fn(),
+  })),
 }));
 
 // Enable excluding hidden elements from the queries by default
 configure({
-  defaultIncludeHiddenElements: false
+  defaultIncludeHiddenElements: false,
 });
