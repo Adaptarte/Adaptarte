@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
+import { noNaN } from "utils/form/fields";
 
 import { t } from "./translations";
 import type { WeightRecordProps } from "./types";
@@ -44,7 +45,7 @@ const WeightRecord = ({
         onDateChange={setDate}
       />
       <Button
-        disabled={isNaN(parseFloat(weight))}
+        disabled={noNaN(weight)}
         onPress={handleSave}
         variant={{ style: "solid" }}
       >

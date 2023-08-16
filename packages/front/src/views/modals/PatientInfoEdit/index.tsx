@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import { useDB } from "utils/db";
+import { noEmpty } from "utils/form/fields";
 
 import { t } from "./translations";
 import type { PatientInfoEditProps } from "./types";
@@ -50,8 +51,8 @@ const PatientInfoEdit = ({
       />
       <Button
         disabled={
-          (id === data?.id || id.length === 0) &&
-          (name === data?.name || name.length === 0) &&
+          (id === data?.id || noEmpty(id)) &&
+          (name === data?.name || noEmpty(name)) &&
           phone === data?.phone
         }
         onPress={handleSave}
