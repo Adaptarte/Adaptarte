@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
+import { noNaN } from "utils/form/fields";
 
 import { TensionAbnormal } from "./Abnormal";
 import { t } from "./translations";
@@ -74,7 +75,7 @@ const TensionRecord = ({
         onDateChange={setDate}
       />
       <Button
-        disabled={isNaN(parseFloat(diastolic)) || isNaN(parseFloat(systolic))}
+        disabled={noNaN(diastolic, systolic)}
         onPress={validateTension}
         variant={{ style: "solid" }}
       >

@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Text } from "components/Text";
 import { signInEmailPassword } from "utils/auth";
+import { noEmpty } from "utils/form/fields";
 
 import { styles } from "./styles";
 import { t } from "./translations";
@@ -33,7 +34,7 @@ const SignIn = (): JSX.Element => {
         value={password}
       />
       <Button
-        disabled={email === "" || password === ""}
+        disabled={noEmpty(email, password)}
         onPress={handleSignInEmailPassword}
         style={styles.btn}
         variant={{ style: "solid" }}

@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
+import { noEmpty, noNaN } from "utils/form/fields";
 
 import { t } from "./translations";
 import type { ExerciseRecordProps } from "./types";
@@ -52,7 +53,7 @@ const ExerciseRecord = ({
         onDateChange={setDate}
       />
       <Button
-        disabled={activity.length === 0 || isNaN(parseFloat(duration))}
+        disabled={noEmpty(activity) || noNaN(duration)}
         onPress={handleSave}
         style={{ marginTop: 10 }}
         variant={{ color: "GLAUCOUS", style: "solid" }}
