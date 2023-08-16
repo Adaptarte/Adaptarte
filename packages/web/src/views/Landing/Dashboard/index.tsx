@@ -5,7 +5,7 @@ import { useDBPatient } from "utils/contexts";
 import { LineChart } from "./LineChart";
 import { DashboardStat } from "./Stat";
 import { t } from "./translations";
-import { getFoodsChartData } from "./utils";
+import { docsToLineChartByDate } from "./utils";
 
 const shortDate = (date = new Date()): string => {
   return date.toLocaleDateString(undefined, {
@@ -23,7 +23,8 @@ const Dashboard = (): JSX.Element => {
   const tensions = db.getDocs("Tension");
   const weights = db.getDocs("Weight");
 
-  const foodsChartData = getFoodsChartData(foods);
+  const foodsChartData = docsToLineChartByDate(foods);
+  const calmsChartData = docsToLineChartByDate(calms);
 
   return (
     <div className={"gy-3 row"}>
@@ -69,6 +70,11 @@ const Dashboard = (): JSX.Element => {
         data={foodsChartData.data}
         labels={foodsChartData.labels}
         title={t().foodIntakes}
+      />
+      <LineChart
+        data={calmsChartData.data}
+        labels={calmsChartData.labels}
+        title={t().calms}
       />
     </div>
   );
