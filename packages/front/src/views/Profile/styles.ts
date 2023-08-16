@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
   screen: {
     display: "flex",
     flexDirection: "column",
+    justifyContent: "flex-end",
     padding: 0,
   },
   tags: {
