@@ -39,7 +39,6 @@ const MedicineRecipe = ({ data, id }: MedicineRecipeProps): JSX.Element => {
           </div>
         </div>
         <hr />
-        <Button className={"me-2"}>{t().edit}</Button>
         <Button onClick={handleDelete}>{t().delete}</Button>
       </Paper>
     </div>

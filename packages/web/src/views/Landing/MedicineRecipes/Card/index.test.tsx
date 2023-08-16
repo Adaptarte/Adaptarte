@@ -19,11 +19,10 @@ describe("MedicineRecipe", () => {
   });
 
   it("Show content", () => {
-    expect.assertions(6);
+    expect.assertions(5);
     const texts = [
       t().delete,
       t().details,
-      t().edit,
       t().interval,
       data.medicine,
       data.interval,
