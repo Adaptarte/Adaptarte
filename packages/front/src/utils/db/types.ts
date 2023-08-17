@@ -51,11 +51,10 @@ interface DBMedicineIntake {
 }
 
 interface DBMedicineRecipe {
-  amount: number;
-  details: string;
+  date: Date;
+  details?: string;
   interval: number;
   medicine: string;
-  takeFrom: Date;
 }
 
 interface DBHydrationIntake {
@@ -99,7 +98,7 @@ interface DBUserCollections {
   Exercises: DBExercise;
   FoodIntake: DBFoodIntake;
   MedicineIntake: DBMedicineIntake;
-  MedicineRecipe: DBMedicineRecipe;
+  MedicineRecipes: DBMedicineRecipe;
   Tension: DBTension;
   Hydration: DBHydrationIntake;
   Weight: DBWeight;
