@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import { AppState } from "react-native";
 
 import { addTime, dateToString, setDayTime, TIME } from "utils/date";
-import type { DBMedicineIntake } from "utils/db/types";
-import { getRecipeById } from "utils/medicine";
+import type { DBDoc, DBMedicineRecipe } from "utils/db/types";
 
 import type { INotification } from "./types";
 
@@ -34,13 +33,15 @@ const addNotification = (
   ).catch(console.error);
 };
 
-const addMedicineNotification = ({ date, recipe }: DBMedicineIntake): void => {
+const addMedicineNotification = (
+  date: Date,
+  recipe: DBDoc<DBMedicineRecipe>,
+): void => {
   const time = date.getTime() - 10 * 60e3; // 10 minutes before
-  const { id, data } = getRecipeById(recipe);
   addNotification("reminder", time, {
     body: dateToString(date),
-    id: `medicine${id}`,
-    subtitle: data.medicine,
+    id: `medicine${recipe.id}`,
+    subtitle: recipe.data.medicine,
     title: "Es hora de tu medicina",
   });
 };

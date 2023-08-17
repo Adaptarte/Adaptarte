@@ -27,14 +27,13 @@ const getMedicineGoals = (
   intakes: DBDoc<DBMedicineIntake>[],
 ): MedicineRecipeGoals[] => {
   const medicines = groupMedicines(recipes, intakes);
+  const today = setDayTime(new Date(), 0);
+  const tomorrow = addTime(new Date(today), 1, "day");
   return medicines.map((medicine) => {
     let date = medicine.intakes[0]?.data.date ?? medicine.recipe.data.date;
     medicine.intakes = medicine.intakes.filter(
       (el) => el.data.date.getTime() >= today.getTime(),
     );
-
-    const today = setDayTime(new Date(), 0);
-    const tomorrow = addTime(new Date(today), 1, "day");
     const goals: Date[] = [];
     while (goals.length < 2) {
       date = addTime(new Date(date), medicine.recipe.data.interval, "hour");

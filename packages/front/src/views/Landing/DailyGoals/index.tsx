@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { View } from "react-native";
 
 import { addTime, setDayTime } from "utils/date";
 import { useDB } from "utils/db";
-import { getLastIntakes, getNextIntake, recipes } from "utils/medicine";
+import { getMedicineGoals } from "utils/medicine";
 import { setUndoneNotification } from "utils/notifications";
 
 import { MedicineGoal } from "./MedicineGoal";
@@ -15,22 +15,23 @@ const DailyGoals = (): JSX.Element => {
   const today = setDayTime(new Date(), 0);
   const filterToday = ["date", ">=", today] as ["date", ">=", Date];
 
-  const medIntakes = db.getDocs("MedicineIntake");
+  const medicineRecipes = db.getDocs("MedicineRecipes");
+  const medicineIntakes = db.getDocs("MedicineIntake");
   const tensionExam = db.getDocs("Tension", [filterToday])[0];
   const weight = db.getDocs("Weight", [filterToday])[0];
   const foodIntakes = db.getDocs("FoodIntake", [filterToday]);
 
   setUndoneNotification("food", foodIntakes.length >= 15 * 0.8);
 
-  const lastMedIntakes = getLastIntakes(medIntakes);
-  const nextMedIntakes = recipes.map(({ data, id }) => ({
-    date: getNextIntake(data, lastMedIntakes[parseInt(id)]?.data),
-    recipe: id,
-  }));
-
-  const undoneMedIntake = nextMedIntakes.reduce((prev, { date }) => {
-    return date.getTime() < prev ? date.getTime() : prev;
-  }, Number.MAX_SAFE_INTEGER);
+  const medicineGoals = useMemo(() => {
+    if (medicineRecipes.length === 0) {
+      return [];
+    }
+    return getMedicineGoals(medicineRecipes, medicineIntakes);
+  }, [medicineIntakes, medicineRecipes]);
+  const undoneMedIntake = medicineGoals.reduce((prev, { goals }) => {
+    return goals[0]?.getTime() < prev ? goals[0].getTime() : prev;
+  }, addTime(new Date(), 1, "day").getTime());
   setUndoneNotification(
     "medicine",
     false,
@@ -47,22 +48,26 @@ const DailyGoals = (): JSX.Element => {
         date={weight?.data.date ?? setDayTime(new Date(), 9, "hour")}
         done={weight !== undefined}
       />
-      {lastMedIntakes.map(({ data, id }) => (
-        <MedicineGoal
-          date={data.date}
-          done
-          key={`R${data.recipe}I${id}`}
-          recipeId={data.recipe}
-        />
-      ))}
-      {nextMedIntakes.map(({ date, recipe }) => (
-        <MedicineGoal
-          date={date}
-          done={false}
-          key={`R${recipe}`}
-          recipeId={recipe}
-        />
-      ))}
+      {medicineGoals.flatMap(({ goals, recipe }) => {
+        return goals.map((date) => (
+          <MedicineGoal
+            date={date}
+            done={false}
+            key={`R${recipe.id}${date.getTime()}`}
+            recipe={recipe}
+          />
+        ));
+      })}
+      {medicineGoals.flatMap(({ intakes, recipe }) => {
+        return intakes.map((intake) => (
+          <MedicineGoal
+            date={intake.data.date}
+            done
+            key={`R${recipe.id}I${intake.id}`}
+            recipe={recipe}
+          />
+        ));
+      })}
     </View>
   );
 };

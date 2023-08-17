@@ -1,12 +1,19 @@
 import { fireEvent, render, screen } from "@testing-library/react-native";
 
-import { getRecipeById } from "utils/medicine";
+import type { DBDoc, DBMedicineRecipe } from "utils/db/types";
 
 import { MedicineIntakeRecord } from ".";
 import { t } from "./translations";
 
 describe("MedicineIntake", () => {
-  const recipe = getRecipeById("1");
+  const recipe: DBDoc<DBMedicineRecipe> = {
+    data: {
+      date: new Date(),
+      interval: 8,
+      medicine: "Acetaminophen",
+    },
+    id: "Qw3rTy",
+  };
   let onSave: jest.Mock;
 
   beforeEach(() => {

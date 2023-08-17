@@ -4,7 +4,6 @@ import { DailyGoal } from "components/DailyGoal";
 import { useDB } from "utils/db";
 import type { DBMedicineIntake } from "utils/db/types";
 import { useScore } from "utils/engagement/score";
-import { getRecipeById } from "utils/medicine";
 import {
   addMedicineNotification,
   cancelMedicineNotification,
@@ -16,12 +15,11 @@ import type { MedicineGoalProps } from "./types";
 const MedicineGoal = ({
   date,
   done,
-  recipeId,
+  recipe,
 }: MedicineGoalProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
   const db = useDB();
   const score = useScore();
-  const recipe = getRecipeById(recipeId);
 
   const handleSave = useCallback(
     (data: DBMedicineIntake) => {
@@ -34,9 +32,9 @@ const MedicineGoal = ({
 
   useEffect(() => {
     if (!done) {
-      addMedicineNotification({ date, recipe: recipeId });
+      addMedicineNotification(date, recipe);
     }
-  }, [done]);
+  }, [date, done, recipe.id]);
 
   return (
     <>

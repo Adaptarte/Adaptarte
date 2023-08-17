@@ -34,7 +34,7 @@ const Landing = ({
   const hydrationDone = hydration === undefined ? 0 : hydration.data.amount;
 
   const user = useUser();
-  const name = userData?.basicInfo?.name.split(" ")[0] ?? "paciente";
+  const name = userData?.basicInfo?.name?.split(" ")[0] ?? "paciente";
 
   const goToProfile = useCallback(() => {
     navigate("Profile");

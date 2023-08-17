@@ -16,12 +16,12 @@ interface DBDoc<T extends object> {
 interface DBUser {
   active?: boolean;
   basicInfo?: {
-    id: string;
-    name: string;
+    id?: string;
+    name?: string;
     phone?: string;
   };
-  diseases: TDiseases;
-  score: number;
+  diseases?: TDiseases;
+  score?: number;
 }
 
 interface DBCalmActivity {
