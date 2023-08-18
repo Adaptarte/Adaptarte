@@ -25,6 +25,11 @@ const Dashboard = (): JSX.Element => {
 
   const foodsChartData = docsToLineChartByDate(foods);
   const calmsChartData = docsToLineChartByDate(calms);
+  const exerciseChartData = docsToLineChartByDate(
+    exercises,
+    (el) => el.duration,
+  );
+  const medicinesChartData = docsToLineChartByDate(medicines);
 
   return (
     <div className={"gy-3 row"}>
@@ -75,6 +80,16 @@ const Dashboard = (): JSX.Element => {
         data={calmsChartData.data}
         labels={calmsChartData.labels}
         title={t().calms}
+      />
+      <LineChart
+        data={exerciseChartData.data}
+        labels={exerciseChartData.labels}
+        title={t().exercises}
+      />
+      <LineChart
+        data={medicinesChartData.data}
+        labels={medicinesChartData.labels}
+        title={t().medicineIntakes}
       />
     </div>
   );
