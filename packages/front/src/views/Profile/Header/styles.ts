@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   diseases: {
     display: "flex",
     flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
     marginTop: 8,
   },
   img: {

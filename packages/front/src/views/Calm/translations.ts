@@ -8,7 +8,9 @@ const SPA = {
     snap: "Siesta",
   } as Record<CalmActivity, string>,
   calm: {
-    content: "El ocio y la relajación son importantes para controlar el estrés",
+    content:
+      "El ocio y la relajación son importantes para controlar el " +
+      "estrés. Registra las actividades con las que lo controlas:",
     title: "Calma",
   },
   register: "Registrar actividad",
