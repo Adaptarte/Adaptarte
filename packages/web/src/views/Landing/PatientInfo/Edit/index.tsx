@@ -43,7 +43,7 @@ const EditPatientInfo = ({
       },
     });
     onClose(false);
-  }, [active, db, diabetesMellitus, epoc, heartFailure, hypertension, onClose]);
+  }, [db, diabetesMellitus, epoc, heartFailure, hypertension, onClose, status]);
 
   return (
     <Modal onClose={onClose} title={t().title} visible={visible}>
