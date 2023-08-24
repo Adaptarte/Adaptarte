@@ -24,7 +24,7 @@ const AddMedicineRecipe = ({
   const handleSave = useCallback(() => {
     db.addDoc("MedicineRecipes", {
       date: new Date(),
-      details: details.length === 0 ? undefined : details,
+      details,
       interval: parseInt(interval),
       medicine,
     });
