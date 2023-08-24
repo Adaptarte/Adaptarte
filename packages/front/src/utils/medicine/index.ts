@@ -13,7 +13,7 @@ const groupMedicines = (
     return acc;
   }, medicines);
   intakes.forEach((intake) => {
-    medicines[intake.data.recipe].intakes.push(intake);
+    medicines[intake.data.recipe]?.intakes.push(intake);
   });
   return Object.values(medicines).map((el) => {
     el.intakes.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -29,7 +29,14 @@ const getMedicineGoals = (
   const today = setDayTime(new Date(), 0);
   const tomorrow = addTime(new Date(today), 1, "day");
   return medicines.map((medicine) => {
-    let date = medicine.intakes[0]?.data.date ?? medicine.recipe.data.date;
+    let date =
+      medicine.intakes[0]?.data.date ??
+      addTime(
+        new Date(medicine.recipe.data.date),
+        -medicine.recipe.data.interval,
+        "hour",
+      );
+
     medicine.intakes = medicine.intakes.filter(
       (el) => el.data.date.getTime() >= today.getTime(),
     );
