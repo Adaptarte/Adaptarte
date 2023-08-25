@@ -7,41 +7,37 @@ const styles = StyleSheet.create({
   amountWater: {
     display: "flex",
     flexDirection: "row",
-    marginVertical: 4,
+  },
+  bottle: {
+    aspectRatio: undefined,
+    height: 300,
+    resizeMode: "cover",
   },
   bottleContainer: {
-    display: "flex",
-    flexDirection: "column-reverse",
+    borderRadius: 30,
     overflow: "hidden",
     position: "relative",
+    width: 112,
   },
   btn: {
+    aspectRatio: 1,
     backgroundColor: colors.BLUE_PURPLE,
-    borderRadius: 40,
-    height: 70,
+    borderRadius: 35,
+    marginVertical: 16,
     width: 70,
   },
-  btnContainer: {
+  center: {
     alignItems: "center",
     display: "flex",
-    justifyContent: "center",
-    marginBottom: 20,
+    flexDirection: "column",
+    marginVertical: 16,
   },
-  screen: {
-    display: "flex",
-    height: "95%",
-    justifyContent: "space-between",
-  },
-  waterfill: {
+  water: {
     backgroundColor: colors.BLUE_LIGHT,
-  },
-  waterfillContainer: {
-    borderRadius: 30,
-    display: "flex",
-    flexDirection: "column-reverse",
-    left: "33%",
-    overflow: "hidden",
+    bottom: 0,
     position: "absolute",
+    start: "4%",
+    width: "92%",
   },
 });
 
