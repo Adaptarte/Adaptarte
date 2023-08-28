@@ -94,13 +94,16 @@ interface DBUserCollections {
   Weight: DBWeight;
 }
 
-type DBUserCollectionName = keyof DBUserCollections;
+interface DBUserData extends DBDoc<DBUser> {
+  collections: {
+    [K in keyof DBUserCollections]: DBDoc<DBUserCollections[K]>[];
+  };
+}
 
 export type {
   DBCalmActivity,
   DBDisease,
   DBDoc,
-  DBUserCollectionName,
   DBEmergencyContacts,
   DBExercise,
   DBFoodIntake,
@@ -110,6 +113,7 @@ export type {
   DBTension,
   DBUser,
   DBUserCollections,
+  DBUserData,
   DBWeight,
 };
 export { allDiseases };
