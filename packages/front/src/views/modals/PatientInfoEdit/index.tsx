@@ -51,8 +51,9 @@ const PatientInfoEdit = ({
       />
       <Button
         disabled={
-          (id === data?.id || noEmpty(id)) &&
-          (name === data?.name || noEmpty(name)) &&
+          id === data?.id ||
+          name === data?.name ||
+          noEmpty(id, name) ||
           phone === data?.phone
         }
         onPress={handleSave}

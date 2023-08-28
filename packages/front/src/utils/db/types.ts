@@ -70,7 +70,7 @@ interface DBOperations {
   updateDoc: <T extends keyof DBUserCollections>(
     collection: T,
     doc: string,
-    data: DBUserCollections[T],
+    data: Partial<DBUserCollections[T]>,
   ) => void;
   delDoc: (collection: keyof DBUserCollections, doc: string) => void;
   getDocs: <T extends keyof DBUserCollections>(
