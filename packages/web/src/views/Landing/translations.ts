@@ -1,4 +1,5 @@
 const SPA = {
+  downloadDB: "Descargar DB",
   search: {
     button: "Buscar",
     placeholder: "Paciente",
