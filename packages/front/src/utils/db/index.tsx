@@ -22,7 +22,7 @@ const useDB = (): DBOperations => {
     <T extends keyof DBUserCollections>(
       collection: keyof DBUserCollections,
       doc: string,
-      data: DBUserCollections[T],
+      data: Partial<DBUserCollections[T]>,
     ) => {
       refUserCol(uid, collection).doc(doc).update(data).catch(console.error);
     },
