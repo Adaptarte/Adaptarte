@@ -8,7 +8,12 @@ import type { LineChartProps } from "./types";
 
 const colors = ["#C33C54", "#3C5EC2", "#3CC264"];
 
-const LineChart = ({ data, labels, title }: LineChartProps): JSX.Element => {
+const LineChart = ({
+  axes = {},
+  data,
+  labels,
+  title,
+}: LineChartProps): JSX.Element => {
   const options: ChartOptions<"line"> = useMemo(() => {
     const labels = data
       .filter((el) => el.label !== undefined)
@@ -26,6 +31,17 @@ const LineChart = ({ data, labels, title }: LineChartProps): JSX.Element => {
           text: title,
         },
       },
+      scales: Object.entries(axes).reduce<
+        ChartOptions<"line">["scales"] & object
+      >((acc, [key, val]) => {
+        acc[key] = {
+          title: {
+            display: val !== undefined,
+            text: val,
+          },
+        };
+        return acc;
+      }, {}),
     };
   }, [data, title]);
 

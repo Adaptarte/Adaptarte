@@ -49,6 +49,7 @@ const Dashboard = (): JSX.Element => {
       />
       <DashboardStat name={t().calms} value={t().records(calms.length)} />
       <LineChart
+        axes={{ y: "mmHg" }}
         data={[
           {
             data: tensions.map((el) => el.data.diastolic),
@@ -63,6 +64,7 @@ const Dashboard = (): JSX.Element => {
         title={t().tensions.name}
       />
       <LineChart
+        axes={{ y: "kg" }}
         data={[
           {
             data: weights.map((el) => el.data.kg),
@@ -82,6 +84,7 @@ const Dashboard = (): JSX.Element => {
         title={t().calms}
       />
       <LineChart
+        axes={{ y: t().minutes }}
         data={exerciseChartData.data}
         labels={exerciseChartData.labels}
         title={t().exercises}
