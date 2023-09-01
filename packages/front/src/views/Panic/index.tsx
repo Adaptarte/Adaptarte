@@ -1,12 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useReducer, useState } from "react";
 import { Linking, TouchableOpacity, View } from "react-native";
 
 import { Button } from "components/Button";
 import { EditableText } from "components/EditableText";
 import { Icon } from "components/Icon";
+import { Notice } from "components/Notice";
 import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import { useDB } from "utils/db";
+import { useScore } from "utils/engagement/score";
 
 import { deleteDuplicates, getSymptoms } from "./data";
 import { styles, textVars } from "./styles";
@@ -14,6 +16,7 @@ import { t } from "./translations";
 
 const Panic = (): JSX.Element => {
   const db = useDB();
+  const score = useScore();
   const userData = db.getUser();
   const data = t();
 
@@ -22,9 +25,10 @@ const Panic = (): JSX.Element => {
 
   const [contactName, setContactName] = useState("");
   const [contactPhone, setContactPhone] = useState("");
+  const [edit, toggleEdit] = useReducer((val) => !val, false);
+  const [contactToDelete, setContactToDelete] = useState({ id: "", name: "" });
 
   const directory = db.getDocs("EmergencyContacts");
-
   const emergencyContacts = directory;
 
   const handleCall = useCallback(async (phoneNumber: string): Promise<void> => {
@@ -44,6 +48,19 @@ const Panic = (): JSX.Element => {
       console.error("Por favor, relleno los campos");
     }
   }, [contactName, contactPhone, setContactName, setContactPhone]);
+
+  const handleDelete = useCallback(
+    (id: string): void => {
+      db.delDoc("EmergencyContacts", id);
+      toggleEdit();
+    },
+    [score.add],
+  );
+
+  const handleNotice = (id: string, name: string): void => {
+    setContactToDelete({ id, name });
+    toggleEdit();
+  };
 
   return (
     <Screen>
@@ -65,7 +82,17 @@ const Panic = (): JSX.Element => {
         <Text style={styles.title} variant={textVars.title}>
           {"Contactos de emergencia"}
         </Text>
-
+        <Notice
+          description={
+            `¿Está seguro de eliminar a ${contactToDelete.name} ` +
+            `de tus contactos de emergencia?`
+          }
+          onConfirm={(): void => {
+            handleDelete(contactToDelete.id);
+          }}
+          setVisible={toggleEdit}
+          visible={edit}
+        />
         {emergencyContacts.map((contact, index) => {
           return (
             <TouchableOpacity
@@ -75,6 +102,14 @@ const Panic = (): JSX.Element => {
               }}
               style={styles.contacts}
             >
+              <TouchableOpacity
+                onPress={(): void => {
+                  handleNotice(contact.id, contact.data.name);
+                }}
+                style={styles.delete}
+              >
+                <Icon name={"trash"} size={24} />
+              </TouchableOpacity>
               <Text style={styles.textContacts} variant={textVars.textContact}>
                 {contact.data.name}
               </Text>
