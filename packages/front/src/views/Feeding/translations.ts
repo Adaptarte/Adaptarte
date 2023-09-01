@@ -20,9 +20,9 @@ const SPA = {
   },
   protein: {
     description:
-      "Consume 2 porciones de proteínas animales. La porción es " +
+      "Consume 2 porciones de proteínas animales. La porción " +
       "es el equivalente a 250g o una presa mediana de pollo, carne o pescado.",
-    title: "Proteína",
+    title: "Proteínas",
   },
 };
 

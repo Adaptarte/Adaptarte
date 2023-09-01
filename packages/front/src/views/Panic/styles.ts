@@ -20,6 +20,12 @@ const styles = StyleSheet.create({
     shadowRadius: 3.05,
     textAlign: "center",
   },
+  delete: {
+    left: 20,
+    position: "absolute",
+    top: "45%",
+    zIndex: 3,
+  },
   description: {
     marginBottom: 16,
   },
