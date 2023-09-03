@@ -54,13 +54,16 @@ const Panic = (): JSX.Element => {
       db.delDoc("EmergencyContacts", id);
       toggleEdit();
     },
-    [score.add],
+    [score.add, toggleEdit],
   );
 
-  const handleNotice = (id: string, name: string): void => {
-    setContactToDelete({ id, name });
-    toggleEdit();
-  };
+  const handleNotice = useCallback(
+    (id: string, name: string): void => {
+      setContactToDelete({ id, name });
+      toggleEdit();
+    },
+    [contactToDelete, setContactToDelete, toggleEdit],
+  );
 
   return (
     <Screen>
