@@ -67,6 +67,7 @@ interface DBOperations {
     collection: T,
     data: DBUserCollections[T],
   ) => void;
+  addUser: (data: DBUser) => void;
   updateDoc: <T extends keyof DBUserCollections>(
     collection: T,
     doc: string,

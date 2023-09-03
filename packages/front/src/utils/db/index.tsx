@@ -18,6 +18,13 @@ const useDB = (): DBOperations => {
     [uid],
   );
 
+  const addUser = useCallback(
+    (data: DBUser) => {
+      refUser(uid).set(data).catch(console.error);
+    },
+    [uid],
+  );
+
   const updateDoc = useCallback(
     <T extends keyof DBUserCollections>(
       collection: keyof DBUserCollections,
@@ -46,6 +53,7 @@ const useDB = (): DBOperations => {
   return useMemo(
     () => ({
       addDoc,
+      addUser,
       delDoc,
       getDocs: useDbUserData,
       getUser: useDbUser,

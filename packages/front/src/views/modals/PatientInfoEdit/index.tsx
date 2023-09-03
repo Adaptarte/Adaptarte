@@ -19,13 +19,27 @@ const PatientInfoEdit = ({
   const [phone, setPhone] = useState(data?.phone ?? "");
 
   const db = useDB();
+  const user = db.getUser();
 
   const handleSave = useCallback(() => {
-    db.updateUser({
-      basicInfo: { id, name, phone },
-    });
+    user === undefined
+      ? db.addUser({
+          active: false,
+          basicInfo: { id, name, phone },
+          diseases: {
+            diabetesMellitus: false,
+            epoc: false,
+            heartFailure: false,
+            hypertension: false,
+          },
+          score: 0,
+        })
+      : db.updateUser({
+          basicInfo: { id, name, phone },
+        });
+
     setVisible?.(false);
-  }, [db, id, name, phone, setVisible]);
+  }, [db, id, name, phone, setVisible, user]);
 
   return (
     <Modal setVisible={setVisible} title={t().title} visible={visible}>
@@ -44,6 +58,7 @@ const PatientInfoEdit = ({
       />
       <Input
         label={t().phone.label}
+        maxLength={10}
         onChange={setPhone}
         placeholder={t().phone.placeholder}
         type={"phone-pad"}
@@ -51,9 +66,9 @@ const PatientInfoEdit = ({
       />
       <Button
         disabled={
-          id === data?.id ||
-          name === data?.name ||
-          noEmpty(id, name) ||
+          id === data?.id &&
+          name === data?.name &&
+          !noEmpty(id, name) &&
           phone === data?.phone
         }
         onPress={handleSave}
