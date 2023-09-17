@@ -17,7 +17,7 @@ import { useScore } from "utils/engagement/score";
 import { styles, textVars } from "./styles";
 import { t } from "./translation";
 
-const hydrationGoal = 8;
+const hydrationGoal = 6;
 
 const Hydration = (): JSX.Element => {
   const db = useDB();

@@ -11,7 +11,7 @@ describe("DataDose", () => {
     render(<DataDose diseases={diseases} />);
 
     const texts = screen.queryAllByText(/./);
-    expect(texts).toHaveLength(2);
+    expect(texts).toHaveLength(3);
 
     const values = texts.map((el) => el.children[0]);
 

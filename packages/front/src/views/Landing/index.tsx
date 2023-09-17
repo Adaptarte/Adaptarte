@@ -70,7 +70,7 @@ const Landing = ({
         <DailyHabits
           exercise={exerciseDone.length > 0}
           feeding={foodIntakes.length >= 15 * 0.8}
-          hydration={hydrationDone >= 8}
+          hydration={hydrationDone >= 6}
           navigate={navigate}
         />
         <NotificationsPermission />
