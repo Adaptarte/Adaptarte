@@ -14,10 +14,11 @@ import type { DataDoseProps } from "./types";
 const maxDatadose = 10;
 
 const DataDose = ({ diseases }: DataDoseProps): JSX.Element => {
-  const dose = pickDataDose(diseases);
+  const dose1 = pickDataDose(diseases);
+  const dose2 = pickDataDose(diseases);
 
   const [selection, setSelection] = useState(0);
-  const [data, setData] = useState([dose]);
+  const [data, setData] = useState([dose1, dose2]);
 
   const handleNext = useCallback(() => {
     setSelection((selection + 1) % data.length);
