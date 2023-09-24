@@ -31,6 +31,7 @@ const Landing = ({
   const foodIntakes = db.getDocs("FoodIntake", [["date", ">=", today]]);
   const exerciseDone = db.getDocs("Exercises", [["date", ">=", today]]);
   const hydration = db.getDocs("Hydration", [["date", ">=", today]])[0];
+  const calm = db.getDocs("CalmActivities", [["date", ">=", today]]);
   const hydrationDone = hydration === undefined ? 0 : hydration.data.amount;
 
   const user = useUser();
@@ -68,6 +69,7 @@ const Landing = ({
           {t().dailyHabits}
         </Text>
         <DailyHabits
+          calm={calm.length > 0}
           exercise={exerciseDone.length > 0}
           feeding={foodIntakes.length >= 15 * 0.8}
           hydration={hydrationDone >= 6}
