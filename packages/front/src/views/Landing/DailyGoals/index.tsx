@@ -49,6 +49,7 @@ const DailyGoals = (): JSX.Element => {
         done={weight !== undefined}
       />
       {medicineGoals.flatMap(({ goals, recipe }) => {
+        goals.sort();
         return goals.map((date) => (
           <MedicineGoal
             date={date}
@@ -59,6 +60,7 @@ const DailyGoals = (): JSX.Element => {
         ));
       })}
       {medicineGoals.flatMap(({ intakes, recipe }) => {
+        intakes.sort();
         return intakes.map((intake) => (
           <MedicineGoal
             date={intake.data.date}
