@@ -6,16 +6,16 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     borderRadius: 20,
+    height: 90,
     display: "flex",
     flexDirection: "row",
   },
   img: {
     marginLeft: 24,
-    width: 80,
+    width: "20%",
   },
   textWrapper: {
-    flexBasis: 0,
-    flexGrow: 1,
+    width: "70%"
   },
 });
 
