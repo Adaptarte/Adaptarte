@@ -41,13 +41,9 @@ const DataDose = ({ diseases }: DataDoseProps): JSX.Element => {
     }
   }, [data, selection]);
 
-  const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 80
-    };
 
   return (
-    <GestureRecognizer onSwipeLeft={(handleAddDose)} config={config}>
+    <GestureRecognizer onSwipeLeft={(handleAddDose)}>
       <View style={styles.container}>
         <DataDoseCard {...data[selection]} />
         <Button onPress={handleAddDose} style={[styles.nextBtn]}>
