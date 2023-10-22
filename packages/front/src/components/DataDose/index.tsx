@@ -9,6 +9,7 @@ import { pickDataDose } from "utils/datadose";
 import { DataDoseCard } from "./DataDoseCard";
 import { styles } from "./styles";
 import type { DataDoseProps } from "./types";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 // Amount of datadose for session
 const maxDatadose = 10;
@@ -40,13 +41,20 @@ const DataDose = ({ diseases }: DataDoseProps): JSX.Element => {
     }
   }, [data, selection]);
 
+  const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80
+    };
+
   return (
-    <View style={styles.container}>
-      <DataDoseCard {...data[selection]} />
-      <Button onPress={handleAddDose} style={[styles.nextBtn]}>
-        <Text variant={textVarNextBtn}>{">"}</Text>
-      </Button>
-    </View>
+    <GestureRecognizer onSwipeLeft={(handleAddDose)} config={config}>
+      <View style={styles.container}>
+        <DataDoseCard {...data[selection]} />
+        <Button onPress={handleAddDose} style={[styles.nextBtn]}>
+          <Text variant={textVarNextBtn}>{">"}</Text>
+        </Button>
+      </View>
+    </GestureRecognizer>
   );
 };
 
