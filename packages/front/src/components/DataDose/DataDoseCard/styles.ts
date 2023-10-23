@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: "20%",
   },
   textWrapper: {
-    width: "70%"
+    width: "70%",
   },
 });
 

@@ -29,9 +29,12 @@ const DailyGoals = (): JSX.Element => {
     }
     return getMedicineGoals(medicineRecipes, medicineIntakes);
   }, [medicineIntakes, medicineRecipes]);
-  const undoneMedIntake = medicineGoals.reduce((prev, { goals }) => {
-    return goals[0]?.getTime() < prev ? goals[0].getTime() : prev;
-  }, addTime(new Date(), 1, "day").getTime());
+  const undoneMedIntake = medicineGoals.reduce(
+    (prev, { goals }) => {
+      return goals[0]?.getTime() < prev ? goals[0].getTime() : prev;
+    },
+    addTime(new Date(), 1, "day").getTime(),
+  );
   setUndoneNotification(
     "medicine",
     false,
