@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import { noNaN } from "utils/form/fields";
+import { toast } from "utils/toast/toast";
 
 import { TensionAbnormal } from "./Abnormal";
 import { t } from "./translations";
@@ -38,6 +39,7 @@ const TensionRecord = ({
       diastolic: parseInt(diastolic),
       systolic: parseInt(systolic),
     });
+    toast("Tensión registrada correctamente", "success");
     setVisible?.(false);
   }, [date, diastolic, onSave, setVisible, systolic]);
 
