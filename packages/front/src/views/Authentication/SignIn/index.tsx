@@ -60,10 +60,10 @@ const SignIn = (): JSX.Element => {
         {t().signIn}
       </Button>
       <Toast
-        position={"bottom"}
         bottomOffset={20}
-        visibilityTime={4000}
         config={toastConfig}
+        position={"bottom"}
+        visibilityTime={4000}
       />
     </>
   );

@@ -26,7 +26,7 @@ const RenderIcon = (iconColor: string, iconName: string): JSX.Element => {
         paddingLeft: 10,
       }}
     >
-      <Icon name={iconName} size={25} color={iconColor} />
+      <Icon color={iconColor} name={iconName} size={25} />
     </View>
   );
 };
