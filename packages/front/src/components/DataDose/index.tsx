@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { View } from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 import { Button } from "components/Button";
 import { textVarNextBtn } from "components/Carousel/styles";
@@ -9,7 +10,6 @@ import { pickDataDose } from "utils/datadose";
 import { DataDoseCard } from "./DataDoseCard";
 import { styles } from "./styles";
 import type { DataDoseProps } from "./types";
-import GestureRecognizer from "react-native-swipe-gestures";
 
 // Amount of datadose for session
 const maxDatadose = 10;
