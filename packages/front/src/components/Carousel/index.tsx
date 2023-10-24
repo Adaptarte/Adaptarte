@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { TouchableOpacity, View } from "react-native";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 import { Button } from "components/Button";
 import { Text } from "components/Text";
@@ -8,7 +9,6 @@ import { arr } from "utils/array";
 import { CarouselCard } from "./CarouselCard";
 import { styles, textVarNextBtn } from "./styles";
 import type { CarouselProps } from "./types";
-import GestureRecognizer from "react-native-swipe-gestures";
 
 const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
   const [selection, setSelection] = useState(0);
@@ -18,12 +18,12 @@ const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
   }, [data.length, selection]);
 
   const config = {
-    velocityThreshold: 0.3,
     directionalOffsetThreshold: 80,
+    velocityThreshold: 0.3,
   };
 
   return (
-    <GestureRecognizer onSwipeLeft={handleNext} config={config}>
+    <GestureRecognizer config={config} onSwipeLeft={handleNext}>
       <TouchableOpacity activeOpacity={1}>
         <View>
           <CarouselCard {...data[selection]} complete={check} onSave={onSave} />

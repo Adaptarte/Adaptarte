@@ -5,11 +5,11 @@ import type { TextVariants } from "components/Text/types";
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    justifyContent: "flex-start",
     borderRadius: 16,
     display: "flex",
-    height: 240,
     flexDirection: "row",
+    height: 240,
+    justifyContent: "flex-start",
     padding: 20,
   },
   details: {
@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
     width: 60,
   },
   textContainer: {
+    display: "flex",
     flexBasis: 1,
+    flexDirection: "column",
     flexGrow: 1,
     height: "100%",
-    display: "flex",
     justifyContent: "space-between",
-    flexDirection: "column",
   },
   title: {
     marginBottom: 15,

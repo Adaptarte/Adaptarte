@@ -36,11 +36,6 @@ const Exercise = ({
     [score.add],
   );
 
-  const config = {
-    velocityThreshold: 0.3,
-    directionalOffsetThreshold: 80,
-  };
-
   return (
     <GestureRecognizer onSwipeDown={goBack} style={{ flex: 1 }}>
       <Modal

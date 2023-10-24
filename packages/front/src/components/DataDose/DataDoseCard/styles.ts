@@ -6,9 +6,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     borderRadius: 20,
-    height: 90,
     display: "flex",
     flexDirection: "row",
+    height: 90,
   },
   img: {
     marginLeft: 24,
