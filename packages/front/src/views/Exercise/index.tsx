@@ -70,10 +70,10 @@ const Exercise = ({
           </View>
         </View>
         <Toast
-          position={"bottom"}
           bottomOffset={20}
-          visibilityTime={4000}
           config={toastConfig}
+          position={"bottom"}
+          visibilityTime={4000}
         />
       </Modal>
     </GestureRecognizer>

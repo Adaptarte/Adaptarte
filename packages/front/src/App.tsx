@@ -25,10 +25,10 @@ const App = (): JSX.Element => {
     <UserProvider value={user}>
       <AppNavigation />
       <Toast
-        position={"bottom"}
         bottomOffset={20}
-        visibilityTime={4000}
         config={toastConfig}
+        position={"bottom"}
+        visibilityTime={4000}
       />
     </UserProvider>
   );

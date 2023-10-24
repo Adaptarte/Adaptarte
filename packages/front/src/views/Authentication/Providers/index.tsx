@@ -74,10 +74,10 @@ const Providers = (): JSX.Element => {
         {t().signInWith.apple}
       </Button>
       <Toast
-        position={"bottom"}
         bottomOffset={20}
-        visibilityTime={4000}
         config={toastConfig}
+        position={"bottom"}
+        visibilityTime={4000}
       />
     </>
   );
