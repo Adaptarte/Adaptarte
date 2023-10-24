@@ -9,6 +9,7 @@ import { Screen } from "components/Screen";
 import { Text } from "components/Text";
 import { useDB } from "utils/db";
 import { useScore } from "utils/engagement/score";
+import { toast } from "utils/toast/toast";
 
 import { deleteDuplicates, getSymptoms } from "./data";
 import { styles, textVars } from "./styles";
@@ -42,10 +43,12 @@ const Panic = (): JSX.Element => {
         phone: contactPhone,
       };
       db.addDoc("EmergencyContacts", data);
+      toast("Contado de emergencia añadido correctamente", "success");
       setContactName("");
       setContactPhone("");
     } else {
       console.error("Por favor, relleno los campos");
+      toast("Por favor, relleno los campos", "error");
     }
   }, [contactName, contactPhone, setContactName, setContactPhone]);
 
@@ -53,6 +56,7 @@ const Panic = (): JSX.Element => {
     (id: string): void => {
       db.delDoc("EmergencyContacts", id);
       toggleEdit();
+      toast("Contado de emergencia eliminado correctamente", "success");
     },
     [score.add, toggleEdit],
   );

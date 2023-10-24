@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import { noEmpty, noNaN } from "utils/form/fields";
+import { toast } from "utils/toast/toast";
 
 import { t } from "./translations";
 import type { ExerciseRecordProps } from "./types";
@@ -24,6 +25,7 @@ const ExerciseRecord = ({
       duration: parseInt(duration),
       exercise: activity,
     });
+    toast("Ejercicio registrado", "success");
     setVisible?.(false);
   }, [activity, duration, setVisible]);
 
