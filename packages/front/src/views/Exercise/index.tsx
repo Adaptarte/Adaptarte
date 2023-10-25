@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { Modal, View } from "react-native";
 import GestureRecognizer from "react-native-swipe-gestures";
+import Toast from "react-native-toast-message";
 
 import { Button } from "components/Button";
 import { Carousel } from "components/Carousel";
@@ -13,6 +14,7 @@ import { setDayTime } from "utils/date";
 import { useDB } from "utils/db";
 import type { DBExercise } from "utils/db/types";
 import { useScore } from "utils/engagement/score";
+import { toastConfig } from "utils/toast/config";
 import { data } from "views/Exercise/data";
 
 import { styles, textVars } from "./styles";
@@ -67,6 +69,12 @@ const Exercise = ({
             />
           </View>
         </View>
+        <Toast
+          bottomOffset={20}
+          config={toastConfig}
+          position={"bottom"}
+          visibilityTime={4000}
+        />
       </Modal>
     </GestureRecognizer>
   );

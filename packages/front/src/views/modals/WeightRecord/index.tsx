@@ -5,6 +5,7 @@ import { DatePicker } from "components/DatePicker";
 import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import { noNaN } from "utils/form/fields";
+import { toast } from "utils/toast/toast";
 
 import { t } from "./translations";
 import type { WeightRecordProps } from "./types";
@@ -22,6 +23,7 @@ const WeightRecord = ({
       date,
       kg: parseFloat(weight),
     });
+    toast("Peso registrado correctamente", "success");
     setVisible?.(false);
   }, [date, onSave, setVisible, weight]);
 

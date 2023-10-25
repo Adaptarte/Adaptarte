@@ -1,9 +1,11 @@
 import React from "react";
+import Toast from "react-native-toast-message";
 
 import { AppNavigation } from "navigation/App";
 import { useAuth, UserProvider } from "utils/auth";
 import { useDisuseNotifications } from "utils/notifications";
 import { setupNotifications } from "utils/notifications/setup";
+import { toastConfig } from "utils/toast/config";
 import { Authentication } from "views/Authentication";
 import { Splash } from "views/Splash";
 
@@ -22,6 +24,12 @@ const App = (): JSX.Element => {
   return (
     <UserProvider value={user}>
       <AppNavigation />
+      <Toast
+        bottomOffset={20}
+        config={toastConfig}
+        position={"bottom"}
+        visibilityTime={4000}
+      />
     </UserProvider>
   );
 };

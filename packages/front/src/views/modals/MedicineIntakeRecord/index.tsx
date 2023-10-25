@@ -4,6 +4,7 @@ import { Button } from "components/Button";
 import { DatePicker } from "components/DatePicker";
 import { Modal } from "components/Modal";
 import { Text } from "components/Text";
+import { toast } from "utils/toast/toast";
 
 import { t } from "./translations";
 import type { MedicineIntakeProps } from "./types";
@@ -21,7 +22,7 @@ const MedicineIntakeRecord = ({
       date,
       recipe: id,
     });
-
+    toast("Medicamento registrado correctamente", "success");
     setVisible?.(false);
   }, [date, id, setVisible]);
 

@@ -5,6 +5,7 @@ import { Input } from "components/Input";
 import { Modal } from "components/Modal";
 import { useDB } from "utils/db";
 import { noEmpty } from "utils/form/fields";
+import { toast } from "utils/toast/toast";
 
 import { t } from "./translations";
 import type { PatientInfoEditProps } from "./types";
@@ -37,7 +38,7 @@ const PatientInfoEdit = ({
       : db.updateUser({
           basicInfo: { id, name, phone },
         });
-
+    toast("Información actualizada correctamente", "success");
     setVisible?.(false);
   }, [db, id, name, phone, setVisible, user]);
 

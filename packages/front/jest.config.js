@@ -5,6 +5,7 @@ const esModules = [
   "react-native",
   "react-native-swipe-gestures",
   "react-native-date-picker",
+  "react-native-toast-message",
   "react-native-vector-icons",
 ].join("|");
 
@@ -30,4 +31,7 @@ module.exports = {
   preset: "@testing-library/react-native",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
   transformIgnorePatterns: [`node_modules/(?!(${esModules})/)`],
+  transform: {
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
 };

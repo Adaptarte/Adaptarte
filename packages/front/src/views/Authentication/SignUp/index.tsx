@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import Toast from "react-native-toast-message";
 
 import { Button } from "components/Button";
 import { Input } from "components/Input";
 import { Text } from "components/Text";
 import { signUpEmailPassword } from "utils/auth";
 import { noEmpty } from "utils/form/fields";
+import { toastConfig } from "utils/toast/config";
+import { toast } from "utils/toast/toast";
 
 import { styles } from "./styles";
 import { t } from "./translations";
@@ -18,8 +21,19 @@ const SignUp = (): JSX.Element => {
     signUpEmailPassword(email, password, username)
       .then(() => {
         console.log("Created account");
+        toast(`Bienvenido ${username}`, "success");
       })
-      .catch(console.error);
+      .catch(() => {
+        console.error();
+        toast(
+          "Se ha presentado un error",
+          "error",
+          undefined,
+          undefined,
+          undefined,
+          "Inténtelo nuevamente",
+        );
+      });
   };
 
   return (
@@ -47,6 +61,12 @@ const SignUp = (): JSX.Element => {
       >
         {t().signUp}
       </Button>
+      <Toast
+        bottomOffset={20}
+        config={toastConfig}
+        position={"bottom"}
+        visibilityTime={4000}
+      />
     </>
   );
 };
