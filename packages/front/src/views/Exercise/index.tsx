@@ -39,9 +39,9 @@ const Exercise = ({
   );
 
   const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 80
-    };
+    velocityThreshold: 0.3,
+    directionalOffsetThreshold: 80,
+  };
 
   return (
     <GestureRecognizer onSwipeDown={goBack} style={{ flex: 1 }}>

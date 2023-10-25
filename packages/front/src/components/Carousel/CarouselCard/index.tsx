@@ -18,7 +18,7 @@ const CarouselCard = ({
   description,
   img,
   title,
-  handleNext
+  handleNext,
 }: CarouselCardProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
 

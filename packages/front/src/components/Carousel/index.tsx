@@ -18,15 +18,20 @@ const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
   }, [data.length, selection]);
 
   const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 80
-    };
+    velocityThreshold: 0.3,
+    directionalOffsetThreshold: 80,
+  };
 
   return (
-    <GestureRecognizer onSwipeLeft={handleNext} config={config}> 
+    <GestureRecognizer onSwipeLeft={handleNext} config={config}>
       <TouchableOpacity activeOpacity={1}>
         <View>
-          <CarouselCard handleNext={handleNext} {...data[selection]} complete={check} onSave={onSave} />
+          <CarouselCard
+            handleNext={handleNext}
+            {...data[selection]}
+            complete={check}
+            onSave={onSave}
+          />
           <Button onPress={handleNext} style={[styles.nextBtn]}>
             <Text variant={textVarNextBtn}>{">"}</Text>
           </Button>
@@ -44,7 +49,6 @@ const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
         </View>
       </TouchableOpacity>
     </GestureRecognizer>
-    
   );
 };
 
