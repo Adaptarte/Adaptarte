@@ -41,9 +41,8 @@ const DataDose = ({ diseases }: DataDoseProps): JSX.Element => {
     }
   }, [data, selection]);
 
-
   return (
-    <GestureRecognizer onSwipeLeft={(handleAddDose)}>
+    <GestureRecognizer onSwipeLeft={handleAddDose}>
       <View style={styles.container}>
         <DataDoseCard {...data[selection]} />
         <Button onPress={handleAddDose} style={[styles.nextBtn]}>
