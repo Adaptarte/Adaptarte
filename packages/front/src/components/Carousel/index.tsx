@@ -26,12 +26,7 @@ const Carousel = ({ check, data, onSave }: CarouselProps): JSX.Element => {
     <GestureRecognizer config={config} onSwipeLeft={handleNext}>
       <TouchableOpacity activeOpacity={1}>
         <View>
-          <CarouselCard
-            handleNext={handleNext}
-            {...data[selection]}
-            complete={check}
-            onSave={onSave}
-          />
+          <CarouselCard {...data[selection]} complete={check} onSave={onSave} />
           <Button onPress={handleNext} style={[styles.nextBtn]}>
             <Text variant={textVarNextBtn}>{">"}</Text>
           </Button>
