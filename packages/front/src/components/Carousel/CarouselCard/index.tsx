@@ -9,6 +9,7 @@ import { ExerciseRecord } from "views/modals/ExerciseRecord";
 
 import { styles, textVars } from "./styles";
 import type { CarouselCardProps } from "./types";
+import GestureRecognizer from "react-native-swipe-gestures";
 
 const CarouselCard = ({
   background,
@@ -17,6 +18,7 @@ const CarouselCard = ({
   description,
   img,
   title,
+  handleNext
 }: CarouselCardProps): JSX.Element => {
   const [isOpen, setIsOpen] = useReducer((val: boolean) => !val, false);
 
@@ -25,7 +27,7 @@ const CarouselCard = ({
   };
 
   return (
-    <>
+    <View>
       <View style={[styles.container, containerVarStyle]}>
         <View style={[styles.textContainer]}>
           <Text style={[styles.title]} variant={textVars.title}>
@@ -46,7 +48,7 @@ const CarouselCard = ({
         <Img src={img} style={styles.image} />
       </View>
       <ExerciseRecord onSave={onSave} setVisible={setIsOpen} visible={isOpen} />
-    </>
+    </View>
   );
 };
 
