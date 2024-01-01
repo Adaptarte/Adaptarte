@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+import { Platform } from "react-native";
 import Toast from "react-native-toast-message";
 
 import { Button } from "components/Button";
@@ -22,6 +23,9 @@ const Providers = (): JSX.Element => {
           toast(
             "Usuario y/o contraseña incorrecta",
             "error",
+            undefined,
+            undefined,
+            undefined,
             "Inténtelo nuevamente",
           );
           return;
@@ -49,11 +53,34 @@ const Providers = (): JSX.Element => {
           toast(
             "Usuario y/o contraseña incorrecta",
             "error",
+            undefined,
+            undefined,
+            undefined,
             "Inténtelo nuevamente",
           );
           return;
+        } else if (
+          Platform.OS === "android" &&
+          error.message.includes("AppleAuth is not supported on the device.")
+        ) {
+          toast(
+            "Error, al autenticarse con AppleID.",
+            "error",
+            undefined,
+            undefined,
+            undefined,
+            "AppleID no está soportado para estos dispositivos.",
+          );
+          return;
         }
-        toast("Se ha presentado un error", "error", "Inténtelo nuevamente");
+        toast(
+          "Se ha presentado un error",
+          "error",
+          undefined,
+          undefined,
+          undefined,
+          "Inténtelo nuevamente",
+        );
       });
   }, []);
 
